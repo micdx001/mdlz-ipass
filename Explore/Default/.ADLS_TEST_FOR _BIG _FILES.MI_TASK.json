@@ -1,0 +1,64 @@
+{
+  "objectInfo" : {
+    "id" : "0yyO2tVbGZzdB8vTL0MdQI",
+    "name" : "ADLS_TEST_FOR _BIG _FILES",
+    "type" : "MI_TASK",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "10082"
+      },
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "This  task is for POC  for  file size more than 100 MB.",
+        "contentType" : "Binary",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "dat",
+  "objectRefs" : [ {
+    "id" : "2R3dWWWEnCIf22hI5aYWIa",
+    "name" : "NA",
+    "type" : "AgentGroup",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "001WZH2500000000000B"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/SYS"
+  }, {
+    "id" : "8ptcBRAZgiQllNuRm8uB0r",
+    "name" : "ADLS_Listner",
+    "type" : "MI_FILE_LISTENER",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "10146"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "Binary",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Backups/Sricity_Dev_ADLS"
+  } ]
+}
