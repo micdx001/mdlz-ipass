@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "4kQNsjWkv2EjICjmE7Qz0K",
+    "name" : "Process1_Demo",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "TNeJ91pqrzYLnzY-gt-65445623-2020-12-07T11:43:50.732Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "78MmPMVgYuwbs7IuMyy1O6",
+    "name" : "DOM-Test",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "001WOZ0Z0000000000CJ"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/JUV8271"
+  } ]
+}
