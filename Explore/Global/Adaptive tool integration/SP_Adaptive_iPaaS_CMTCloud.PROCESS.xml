@@ -1,0 +1,105 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>S5Ds0XJt93aaa-gt-47375572-2021-01-04T17:52:27.713Z::pd.xml</types1:EntryId>
+      <types1:Name>SP_Adaptive_iPaaS_CMTCloud</types1:Name>
+      <types1:ParentFlowIds>Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
+      <types1:CreationDate>2021-01-04T17:52:28Z</types1:CreationDate>
+      <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
+      <types1:ModificationDate>2021-01-06T06:56:44Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>shivani.jaiswal@accenture.com.dev</types1:PublishedBy>
+      <types1:PublicationDate>2021-01-06T07:02:16Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_CMTCloud/SP_Adaptive_iPaaS_CMTCloud.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP_Adaptive_iPaaS_CMTCloud"
+                  name="SP_Adaptive_iPaaS_CMTCloud"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_inputFile" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="fileWrite" type="reference">
+                  <options>
+                     <option name="referenceTo">Adaptive-FileWriter:FileWriteTask</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">2z26yxzo4jvjxxuThTuA6Q</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="FileExsist" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="none">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kjius0gz" targetId="kjius0gy"/>
+               </start>
+               <assignment id="kjius0gy">
+                  <title>Assignment to fileWrite</title>
+                  <operation source="formula" to="output.fileWrite">
+                     <expression language="XQuery">&lt;FileWriteTask&gt;
+   &lt;fileName&gt;{sff:getAttachmentName($input.in_inputFile)}&lt;/fileName&gt;
+   &lt;format&gt;&lt;/format&gt;
+&lt;content&gt;{util:base64Decode(sff:getBase64FromAttachment($input.in_inputFile))}&lt;/content&gt;
+   &lt;objectName&gt;&lt;/objectName&gt;
+   &lt;listName&gt;&lt;/listName&gt;
+   &lt;object&gt;
+   &lt;/object&gt;
+   &lt;objects&gt;
+   &lt;/objects&gt;
+&lt;/FileWriteTask&gt;
+</expression>
+                  </operation>
+                  <link id="kjivdf9w" targetId="kjivdf9v"/>
+               </assignment>
+               <service id="kjivdf9v">
+                  <title>FileWriter to ipaas</title>
+                  <serviceName>Adaptive-FileWriter:FileWriter</serviceName>
+                  <serviceGUID>2z26yxzo4jvjxxuThTuA6Q</serviceGUID>
+                  <serviceInput>
+                     <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
+                  </serviceInput>
+                  <link id="kjl212oe" targetId="c"/>
+               </service>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>90z4bsc7PJ9kSyV08ufSu4</types1:GUID>
+      <types1:DisplayName>SP_Adaptive_iPaaS_CMTCloud</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-01-06T07:19:11.069Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

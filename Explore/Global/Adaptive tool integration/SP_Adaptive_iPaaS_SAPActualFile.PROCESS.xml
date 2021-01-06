@@ -1,0 +1,134 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>hrkbclopz4KhPVE-gt-26696041-2020-12-22T06:46:19.113Z::pd.xml</types1:EntryId>
+      <types1:Name>SP_Adaptive_iPaaS_SAPActualFile</types1:Name>
+      <types1:ParentFlowIds>0FIRi92qBbbeJOS-gt-26702008-2020-12-22T06:57:32.992Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.dev</types1:CreatedBy>
+      <types1:CreationDate>2020-12-22T06:46:19Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.dev</types1:ModifiedBy>
+      <types1:ModificationDate>2021-01-06T06:18:19Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.dev</types1:PublishedBy>
+      <types1:PublicationDate>2021-01-06T06:18:35Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_SAPActualFile/SP_Adaptive_iPaaS_SAPActualFile.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP_Adaptive_iPaaS_SAPActualFile"
+                  name="SP_Adaptive_iPaaS_SAPActualFile"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="Attachment" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="FilePath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="FileExist" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Content" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kjjoe9cx" targetId="kizm8xug"/>
+               </start>
+               <assignment id="kizm8xug">
+                  <title>Assignment to FilePath, FileExist</title>
+                  <operation source="constant" to="temp.FilePath">/Hybrid-Nfs/ipaas/data/Adaptive/IDD510028/SAPFIT100_AP.dat</operation>
+                  <operation source="formula" to="temp.FileExist">
+                     <expression language="XQuery">fn:unparsed-text-available($temp.FilePath)</expression>
+                  </operation>
+                  <link id="kjjoe9di" targetId="kizm8xur"/>
+               </assignment>
+               <container id="kizm8xur" type="exclusive">
+                  <title>FileExist?</title>
+                  <flow id="kizm8xv1">
+                     <assignment id="kjjoe9dj">
+                        <title>Assignment to Attachment</title>
+                        <operation source="formula" to="output.Attachment">
+                           <expression language="XQuery">let $filecontent:= fn:unparsed-text($temp.FilePath)
+return sff:createAttachmentFromBase64('SAPFIT100_AP.dat',util:base64Encode($filecontent),'text/plain')</expression>
+                        </operation>
+                     </assignment>
+                     <link id="kizm8xv2" targetId="kizm8xur" type="containerLink"/>
+                  </flow>
+                  <flow id="kizm8xv3">
+                     <assignment id="kizm8xvc">
+                        <title>Assignment to temp_title</title>
+                        <operation source="formula" to="temp.temp_title">
+                           <expression language="XQuery">let $temptitle:= 'SP_Adaptive_iPaaS_SAPActualFile- No file to send'
+return ipd:setProcessTitle($temptitle)</expression>
+                        </operation>
+                        <link id="kizm8xwa" targetId="kizm8xw9"/>
+                     </assignment>
+                     <milestone id="kizm8xw9">
+                        <title>Milestone 1</title>
+                        <httpStatus>404</httpStatus>
+                     </milestone>
+                     <link id="kizm8xwi" targetId="kizm8xur" type="containerLink"/>
+                  </flow>
+                  <link id="kizm8xuu" targetId="kizm8xv1" type="containerLink">
+                     <condition source="formula">
+                        <function name="true">
+                           <arg name="field">{$temp.FileExist}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="kizm8xux" targetId="kizm8xv3" type="containerLink">
+                     <condition source="formula">
+                        <function name="false">
+                           <arg name="field">{$temp.FileExist}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="kizm8xut" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>1WBjjEhsqeOb1eDQJQBrAZ</types1:GUID>
+      <types1:DisplayName>SP_Adaptive_iPaaS_SAPActualFile</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-01-06T07:19:10.832Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

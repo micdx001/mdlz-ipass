@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "8adZWe1RZWSh4Gqyc5aByp",
+    "name" : "Adaptive_iPaaS_SAPActualFile_IDD510028",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "0FIRi92qBbbeJOS-gt-26702008-2020-12-22T06:57:32.992Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "1WBjjEhsqeOb1eDQJQBrAZ",
+    "name" : "SP_Adaptive_iPaaS_SAPActualFile",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "hrkbclopz4KhPVE-gt-26696041-2020-12-22T06:46:19.113Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Adaptive tool integration"
+  } ]
+}

@@ -1,0 +1,64 @@
+{
+  "objectInfo" : {
+    "id" : "8I91M3U2BqwfiVJJywcyar",
+    "name" : "Adaptive_iPaaS_CMTCloud_IDD510027",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "90z4bsc7PJ9kSyV08ufSu4",
+    "name" : "SP_Adaptive_iPaaS_CMTCloud",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "S5Ds0XJt93aaa-gt-47375572-2021-01-04T17:52:27.713Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Adaptive tool integration"
+  }, {
+    "id" : "2z26yxzo4jvjxxuThTuA6Q",
+    "name" : "Adaptive-FileWriter",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "NqRi92qBbbeJOSM-gt-47089967-2021-01-04T17:51:23.634Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Adaptive tool integration"
+  } ]
+}

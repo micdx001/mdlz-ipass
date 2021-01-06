@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "imhguCzk4k2dvytwZaVQcl",
+    "name" : "Adaptive tool integration",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD510027,IDD510028",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

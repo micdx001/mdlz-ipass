@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "1WBjjEhsqeOb1eDQJQBrAZ",
+    "name" : "SP_Adaptive_iPaaS_SAPActualFile",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "hrkbclopz4KhPVE-gt-26696041-2020-12-22T06:46:19.113Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

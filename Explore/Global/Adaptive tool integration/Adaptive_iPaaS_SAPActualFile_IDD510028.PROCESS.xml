@@ -1,0 +1,86 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>0FIRi92qBbbeJOS-gt-26702008-2020-12-22T06:57:32.992Z::pd.xml</types1:EntryId>
+      <types1:Name>Adaptive_iPaaS_SAPActualFile_IDD510028</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.dev</types1:CreatedBy>
+      <types1:CreationDate>2020-12-22T06:57:33Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.dev</types1:ModifiedBy>
+      <types1:ModificationDate>2021-01-06T06:17:00Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.dev</types1:PublishedBy>
+      <types1:PublicationDate>2021-01-06T06:18:35Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.Adaptive_iPaaS_SAPActualFile_IDD510028/Adaptive_iPaaS_SAPActualFile_IDD510028.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="Adaptive_iPaaS_SAPActualFile_IDD510028"
+                  name="Adaptive_iPaaS_SAPActualFile_IDD510028"
+                  overrideAPIName="true">
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="SAPFIT100_AP" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>Adaptive_iPaaSDev</user>
+                  </allowedUsers>
+                  <additionalConstraint>
+                     <constraint>APIM</constraint>
+                  </additionalConstraint>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kizmxz5b" targetId="kizmxz5a"/>
+               </start>
+               <subflow id="kizmxz5a">
+                  <title>SP_Adaptive_iPaaS_SAPActualFile</title>
+                  <subflowGUID>1WBjjEhsqeOb1eDQJQBrAZ</subflowGUID>
+                  <subflowPath>SP_Adaptive_iPaaS_SAPActualFile</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input/>
+                  <outputDef>
+                     <field name="Attachment" type="attachment">
+                        <options>
+                           <option hide="true" name="count">1</option>
+                           <option name="maxsize">5242880</option>
+                           <option name="required">false</option>
+                        </options>
+                     </field>
+                  </outputDef>
+                  <link id="kizoe2j0" targetId="kizoe2iz"/>
+               </subflow>
+               <assignment id="kizoe2iz">
+                  <title>Assignment to SAPFIT100_AP</title>
+                  <operation source="field" to="output.SAPFIT100_AP">output.Attachment</operation>
+                  <link id="kizoe2j1" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>8adZWe1RZWSh4Gqyc5aByp</types1:GUID>
+      <types1:DisplayName>Adaptive_iPaaS_SAPActualFile_IDD510028</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-01-06T07:19:11.169Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
