@@ -1,9 +1,9 @@
 <aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
                    xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
    <types1:Item>
-      <types1:EntryId>t3dtQR6kbeJHQjA-gt-63877275-2021-01-06T07:23:40.314Z::pd.xml</types1:EntryId>
+      <types1:EntryId>S5Ds0XJt93aaa-gt-47375572-2021-01-04T17:52:27.713Z::pd.xml</types1:EntryId>
       <types1:Name>SP_Adaptive_iPaaS_CMTCloud</types1:Name>
-      <types1:ParentFlowIds>NhsJlv58pIO3M4W-gt-51571283-2021-01-06T07:23:40.641Z::pd.xml</types1:ParentFlowIds>
+      <types1:ParentFlowIds>Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+process</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
@@ -11,12 +11,13 @@
       <types1:VersionLabel>1.0</types1:VersionLabel>
       <types1:State>CURRENT</types1:State>
       <types1:ProcessGroup/>
-      <types1:CreatedBy>faizan.a.shaikh@accenture.com.qa</types1:CreatedBy>
-      <types1:CreationDate>2021-01-06T07:23:40Z</types1:CreationDate>
-      <types1:ModifiedBy/>
+      <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
+      <types1:CreationDate>2021-01-04T17:52:28Z</types1:CreationDate>
+      <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
+      <types1:ModificationDate>2021-01-12T07:49:56Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
-      <types1:PublishedBy>shivani.jaiswal@accenture.com.qa</types1:PublishedBy>
-      <types1:PublicationDate>2021-01-06T09:41:45Z</types1:PublicationDate>
+      <types1:PublishedBy>shivani.jaiswal@accenture.com.dev</types1:PublishedBy>
+      <types1:PublicationDate>2021-01-12T07:50:02Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_CMTCloud/SP_Adaptive_iPaaS_CMTCloud.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -30,11 +31,13 @@
             <tags>.agent:GLOBAL</tags>
             <generator>Informatica Process Designer 11</generator>
             <input>
-               <parameter description="" name="in_inputFile" type="attachment">
+               <parameter description="" name="in_inputFile" type="objectlist">
                   <options>
-                     <option hide="true" name="count">1</option>
-                     <option name="maxsize">5242880</option>
+                     <option name="referenceTo">$po:ObjectCMTFiles</option>
+                     <option hide="true" name="multiSelect">true</option>
                      <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">1iaCjiw4f1tbIGfsE5v16s</option>
                   </options>
                </parameter>
             </input>
@@ -44,35 +47,62 @@
                      <option name="referenceTo">Adaptive-FileWriter:FileWriteTask</option>
                      <option name="required">false</option>
                      <option name="isCopy">true</option>
-                     <option name="guid">j1P16SQPlQtfi4nEZbwe2v</option>
+                     <option name="guid">2z26yxzo4jvjxxuThTuA6Q</option>
                   </options>
                </field>
             </output>
             <tempFields>
-               <field description="" name="FileExsist" type="boolean">
+               <field description="" name="filecount" type="int">
                   <options>
-                     <option name="defaultvalue">false</option>
-                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">1</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_filename" type="string">
+                  <options>
                      <option name="required">false</option>
                   </options>
                </field>
             </tempFields>
             <notes/>
-            <deployment suspendOnFault="false" tracingLevel="none">
+            <deployment suspendOnFault="false" tracingLevel="verbose">
                <targetLocation>GLOBAL</targetLocation>
                <rest/>
             </deployment>
             <flow id="a">
                <start id="b">
-                  <link id="kjius0gz" targetId="kjius0gy"/>
+                  <link id="kjsndj23" targetId="kjsndj22"/>
                </start>
-               <assignment id="kjius0gy">
-                  <title>Assignment to fileWrite</title>
-                  <operation source="formula" to="output.fileWrite">
-                     <expression language="XQuery">&lt;FileWriteTask&gt;
-   &lt;fileName&gt;{sff:getAttachmentName($input.in_inputFile)}&lt;/fileName&gt;
+               <assignment id="kjsndj22">
+                  <title>Assignment to filecount</title>
+                  <operation source="formula" to="temp.filecount">
+                     <expression language="XQuery">list:count($input.in_inputFile)</expression>
+                  </operation>
+                  <link id="kjtm888k" targetId="kjsndj2c"/>
+               </assignment>
+               <container id="kjsndj2c" type="exclusive">
+                  <title>filecount</title>
+                  <flow id="kjsndj2g">
+                     <assignment id="kjtm88ct">
+                        <title>Assignment to tmp_filename</title>
+                        <operation source="formula" to="temp.tmp_filename">
+                           <expression language="XQuery">sff:getAttachmentName($input.in_inputFile[$temp.count])</expression>
+                        </operation>
+                        <link id="kjtm88cu" targetId="kjsndj2w"/>
+                     </assignment>
+                     <assignment id="kjsndj2w">
+                        <title>Assignment to fileWrite</title>
+                        <operation source="formula" to="output.fileWrite">
+                           <expression language="XQuery">&lt;FileWriteTask&gt;
+   &lt;filePath&gt;&lt;/filePath&gt;
+   &lt;fileName&gt;{$temp.tmp_filename}&lt;/fileName&gt;
    &lt;format&gt;&lt;/format&gt;
-&lt;content&gt;{util:base64Decode(sff:getBase64FromAttachment($input.in_inputFile))}&lt;/content&gt;
+   &lt;content&gt;{util:base64Decode(sff:getBase64FromAttachment($input.in_inputFile[$temp.count]))}&lt;/content&gt;
    &lt;objectName&gt;&lt;/objectName&gt;
    &lt;listName&gt;&lt;/listName&gt;
    &lt;object&gt;
@@ -80,25 +110,51 @@
    &lt;objects&gt;
    &lt;/objects&gt;
 &lt;/FileWriteTask&gt;
+
 </expression>
-                  </operation>
-                  <link id="kjivdf9w" targetId="kjivdf9v"/>
-               </assignment>
-               <service id="kjivdf9v">
-                  <title>FileWriter to ipaas</title>
-                  <serviceName>Adaptive-FileWriter:FileWriter</serviceName>
-                  <serviceGUID>j1P16SQPlQtfi4nEZbwe2v</serviceGUID>
-                  <serviceInput>
-                     <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
-                  </serviceInput>
-                  <link id="kjl212oe" targetId="c"/>
-               </service>
+                        </operation>
+                        <link id="kjsndj34" targetId="kjsndj33"/>
+                     </assignment>
+                     <assignment id="kjtm8892">
+                        <title>Assignment to count</title>
+                        <operation source="formula" to="temp.count">
+                           <expression language="XQuery">$temp.count + 1</expression>
+                        </operation>
+                        <link id="kjtm88f7" targetId="kjtm88f5"/>
+                     </assignment>
+                     <service id="kjsndj33">
+                        <title>FileWriter to ipaas</title>
+                        <serviceName>Adaptive-FileWriter:FileWriter</serviceName>
+                        <serviceGUID>2z26yxzo4jvjxxuThTuA6Q</serviceGUID>
+                        <serviceInput>
+                           <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
+                        </serviceInput>
+                        <link id="kjtm8893" targetId="kjtm8892"/>
+                     </service>
+                     <jumpTo id="kjtm88f5">
+                        <link id="kjtm88f6" targetId="kjsndj2c"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="kjsndj2j">
+                     <link id="kjsndj2k" targetId="kjsndj2c" type="containerLink"/>
+                  </flow>
+                  <link id="kjsndj2f" targetId="kjsndj2g" type="containerLink">
+                     <condition source="formula">
+                        <function name="less-or-equals">
+                           <arg name="left">{$temp.count}</arg>
+                           <arg name="right">{$temp.filecount}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="kjsndj2i" targetId="kjsndj2j" type="containerLink"/>
+                  <link id="kjsndj32" targetId="c"/>
+               </container>
                <end id="c"/>
             </flow>
          </process>
       </types1:Entry>
-      <types1:GUID>78DVgLVzuwoizAI7TrlPcw</types1:GUID>
+      <types1:GUID>90z4bsc7PJ9kSyV08ufSu4</types1:GUID>
       <types1:DisplayName>SP_Adaptive_iPaaS_CMTCloud</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-01-06T09:43:56.359Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-01-12T08:25:50.064Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

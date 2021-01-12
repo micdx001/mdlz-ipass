@@ -1,7 +1,7 @@
 <aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
                    xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
    <types1:Item>
-      <types1:EntryId>NhsJlv58pIO3M4W-gt-51571283-2021-01-06T07:23:40.641Z::pd.xml</types1:EntryId>
+      <types1:EntryId>Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml</types1:EntryId>
       <types1:Name>Adaptive_iPaaS_CMTCloud_IDD510027</types1:Name>
       <types1:MimeType>application/xml+process</types1:MimeType>
       <types1:Description/>
@@ -10,13 +10,13 @@
       <types1:VersionLabel>1.0</types1:VersionLabel>
       <types1:State>CURRENT</types1:State>
       <types1:ProcessGroup/>
-      <types1:CreatedBy>faizan.a.shaikh@accenture.com.qa</types1:CreatedBy>
-      <types1:CreationDate>2021-01-06T07:23:41Z</types1:CreationDate>
-      <types1:ModifiedBy>shivani.jaiswal@accenture.com.qa</types1:ModifiedBy>
-      <types1:ModificationDate>2021-01-06T09:37:48Z</types1:ModificationDate>
-      <types1:PublicationStatus>published</types1:PublicationStatus>
-      <types1:PublishedBy>shivani.jaiswal@accenture.com.qa</types1:PublishedBy>
-      <types1:PublicationDate>2021-01-06T09:41:45Z</types1:PublicationDate>
+      <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
+      <types1:CreationDate>2021-01-04T17:51:59Z</types1:CreationDate>
+      <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
+      <types1:ModificationDate>2021-01-11T14:11:09Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>shivani.jaiswal@accenture.com.dev</types1:PublishedBy>
+      <types1:PublicationDate>2021-01-11T14:13:21Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Adaptive_iPaaS_CMTCloud_IDD510027/Adaptive_iPaaS_CMTCloud_IDD510027.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -30,11 +30,13 @@
             <tags/>
             <generator>Informatica Process Designer 11</generator>
             <input>
-               <parameter description="" name="inputFile" type="attachment">
+               <parameter description="" name="inputFile" type="objectlist">
                   <options>
-                     <option hide="true" name="count">1</option>
-                     <option name="maxsize">5242880</option>
+                     <option name="referenceTo">$po:ObjectCMTFiles</option>
+                     <option hide="true" name="multiSelect">true</option>
                      <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">1iaCjiw4f1tbIGfsE5v16s</option>
                   </options>
                </parameter>
             </input>
@@ -42,7 +44,7 @@
             <deployment suspendOnFault="false" tracingLevel="none">
                <rest>
                   <allowedUsers>
-                     <user>Adaptive_iPaaSQA</user>
+                     <user>Adaptive_iPaaSDev</user>
                   </allowedUsers>
                   <additionalConstraint>
                      <constraint>APIM</constraint>
@@ -55,7 +57,7 @@
                </start>
                <subflow id="kjiuoc9m">
                   <title>SP_Adaptive_iPaaS_CMTCloud</title>
-                  <subflowGUID>78DVgLVzuwoizAI7TrlPcw</subflowGUID>
+                  <subflowGUID>90z4bsc7PJ9kSyV08ufSu4</subflowGUID>
                   <subflowPath>SP_Adaptive_iPaaS_CMTCloud</subflowPath>
                   <runForEach>false</runForEach>
                   <input>
@@ -67,7 +69,7 @@
                            <option name="referenceTo">Adaptive-FileWriter:FileWriteTask</option>
                            <option name="required">false</option>
                            <option name="isCopy">true</option>
-                           <option name="guid">j1P16SQPlQtfi4nEZbwe2v</option>
+                           <option name="guid">2z26yxzo4jvjxxuThTuA6Q</option>
                         </options>
                      </field>
                   </outputDef>
@@ -77,8 +79,8 @@
             </flow>
          </process>
       </types1:Entry>
-      <types1:GUID>2OSGlfwp7BgccUpDICjcMd</types1:GUID>
+      <types1:GUID>8I91M3U2BqwfiVJJywcyar</types1:GUID>
       <types1:DisplayName>Adaptive_iPaaS_CMTCloud_IDD510027</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-01-06T09:43:56.461Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-01-12T08:25:50.226Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

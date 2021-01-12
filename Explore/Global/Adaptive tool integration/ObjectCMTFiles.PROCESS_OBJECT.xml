@@ -1,0 +1,36 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>cm8zbgdwUiQLnzY-gt-18365441-2021-01-11T14:06:40.044Z::po.xml</types1:EntryId>
+      <types1:Name>ObjectCMTFiles</types1:Name>
+      <types1:ParentFlowIds>Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml,S5Ds0XJt93aaa-gt-47375572-2021-01-04T17:52:27.713Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+processobject</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
+      <types1:CreationDate>2021-01-11T14:06:40Z</types1:CreationDate>
+      <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
+      <types1:ModificationDate>2021-01-11T14:10:06Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                        displayName="ObjectCMTFiles"
+                        isByCopy="true"
+                        name="ObjectCMTFiles">
+            <description/>
+            <tags/>
+            <detail>
+               <field label="fileinput" name="fileinput" type="attachments"/>
+            </detail>
+         </processObject>
+      </types1:Entry>
+      <types1:GUID>1iaCjiw4f1tbIGfsE5v16s</types1:GUID>
+      <types1:DisplayName>ObjectCMTFiles</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-01-12T08:25:49.9Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
