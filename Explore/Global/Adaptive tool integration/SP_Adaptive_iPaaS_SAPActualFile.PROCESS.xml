@@ -14,10 +14,10 @@
       <types1:CreatedBy>faizan.a.shaikh@accenture.com.dev</types1:CreatedBy>
       <types1:CreationDate>2020-12-22T06:46:19Z</types1:CreationDate>
       <types1:ModifiedBy>faizan.a.shaikh@accenture.com.dev</types1:ModifiedBy>
-      <types1:ModificationDate>2021-01-08T07:14:53Z</types1:ModificationDate>
+      <types1:ModificationDate>2021-01-18T08:31:43Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>faizan.a.shaikh@accenture.com.dev</types1:PublishedBy>
-      <types1:PublicationDate>2021-01-08T07:15:46Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-01-18T08:33:09Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_SAPActualFile/SP_Adaptive_iPaaS_SAPActualFile.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -62,6 +62,26 @@
                      <option name="required">false</option>
                   </options>
                </field>
+               <field description="" name="FileCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="ObjFilelist" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:ObjFileList-2</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">9ItJrGmKAoqg1mr4doB4m0</option>
+                  </options>
+               </field>
+               <field description="" name="temp_filename" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
             </tempFields>
             <notes/>
             <deployment suspendOnFault="false" tracingLevel="verbose">
@@ -72,27 +92,125 @@
             </deployment>
             <flow id="a">
                <start id="b">
-                  <link id="kjjoe9cx" targetId="kizm8xug"/>
+                  <link id="kk2adbza" targetId="kk2adbz9"/>
                </start>
-               <assignment id="kizm8xug">
-                  <title>Assignment to FilePath, FileExist</title>
-                  <operation source="constant" to="temp.FilePath">/Hybrid-Nfs/ipaas/data/Adaptive/IDD510028/SAPFIT100_AP.dat</operation>
-                  <operation source="formula" to="temp.FileExist">
-                     <expression language="XQuery">fn:unparsed-text-available($temp.FilePath)</expression>
-                  </operation>
-                  <link id="kjjoe9di" targetId="kizm8xur"/>
-               </assignment>
+               <service id="kk2adbz9">
+                  <title>Run a Shell Command</title>
+                  <serviceName>avShellService</serviceName>
+                  <serviceGUID/>
+                  <serviceInput>
+                     <parameter name="command" source="constant">sh Getfile.sh</parameter>
+                     <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/scripts/Adaptive</parameter>
+                  </serviceInput>
+                  <link id="kk2adc02" targetId="kk2adc01"/>
+               </service>
+               <container id="kk2adc01" type="exclusive">
+                  <title>Response Code</title>
+                  <flow id="kk2adc0f">
+                     <assignment id="kk2adc1z">
+                        <title>Assignment to FilePath, FileExist</title>
+                        <operation source="constant" to="temp.FilePath">/Hybrid-Nfs/ipaas/data/Adaptive/IDD510028/filename.lst</operation>
+                        <operation source="formula" to="temp.FileExist">
+                           <expression language="XQuery">fn:unparsed-text-available($temp.FilePath)</expression>
+                        </operation>
+                     </assignment>
+                     <link id="kk2adc0g" targetId="kk2adc01" type="containerLink"/>
+                  </flow>
+                  <flow id="kk2adc0h">
+                     <throw id="kk2adc11">
+                        <title>Throw 1</title>
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.responseCode</parameter>
+                           <parameter name="detail" source="field" updatable="true">output.outputString</parameter>
+                           <parameter name="reason" source="constant" updatable="true">Failed to read file from Shared location.</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="kk2adc08" targetId="kk2adc0f" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$output.responseCode}</arg>
+                           <arg name="right">0</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="kk2adc0b" targetId="kk2adc0h" type="containerLink"/>
+                  <link id="kk2adc1y" targetId="kizm8xur"/>
+               </container>
                <container id="kizm8xur" type="exclusive">
                   <title>FileExist?</title>
                   <flow id="kizm8xv1">
-                     <assignment id="kjjoe9dj">
-                        <title>Assignment to Attachment</title>
-                        <operation source="formula" to="output.Attachment">
-                           <expression language="XQuery">let $filecontent:= fn:unparsed-text($temp.FilePath)
-return sff:createAttachmentFromBase64('SAPFIT100_AP.dat',util:base64Encode($filecontent),'multipart/attachment')</expression>
+                     <assignment id="kk2asb4z">
+                        <title>Assignment to temp_Content, ObjFilelist etc.</title>
+                        <operation source="formula" to="temp.temp_Content">
+                           <expression language="XQuery">fn:unparsed-text($temp.FilePath)</expression>
                         </operation>
+                        <operation source="formula" to="temp.ObjFilelist">
+                           <expression language="XQuery">&lt;ObjFileList&gt;
+{for $token in fn:tokenize($temp.temp_Content ,'&amp;#10;')
+return  
+   &lt;FileName&gt;{$token}&lt;/FileName&gt;}
+&lt;/ObjFileList&gt;
+
+</expression>
+                        </operation>
+                        <operation source="formula" to="temp.FileCount">
+                           <expression language="XQuery">let $token:=fn:tokenize($temp.temp_Content ,'&amp;#10;')
+return fn:count($token) - 1</expression>
+                        </operation>
+                        <link id="kk2asb73" targetId="kk2asb72"/>
                      </assignment>
-                     <link id="kizm8xv2" targetId="kizm8xur" type="containerLink"/>
+                     <container id="kk2asb72" type="exclusive">
+                        <title>FileCount</title>
+                        <flow id="kk2asb7i">
+                           <assignment id="kk2asbbd">
+                              <title>Assignment to temp_filename, Attachment</title>
+                              <operation source="formula" to="temp.temp_filename">
+                                 <expression language="XQuery">let $ErrorFilename:= fn:tokenize($temp.ObjFilelist[1]/FileName[1],'/')
+return $ErrorFilename[7]</expression>
+                              </operation>
+                              <operation source="formula" to="output.Attachment">
+                                 <expression language="XQuery">let $filename:=$temp.ObjFilelist[1]/FileName[1]
+let $filecontent:= fn:unparsed-text($filename)
+return sff:createAttachmentFromBase64('test.txt',util:base64Encode($filecontent, 'UTF-8'),'multipart/attachment')</expression>
+                              </operation>
+                              <link id="kk2asbbo" targetId="kk2asbbn"/>
+                           </assignment>
+                           <service id="kk2asbbn">
+                              <title>Run a Shell Command</title>
+                              <serviceName>avShellService</serviceName>
+                              <serviceGUID/>
+                              <serviceInput>
+                                 <parameter name="command" source="constant">rm -f {$temp.temp_filename} </parameter>
+                                 <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/data/Adaptive/IDD510028</parameter>
+                              </serviceInput>
+                              <link id="kk2asbdh" targetId="kk2asbdg"/>
+                           </service>
+                           <end id="kk2asbdg"/>
+                        </flow>
+                        <flow id="kk2asb7k">
+                           <assignment id="kk2asb9p">
+                              <title>Assignment to temp_title 1</title>
+                              <operation source="formula" to="temp.temp_title">
+                                 <expression language="XQuery">let $temptitle:= 'SP_Adaptive_iPaaS_SAPActualFile- No file to send'
+return ipd:setProcessTitle($temptitle)</expression>
+                              </operation>
+                              <link id="kk2asba1" targetId="kk2asba0"/>
+                           </assignment>
+                           <end id="kk2asba0">
+                              <title>End 2</title>
+                           </end>
+                        </flow>
+                        <link id="kk2asb7b" targetId="kk2asb7i" type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-than">
+                                 <arg name="left">{$temp.FileCount}</arg>
+                                 <arg name="right">{0}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="kk2asb7e" targetId="kk2asb7k" type="containerLink"/>
+                     </container>
                   </flow>
                   <flow id="kizm8xv3">
                      <assignment id="kizm8xvc">
@@ -101,13 +219,11 @@ return sff:createAttachmentFromBase64('SAPFIT100_AP.dat',util:base64Encode($file
                            <expression language="XQuery">let $temptitle:= 'SP_Adaptive_iPaaS_SAPActualFile- No file to send'
 return ipd:setProcessTitle($temptitle)</expression>
                         </operation>
-                        <link id="kizm8xwa" targetId="kizm8xw9"/>
+                        <link id="kk2asb89" targetId="kk2asb88"/>
                      </assignment>
-                     <milestone id="kizm8xw9">
-                        <title>Milestone 1</title>
-                        <httpStatus>404</httpStatus>
-                     </milestone>
-                     <link id="kizm8xwi" targetId="kizm8xur" type="containerLink"/>
+                     <end id="kk2asb88">
+                        <title>End 1</title>
+                     </end>
                   </flow>
                   <link id="kizm8xuu" targetId="kizm8xv1" type="containerLink">
                      <condition source="formula">
@@ -123,14 +239,12 @@ return ipd:setProcessTitle($temptitle)</expression>
                         </function>
                      </condition>
                   </link>
-                  <link id="kizm8xut" targetId="c"/>
                </container>
-               <end id="c"/>
             </flow>
          </process>
       </types1:Entry>
       <types1:GUID>1WBjjEhsqeOb1eDQJQBrAZ</types1:GUID>
       <types1:DisplayName>SP_Adaptive_iPaaS_SAPActualFile</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-01-08T07:17:53.902Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-01-20T06:19:45.623Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
