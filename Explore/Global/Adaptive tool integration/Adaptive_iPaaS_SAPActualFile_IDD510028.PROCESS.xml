@@ -13,10 +13,10 @@
       <types1:CreatedBy>faizan.a.shaikh@accenture.com.dev</types1:CreatedBy>
       <types1:CreationDate>2020-12-22T06:57:33Z</types1:CreationDate>
       <types1:ModifiedBy>faizan.a.shaikh@accenture.com.dev</types1:ModifiedBy>
-      <types1:ModificationDate>2021-01-08T07:15:41Z</types1:ModificationDate>
+      <types1:ModificationDate>2021-01-20T07:17:48Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>faizan.a.shaikh@accenture.com.dev</types1:PublishedBy>
-      <types1:PublicationDate>2021-01-18T08:33:09Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-01-20T08:03:18Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Adaptive_iPaaS_SAPActualFile_IDD510028/Adaptive_iPaaS_SAPActualFile_IDD510028.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -29,6 +29,13 @@
             <description/>
             <tags/>
             <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="filename" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
             <output>
                <field description="" name="SAPFIT100_AP" type="attachment">
                   <options>
@@ -59,7 +66,9 @@
                   <subflowGUID>1WBjjEhsqeOb1eDQJQBrAZ</subflowGUID>
                   <subflowPath>SP_Adaptive_iPaaS_SAPActualFile</subflowPath>
                   <runForEach>false</runForEach>
-                  <input/>
+                  <input>
+                     <parameter name="filename" source="field" updatable="true">input.filename</parameter>
+                  </input>
                   <outputDef>
                      <field name="Attachment" type="attachment">
                         <options>
@@ -83,5 +92,5 @@
       <types1:GUID>8adZWe1RZWSh4Gqyc5aByp</types1:GUID>
       <types1:DisplayName>Adaptive_iPaaS_SAPActualFile_IDD510028</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-01-20T06:20:09.467Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-01-20T08:04:07.598Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
