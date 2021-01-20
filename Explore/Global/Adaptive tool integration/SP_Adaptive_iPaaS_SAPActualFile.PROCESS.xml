@@ -14,10 +14,10 @@
       <types1:CreatedBy>faizan.a.shaikh@accenture.com.dev</types1:CreatedBy>
       <types1:CreationDate>2020-12-22T06:46:19Z</types1:CreationDate>
       <types1:ModifiedBy>faizan.a.shaikh@accenture.com.dev</types1:ModifiedBy>
-      <types1:ModificationDate>2021-01-20T07:24:18Z</types1:ModificationDate>
+      <types1:ModificationDate>2021-01-20T08:01:43Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>faizan.a.shaikh@accenture.com.dev</types1:PublishedBy>
-      <types1:PublicationDate>2021-01-20T07:24:37Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-01-20T08:03:18Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_SAPActualFile/SP_Adaptive_iPaaS_SAPActualFile.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -60,31 +60,6 @@
                   </options>
                </field>
                <field description="" name="temp_title" type="string">
-                  <options>
-                     <option name="required">false</option>
-                  </options>
-               </field>
-               <field description="" name="temp_Content" type="string">
-                  <options>
-                     <option name="required">false</option>
-                  </options>
-               </field>
-               <field description="" name="FileCount" type="int">
-                  <options>
-                     <option name="required">false</option>
-                     <option name="initialvalue">0</option>
-                  </options>
-               </field>
-               <field description="" name="ObjFilelist" type="objectlist">
-                  <options>
-                     <option name="referenceTo">$po:ObjFileList-2</option>
-                     <option hide="true" name="multiSelect">true</option>
-                     <option name="required">false</option>
-                     <option name="isCopy">true</option>
-                     <option name="guid">9ItJrGmKAoqg1mr4doB4m0</option>
-                  </options>
-               </field>
-               <field description="" name="temp_filename" type="string">
                   <options>
                      <option name="required">false</option>
                   </options>
@@ -202,5 +177,5 @@ return ipd:setProcessTitle($temptitle)</expression>
       <types1:GUID>1WBjjEhsqeOb1eDQJQBrAZ</types1:GUID>
       <types1:DisplayName>SP_Adaptive_iPaaS_SAPActualFile</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-01-20T08:00:07.366Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-01-20T08:03:48.122Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

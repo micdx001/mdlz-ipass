@@ -20,25 +20,5 @@
     }
   },
   "dataFileExtension" : "xml",
-  "objectRefs" : [ {
-    "id" : "9ItJrGmKAoqg1mr4doB4m0",
-    "name" : "ObjFileList",
-    "type" : "PROCESS_OBJECT",
-    "metadata" : {
-      "modelVersion" : {
-        "major" : 1,
-        "minor" : 0
-      },
-      "repoInfo" : {
-        "repoHandle" : "WR7hsAVR3aaa-gt-97975093-2021-01-18T08:19:29.779Z::po.xml"
-      },
-      "contextAttributes" : null,
-      "additionalInfo" : {
-        "description" : "",
-        "contentType" : null,
-        "documentState" : "VALID"
-      }
-    },
-    "path" : "/Explore/Global/Adaptive tool integration"
-  } ]
+  "objectRefs" : [ ]
 }
