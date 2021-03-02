@@ -3,7 +3,7 @@
    <types1:Item>
       <types1:EntryId>S5Ds0XJt93aaa-gt-47375572-2021-01-04T17:52:27.713Z::pd.xml</types1:EntryId>
       <types1:Name>SP_Adaptive_iPaaS_CMTCloud</types1:Name>
-      <types1:ParentFlowIds>Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml</types1:ParentFlowIds>
+      <types1:ParentFlowIds>Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml,YPFJ7XhFtybduaa-gt-82444207-2021-01-20T07:53:28.16Z::pd.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+process</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
@@ -14,10 +14,10 @@
       <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
       <types1:CreationDate>2021-01-04T17:52:28Z</types1:CreationDate>
       <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
-      <types1:ModificationDate>2021-01-12T07:49:56Z</types1:ModificationDate>
+      <types1:ModificationDate>2021-02-23T11:29:56Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>shivani.jaiswal@accenture.com.dev</types1:PublishedBy>
-      <types1:PublicationDate>2021-01-12T07:50:02Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-02-23T11:30:03Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_CMTCloud/SP_Adaptive_iPaaS_CMTCloud.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -31,13 +31,11 @@
             <tags>.agent:GLOBAL</tags>
             <generator>Informatica Process Designer 11</generator>
             <input>
-               <parameter description="" name="in_inputFile" type="objectlist">
+               <parameter description="" name="in_inputContent" type="reference">
                   <options>
-                     <option name="referenceTo">$po:ObjectCMTFiles</option>
-                     <option hide="true" name="multiSelect">true</option>
+                     <option name="referenceTo">$po:$any</option>
                      <option name="required">false</option>
                      <option name="isCopy">true</option>
-                     <option name="guid">1iaCjiw4f1tbIGfsE5v16s</option>
                   </options>
                </parameter>
             </input>
@@ -50,20 +48,48 @@
                      <option name="guid">2z26yxzo4jvjxxuThTuA6Q</option>
                   </options>
                </field>
-            </output>
-            <tempFields>
-               <field description="" name="filecount" type="int">
+               <field description="" name="out" type="string">
                   <options>
                      <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="tempData" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
                   </options>
                </field>
                <field description="" name="count" type="int">
                   <options>
                      <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="filedata" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="initialCount" type="int">
+                  <options>
+                     <option name="required">false</option>
                      <option name="initialvalue">1</option>
                   </options>
                </field>
-               <field description="" name="tmp_filename" type="string">
+               <field description="" name="fileName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="initialrowCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">1</option>
+                  </options>
+               </field>
+               <field description="" name="Data" type="string">
                   <options>
                      <option name="required">false</option>
                   </options>
@@ -76,33 +102,25 @@
             </deployment>
             <flow id="a">
                <start id="b">
-                  <link id="kjsndj23" targetId="kjsndj22"/>
+                  <link id="klhwfw2l" targetId="kl1xv6si"/>
                </start>
-               <assignment id="kjsndj22">
-                  <title>Assignment to filecount</title>
-                  <operation source="formula" to="temp.filecount">
-                     <expression language="XQuery">list:count($input.in_inputFile)</expression>
+               <assignment id="kl1xv6si">
+                  <title>Assignment to filedata, Data etc.</title>
+                  <operation source="formula" to="temp.filedata">
+                     <expression language="XQuery">for $row in $input.in_inputContent/dataSet/file/row
+return concat($row,'&amp;#10;')
+</expression>
                   </operation>
-                  <link id="kjtm888k" targetId="kjsndj2c"/>
-               </assignment>
-               <container id="kjsndj2c" type="exclusive">
-                  <title>filecount</title>
-                  <flow id="kjsndj2g">
-                     <assignment id="kjtm88ct">
-                        <title>Assignment to tmp_filename</title>
-                        <operation source="formula" to="temp.tmp_filename">
-                           <expression language="XQuery">sff:getAttachmentName($input.in_inputFile[$temp.count])</expression>
-                        </operation>
-                        <link id="kjtm88cu" targetId="kjsndj2w"/>
-                     </assignment>
-                     <assignment id="kjsndj2w">
-                        <title>Assignment to fileWrite</title>
-                        <operation source="formula" to="output.fileWrite">
-                           <expression language="XQuery">&lt;FileWriteTask&gt;
+                  <operation source="formula" to="temp.Data">
+                     <expression language="XQuery">let $header := 'Years|Period|Scenario|Version|Entity|Line Item|Package|Currency|Salary Grade|Account|Amount'
+return concat($header,'&amp;#xa;',$temp.filedata)</expression>
+                  </operation>
+                  <operation source="formula" to="output.fileWrite">
+                     <expression language="XQuery">&lt;FileWriteTask&gt;
    &lt;filePath&gt;&lt;/filePath&gt;
-   &lt;fileName&gt;{$temp.tmp_filename}&lt;/fileName&gt;
+   &lt;fileName&gt;Adaptive_CMT_Monthly.dat&lt;/fileName&gt;
    &lt;format&gt;&lt;/format&gt;
-   &lt;content&gt;{util:base64Decode(sff:getBase64FromAttachment($input.in_inputFile[$temp.count]))}&lt;/content&gt;
+&lt;content&gt;{$temp.Data}&lt;/content&gt;
    &lt;objectName&gt;&lt;/objectName&gt;
    &lt;listName&gt;&lt;/listName&gt;
    &lt;object&gt;
@@ -110,45 +128,30 @@
    &lt;objects&gt;
    &lt;/objects&gt;
 &lt;/FileWriteTask&gt;
-
 </expression>
-                        </operation>
-                        <link id="kjsndj34" targetId="kjsndj33"/>
-                     </assignment>
-                     <assignment id="kjtm8892">
-                        <title>Assignment to count</title>
-                        <operation source="formula" to="temp.count">
-                           <expression language="XQuery">$temp.count + 1</expression>
-                        </operation>
-                        <link id="kjtm88f7" targetId="kjtm88f5"/>
-                     </assignment>
-                     <service id="kjsndj33">
-                        <title>FileWriter to ipaas</title>
-                        <serviceName>Adaptive-FileWriter:FileWriter</serviceName>
-                        <serviceGUID>2z26yxzo4jvjxxuThTuA6Q</serviceGUID>
-                        <serviceInput>
-                           <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
-                        </serviceInput>
-                        <link id="kjtm8893" targetId="kjtm8892"/>
-                     </service>
-                     <jumpTo id="kjtm88f5">
-                        <link id="kjtm88f6" targetId="kjsndj2c"/>
-                     </jumpTo>
-                  </flow>
-                  <flow id="kjsndj2j">
-                     <link id="kjsndj2k" targetId="kjsndj2c" type="containerLink"/>
-                  </flow>
-                  <link id="kjsndj2f" targetId="kjsndj2g" type="containerLink">
-                     <condition source="formula">
-                        <function name="less-or-equals">
-                           <arg name="left">{$temp.count}</arg>
-                           <arg name="right">{$temp.filecount}</arg>
-                        </function>
-                     </condition>
-                  </link>
-                  <link id="kjsndj2i" targetId="kjsndj2j" type="containerLink"/>
-                  <link id="kjsndj32" targetId="c"/>
-               </container>
+                  </operation>
+                  <operation source="field" to="output.out">temp.Data</operation>
+                  <link id="kl29c6sq" targetId="kl23y1qe"/>
+               </assignment>
+               <service id="kl23y1qe">
+                  <title>FileWriter</title>
+                  <serviceName>Adaptive-FileWriter:FileWriter</serviceName>
+                  <serviceGUID>2z26yxzo4jvjxxuThTuA6Q</serviceGUID>
+                  <serviceInput>
+                     <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
+                  </serviceInput>
+                  <link id="kl23y1qu" targetId="kl23y1qt"/>
+               </service>
+               <service id="kl23y1qt">
+                  <title>Run a Shell Command</title>
+                  <serviceName>avShellService</serviceName>
+                  <serviceGUID/>
+                  <serviceInput>
+                     <parameter name="command" source="constant">sh CMTfile.sh</parameter>
+                     <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/scripts/Adaptive</parameter>
+                  </serviceInput>
+                  <link id="kl23y1r3" targetId="c"/>
+               </service>
                <end id="c"/>
             </flow>
          </process>
@@ -156,5 +159,5 @@
       <types1:GUID>90z4bsc7PJ9kSyV08ufSu4</types1:GUID>
       <types1:DisplayName>SP_Adaptive_iPaaS_CMTCloud</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-01-12T08:25:50.064Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-03-02T05:49:33.13Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
