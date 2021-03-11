@@ -13,10 +13,10 @@
       <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
       <types1:CreationDate>2021-01-04T17:51:59Z</types1:CreationDate>
       <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
-      <types1:ModificationDate>2021-01-28T07:26:17Z</types1:ModificationDate>
+      <types1:ModificationDate>2021-03-08T16:47:29Z</types1:ModificationDate>
       <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
       <types1:PublishedBy>shivani.jaiswal@accenture.com.dev</types1:PublishedBy>
-      <types1:PublicationDate>2021-02-12T11:09:11Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-03-08T16:47:34Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Adaptive_iPaaS_CMTCloud_IDD510027/Adaptive_iPaaS_CMTCloud_IDD510027.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -39,17 +39,24 @@
                </parameter>
             </input>
             <output>
-               <field description="" name="content" type="string">
-                  <options>
-                     <option name="required">false</option>
-                  </options>
-               </field>
-               <field description="" name="out_filename" type="string">
+               <field description="" name="header" type="string">
                   <options>
                      <option name="required">false</option>
                   </options>
                </field>
             </output>
+            <tempFields>
+               <field description="" name="fileHeader" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmpHeader" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
             <notes/>
             <deployment suspendOnFault="false" tracingLevel="verbose">
                <rest>
@@ -64,8 +71,20 @@
             </deployment>
             <flow id="a">
                <start id="b">
-                  <link id="kkfljq7k" targetId="kkfljq7j"/>
+                  <link id="km0bnd8k" targetId="km0bnd8j"/>
                </start>
+               <assignment id="km0bnd8j">
+                  <title>Assignment to fileHeader, tmpHeader</title>
+                  <operation source="formula" to="temp.fileHeader">
+                     <expression language="XQuery">let $Headers:=util:simplifyXml(request:getAllHeaders())
+return $Headers/header</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmpHeader">
+                     <expression language="XQuery">let $Headers:=util:simplifyXml(request:getAllHeaders())
+return $Headers/header[name='filename']/text/text()</expression>
+                  </operation>
+                  <link id="km0bnd8l" targetId="kkfljq7j"/>
+               </assignment>
                <subflow id="kkfljq7j">
                   <title>SP_Adaptive_iPaaS_CMTCloud</title>
                   <subflowGUID>90z4bsc7PJ9kSyV08ufSu4</subflowGUID>
@@ -73,6 +92,7 @@
                   <runForEach>false</runForEach>
                   <input>
                      <parameter name="in_inputContent" source="field" updatable="true">input.inputContent</parameter>
+                     <parameter name="in_fileHeader" source="field" updatable="true">temp.tmpHeader</parameter>
                   </input>
                   <outputDef>
                      <field name="fileWrite" type="reference">
@@ -81,6 +101,11 @@
                            <option name="required">false</option>
                            <option name="isCopy">true</option>
                            <option name="guid">2z26yxzo4jvjxxuThTuA6Q</option>
+                        </options>
+                     </field>
+                     <field name="out" type="string">
+                        <options>
+                           <option name="required">false</option>
                         </options>
                      </field>
                   </outputDef>
@@ -93,5 +118,5 @@
       <types1:GUID>8I91M3U2BqwfiVJJywcyar</types1:GUID>
       <types1:DisplayName>Adaptive_iPaaS_CMTCloud_IDD510027</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-03-02T05:49:33.278Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-03-11T06:55:46.214Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

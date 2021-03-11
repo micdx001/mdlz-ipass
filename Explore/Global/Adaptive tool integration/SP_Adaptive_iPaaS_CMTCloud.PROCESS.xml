@@ -14,10 +14,10 @@
       <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
       <types1:CreationDate>2021-01-04T17:52:28Z</types1:CreationDate>
       <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
-      <types1:ModificationDate>2021-02-23T11:29:56Z</types1:ModificationDate>
+      <types1:ModificationDate>2021-03-11T06:53:43Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>shivani.jaiswal@accenture.com.dev</types1:PublishedBy>
-      <types1:PublicationDate>2021-02-23T11:30:03Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-03-11T06:54:10Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_CMTCloud/SP_Adaptive_iPaaS_CMTCloud.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -38,6 +38,11 @@
                      <option name="isCopy">true</option>
                   </options>
                </parameter>
+               <parameter description="" name="in_fileHeader" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
             </input>
             <output>
                <field description="" name="fileWrite" type="reference">
@@ -48,48 +53,9 @@
                      <option name="guid">2z26yxzo4jvjxxuThTuA6Q</option>
                   </options>
                </field>
-               <field description="" name="out" type="string">
-                  <options>
-                     <option name="required">false</option>
-                  </options>
-               </field>
             </output>
             <tempFields>
-               <field description="" name="tempData" type="reference">
-                  <options>
-                     <option name="referenceTo">$po:$any</option>
-                     <option name="required">false</option>
-                     <option name="isCopy">true</option>
-                  </options>
-               </field>
-               <field description="" name="count" type="int">
-                  <options>
-                     <option name="required">false</option>
-                  </options>
-               </field>
                <field description="" name="filedata" type="string">
-                  <options>
-                     <option name="required">false</option>
-                  </options>
-               </field>
-               <field description="" name="initialCount" type="int">
-                  <options>
-                     <option name="required">false</option>
-                     <option name="initialvalue">1</option>
-                  </options>
-               </field>
-               <field description="" name="fileName" type="string">
-                  <options>
-                     <option name="required">false</option>
-                  </options>
-               </field>
-               <field description="" name="initialrowCount" type="int">
-                  <options>
-                     <option name="required">false</option>
-                     <option name="initialvalue">1</option>
-                  </options>
-               </field>
-               <field description="" name="Data" type="string">
                   <options>
                      <option name="required">false</option>
                   </options>
@@ -105,22 +71,18 @@
                   <link id="klhwfw2l" targetId="kl1xv6si"/>
                </start>
                <assignment id="kl1xv6si">
-                  <title>Assignment to filedata, Data etc.</title>
+                  <title>Assignment to filedata, fileWrite</title>
                   <operation source="formula" to="temp.filedata">
                      <expression language="XQuery">for $row in $input.in_inputContent/dataSet/file/row
 return concat($row,'&amp;#10;')
 </expression>
                   </operation>
-                  <operation source="formula" to="temp.Data">
-                     <expression language="XQuery">let $header := 'Years|Period|Scenario|Version|Entity|Line Item|Package|Currency|Salary Grade|Account|Amount'
-return concat($header,'&amp;#xa;',$temp.filedata)</expression>
-                  </operation>
                   <operation source="formula" to="output.fileWrite">
                      <expression language="XQuery">&lt;FileWriteTask&gt;
    &lt;filePath&gt;&lt;/filePath&gt;
-   &lt;fileName&gt;Adaptive_CMT_Monthly.dat&lt;/fileName&gt;
+   &lt;fileName&gt;{$input.in_fileHeader}.dat&lt;/fileName&gt;
    &lt;format&gt;&lt;/format&gt;
-&lt;content&gt;{$temp.Data}&lt;/content&gt;
+&lt;content&gt;{$temp.filedata}&lt;/content&gt;
    &lt;objectName&gt;&lt;/objectName&gt;
    &lt;listName&gt;&lt;/listName&gt;
    &lt;object&gt;
@@ -130,7 +92,6 @@ return concat($header,'&amp;#xa;',$temp.filedata)</expression>
 &lt;/FileWriteTask&gt;
 </expression>
                   </operation>
-                  <operation source="field" to="output.out">temp.Data</operation>
                   <link id="kl29c6sq" targetId="kl23y1qe"/>
                </assignment>
                <service id="kl23y1qe">
@@ -140,18 +101,36 @@ return concat($header,'&amp;#xa;',$temp.filedata)</expression>
                   <serviceInput>
                      <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
                   </serviceInput>
-                  <link id="kl23y1qu" targetId="kl23y1qt"/>
+                  <link id="km1s83fo" targetId="km1s83fn"/>
                </service>
-               <service id="kl23y1qt">
-                  <title>Run a Shell Command</title>
-                  <serviceName>avShellService</serviceName>
-                  <serviceGUID/>
-                  <serviceInput>
-                     <parameter name="command" source="constant">sh CMTfile.sh</parameter>
-                     <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/scripts/Adaptive</parameter>
-                  </serviceInput>
-                  <link id="kl23y1r3" targetId="c"/>
-               </service>
+               <container id="km1s83fn" type="exclusive">
+                  <title>in_fileHeader</title>
+                  <flow id="km1s83fr">
+                     <service id="km1s83g6">
+                        <title>Run a Shell Command</title>
+                        <serviceName>avShellService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="command" source="constant">sh CMTfile.sh</parameter>
+                           <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/scripts/Adaptive</parameter>
+                        </serviceInput>
+                     </service>
+                     <link id="km1s83fs" targetId="km1s83fn" type="containerLink"/>
+                  </flow>
+                  <flow id="km1s83fu">
+                     <link id="km1s83fv" targetId="km1s83fn" type="containerLink"/>
+                  </flow>
+                  <link id="km1s83fq" targetId="km1s83fr" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$input.in_fileHeader}</arg>
+                           <arg name="right">final</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="km1s83ft" targetId="km1s83fu" type="containerLink"/>
+                  <link id="km1s83fp" targetId="c"/>
+               </container>
                <end id="c"/>
             </flow>
          </process>
@@ -159,5 +138,5 @@ return concat($header,'&amp;#xa;',$temp.filedata)</expression>
       <types1:GUID>90z4bsc7PJ9kSyV08ufSu4</types1:GUID>
       <types1:DisplayName>SP_Adaptive_iPaaS_CMTCloud</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-03-02T05:49:33.13Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-03-11T06:55:46.13Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
