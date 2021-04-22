@@ -1,9 +1,9 @@
 <aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
                    xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
    <types1:Item>
-      <types1:EntryId>S5Ds0XJt93aaa-gt-47375572-2021-01-04T17:52:27.713Z::pd.xml</types1:EntryId>
+      <types1:EntryId>t3dtQR6kbeJHQjA-gt-63877275-2021-01-06T07:23:40.314Z::pd.xml</types1:EntryId>
       <types1:Name>SP_Adaptive_iPaaS_CMTCloud</types1:Name>
-      <types1:ParentFlowIds>Nx46hyifPNzUzeA-gt-47374877-2021-01-04T17:51:58.635Z::pd.xml,YPFJ7XhFtybduaa-gt-82444207-2021-01-20T07:53:28.16Z::pd.xml</types1:ParentFlowIds>
+      <types1:ParentFlowIds>NhsJlv58pIO3M4W-gt-51571283-2021-01-06T07:23:40.641Z::pd.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+process</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
@@ -11,13 +11,13 @@
       <types1:VersionLabel>1.0</types1:VersionLabel>
       <types1:State>CURRENT</types1:State>
       <types1:ProcessGroup/>
-      <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
-      <types1:CreationDate>2021-01-04T17:52:28Z</types1:CreationDate>
-      <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
-      <types1:ModificationDate>2021-03-11T06:53:43Z</types1:ModificationDate>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.qa</types1:CreatedBy>
+      <types1:CreationDate>2021-01-06T07:23:40Z</types1:CreationDate>
+      <types1:ModifiedBy>shivani.jaiswal@accenture.com.qa</types1:ModifiedBy>
+      <types1:ModificationDate>2021-04-22T05:36:05Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
-      <types1:PublishedBy>shivani.jaiswal@accenture.com.dev</types1:PublishedBy>
-      <types1:PublicationDate>2021-03-11T06:54:10Z</types1:PublicationDate>
+      <types1:PublishedBy>shivani.jaiswal@accenture.com.qa</types1:PublishedBy>
+      <types1:PublicationDate>2021-04-22T05:36:16Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.SP_Adaptive_iPaaS_CMTCloud/SP_Adaptive_iPaaS_CMTCloud.pd.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -50,7 +50,7 @@
                      <option name="referenceTo">Adaptive-FileWriter:FileWriteTask</option>
                      <option name="required">false</option>
                      <option name="isCopy">true</option>
-                     <option name="guid">2z26yxzo4jvjxxuThTuA6Q</option>
+                     <option name="guid">j1P16SQPlQtfi4nEZbwe2v</option>
                   </options>
                </field>
             </output>
@@ -62,18 +62,23 @@
                </field>
             </tempFields>
             <notes/>
-            <deployment suspendOnFault="false" tracingLevel="verbose">
+            <deployment suspendOnFault="false" tracingLevel="normal">
                <targetLocation>GLOBAL</targetLocation>
                <rest/>
             </deployment>
             <flow id="a">
                <start id="b">
-                  <link id="klhwfw2l" targetId="kl1xv6si"/>
+                  <link id="knhdmiyc" targetId="knhdmiyb"/>
                </start>
+               <milestone id="knhdmiyb">
+                  <title>Milestone</title>
+                  <link id="knhdmiyd" targetId="kl1xv6si"/>
+               </milestone>
                <assignment id="kl1xv6si">
                   <title>Assignment to filedata, fileWrite</title>
                   <operation source="formula" to="temp.filedata">
-                     <expression language="XQuery">for $row in $input.in_inputContent/dataSet/file/row
+                     <expression language="XQuery">let $temp_data := $input.in_inputContent/dataSet/file/row
+for $row in $temp_data
 return concat($row,'&amp;#10;')
 </expression>
                   </operation>
@@ -97,7 +102,7 @@ return concat($row,'&amp;#10;')
                <service id="kl23y1qe">
                   <title>FileWriter</title>
                   <serviceName>Adaptive-FileWriter:FileWriter</serviceName>
-                  <serviceGUID>2z26yxzo4jvjxxuThTuA6Q</serviceGUID>
+                  <serviceGUID>j1P16SQPlQtfi4nEZbwe2v</serviceGUID>
                   <serviceInput>
                      <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
                   </serviceInput>
@@ -106,6 +111,17 @@ return concat($row,'&amp;#10;')
                <container id="km1s83fn" type="exclusive">
                   <title>in_fileHeader</title>
                   <flow id="km1s83fr">
+                     <wait id="knhd1tyt">
+                        <title>Wait 1</title>
+                        <duration source="formula">
+                           <function name="duration_expression">
+                              <arg name="value">5</arg>
+                              <arg name="scale">M</arg>
+                              <arg name="businessDays"/>
+                           </function>
+                        </duration>
+                        <link id="knhd1tyu" targetId="km1s83g6"/>
+                     </wait>
                      <service id="km1s83g6">
                         <title>Run a Shell Command</title>
                         <serviceName>avShellService</serviceName>
@@ -135,8 +151,8 @@ return concat($row,'&amp;#10;')
             </flow>
          </process>
       </types1:Entry>
-      <types1:GUID>90z4bsc7PJ9kSyV08ufSu4</types1:GUID>
+      <types1:GUID>78DVgLVzuwoizAI7TrlPcw</types1:GUID>
       <types1:DisplayName>SP_Adaptive_iPaaS_CMTCloud</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-03-11T06:55:46.13Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-04-22T05:37:14.788Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
