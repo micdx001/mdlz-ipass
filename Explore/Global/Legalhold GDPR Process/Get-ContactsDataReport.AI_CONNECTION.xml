@@ -1,0 +1,49 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>C4IoLCVGkSSHCwk-gt-6458371-2020-08-06T13:22:11.457Z::conn.xml</types1:EntryId>
+      <types1:Name>Get-ContactsDataReport</types1:Name>
+      <types1:ParentFlowIds>GOUwvwNXHVOJ2oT-gt-19737373-2020-08-06T13:22:14.516Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:22:11Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-06T13:33:54Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-06T13:33:58Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/Get-ContactsDataReport/Get-ContactsDataReport.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="Get-ContactsDataReport"
+                     label="Get-ContactsDataReport"
+                     name="Get-ContactsDataReport">
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <agent>GLOBAL</agent>
+            <attributes>
+               <attribute encrypted="true" name="token" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/Get_ContactsDataReport/Get_ContactsDataReport_svcDef.xml"
+                               guid="kAhbGywFss6baiQjEYkZ4d"
+                               name="Get_ContactsDataReport"
+                               supportsConnectionTest="false"
+                               uuid="63ffd656-68ac-4557-a270-367acd6d5066">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>apQFxreikAuiGTZxckJzGy</types1:GUID>
+      <types1:DisplayName>Get-ContactsDataReport</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:00:53.405Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

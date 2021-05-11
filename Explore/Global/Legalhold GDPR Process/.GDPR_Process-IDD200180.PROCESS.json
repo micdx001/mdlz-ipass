@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "3vv7JNg3t8icdzkdJcD9sc",
+    "name" : "GDPR_Process-IDD200180",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "WztZK0CYybdsMkd-gt-15782806-2020-08-06T13:22:14.777Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "5gUEZan0H2AcAWPOXbuPCq",
+    "name" : "SP_GetContactsData",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "GOUwvwNXHVOJ2oT-gt-19737373-2020-08-06T13:22:14.516Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold GDPR Process"
+  } ]
+}

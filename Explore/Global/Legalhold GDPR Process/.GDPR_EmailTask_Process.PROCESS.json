@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "b57pDz7AGSmfO0fDQVqlqv",
+    "name" : "GDPR_EmailTask_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "AeN7Y3AxtPk7HNC-gt-6458361-2020-08-06T13:22:11.425Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "fC9sKqH4IA2jKUKxC7Uc4m",
+    "name" : "SMTP-GDPRProcess",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "yCnNZPD4ARW8UBM-gt-5195559-2020-08-06T13:22:10.393Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold GDPR Process"
+  } ]
+}

@@ -1,0 +1,445 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>gcm3rp3yD7tyGoQ-gt-19471073-2020-08-06T13:22:12.102Z::pd.xml</types1:EntryId>
+      <types1:Name>SP_LegalHold_Update</types1:Name>
+      <types1:ParentFlowIds>GOUwvwNXHVOJ2oT-gt-19737373-2020-08-06T13:22:14.516Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:22:12Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-21T10:20:17Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP_LegalHold_Update/SP_LegalHold_Update.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP_LegalHold_Update"
+                  name="SP_LegalHold_Update"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="FilePath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="FileExist" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Content" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tAttachment" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_InitialStatus" type="xml">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_JobCompletionETA_UTC" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_wait_time" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_read_status_interval" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">5</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_read_status_attempts" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">3</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_read_status_count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_repeat_read_Status" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                     <option name="initialvalue">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_FinalStatus" type="xml">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ProcessTitle" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jxx0g3aw" targetId="jxx0g3av"/>
+               </start>
+               <assignment id="jxx0g3av">
+                  <title>Assignment to FilePath, FileExist</title>
+                  <operation source="constant" to="temp.FilePath">/Hybrid-Nfs/ipaas/data/Legalhold/GDPRProcess/legalHold_GDPR_TgtFile.csv</operation>
+                  <operation source="formula" to="temp.FileExist">
+                     <expression language="XQuery">fn:unparsed-text-available($temp.FilePath)</expression>
+                  </operation>
+                  <link id="jxx0g3ba" targetId="jxx0g3b9"/>
+               </assignment>
+               <container id="jxx0g3b9" type="exclusive">
+                  <title>FileExist?</title>
+                  <flow id="jxx0g3bj">
+                     <assignment id="jxx0g3bu">
+                        <title>Assignment to Content, tAttachment</title>
+                        <operation source="formula" to="temp.Content">
+                           <expression language="XQuery">fn:unparsed-text($temp.FilePath)</expression>
+                        </operation>
+                        <operation source="formula" to="temp.tAttachment">
+                           <expression language="XQuery">sff:createAttachmentFromBase64('MyFile.txt',util:base64Encode($temp.Content, 'UTF-8'),'text/csv')</expression>
+                        </operation>
+                        <link id="jxyaw2kr" targetId="jxyaw2kq"/>
+                     </assignment>
+                     <service id="jxyaw2kq">
+                        <title>LegalHoldUpdate</title>
+                        <serviceName>LegalHoldUpdate:LegalHoldUpdate</serviceName>
+                        <serviceGUID>3MvUxoEjHxMeC8Yb4IhVmm</serviceGUID>
+                        <serviceInput>
+                           <parameter name="file" source="field" updatable="true">temp.tAttachment</parameter>
+                        </serviceInput>
+                        <link id="jxyaw2lb" targetId="jxyaw2la"/>
+                     </service>
+                     <service id="kcoo70ze">
+                        <title>Run a Shell Command</title>
+                        <serviceName>avShellService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="command" source="constant">mv legalHold_GDPR_TgtFile.csv /Hybrid-Nfs/ipaas/data/Legalhold/GDPRProcess/Archive/legalHold_GDPR_TgtFile_$(date +'%Y%m%d').csv</parameter>
+                           <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/data/Legalhold/GDPRProcess</parameter>
+                        </serviceInput>
+                     </service>
+                     <container id="jxyaw2la" type="exclusive">
+                        <title>queued</title>
+                        <flow id="jxyaw2ll">
+                           <assignment id="jxydn1hn">
+                              <title>Assignment to temp_InitialStatus</title>
+                              <operation source="formula" to="temp.temp_InitialStatus">
+                                 <expression language="XQuery">util:parseXML(util:toXML($output.Inital_Status))</expression>
+                              </operation>
+                              <link id="jxydn1ho" targetId="jxyaw2m3"/>
+                           </assignment>
+                           <subflow id="jxyaw2m3">
+                              <title>GDPR_EmailTask_Process</title>
+                              <subflowGUID>b57pDz7AGSmfO0fDQVqlqv</subflowGUID>
+                              <subflowPath>GDPR_EmailTask_Process</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input>
+                                 <parameter name="Recipient_Address" source="formula" updatable="true">
+                                    <expression language="XQuery">'faizan.a.shaikh@accenture.com'</expression>
+                                 </parameter>
+                                 <parameter name="Email_Subject" source="constant" updatable="true">iPaaS Notification--GDPR  Process</parameter>
+                                 <parameter name="Email_body" source="constant" updatable="true">Hi All,
+
+Please find below status of LegalHold Update for GDPR Process.
+
+success:- {$temp.temp_InitialStatus/success}
+uploaded:- {$temp.temp_InitialStatus/data/uploaded} 
+created:- {$temp.temp_InitialStatus/data/created}
+updated:- {$temp.temp_InitialStatus/data/updated}
+unchanged:- {$temp.temp_InitialStatus/data/unchanged}
+errors:- {$temp.temp_InitialStatus/data/errors}
+skipped:- {$temp.temp_InitialStatus/data/skipped}
+
+Thanks,
+iPaaS Support.</parameter>
+                              </input>
+                              <outputDef/>
+                           </subflow>
+                           <link id="jxyaw2lm" targetId="jxyaw2la" type="containerLink"/>
+                        </flow>
+                        <flow id="jxyaw2ln">
+                           <assignment id="jxyeid0n">
+                              <title>Assignment to temp_JobCompletionETA_UTC, temp_wait_time</title>
+                              <operation source="formula" to="temp.temp_JobCompletionETA_UTC">
+                                 <expression language="XQuery">let $eta := $output.etaUtc 
+let $timestamp_parts := tokenize($eta," ")
+let $date_parts := tokenize($timestamp_parts[1], "/")
+let $day     := if (string-length($date_parts[2])= 2) then $date_parts[2] else concat("0",$date_parts[2])
+let $month   := if (string-length($date_parts[1])= 2) then $date_parts[1] else concat("0",$date_parts[1])
+let $year    := $date_parts[3]
+let $time_parts := tokenize($timestamp_parts[2], ":")
+let $hours   := $time_parts[1] cast as xs:int
+let $minutes := $time_parts[2] cast as xs:int
+let $seconds := $time_parts[3] cast as xs:int
+let $ampm    := $timestamp_parts[3]
+let $hours24 := switch (true())
+      case ( $ampm = 'AM' and $hours = 12) return $hours - 12
+      case ( $ampm = 'PM' and $hours = 12) return $hours
+      case ( $ampm = 'PM') return $hours + 12 
+      default return $hours
+
+      
+let $hours24_f := if (string-length(string($hours24))= 2) then string($hours24) else concat("0",string($hours24))
+let $minutes_f := if (string-length($time_parts[2])= 2) then $time_parts[2] else concat("0",$time_parts[2])
+let $seconds_f := if (string-length($time_parts[3])= 2) then $time_parts[3] else concat("0",$time_parts[3])
+let $new_tmstp := ($year,'-',$month,'-',$day,'T',$hours24_f,':',$minutes_f,':',$seconds_f)
+let $date_string := string-join($new_tmstp)
+return
+adjust-dateTime-to-timezone(xs:dateTime($date_string),xs:dayTimeDuration("PT0H"))</expression>
+                              </operation>
+                              <operation source="formula" to="temp.temp_wait_time">
+                                 <expression language="XQuery">let $upload_time := adjust-dateTime-to-timezone(current-dateTime(), xs:dayTimeDuration("PT0H"))
+
+let $duration := xs:dateTime($temp.temp_JobCompletionETA_UTC ) - $upload_time
+let $days     := days-from-duration($duration) * 24 * 60
+let $hours    := hours-from-duration($duration) * 60 
+let $minutes  := minutes-from-duration($duration)
+(:
+adding 2 minutes to the ETA to avoid negative observed when 
+the Serer times are not synchronized  between MDLZ agent and Zapproved:)
+let $dur_min  := $days + $hours + $minutes + 0
+return
+$dur_min</expression>
+                              </operation>
+                              <link id="jxyeid2u" targetId="jxyeid2t"/>
+                           </assignment>
+                           <assignment id="jxyl5blx">
+                              <title>Assignment to tmp_repeat_read_Status, temp_FinalStatus</title>
+                              <operation source="formula" to="temp.temp_FinalStatus">
+                                 <expression language="XQuery">util:parseXML(util:toXML($output.FinalStatus))</expression>
+                              </operation>
+                              <operation source="formula" to="temp.tmp_repeat_read_Status">
+                                 <expression language="XQuery">let $finalstatus := $temp.temp_FinalStatus 
+return
+xs:int($temp.tmp_read_status_count ) &lt; xs:int($temp.tmp_read_status_attempts ) 
+and $finalstatus/success/text() = 'true'
+and ( $finalstatus/data/status/text() = 'In Progress'
+      or $finalstatus/data/status/text() = ''
+      or empty($finalstatus/data/status/text()))</expression>
+                              </operation>
+                              <link id="jxyl5bo9" targetId="jxyl5bo8"/>
+                           </assignment>
+                           <wait id="jxyeid2t">
+                              <title>Wait 1</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">{$temp.temp_wait_time} </arg>
+                                    <arg name="scale">M</arg>
+                                    <arg name="businessDays"/>
+                                 </function>
+                              </duration>
+                              <link id="jxyl5bge" targetId="jxyl5bgd"/>
+                           </wait>
+                           <service id="jxyl5bgd">
+                              <title>GetStatus</title>
+                              <serviceName>LegalHoldUpdate-Status:GetStatus</serviceName>
+                              <serviceGUID>80IXidOFQVzekTgoBfbrs4</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="URL" source="field" updatable="true">output.statusUrl</parameter>
+                              </serviceInput>
+                              <link id="jxyl5bly" targetId="jxyl5blx"/>
+                           </service>
+                           <container id="jxyl5bo8" type="exclusive">
+                              <title>tmp_repeat_read_Status?</title>
+                              <flow id="jxyl5boq">
+                                 <assignment id="jxyl5bpj">
+                                    <title>Assignment to tmp_read_status_count, temp_wait_time</title>
+                                    <operation source="formula" to="temp.tmp_read_status_count">
+                                       <expression language="XQuery">$temp.tmp_read_status_count + 1</expression>
+                                    </operation>
+                                    <operation source="field" to="temp.temp_wait_time">temp.tmp_read_status_interval</operation>
+                                    <link id="jxyl5bsb" targetId="jxyl5bsa"/>
+                                 </assignment>
+                                 <jumpTo id="jxyl5bsa">
+                                    <link id="jxyl5bsp" targetId="jxyeid2t"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="jxyl5bos">
+                                 <container id="jxyl5bth" type="exclusive">
+                                    <title>status</title>
+                                    <flow id="jxyl5bu0">
+                                       <subflow id="jxyl5bwg">
+                                          <title>GDPR_EmailTask_Process 1</title>
+                                          <subflowGUID>b57pDz7AGSmfO0fDQVqlqv</subflowGUID>
+                                          <subflowPath>GDPR_EmailTask_Process</subflowPath>
+                                          <runForEach>false</runForEach>
+                                          <input>
+                                             <parameter name="Recipient_Address" source="formula" updatable="true">
+                                                <expression language="XQuery">'faizan.a.shaikh@accenture.com'</expression>
+                                             </parameter>
+                                             <parameter name="Email_Subject" source="constant" updatable="true">iPaaS Notification--GDPR  Process</parameter>
+                                             <parameter name="Email_body" source="constant" updatable="true">Hi All,
+
+Please find below status of LegalHold Update for GDPR Process.
+
+status:- {$temp.temp_FinalStatus/data/status}
+success:- {$temp.temp_FinalStatus/success}
+uploaded:- {$temp.temp_FinalStatus/data/uploaded} 
+created:- {$temp.temp_FinalStatus/data/created}
+updated:- {$temp.temp_FinalStatus/data/updated}
+unchanged:- {$temp.temp_FinalStatus/data/unchanged}
+errors:- {$temp.temp_FinalStatus/data/errors}
+skipped:- {$temp.temp_FinalStatus/data/skipped}
+
+Thanks,
+iPaaS Support.</parameter>
+                                          </input>
+                                          <outputDef/>
+                                       </subflow>
+                                       <link id="jxyl5bu1" targetId="jxyl5bth" type="containerLink"/>
+                                    </flow>
+                                    <flow id="jxyl5bu2">
+                                       <subflow id="jxyl5c6c">
+                                          <title>GDPR_EmailTask_Process 1 1</title>
+                                          <subflowGUID>b57pDz7AGSmfO0fDQVqlqv</subflowGUID>
+                                          <subflowPath>GDPR_EmailTask_Process</subflowPath>
+                                          <runForEach>false</runForEach>
+                                          <input>
+                                             <parameter name="Recipient_Address" source="formula" updatable="true">
+                                                <expression language="XQuery">'faizan.a.shaikh@accenture.com'</expression>
+                                             </parameter>
+                                             <parameter name="Email_Subject" source="constant" updatable="true">iPaaS Notification--GDPR  Process</parameter>
+                                             <parameter name="Email_body" source="constant" updatable="true">Hi All,
+
+WARNING: Unable to determine the final status of the import!Please follow up with support@zapproved.com.
+
+Please find below status of LegalHold Update for GDPR Process.
+
+status:- {$temp.temp_FinalStatus/data/status}
+success:- {$temp.temp_FinalStatus/success}
+uploaded:- {$temp.temp_FinalStatus/data/uploaded} 
+created:- {$temp.temp_FinalStatus/data/created}
+updated:- {$temp.temp_FinalStatus/data/updated}
+unchanged:- {$temp.temp_FinalStatus/data/unchanged}
+errors:- {$temp.temp_FinalStatus/data/errors}
+skipped:- {$temp.temp_FinalStatus/data/skipped}
+
+Thanks,
+iPaaS Support.</parameter>
+                                          </input>
+                                          <outputDef/>
+                                       </subflow>
+                                       <link id="jxyl5bu3" targetId="jxyl5bth" type="containerLink"/>
+                                    </flow>
+                                    <link id="jxyl5btt" targetId="jxyl5bu0" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$output.status}</arg>
+                                             <arg name="right">Complete</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="jxyl5btw" targetId="jxyl5bu2" type="containerLink"/>
+                                 </container>
+                                 <link id="jxyl5bot" targetId="jxyl5bo8" type="containerLink"/>
+                              </flow>
+                              <link id="jxyl5boj" targetId="jxyl5boq" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="true">
+                                       <arg name="field">{$temp.tmp_repeat_read_Status}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="jxyl5bom" targetId="jxyl5bos" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="false">
+                                       <arg name="field">{$temp.tmp_repeat_read_Status}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                           </container>
+                           <link id="jxyaw2lo" targetId="jxyaw2la" type="containerLink"/>
+                        </flow>
+                        <link id="jxyaw2le" targetId="jxyaw2ll" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$output.queued}</arg>
+                                 <arg name="right"/>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="kcoo70zf" targetId="kcoo70ze"/>
+                        <link id="jxyaw2lh" targetId="jxyaw2ln" type="containerLink"/>
+                     </container>
+                     <link id="jxx0g3bk" targetId="jxx0g3b9" type="containerLink"/>
+                  </flow>
+                  <flow id="jxx0g3bl">
+                     <assignment id="jxx0g3c7">
+                        <title>Assignment to temp_ProcessTitle</title>
+                        <operation source="formula" to="temp.temp_ProcessTitle">
+                           <expression language="XQuery">let $title:="SP_LegalHold_Update--ERROR: File does not exist"
+return ipd:setProcessTitle($title)</expression>
+                        </operation>
+                        <link id="kconq9my" targetId="kconq9mx"/>
+                     </assignment>
+                     <throw id="kconq9mx">
+                        <title>Throw 1</title>
+                        <throwInput>
+                           <parameter name="code" source="constant" updatable="true">404</parameter>
+                           <parameter name="detail" source="constant" updatable="true">File not found. Check the log for more details.</parameter>
+                           <parameter name="reason" source="constant" updatable="true"/>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="jxx0g3bc" targetId="jxx0g3bj" type="containerLink">
+                     <condition source="formula">
+                        <function name="true">
+                           <arg name="field">{$temp.FileExist}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jxx0g3bf" targetId="jxx0g3bl" type="containerLink">
+                     <condition source="formula">
+                        <function name="false">
+                           <arg name="field">{$temp.FileExist}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jxx0g3bb" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>0jsipXphU37kaMz3wqEsyP</types1:GUID>
+      <types1:DisplayName>SP_LegalHold_Update</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:00:53.842Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

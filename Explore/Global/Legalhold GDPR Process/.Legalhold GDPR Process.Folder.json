@@ -1,8 +1,8 @@
 {
   "objectInfo" : {
-    "id" : "96xjK68ZdtJdY9Zoyr1Aeo",
-    "name" : "Global",
-    "type" : "Project",
+    "id" : "4SSh1h0KCctioJomDL6JuV",
+    "name" : "Legalhold GDPR Process",
+    "type" : "Folder",
     "metadata" : {
       "modelVersion" : {
         "major" : 0,
@@ -11,7 +11,7 @@
       "repoInfo" : null,
       "contextAttributes" : [ ],
       "additionalInfo" : {
-        "description" : "Region specific folder for assets running on Azure.",
+        "description" : "IDD200180",
         "contentType" : "Binary",
         "documentState" : "COMPLETE"
       }

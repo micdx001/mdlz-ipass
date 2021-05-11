@@ -1,0 +1,127 @@
+{
+  "objectInfo" : {
+    "id" : "5gUEZan0H2AcAWPOXbuPCq",
+    "name" : "SP_GetContactsData",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "GOUwvwNXHVOJ2oT-gt-19737373-2020-08-06T13:22:14.516Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "b57pDz7AGSmfO0fDQVqlqv",
+    "name" : "GDPR_EmailTask_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "AeN7Y3AxtPk7HNC-gt-6458361-2020-08-06T13:22:11.425Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold GDPR Process"
+  }, {
+    "id" : "5AtExqHphz9emnGT6HHMaS",
+    "name" : "MCT_LegalHold_GDPR",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0Z00000000000O"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "MCT to get all the delete me records",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold GDPR Process"
+  }, {
+    "id" : "apQFxreikAuiGTZxckJzGy",
+    "name" : "Get-ContactsDataReport",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "C4IoLCVGkSSHCwk-gt-6458371-2020-08-06T13:22:11.457Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold GDPR Process"
+  }, {
+    "id" : "9JHv1iIi4e6kTZFq3pu5Ek",
+    "name" : "FileWrite-ContactsDataReport",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "AKmabeAzu2JQhtG-gt-5195567-2020-08-06T13:22:10.431Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold GDPR Process"
+  }, {
+    "id" : "0jsipXphU37kaMz3wqEsyP",
+    "name" : "SP_LegalHold_Update",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "gcm3rp3yD7tyGoQ-gt-19471073-2020-08-06T13:22:12.102Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold GDPR Process"
+  } ]
+}

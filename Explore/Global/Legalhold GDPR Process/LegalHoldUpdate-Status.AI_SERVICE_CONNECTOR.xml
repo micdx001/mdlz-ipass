@@ -1,0 +1,71 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>wVMZlNaaabdvhxi-gt-5195549-2020-08-06T13:22:10.357Z::svc.xml</types1:EntryId>
+      <types1:Name>LegalHoldUpdate-Status</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:22:10Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-06T13:36:28Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/LegalHoldUpdate_Status/LegalHoldUpdate_Status_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="LegalHoldUpdate-Status"
+                            label=""
+                            name="LegalHoldUpdate-Status"
+                            uuid="ffbf3671-2fa2-48e7-8b79-b926f1f94ec9">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetStatus"
+                       maxRedirects="100"
+                       name="GetStatus"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="URL"
+                                required="false"
+                                testWith="https://sandbox.legalholdpro.com/Services/Contact/GetImportStatusDetailed/a4506b1c-d3b0-4497-a5c2-31921e7472ad?token=cTgRXKxsFpGDWg2y"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated" url="{$URL}" verb="GET"/>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="FinalStatus"
+                            type="objectlist"
+                            xmlElement=".">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </field>
+                     <field description="" name="status" property="status" type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>9G9rWXTNryLlm7EDc7PB4G</types1:GUID>
+      <types1:DisplayName>LegalHoldUpdate-Status</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:00:53.163Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

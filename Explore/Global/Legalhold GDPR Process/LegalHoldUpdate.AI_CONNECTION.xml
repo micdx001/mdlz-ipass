@@ -1,0 +1,50 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>EZHck5qbbfUryzf-gt-6458381-2020-08-06T13:22:11.488Z::conn.xml</types1:EntryId>
+      <types1:Name>LegalHoldUpdate</types1:Name>
+      <types1:ParentFlowIds>gcm3rp3yD7tyGoQ-gt-19471073-2020-08-06T13:22:12.102Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:22:11Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-06T13:35:46Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-06T13:35:52Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/LegalHoldUpdate/LegalHoldUpdate.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="LegalHoldUpdate"
+                     label="LegalHoldUpdate"
+                     name="LegalHoldUpdate">
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <agent>GLOBAL</agent>
+            <attributes>
+               <attribute encrypted="false" name="host" value="sandbox.legalholdpro.com"/>
+               <attribute encrypted="true" name="token" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/LegalHoldUpdate/LegalHoldUpdate_svcDef.xml"
+                               guid="6FBt5BxmyDqjUQes9oGzcv"
+                               name="LegalHoldUpdate"
+                               supportsConnectionTest="false"
+                               uuid="779d68c2-547b-474d-b412-1641a57d822b">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>3MvUxoEjHxMeC8Yb4IhVmm</types1:GUID>
+      <types1:DisplayName>LegalHoldUpdate</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:00:53.418Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

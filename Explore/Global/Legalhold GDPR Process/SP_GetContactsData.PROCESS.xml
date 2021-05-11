@@ -1,0 +1,232 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>GOUwvwNXHVOJ2oT-gt-19737373-2020-08-06T13:22:14.516Z::pd.xml</types1:EntryId>
+      <types1:Name>SP_GetContactsData</types1:Name>
+      <types1:ParentFlowIds>WztZK0CYybdsMkd-gt-15782806-2020-08-06T13:22:14.777Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:22:15Z</types1:CreationDate>
+      <types1:ModifiedBy>baishali.sikdar@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-21T10:19:52Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-21T10:20:17Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP_GetContactsData/SP_GetContactsData.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP_GetContactsData"
+                  name="SP_GetContactsData"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="temp_FileWrite" type="reference">
+                  <options>
+                     <option name="referenceTo">FileWrite-ContactsDataReport:FileWriteTask</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">9JHv1iIi4e6kTZFq3pu5Ek</option>
+                  </options>
+               </field>
+               <field description="" name="RunUpdateJob" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jt8aoy5c" targetId="jt8aoy5b"/>
+               </start>
+               <service id="jt8aoy5b">
+                  <title>GetContactsData</title>
+                  <serviceName>Get-ContactsDataReport:Get_ContactsData</serviceName>
+                  <serviceGUID>apQFxreikAuiGTZxckJzGy</serviceGUID>
+                  <serviceInput/>
+                  <link id="jye07l5r" targetId="jye07l5q"/>
+               </service>
+               <container id="jye07l5q" type="exclusive">
+                  <title>StatusCode</title>
+                  <flow id="jye07l67">
+                     <assignment id="jye07lak">
+                        <title>Assignment to Content Format, File name</title>
+                        <operation source="constant" to="temp.temp_FileWrite[1]/format">Attachment</operation>
+                        <operation source="constant" to="temp.temp_FileWrite[1]/fileName">ContactsData.csv</operation>
+                        <link id="jye07lc2" targetId="jye07lc1"/>
+                     </assignment>
+                     <assignment id="jye07ldk">
+                        <title>Assignment to RunUpdateJob</title>
+                        <operation source="formula" to="temp.RunUpdateJob">
+                           <expression language="XQuery">if(
+($output.FailedTargetRows   =  0  or 
+$output.TaskStatus  = '1') and
+$output.SuccessTargetRows   &gt;  0 and
+$output.SuccessTargetRows   &lt;= 5 )
+then 'Run job' 
+else if (
+$output.SuccessTargetRows   &gt;  5
+)
+then 'Send Email'
+else 'Dont run' </expression>
+                        </operation>
+                        <link id="jye07lec" targetId="jye07le0"/>
+                     </assignment>
+                     <service id="jye07lc1">
+                        <title>FileWriter-GDPR</title>
+                        <serviceName>FileWrite-ContactsDataReport:FileWriter-ContactsDataReport</serviceName>
+                        <serviceGUID>9JHv1iIi4e6kTZFq3pu5Ek</serviceGUID>
+                        <serviceInput>
+                           <parameter name="fileWriteTask" source="field" updatable="true">temp.temp_FileWrite</parameter>
+                           <parameter name="attachment" source="field" updatable="true">output.Contacts Data</parameter>
+                        </serviceInput>
+                        <link id="jye07lcl" targetId="jye07lck"/>
+                     </service>
+                     <service id="jye07lcz">
+                        <title>Run Cloud Task</title>
+                        <serviceName>ICSExecuteTask</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Task Name" source="constant">MCT_LegalHold_GDPR [MCT]</parameter>
+                           <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                           <parameter name="Fail on Cloud Task Errors" source="constant">true</parameter>
+                           <parameter name="GUID" source="constant">5AtExqHphz9emnGT6HHMaS</parameter>
+                        </serviceInput>
+                        <link id="jye07ldl" targetId="jye07ldk"/>
+                     </service>
+                     <wait id="jye07lck">
+                        <title>Wait 1</title>
+                        <duration source="formula">
+                           <function name="duration_expression">
+                              <arg name="value">10</arg>
+                              <arg name="scale">S</arg>
+                              <arg name="businessDays"/>
+                           </function>
+                        </duration>
+                        <link id="jye07ld0" targetId="jye07lcz"/>
+                     </wait>
+                     <container id="jye07le0" type="exclusive">
+                        <title>RunUpdateJob</title>
+                        <flow id="jye07le1">
+                           <subflow id="kcoofhdp">
+                              <title>SP_LegalHold_Update</title>
+                              <subflowGUID>0jsipXphU37kaMz3wqEsyP</subflowGUID>
+                              <subflowPath>SP_LegalHold_Update</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input/>
+                              <outputDef/>
+                           </subflow>
+                           <link id="jye07le9" targetId="jye07le0" type="containerLink"/>
+                        </flow>
+                        <flow id="jye07le2">
+                           <subflow id="jye07le3">
+                              <title>GDPR_EmailTask_Process</title>
+                              <subflowGUID>b57pDz7AGSmfO0fDQVqlqv</subflowGUID>
+                              <subflowPath>GDPR_EmailTask_Process</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input>
+                                 <parameter name="Recipient_Address" source="constant" updatable="true">faizan.a.shaikh@accenture.com,baishali.sikdar@accenture.com</parameter>
+                                 <parameter name="Email_Subject" source="constant" updatable="true">Warning: GDPR Process-Record count exceeded max limit</parameter>
+                                 <parameter name="Email_body" source="constant" updatable="true">Hi Team,
+
+Records count:{$output.SuccessTargetRows} is more than 500 hence skipping further processing.
+Please validate the count and re-run the task after 2 days.
+
+Thanks,
+iPaaS Support</parameter>
+                              </input>
+                              <outputDef/>
+                              <link id="jye07lea" targetId="jye07le4"/>
+                           </subflow>
+                           <end id="jye07le4">
+                              <title>End 2</title>
+                           </end>
+                        </flow>
+                        <flow id="jye07le5">
+                           <link id="jye07leb" targetId="jye07le0" type="containerLink"/>
+                        </flow>
+                        <link id="jye07le6" targetId="jye07le1" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$temp.RunUpdateJob}</arg>
+                                 <arg name="right">Run job</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jye07le7" targetId="jye07le2" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$temp.RunUpdateJob}</arg>
+                                 <arg name="right">Send Email</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jye07le8" targetId="jye07le5" type="containerLink"/>
+                        <link id="jye07lfe" targetId="jye07lfd"/>
+                     </container>
+                     <end id="jye07lfd">
+                        <title>End 1</title>
+                     </end>
+                  </flow>
+                  <flow id="jye07l69">
+                     <subflow id="jye07l88">
+                        <title>GDPR_EmailTask_Process 1</title>
+                        <subflowGUID>b57pDz7AGSmfO0fDQVqlqv</subflowGUID>
+                        <subflowPath>GDPR_EmailTask_Process</subflowPath>
+                        <runForEach>false</runForEach>
+                        <input>
+                           <parameter name="Recipient_Address" source="constant" updatable="true">faizan.a.shaikh@accenture.com</parameter>
+                           <parameter name="Email_Subject" source="constant" updatable="true">GDPR Process-Failed to Get ContactsData report</parameter>
+                           <parameter name="Email_body" source="constant" updatable="true">Hi Team,
+
+iPaaS process failed while downloading Contacts data report.
+Status Code-{$output.StatusCode} 
+
+Thanks,
+iPaaS Support</parameter>
+                        </input>
+                        <outputDef/>
+                        <link id="kcomz2b6" targetId="kcomz2b5"/>
+                     </subflow>
+                     <throw id="kcomz2b5">
+                        <title>Throw 1</title>
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.StatusCode</parameter>
+                           <parameter name="detail" source="constant" updatable="true">Failed to download contact data file from legalhold. Please check the logs for more details.</parameter>
+                           <parameter name="reason" source="constant" updatable="true"/>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="jye07l60" targetId="jye07l67" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left">{$output.StatusCode}</arg>
+                           <arg name="right">200</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jye07l63" targetId="jye07l69" type="containerLink"/>
+               </container>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>5gUEZan0H2AcAWPOXbuPCq</types1:GUID>
+      <types1:DisplayName>SP_GetContactsData</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:00:54.032Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

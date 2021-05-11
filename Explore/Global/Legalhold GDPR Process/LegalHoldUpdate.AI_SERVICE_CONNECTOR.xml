@@ -1,0 +1,96 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Fn2H0Fdw8jIw8jI-gt-5195583-2020-08-06T13:22:10.502Z::svc.xml</types1:EntryId>
+      <types1:Name>LegalHoldUpdate</types1:Name>
+      <types1:ParentFlowIds>EZHck5qbbfUryzf-gt-6458381-2020-08-06T13:22:11.488Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:22:11Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-06T13:35:03Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-06T13:35:13Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/LegalHoldUpdate/LegalHoldUpdate_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="LegalHoldUpdate"
+                            label=""
+                            name="LegalHoldUpdate"
+                            uuid="779d68c2-547b-474d-b412-1641a57d822b">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    masked="false"
+                                    name="host"
+                                    required="true"
+                                    testWith="sandbox.legalholdpro.com"
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    masked="true"
+                                    name="token"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="LegalHoldUpdate"
+                       maxRedirects="100"
+                       name="LegalHoldUpdate"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="file" required="false" testWith="" type="attachment"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$host}/Services/Contact/Import2?token={$token}"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">text/plain</header>
+                           <header name="Accept">application/json;odata=verbose</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="Inital_Status"
+                            type="objectlist"
+                            xmlElement=".">
+                        <options>
+                           <option name="referenceTo">$any</option>
+                        </options>
+                     </field>
+                     <field description="" name="queued" property="queued" type="string"/>
+                     <field description="" name="etaUtc" property="etaUtc" type="string"/>
+                     <field description=""
+                            name="statusUrl"
+                            property="statusUrl"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>6FBt5BxmyDqjUQes9oGzcv</types1:GUID>
+      <types1:DisplayName>LegalHoldUpdate</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:00:53.113Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

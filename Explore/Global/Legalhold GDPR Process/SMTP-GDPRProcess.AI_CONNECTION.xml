@@ -1,0 +1,62 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>yCnNZPD4ARW8UBM-gt-5195559-2020-08-06T13:22:10.393Z::conn.xml</types1:EntryId>
+      <types1:Name>SMTP-GDPRProcess</types1:Name>
+      <types1:ParentFlowIds>AeN7Y3AxtPk7HNC-gt-6458361-2020-08-06T13:22:11.425Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>SMTP Server Connection Locally</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL,SMTP</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:22:10Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-06T13:27:48Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-06T13:27:59Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/SMTP-GDPRProcess/SMTP-GDPRProcess.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="SMTP-GDPRProcess"
+                     label="SMTP-GDPRProcess"
+                     name="SMTP-GDPRProcess">
+            <description>SMTP Server Connection Locally</description>
+            <tags>SMTP,.agent:GLOBAL</tags>
+            <agent>GLOBAL</agent>
+            <attributes>
+               <attribute encrypted="false" name="Authentication" value="Enable"/>
+               <attribute encrypted="false" name="hostName" value="smtp.kraft.com"/>
+               <attribute encrypted="false" name="port" value="25"/>
+               <attribute encrypted="false" name="username" value="ipaas"/>
+               <attribute encrypted="true" name="password" value=""/>
+               <attribute encrypted="false" name="security" value="None"/>
+               <attribute encrypted="false" name="connectionTimeout" value="30000"/>
+               <attribute encrypted="false"
+                          name="testToAddress"
+                          value="faizan.a.shaikh@accenture.com"/>
+               <attribute encrypted="false"
+                          name="fromAddress"
+                          value="DL_IPaaSRegAlerts@mdlz.com"/>
+            </attributes>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="false"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           type="Email"
+                           uuid="9a8a03d0-0437-46c4-bedf-70acb4173c1f">
+               <description>Provides connections to email host servers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>fC9sKqH4IA2jKUKxC7Uc4m</types1:GUID>
+      <types1:DisplayName>SMTP-GDPRProcess</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:00:53.097Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
