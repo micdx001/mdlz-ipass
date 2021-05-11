@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "3UKw2L5xwSKgDi4TYoqyGo",
+    "name" : "WorldWideExtract",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD520019 - PIM to Cransoft",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}
