@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "ihgU4Pv8tCFkCVvLvKVHGE",
+    "name" : "SMTP-Zapproved-IDD510004",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "cmnBtBghuImXyco-gt-5141007-2020-08-06T10:53:23.04Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

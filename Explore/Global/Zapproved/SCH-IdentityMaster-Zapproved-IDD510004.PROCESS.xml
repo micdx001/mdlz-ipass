@@ -1,0 +1,110 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>SNtycotFgpKi9zh-gt-15562014-2020-08-06T10:53:27.725Z::pd.xml</types1:EntryId>
+      <types1:Name>SCH-IdentityMaster-Zapproved-IDD510004</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Scheduler Process to start  Contact feed 
+ synchronization from Identity Master to  Zapproved Legal Hold Service</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>MDLZ Identity Master DB,Scheduler,Zapproved</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T10:53:28Z</types1:CreationDate>
+      <types1:ModifiedBy>baishali.sikdar@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-24T10:35:16Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-24T10:35:29Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SCH-IdentityMaster-Zapproved-IDD510004/SCH-IdentityMaster-Zapproved-IDD510004.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SCH-IdentityMaster-Zapproved-IDD510004"
+                  name="SCH-IdentityMaster-Zapproved-IDD510004"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Scheduler Process to start  Contact feed 
+ synchronization from Identity Master to  Zapproved Legal Hold Service</description>
+            <tags>MDLZ Identity Master DB,Scheduler,Zapproved</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="tmp_process_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_script_out" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="none">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="link1" targetId="c"/>
+               </start>
+               <subflow id="c">
+                  <title>MP-IM-Zapproved-ContactFeed-job-IDD510004</title>
+                  <subflowGUID>8x8u0pJCviRjV6uc6dD72u</subflowGUID>
+                  <subflowPath>MP-IM-Zapproved-ContactFeed-job-IDD510004</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="in_wait_to_complete" source="constant" updatable="true">true</parameter>
+                     <parameter name="in_full_load" source="constant" updatable="true">false</parameter>
+                     <parameter name="in_delete_files_after_load"
+                                source="constant"
+                                updatable="true">false</parameter>
+                     <parameter name="in_altLookupColumn" source="constant" updatable="true">GlobalID</parameter>
+                     <parameter name="in_retry_import" source="constant" updatable="true">true</parameter>
+                  </input>
+                  <outputDef>
+                     <field name="out_context" type="reference">
+                        <options>
+                           <option name="referenceTo">$po:ProcessExecutionContext</option>
+                           <option name="required">false</option>
+                           <option name="isCopy">true</option>
+                           <option name="guid">gQG3Zzk2RGAiZkvcn7oyCZ</option>
+                        </options>
+                     </field>
+                     <field name="out_environment" type="string">
+                        <options>
+                           <option name="required">false</option>
+                        </options>
+                     </field>
+                  </outputDef>
+                  <link id="jak5s2k1" targetId="jak5s2k0"/>
+               </subflow>
+               <assignment id="jak5s2k0">
+                  <title>Assignment to tmp_process_title</title>
+                  <operation source="formula" to="temp.tmp_process_title">
+                     <expression language="XQuery">let $p_name := "SCH-IdentityMaster-Zapproved-IDD510004"
+
+let $pid_label := concat("pid:",$output.out_context[1]/mainProcessId)
+let $job_label := concat("job:",$output.out_context[1]/jobId)
+let $env_label := concat("environment:",$output.out_environment)
+
+let $parts := ($p_name,$pid_label, $job_label, $env_label)
+return string-join($parts," ")</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_script_out">
+                     <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                  </operation>
+                  <link id="jak5s2k2" targetId="d"/>
+               </assignment>
+               <end id="d"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>g5q1Ptrdt8EgfZsZosXwM4</types1:GUID>
+      <types1:DisplayName>SCH-IdentityMaster-Zapproved-IDD510004</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T10:52:05.568Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

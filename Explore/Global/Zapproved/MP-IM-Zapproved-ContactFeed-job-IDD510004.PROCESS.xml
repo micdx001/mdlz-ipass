@@ -1,0 +1,251 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>EVMTonQYWeIssjq-gt-19468208-2020-08-06T10:53:27.487Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-IM-Zapproved-ContactFeed-job-IDD510004</types1:Name>
+      <types1:ParentFlowIds>SNtycotFgpKi9zh-gt-15562014-2020-08-06T10:53:27.725Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Main Job Process  handling Execution of Identity Master Contact Feed to Zapproved Integration</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL,Identity Master DB,Job,Zapproved</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T10:53:27Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-24T10:35:29Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MP-IM-Zapproved-ContactFeed-job-IDD510004/MP-IM-Zapproved-ContactFeed-job-IDD510004.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-IM-Zapproved-ContactFeed-job-IDD510004"
+                  name="MP-IM-Zapproved-ContactFeed-job-IDD510004"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Main Job Process  handling Execution of Identity Master Contact Feed to Zapproved Integration</description>
+            <tags>Identity Master DB,Job,Zapproved,.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_context" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:ProcessExecutionContext</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">gQG3Zzk2RGAiZkvcn7oyCZ</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_wait_to_complete" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_full_load" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_delete_files_after_load" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_altLookupColumn" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_retry_import" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="out_context" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:ProcessExecutionContext</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">gQG3Zzk2RGAiZkvcn7oyCZ</option>
+                  </options>
+               </field>
+               <field description="" name="out_environment" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="tmp_process_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_script_out" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <eventDefinitions>
+               <messageDefinition name="getJobStatus">
+                  <input>
+                     <parameter correlationPath="."
+                                description=""
+                                name="job_id"
+                                required="true"
+                                type="int"/>
+                  </input>
+                  <output>
+                     <field description="" name="status" type="string"/>
+                  </output>
+                  <deployment>
+                     <rest/>
+                  </deployment>
+               </messageDefinition>
+            </eventDefinitions>
+            <flow id="a">
+               <start id="b">
+                  <link id="link1" targetId="c"/>
+               </start>
+               <assignment id="c">
+                  <title>Initialize</title>
+                  <operation source="formula" to="output.out_context">
+                     <expression language="XQuery">let $pid := util:getProcessId()
+return if (empty($input.in_context)) then
+  &lt;ProcessExecutionContext&gt;
+     &lt;parentProcessId&gt;{$pid}&lt;/parentProcessId&gt;
+     &lt;mainProcessId&gt;{$pid}&lt;/mainProcessId&gt;
+     &lt;jobId&gt;{util:generateUUID()}&lt;/jobId&gt;
+  &lt;/ProcessExecutionContext&gt;
+else 
+  &lt;ProcessExecutionContext&gt;
+     &lt;parentProcessId&gt;{$pid}&lt;/parentProcessId&gt;
+     &lt;mainProcessId&gt;{$input.in_context[1]/mainProcessId}&lt;/mainProcessId&gt;
+     &lt;jobId&gt;{$input.in_context[1]/jobId}&lt;/jobId&gt;
+  &lt;/ProcessExecutionContext&gt;</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_process_title">
+                     <expression language="XQuery">let $p_name := "MP-IM-Zapproved-ContactFeed-job-IDD510004"
+let $pid_label := if (empty($output.out_context[1]/parentProcessId)) then ()
+	else concat("pid:",$output.out_context[1]/parentProcessId)
+let $job_label := if (empty($output.out_context[1]/jobId)) then () 
+	else concat("job:",$output.out_context[1]/jobId)
+
+
+let $parts := ($p_name,$pid_label,$job_label)
+return string-join($parts," ")</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_script_out">
+                     <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                  </operation>
+                  <operation source="formula" to="output.out_environment">
+                     <expression language="XQuery">util:resolveURN("urn:environment:name")</expression>
+                  </operation>
+                  <link id="k9l1g78n" targetId="j9fuax9n"/>
+               </assignment>
+               <container id="j9fuax9n" type="exclusive">
+                  <title>Wait for Job to Complete?</title>
+                  <flow id="j9fuax9o">
+                     <link id="j9fuax9t" targetId="j9fuax9n" type="containerLink"/>
+                  </flow>
+                  <flow id="j9fuax9p">
+                     <milestone id="j9fuax9q"/>
+                     <link id="j9fuax9u" targetId="j9fuax9n" type="containerLink"/>
+                  </flow>
+                  <link id="j9fuax9r" targetId="j9fuax9o" type="containerLink">
+                     <condition source="formula">
+                        <function name="true">
+                           <arg name="field">{$input.in_wait_to_complete}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="j9fuax9s" targetId="j9fuax9p" type="containerLink">
+                     <condition source="formula">
+                        <function name="false">
+                           <arg name="field">{$input.in_wait_to_complete}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="j9fuaxa1" targetId="j84qss48"/>
+               </container>
+               <eventContainer id="j84qss48">
+                  <subflow id="j84qss2l">
+                     <title>SP-IM-Zapproved-ContactFeed-ETL-IDD510004</title>
+                     <subflowGUID>7Z7ajSaCrQjjqtekNuhQkW</subflowGUID>
+                     <subflowPath>SP-IM-Zapproved-ContactFeed-ETL-IDD510004</subflowPath>
+                     <runForEach>false</runForEach>
+                     <input>
+                        <parameter name="in_context" source="field" updatable="true">output.out_context</parameter>
+                        <parameter name="in_full_load" source="field" updatable="true">input.in_full_load</parameter>
+                        <parameter name="in_delete_files_after_load" source="field" updatable="true">input.in_delete_files_after_load</parameter>
+                        <parameter name="in_altLookupColumn" source="field" updatable="true">input.in_altLookupColumn</parameter>
+                        <parameter name="in_retry_import" source="field" updatable="true">input.in_retry_import</parameter>
+                     </input>
+                     <outputDef>
+                        <field name="out_RunCloudTaskResponse" type="objectlist">
+                           <options>
+                              <option name="referenceTo">$po:ICSRunCloudTaskResponse</option>
+                              <option hide="true" name="multiSelect">true</option>
+                              <option name="required">false</option>
+                              <option name="isCopy">true</option>
+                              <option name="guid">3bo4MafAj8gliyBaK2UeSd</option>
+                           </options>
+                        </field>
+                     </outputDef>
+                  </subflow>
+                  <flow id="j84qss4b">
+                     <end id="jd3br28m"/>
+                  </flow>
+                  <flow id="j84qss4f">
+                     <assignment id="j84qss4e">
+                        <title>Update Process Title</title>
+                        <operation source="formula" to="temp.tmp_script_out">
+                           <expression language="XQuery">let $code := $output.faultInfo[1]/code
+let $error := $output.faultInfo[1]/reason
+let $parts := ($temp.tmp_process_title,  "FAULTED:",$code, $error)
+let $process_title := substring(string-join($parts, " "),1,255)
+return ipd:setProcessTitle($process_title)</expression>
+                        </operation>
+                        <link id="k9mgole0" targetId="jd3br29f"/>
+                     </assignment>
+                     <throw id="jd3br29f">
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                           <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                           <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="j84qss49" targetId="j84qss4b" type="containerLink"/>
+                  <events>
+                     <catch faultField="faultInfo" id="j84qss3z" interrupting="true">
+                        <link id="j84qss4d" targetId="j84qss4f" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>8x8u0pJCviRjV6uc6dD72u</types1:GUID>
+      <types1:DisplayName>MP-IM-Zapproved-ContactFeed-job-IDD510004</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T10:52:05.422Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

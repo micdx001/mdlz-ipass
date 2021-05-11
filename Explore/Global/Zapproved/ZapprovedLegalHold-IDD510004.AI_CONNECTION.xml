@@ -1,0 +1,52 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>QJRvDINciZBpDUQ-gt-6260459-2020-08-06T10:53:23.682Z::conn.xml</types1:EntryId>
+      <types1:Name>ZapprovedLegalHold-IDD510004</types1:Name>
+      <types1:ParentFlowIds>jwQtzbdtqSLlBWl-gt-19264350-2020-08-06T10:53:25.153Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T10:53:24Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-06T10:59:22Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-24T07:32:15Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/ZapprovedLegalHold-IDD510004/ZapprovedLegalHold-IDD510004.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="ZapprovedLegalHold-IDD510004"
+                     label="ZapprovedLegalHold-IDD510004"
+                     name="ZapprovedLegalHold-IDD510004">
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <agent>GLOBAL</agent>
+            <attributes>
+               <attribute encrypted="false"
+                          name="base_url"
+                          value="https://sandbox.legalholdpro.com"/>
+               <attribute encrypted="true" name="api_token" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/ZapprovedLegalHold_IDD510004/ZapprovedLegalHold_IDD510004_svcDef.xml"
+                               guid="gyZbKZ3j5cUkgYGEH9nh2M"
+                               name="ZapprovedLegalHold-IDD510004"
+                               supportsConnectionTest="false"
+                               uuid="02bba21e-153c-4a6d-8bfa-0fe9aac5240e">
+               <description>Zapproved Legal Hold Service API</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>fzV9Qmdu64GioCbzBvrAEZ</types1:GUID>
+      <types1:DisplayName>ZapprovedLegalHold-IDD510004</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T10:52:05.216Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,900 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>jwQtzbdtqSLlBWl-gt-19264350-2020-08-06T10:53:25.153Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-IM-Zapproved-ContactFeed-ETL-IDD510004</types1:Name>
+      <types1:ParentFlowIds>EVMTonQYWeIssjq-gt-19468208-2020-08-06T10:53:27.487Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Main Job to Run Enablon to MII Data Integration Steps</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL,ETL,Identity Master DB,SQLServer,Zapproved</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T10:53:25Z</types1:CreationDate>
+      <types1:ModifiedBy>baishali.sikdar@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-25T05:55:43Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-25T05:56:17Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-IM-Zapproved-ContactFeed-ETL-IDD510004/SP-IM-Zapproved-ContactFeed-ETL-IDD510004.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-IM-Zapproved-ContactFeed-ETL-IDD510004"
+                  name="SP-IM-Zapproved-ContactFeed-ETL-IDD510004"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Main Job to Run Enablon to MII Data Integration Steps</description>
+            <tags>ETL,Identity Master DB,SQLServer,Zapproved,.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_context" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:ProcessExecutionContext</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">gQG3Zzk2RGAiZkvcn7oyCZ</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_full_load" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_delete_files_after_load" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_altLookupColumn" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_retry_import" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="out_RunCloudTaskResponse" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:ICSRunCloudTaskResponse</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">3bo4MafAj8gliyBaK2UeSd</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="tmp_process_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_script_out" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_context" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:ProcessExecutionContext</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">gQG3Zzk2RGAiZkvcn7oyCZ</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_ics_task_flow_name" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_legalholdpro_stagedir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_uploadResponse" type="reference">
+                  <options>
+                     <option name="referenceTo">ZapprovedLegalHold-IDD510004:uploadResponse</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">fzV9Qmdu64GioCbzBvrAEZ</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_jobCompletionEtaUTC" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_wait_time_read_report" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_read_import_interval" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">5</option>
+                     <option name="hover_text">Time in Minutes</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_read_import_attempts" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">3</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_read_import_count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_repeat_read_report" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                     <option hide="true" name="initialvalue">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_legalholdpro_import_file" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option hide="true" name="initialvalue">vwIdentityMasterRO.csv</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_export_file_available" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_job_start" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_org_id" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_agent_id" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_process_url" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_attachment" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Content" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="j84pnuy0" targetId="j84ih0fn"/>
+               </start>
+               <assignment id="j84ih0fn">
+                  <title>Initialize</title>
+                  <operation source="formula" to="temp.tmp_process_title">
+                     <expression language="XQuery">let $title := "SP-IM-Zapproved-ContactFeed-ETL-IDD510004"
+let $pid_label := if (empty($input.in_context[1]/parentProcessId)) then ()
+	else concat("pid:",$input.in_context[1]/parentProcessId)
+let $job_label := if (empty($input.in_context[1]/jobId)) then () 
+	else concat("job:",$input.in_context[1]/jobId)
+let $parts := ($title, $pid_label,  $job_label)
+return string-join($parts," ")</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_context">
+                     <expression language="XQuery">let $pid := util:getProcessId()
+return if (empty($input.in_context)) then
+  &lt;ProcessExecutionContext&gt;
+     &lt;parentProcessId&gt;{$pid}&lt;/parentProcessId&gt;
+     &lt;mainProcessId&gt;{$pid}&lt;/mainProcessId&gt;
+     &lt;jobId&gt;{util:generateUUID()}&lt;/jobId&gt;
+  &lt;/ProcessExecutionContext&gt;
+else 
+  &lt;ProcessExecutionContext&gt;
+     &lt;parentProcessId&gt;{$pid}&lt;/parentProcessId&gt;
+     &lt;mainProcessId&gt;{$input.in_context[1]/mainProcessId}&lt;/mainProcessId&gt;
+     &lt;jobId&gt;{$input.in_context[1]/jobId}&lt;/jobId&gt;
+  &lt;/ProcessExecutionContext&gt;</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_legalholdpro_stagedir">
+                     <expression language="XQuery">util:resolveURN("urn:zapproved:legalholdpro:stagedir")</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_script_out">
+                     <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_legalholdpro_import_file">
+                     <expression language="XQuery">util:resolveURN("urn:zapproved:legalholdpro:import:contact:file")</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_job_start">
+                     <expression language="XQuery">adjust-dateTime-to-timezone(current-dateTime(), xs:dayTimeDuration("PT0H"))</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_org_id">
+                     <expression language="XQuery">util:resolveURN("urn:environment:orgid")</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_agent_id">
+                     <expression language="XQuery">util:resolveURN("urn:environment:name")</expression>
+                  </operation>
+                  <link id="k9l1m8cm" targetId="jfjr8xe3"/>
+               </assignment>
+               <assignment id="k9l8wjag">
+                  <title>Assignment to temp_attachment, Content</title>
+                  <operation source="formula" to="temp.Content">
+                     <expression language="XQuery">fn:unparsed-text(concat($temp.tmp_legalholdpro_stagedir,"/",$temp.tmp_legalholdpro_import_file))</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_attachment">
+                     <expression language="XQuery">sff:createAttachmentFromBase64('MyFile.txt',util:base64Encode($temp.Content, 'UTF-8'),'text/csv')</expression>
+                  </operation>
+                  <link id="k9l8wjmw" targetId="k9l8wjmv"/>
+               </assignment>
+               <container id="jfjr8xe3" type="exclusive">
+                  <title>in_retry_import</title>
+                  <flow id="jfjr8xj8">
+                     <assignment id="jfjswpis">
+                        <title>set is available</title>
+                        <operation source="formula" to="temp.tmp_export_file_available">
+                           <expression language="XQuery">fn:unparsed-text-available(concat($temp.tmp_legalholdpro_stagedir,"/",$temp.tmp_legalholdpro_import_file))</expression>
+                        </operation>
+                        <link id="jfjswply" targetId="jfjswpln"/>
+                     </assignment>
+                     <container id="jfjswpln" type="exclusive">
+                        <title>tmp_export_file_available</title>
+                        <flow id="jfjswplo">
+                           <link id="jfjswplv" targetId="jfjswpln" type="containerLink"/>
+                        </flow>
+                        <flow id="jfjswplp">
+                           <assignment id="jfjswplq">
+                              <title>Set Process title</title>
+                              <operation source="formula" to="temp.tmp_script_out">
+                                 <expression language="XQuery">let $title := $temp.tmp_process_title 
+return
+ipd:setProcessTitle(concat($temp.tmp_process_title,"-Import file not available"))</expression>
+                              </operation>
+                              <link id="k9l1m8vd" targetId="jfjswpls"/>
+                           </assignment>
+                           <end id="jfjswpls"/>
+                        </flow>
+                        <link id="jfjswplt" targetId="jfjswplo" type="containerLink">
+                           <condition source="formula">
+                              <function name="true">
+                                 <arg name="field">{$temp.tmp_export_file_available}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jfjswplu" targetId="jfjswplp" type="containerLink">
+                           <condition source="formula">
+                              <function name="false">
+                                 <arg name="field">{$temp.tmp_export_file_available}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                     </container>
+                     <link id="jfjr8xj9" targetId="jfjr8xe3" type="containerLink"/>
+                  </flow>
+                  <flow id="jfjr8xjb">
+                     <container id="jfjswp02" type="exclusive">
+                        <title>in_full_load</title>
+                        <flow id="jfjswp03">
+                           <assignment id="jfjswp04">
+                              <title>Set ICS TASK Name</title>
+                              <operation source="constant" to="temp.tmp_ics_task_flow_name">DST_IdentityMaster_FF_Full_Load</operation>
+                           </assignment>
+                           <link id="jfjswp09" targetId="jfjswp02" type="containerLink"/>
+                        </flow>
+                        <flow id="jfjswp05">
+                           <assignment id="jfjswp06">
+                              <title>Set ICS TASK Name</title>
+                              <operation source="constant" to="temp.tmp_ics_task_flow_name">DST_IdentityMaster_FF_IncrementalLoad</operation>
+                           </assignment>
+                           <link id="jfjswp0a" targetId="jfjswp02" type="containerLink"/>
+                        </flow>
+                        <link id="jfjswp07" targetId="jfjswp03" type="containerLink">
+                           <condition source="formula">
+                              <function name="true">
+                                 <arg name="field">{$input.in_full_load}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jfjswp08" targetId="jfjswp05" type="containerLink">
+                           <condition source="formula">
+                              <function name="false">
+                                 <arg name="field">{$input.in_full_load}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k9mgjpw2" targetId="jfjswp65"/>
+                     </container>
+                     <container id="jfjswp9c" type="exclusive">
+                        <title>Success Target Rows</title>
+                        <flow id="jfjswp9d">
+                           <link id="jfjswp9j" targetId="jfjswp9c" type="containerLink"/>
+                        </flow>
+                        <flow id="jfjswp9e">
+                           <assignment id="k9l8winm">
+                              <title>Set Process title 1</title>
+                              <operation source="formula" to="temp.tmp_script_out">
+                                 <expression language="XQuery">let $title := $temp.tmp_process_title 
+return
+ipd:setProcessTitle(concat($temp.tmp_process_title,"-&gt;No data to upload"))</expression>
+                              </operation>
+                              <link id="k9l8wium" targetId="jfjswp9g"/>
+                           </assignment>
+                           <end id="jfjswp9g"/>
+                        </flow>
+                        <link id="jfjswp9h" targetId="jfjswp9d" type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-than">
+                                 <arg name="left">{$output.out_RunCloudTaskResponse[1]/SuccessTargetRows}</arg>
+                                 <arg name="right">{0}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jfjswp9i" targetId="jfjswp9e" type="containerLink"/>
+                     </container>
+                     <eventContainer id="jfjswp65">
+                        <subflow id="jfjswp6c">
+                           <title>SP-ICS-Run-Job-IDD510004</title>
+                           <subflowGUID>9Bsmc8m1jivfqF3DbHYTQz</subflowGUID>
+                           <subflowPath>SP-ICS-Run-Job-IDD510004</subflowPath>
+                           <runForEach>false</runForEach>
+                           <input>
+                              <parameter name="in_task_name" source="field" updatable="true">temp.tmp_ics_task_flow_name</parameter>
+                              <parameter name="in_task_type" source="constant" updatable="true">DSS</parameter>
+                              <parameter name="in_wait_for_task_to_complete"
+                                         source="constant"
+                                         updatable="true">true</parameter>
+                              <parameter name="in_max_wait" source="constant" updatable="true">43200</parameter>
+                              <parameter name="in_fail_on_task_error" source="constant" updatable="true">true</parameter>
+                              <parameter name="in_context" source="field" updatable="true">input.in_context</parameter>
+                           </input>
+                           <outputDef>
+                              <field name="out_RunCloudTaskResponse" type="reference">
+                                 <options>
+                                    <option name="referenceTo">$po:ICSRunCloudTaskResponse</option>
+                                    <option name="required">false</option>
+                                    <option name="isCopy">true</option>
+                                    <option name="guid">3bo4MafAj8gliyBaK2UeSd</option>
+                                 </options>
+                              </field>
+                           </outputDef>
+                        </subflow>
+                        <flow id="jfjswp66">
+                           <link id="jfjswp6f" targetId="jfjswp65" type="containerLink"/>
+                        </flow>
+                        <flow id="jfjswp68">
+                           <assignment id="jfjswp69">
+                              <title>Set Process title</title>
+                              <operation source="formula" to="temp.tmp_script_out">
+                                 <expression language="XQuery">let $title := $temp.tmp_process_title 
+return
+ipd:setProcessTitle(concat($temp.tmp_process_title,"-&gt;Error Running ICS Task Flow {$temp.tmp_ics_task_flow_name}"))</expression>
+                              </operation>
+                              <link id="k9mcxaes" targetId="jfjswp6b"/>
+                           </assignment>
+                           <throw id="jfjswp6b">
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                 <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                 <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="jfjswp6d" targetId="jfjswp66" type="containerLink"/>
+                        <link id="jfjswpd1" targetId="jfjswpcg"/>
+                        <events>
+                           <catch faultField="faultInfo" id="j9fuvpho" interrupting="true">
+                              <link id="jfjswp6e" targetId="jfjswp68" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                     <eventContainer id="jfjswpcg">
+                        <service id="jfjswpcq">
+                           <title>Sanitize the Exported File</title>
+                           <serviceName>avShellService</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="command" source="constant">sed -i.bak -e 's/[\a\f\v\r\t\x1a]//g;/^\s*$/d' {$temp.tmp_legalholdpro_import_file} </parameter>
+                              <parameter name="workingDirPath" source="field" updatable="true">temp.tmp_legalholdpro_stagedir</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="jfjswpch">
+                           <container id="jfjswpci" type="exclusive">
+                              <title>responseCode</title>
+                              <flow id="jfjswpcj">
+                                 <link id="jfjswpcw" targetId="jfjswpci" type="containerLink"/>
+                              </flow>
+                              <flow id="jfjswpck">
+                                 <throw id="k9l8wi4b">
+                                    <title>Throw 2</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.responseCode</parameter>
+                                       <parameter name="detail" source="constant" updatable="true"/>
+                                       <parameter name="reason" source="constant" updatable="true"/>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="jfjswpcu" targetId="jfjswpcj" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="string-equals">
+                                       <arg name="left">{$output.responseCode}</arg>
+                                       <arg name="right">0</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="jfjswpcv" targetId="jfjswpck" type="containerLink"/>
+                           </container>
+                           <link id="jfjswpct" targetId="jfjswpcg" type="containerLink"/>
+                        </flow>
+                        <flow id="jfjswpcn">
+                           <throw id="k9l8whts">
+                              <title>Throw 1</title>
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                 <parameter name="detail" source="constant" updatable="true"/>
+                                 <parameter name="reason" source="constant" updatable="true"/>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="jfjswpcr" targetId="jfjswpch" type="containerLink"/>
+                        <link id="jfjswpd2" targetId="jfjswp9c"/>
+                        <events>
+                           <catch faultField="faultInfo" id="jfd5kvfk" interrupting="true">
+                              <link id="jfjswpcs" targetId="jfjswpcn" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                     <link id="jfjr8yt3" targetId="jfjr8xe3" type="containerLink"/>
+                  </flow>
+                  <link id="jfjr8xj5" targetId="jfjr8xj8" type="containerLink">
+                     <condition source="formula">
+                        <function name="true">
+                           <arg name="field">{$input.in_retry_import}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jfjr8xj6" targetId="jfjr8xjb" type="containerLink">
+                     <condition source="formula">
+                        <function name="false">
+                           <arg name="field">{$input.in_retry_import}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k9l8wjah" targetId="k9l8wjag"/>
+               </container>
+               <container id="k9l8wjr2" type="exclusive">
+                  <title>StatusCode</title>
+                  <flow id="k9l8wjs3">
+                     <container id="k9mcx9vz" type="exclusive">
+                        <title>in_delete_files_after_load?</title>
+                        <flow id="k9mcx9x9">
+                           <eventContainer id="k9mcxa6s">
+                              <service id="k9mcx9zh">
+                                 <title>Delete Staged Data</title>
+                                 <serviceName>avShellService</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="command" source="constant">rm -v {$temp.tmp_legalholdpro_import_file}* </parameter>
+                                    <parameter name="workingDirPath" source="field" updatable="true">temp.tmp_legalholdpro_stagedir</parameter>
+                                 </serviceInput>
+                              </service>
+                              <flow id="k9mcxa6u">
+                                 <link id="k9mcxa6v" targetId="k9mcxa6s" type="containerLink"/>
+                              </flow>
+                              <flow id="k9mcxa6x">
+                                 <link id="k9mcxa6y" targetId="k9mcxa6s" type="containerLink"/>
+                              </flow>
+                              <link id="k9mcxa6t" targetId="k9mcxa6u" type="containerLink"/>
+                              <events>
+                                 <catch faultField="faultInfo" id="k9mcxa22" interrupting="true">
+                                    <link id="k9mcxa6w" targetId="k9mcxa6x" type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <link id="k9mcx9xa" targetId="k9mcx9vz" type="containerLink"/>
+                        </flow>
+                        <flow id="k9mcx9xb">
+                           <link id="k9mcx9xc" targetId="k9mcx9vz" type="containerLink"/>
+                        </flow>
+                        <link id="k9mcx9x2" targetId="k9mcx9x9" type="containerLink">
+                           <condition source="formula">
+                              <function name="true">
+                                 <arg name="field">{$input.in_delete_files_after_load}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k9mcx9x5" targetId="k9mcx9xb" type="containerLink">
+                           <condition source="formula">
+                              <function name="false">
+                                 <arg name="field">{$input.in_delete_files_after_load}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k9mcx9w0" targetId="k9l8wk0c"/>
+                     </container>
+                     <container id="k9l8wk0c" type="exclusive">
+                        <title>queued</title>
+                        <flow id="k9l8wk1d">
+                           <service id="k9l8wk3v">
+                              <title>getImportStatusDetailed</title>
+                              <serviceName>ZapprovedLegalHold-IDD510004:getImportStatusDetailed</serviceName>
+                              <serviceGUID>fzV9Qmdu64GioCbzBvrAEZ</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="reportUrl" source="field" updatable="true">output.statusUrl</parameter>
+                              </serviceInput>
+                           </service>
+                           <link id="k9l8wk1e" targetId="k9l8wk0c" type="containerLink"/>
+                        </flow>
+                        <flow id="k9l8wk1f">
+                           <assignment id="k9lcswxm">
+                              <title>Assignment to tmp_jobCompletionEtaUTC, tmp_wait_time_read_report</title>
+                              <operation source="formula" to="temp.tmp_jobCompletionEtaUTC">
+                                 <expression language="XQuery">let $eta := $output.etaUtc 
+let $timestamp_parts := tokenize($eta," ")
+let $date_parts := tokenize($timestamp_parts[1], "/")
+let $day     := if (string-length($date_parts[2])= 2) then $date_parts[2] else concat("0",$date_parts[2])
+let $month   := if (string-length($date_parts[1])= 2) then $date_parts[1] else concat("0",$date_parts[1])
+let $year    := $date_parts[3]
+let $time_parts := tokenize($timestamp_parts[2], ":")
+let $hours   := $time_parts[1] cast as xs:int
+let $minutes := $time_parts[2] cast as xs:int
+let $seconds := $time_parts[2] cast as xs:int
+let $ampm    := $timestamp_parts[3]
+let $hours24 := switch (true())
+      case ( $ampm = 'AM' and $hours = 12) return $hours - 12
+      case ( $ampm = 'PM' and $hours = 12) return $hours
+      case ( $ampm = 'PM') return $hours + 12 
+      default return $hours
+
+      
+let $hours24_f := if (string-length(string($hours24))= 2) then string($hours24) else concat("0",string($hours24))
+let $minutes_f := if (string-length($time_parts[2])= 2) then $time_parts[2] else concat("0",$time_parts[2])
+let $seconds_f := if (string-length($time_parts[3])= 2) then $time_parts[3] else concat("0",$time_parts[3])
+let $new_tmstp := ($year,'-',$month,'-',$day,'T',$hours24_f,':',$minutes_f,':',$seconds_f)
+let $date_string := string-join($new_tmstp)
+return
+adjust-dateTime-to-timezone(xs:dateTime($date_string),xs:dayTimeDuration("PT0H"))</expression>
+                              </operation>
+                              <operation source="formula" to="temp.tmp_wait_time_read_report">
+                                 <expression language="XQuery">let $upload_time := adjust-dateTime-to-timezone(current-dateTime(), xs:dayTimeDuration("PT0H"))
+
+let $duration := xs:dateTime($temp.tmp_jobCompletionEtaUTC) - $upload_time
+let $days     := days-from-duration($duration) * 24 * 60
+let $hours    := hours-from-duration($duration) * 60 
+let $minutes  := minutes-from-duration($duration)
+(:
+adding 5 minutes to the ETA to avoid negative observed when 
+the Serer times are not synchronized  between MDLZ agent and Zapproved:)
+let $dur_min  := $days + $hours + $minutes + 0
+return
+$dur_min</expression>
+                              </operation>
+                              <link id="k9lcsx4w" targetId="k9lcsx4v"/>
+                           </assignment>
+                           <assignment id="k9ldacls">
+                              <title>Assignment to tmp_repeat_read_report</title>
+                              <operation source="formula" to="temp.tmp_repeat_read_report">
+                                 <expression language="XQuery">let $import_report := $output.ImportStatusDetailed[1]
+return
+xs:int($temp.tmp_read_import_count) &lt; xs:int($temp.tmp_read_import_attempts) 
+and $import_report/success/text() = 'true'
+and ( $import_report/data/status/text() = 'In Progress'
+      or $import_report/data/status/text() = ''
+      or empty($import_report/data/status/text()))</expression>
+                              </operation>
+                              <link id="k9ldacqp" targetId="k9ldacqo"/>
+                           </assignment>
+                           <wait id="k9lcsx4v">
+                              <title>Wait  for Import Results</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">{$temp.tmp_wait_time_read_report}</arg>
+                                    <arg name="scale">M</arg>
+                                    <arg name="businessDays"/>
+                                 </function>
+                              </duration>
+                              <link id="k9lcsxas" targetId="k9lcsxar"/>
+                           </wait>
+                           <service id="k9lcsxar">
+                              <title>getImportStatusDetailed 1</title>
+                              <serviceName>ZapprovedLegalHold-IDD510004:getImportStatusDetailed</serviceName>
+                              <serviceGUID>fzV9Qmdu64GioCbzBvrAEZ</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="reportUrl" source="field" updatable="true">output.statusUrl</parameter>
+                              </serviceInput>
+                              <link id="k9ldaclt" targetId="k9ldacls"/>
+                           </service>
+                           <container id="k9ldacqo" type="exclusive">
+                              <title>tmp_repeat_read_report?</title>
+                              <flow id="k9ldacru">
+                                 <assignment id="k9ldacua">
+                                    <title>Assignment to tmp_read_import_count, tmp_wait_time_read_report</title>
+                                    <operation source="formula" to="temp.tmp_read_import_count">
+                                       <expression language="XQuery">$temp.tmp_read_import_count + 1</expression>
+                                    </operation>
+                                    <operation source="field" to="temp.tmp_wait_time_read_report">temp.tmp_read_import_interval</operation>
+                                    <link id="k9ldad2k" targetId="k9ldad2j"/>
+                                 </assignment>
+                                 <jumpTo id="k9ldad2j">
+                                    <link id="k9ldad3m" targetId="k9lcsx4v"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k9ldacrw">
+                                 <container id="k9ldad5v" type="exclusive">
+                                    <title>status</title>
+                                    <flow id="k9ldad72">
+                                       <link id="k9ldad73" targetId="k9ldad5v" type="containerLink"/>
+                                    </flow>
+                                    <flow id="k9ldad74">
+                                       <service id="k9mcx9ac">
+                                          <title>sendEmailService</title>
+                                          <serviceName>SMTP-Zapproved-IDD510004:sendEmailService</serviceName>
+                                          <serviceGUID>ihgU4Pv8tCFkCVvLvKVHGE</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="emailTaskInput" source="formula">
+                                                <expression language="XQuery">let $recipients := &lt;to&gt;faizan.a.shaikh@accenture.com&lt;/to&gt;
+let $uploadResponse := $temp.tmp_uploadResponse                    
+let $report := $output.ImportStatusDetailed
+let $process_title := $temp.tmp_process_title
+let $data := $report/data
+let $errors :=  for $error in $data/failed
+                let $error_text := concat('E:',$error/errorCode/text(),':',$error/count/text(),' ',$error/errorMessage/text())
+                where not(empty($error/*))
+                order by $error_text
+                return
+                $error_text
+let $processed_count := sum($data/(unchanged|created|updated|skipped|errors))
+let $queued := if (empty($data/queued)) then 0 else number($data/queued)
+let $upload_status := if ($report/success/text()= 'true') then 'Success' else 'Error' 
+let $import_status := $data/status/text()
+let $format_string := '#,##0'
+let $job_start     := xs:dateTime($temp.tmp_job_start)
+let $job_end       := current-dateTime()
+let $job_duration  := $job_end - $job_start
+let $context       := $temp.tmp_context[1]
+let $process_id    := $context/parentProcessId/text()
+return
+&lt;EmailTaskInput&gt;
+   {$recipients}
+   &lt;subject&gt;WARNING! Zapproved Legal Hold Contact Import Job Summary [{$import_status}]&lt;/subject&gt;
+   &lt;contentType&gt;text/plain&lt;/contentType&gt;
+   &lt;body&gt;Integration Report {$process_title} 
+
+WARNING: Unable to determine the final status of the import!
+
+Please follow up with support@zapproved.com.
+
+Process:       Contact Feed Import to Zapproved
+Upload Status: {$upload_status}  
+Import Status: {$import_status} 
+Process ID:    {$process_id}
+Status URL:    {$output.statusUrl}
+Agent Name:    {$temp.tmp_agent_id} 
+Org ID:        {$temp.tmp_org_id} 
+Job Start:     {adjust-dateTime-to-timezone($job_start,xs:dayTimeDuration("PT0H"))} 
+Job End:       {adjust-dateTime-to-timezone($job_end,xs:dayTimeDuration("PT0H"))} 
+Job Duration:  {$job_duration} 
+
+Stats:
+======
+Created:   {format-number($data/created,$format_string)}
+Updated:   {format-number($data/updated,$format_string)}
+Errors:    {format-number($data/errors,$format_string)}
+Skipped:   {format-number($data/skipped,$format_string)}
+Unchanged: {format-number($data/unchanged,$format_string)}
+=======
+Uploaded:  {format-number($data/uploaded,$format_string)}
+Queued:    {format-number($queued,$format_string)}
+Processed: {format-number(sum($processed_count),$format_string)}
+
+Errors:
+{string-join($errors, "&amp;#10;")}&lt;/body&gt;
+&lt;/EmailTaskInput&gt;</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                          <link id="k9mcx9hy" targetId="k9mcx9hx"/>
+                                       </service>
+                                       <end id="k9mcx9hx">
+                                          <title>End 2</title>
+                                       </end>
+                                    </flow>
+                                    <link id="k9ldad6v" targetId="k9ldad72" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$output.ImportStatusDetailed[1]/data[1]/status}</arg>
+                                             <arg name="right">Complete</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="k9ldad6y" targetId="k9ldad74" type="containerLink"/>
+                                 </container>
+                                 <link id="k9ldacrx" targetId="k9ldacqo" type="containerLink"/>
+                              </flow>
+                              <link id="k9ldacrn" targetId="k9ldacru" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="true">
+                                       <arg name="field">{$temp.tmp_repeat_read_report}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k9ldacrq" targetId="k9ldacrw" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="false">
+                                       <arg name="field">{$temp.tmp_repeat_read_report}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                           </container>
+                           <link id="k9l8wk1g" targetId="k9l8wk0c" type="containerLink"/>
+                        </flow>
+                        <link id="k9l8wk16" targetId="k9l8wk1d" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$output.queued}</arg>
+                                 <arg name="right"/>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k9l8wk19" targetId="k9l8wk1f" type="containerLink"/>
+                        <link id="k9mcx9t0" targetId="k9mcx9sz"/>
+                     </container>
+                     <service id="k9mcx9sz">
+                        <title>sendEmailService 2</title>
+                        <serviceName>SMTP-Zapproved-IDD510004:sendEmailService</serviceName>
+                        <serviceGUID>ihgU4Pv8tCFkCVvLvKVHGE</serviceGUID>
+                        <serviceInput>
+                           <parameter name="emailTaskInput" source="formula">
+                              <expression language="XQuery">let $recipients := &lt;to&gt;faizan.a.shaikh@accenture.com&lt;/to&gt;
+let $report := $output.ImportStatusDetailed
+let $process_title := $temp.tmp_process_title
+let $data := $report/data
+let $errors :=  for $error in $data/failed
+                let $error_text := concat('E:',$error/errorCode/text(),':',$error/count/text(),' ',$error/errorMessage/text())
+                where (not(empty($error/*)))
+                order by $error_text
+                return
+                $error_text
+let $processed_count := sum($data/(unchanged|created|updated|skipped|errors))
+let $queued := if (empty($data/queued)) then 0 else number($data/queued)
+let $upload_status := if ($report/success/text()= 'true') then 'Success' else 'Error' 
+let $import_status := $data/status/text()
+let $format_string := '#,##0'
+let $job_start     := xs:dateTime($temp.tmp_job_start)
+let $job_end       := current-dateTime()
+let $job_duration  := $job_end - $job_start
+let $context       := $temp.tmp_context[1]
+let $process_id    := $context/parentProcessId/text()
+return
+&lt;EmailTaskInput&gt;
+   {$recipients,$context}
+   &lt;subject&gt;Zapproved Legal Hold Contact Import Job Summary [{$import_status}]&lt;/subject&gt;
+   &lt;contentType&gt;text/plain&lt;/contentType&gt;
+   &lt;body&gt;Integration Report {$process_title} 
+Process:       Contact Feed Import to Zapproved
+Upload Status: {$upload_status}  
+Import Status: {$import_status} 
+Process ID:    {$process_id}
+Status URL:    {$output.statusUrl}
+Agent Name:    {$temp.tmp_agent_id} 
+Org ID:        {$temp.tmp_org_id} 
+Job Start:     {adjust-dateTime-to-timezone($job_start,xs:dayTimeDuration("PT0H"))} 
+Job End:       {adjust-dateTime-to-timezone($job_end,xs:dayTimeDuration("PT0H"))} 
+Job Duration:  {$job_duration} 
+
+Stats:
+======
+Created:   {format-number($data/created,$format_string)}
+Updated:   {format-number($data/updated,$format_string)}
+Errors:    {format-number($data/errors,$format_string)}
+Skipped:   {format-number($data/skipped,$format_string)}
+Unchanged: {format-number($data/unchanged,$format_string)}
+=======
+Uploaded:  {format-number($data/uploaded,$format_string)}
+Queued:    {format-number($queued,$format_string)}
+Processed: {format-number(sum($processed_count),$format_string)}
+
+Errors:
+{string-join($errors, "&amp;#10;")}&lt;/body&gt;
+&lt;/EmailTaskInput&gt;</expression>
+                           </parameter>
+                        </serviceInput>
+                     </service>
+                     <link id="k9l8wjs4" targetId="k9l8wjr2" type="containerLink"/>
+                  </flow>
+                  <flow id="k9l8wjs5">
+                     <service id="k9mcx9nc">
+                        <title>sendEmailService 1</title>
+                        <serviceName>SMTP-Zapproved-IDD510004:sendEmailService</serviceName>
+                        <serviceGUID>ihgU4Pv8tCFkCVvLvKVHGE</serviceGUID>
+                        <serviceInput>
+                           <parameter name="emailTaskInput" source="formula">
+                              <expression language="XQuery">let $recipients := &lt;to&gt;faizan.a.shaikh@accenture.com&lt;/to&gt;
+return
+&lt;EmailTaskInput&gt;
+   {$recipients}
+   &lt;subject&gt;ERROR! Zapproved Legal Hold Contact Import Failure&lt;/subject&gt;
+   &lt;contentType&gt;text/plain&lt;/contentType&gt;
+   &lt;body&gt;ERROR: Unable to import contact into Zapproved! 
+Please try after sometime and reach out to support@zapproved.com, if issue persist.
+&lt;/body&gt;
+&lt;/EmailTaskInput&gt;</expression>
+                           </parameter>
+                        </serviceInput>
+                        <link id="k9mcx9nd" targetId="k9l8wjvc"/>
+                     </service>
+                     <throw id="k9l8wjvc">
+                        <title>Throw 3</title>
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.StatusCode</parameter>
+                           <parameter name="detail" source="constant" updatable="true"/>
+                           <parameter name="reason" source="constant" updatable="true"/>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="k9l8wjrw" targetId="k9l8wjs3" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left">{$output.StatusCode}</arg>
+                           <arg name="right">200</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k9l8wjrz" targetId="k9l8wjs5" type="containerLink"/>
+                  <link id="k9l8wjr4" targetId="k9l8wj4w"/>
+               </container>
+               <service id="k9l8wjmv">
+                  <title>uploadContacts</title>
+                  <serviceName>ZapprovedLegalHold-IDD510004:uploadContacts</serviceName>
+                  <serviceGUID>fzV9Qmdu64GioCbzBvrAEZ</serviceGUID>
+                  <serviceInput>
+                     <parameter name="file" source="field" updatable="true">temp.temp_attachment</parameter>
+                  </serviceInput>
+                  <link id="k9l8wjr3" targetId="k9l8wjr2"/>
+               </service>
+               <end id="k9l8wj4w">
+                  <title>End 1</title>
+               </end>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>7Z7ajSaCrQjjqtekNuhQkW</types1:GUID>
+      <types1:DisplayName>SP-IM-Zapproved-ContactFeed-ETL-IDD510004</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T10:52:05.277Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

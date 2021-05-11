@@ -1,0 +1,64 @@
+{
+  "objectInfo" : {
+    "id" : "g5q1Ptrdt8EgfZsZosXwM4",
+    "name" : "SCH-IdentityMaster-Zapproved-IDD510004",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "SNtycotFgpKi9zh-gt-15562014-2020-08-06T10:53:27.725Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Scheduler Process to start  Contact feed \n synchronization from Identity Master to  Zapproved Legal Hold Service",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "8x8u0pJCviRjV6uc6dD72u",
+    "name" : "MP-IM-Zapproved-ContactFeed-job-IDD510004",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "EVMTonQYWeIssjq-gt-19468208-2020-08-06T10:53:27.487Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Main Job Process  handling Execution of Identity Master Contact Feed to Zapproved Integration",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Zapproved"
+  }, {
+    "id" : "gQG3Zzk2RGAiZkvcn7oyCZ",
+    "name" : "ProcessExecutionContext",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "rAWa-gt-2477222-2020-07-23T08:06:42.902Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "This Process Object should be used to pass down context information to the child execution process when they are called  from a parent process or keep a status information ",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Default"
+  } ]
+}

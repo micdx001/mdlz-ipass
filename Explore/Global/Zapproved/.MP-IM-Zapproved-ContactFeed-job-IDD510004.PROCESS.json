@@ -1,0 +1,84 @@
+{
+  "objectInfo" : {
+    "id" : "8x8u0pJCviRjV6uc6dD72u",
+    "name" : "MP-IM-Zapproved-ContactFeed-job-IDD510004",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "EVMTonQYWeIssjq-gt-19468208-2020-08-06T10:53:27.487Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Main Job Process  handling Execution of Identity Master Contact Feed to Zapproved Integration",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "gQG3Zzk2RGAiZkvcn7oyCZ",
+    "name" : "ProcessExecutionContext",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "rAWa-gt-2477222-2020-07-23T08:06:42.902Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "This Process Object should be used to pass down context information to the child execution process when they are called  from a parent process or keep a status information ",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Default"
+  }, {
+    "id" : "7Z7ajSaCrQjjqtekNuhQkW",
+    "name" : "SP-IM-Zapproved-ContactFeed-ETL-IDD510004",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "jwQtzbdtqSLlBWl-gt-19264350-2020-08-06T10:53:25.153Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Main Job to Run Enablon to MII Data Integration Steps",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Zapproved"
+  }, {
+    "id" : "3bo4MafAj8gliyBaK2UeSd",
+    "name" : "ICSRunCloudTaskResponse",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "zyWuNciZBpDUQbg-gt-2246630-2020-07-23T14:13:59.417Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Structure to capture ICS Cloud Task",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Default"
+  } ]
+}

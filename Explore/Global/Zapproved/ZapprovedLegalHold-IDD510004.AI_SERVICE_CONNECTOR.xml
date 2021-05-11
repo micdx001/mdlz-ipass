@@ -1,0 +1,229 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>0RbeMVX3cjk91pq-gt-5140999-2020-08-06T10:53:22.998Z::svc.xml</types1:EntryId>
+      <types1:Name>ZapprovedLegalHold-IDD510004</types1:Name>
+      <types1:ParentFlowIds>QJRvDINciZBpDUQ-gt-6260459-2020-08-06T10:53:23.682Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>Zapproved Legal Hold Service API</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>Legal Hold,Zapproved</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T10:53:23Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-06T10:56:53Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-06T10:57:17Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/ZapprovedLegalHold_IDD510004/ZapprovedLegalHold_IDD510004_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="ZapprovedLegalHold-IDD510004"
+                            label=""
+                            name="ZapprovedLegalHold-IDD510004"
+                            uuid="02bba21e-153c-4a6d-8bfa-0fe9aac5240e">
+            <description>Zapproved Legal Hold Service API</description>
+            <tags>Legal Hold,Zapproved</tags>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description="Base URL of the API"
+                                    masked="false"
+                                    name="base_url"
+                                    required="true"
+                                    testWith="https://sandbox.legalholdpro.com"
+                                    type="string"/>
+               <connectionAttribute description="API Access key"
+                                    masked="true"
+                                    name="api_token"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="getImportStatusDetailed"
+                       maxRedirects="100"
+                       name="getImportStatusDetailed"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter label="Status URL"
+                                name="reportUrl"
+                                nogen="true"
+                                required="false"
+                                testWith="https://sandbox.legalholdpro.com/Services/Contact/GetImportStatusDetailed/a4506b1c-d3b0-4497-a5c2-31921e7472ad?token=cTgRXKxsFpGDWg2y"
+                                type="url"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated" url="{$reportUrl}" verb="GET"/>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="ImportStatusDetailed"
+                            type="reference"
+                            xmlElement=".">
+                        <options>
+                           <option name="referenceTo">ImportStatusDetailed</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="uploadContacts"
+                       maxRedirects="100"
+                       name="uploadContacts"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter label="File"
+                                name="file"
+                                required="false"
+                                testWith=""
+                                type="attachment"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$base_url}/Services/Contact/Import2?token={$api_token}"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">text/plain</header>
+                           <header name="Accept">application/json;odata=verbose</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="uploadResponse"
+                            type="reference"
+                            xmlElement=".">
+                        <options>
+                           <option name="referenceTo">uploadResponse</option>
+                        </options>
+                     </field>
+                     <field description="" name="queued" property="queued" type="string"/>
+                     <field description="" name="etaUtc" property="etaUtc" type="string"/>
+                     <field description="" name="statusUrl" property="statusUrl" type="url"/>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="ImportStatusDetailed">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="data" type="reference">
+                        <options>
+                           <option name="referenceTo">importStatusData</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="numRows" type="int"/>
+                     <field name="success" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="importStatusData">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="created" type="int"/>
+                     <field name="queued" type="int"/>
+                     <field name="unchanged" type="int"/>
+                     <field name="uploaded" type="int"/>
+                     <field name="failed" type="string"/>
+                     <field name="etaUtc" type="string"/>
+                     <field name="updated" type="int"/>
+                     <field name="errors" type="int"/>
+                     <field name="skipped" type="int"/>
+                     <field name="status" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="uploadResponse">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="data" type="reference">
+                        <options>
+                           <option name="referenceTo">uploadResults</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="numRows" type="int"/>
+                     <field name="success" type="string"/>
+                     <field name="errors" type="objectlist">
+                        <options>
+                           <option name="referenceTo">errors</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="uploadResults">
+                  <description>Upload Results Data</description>
+                  <detail>
+                     <field name="created" type="int"/>
+                     <field name="statusUrl" type="string"/>
+                     <field name="unchanged" type="int"/>
+                     <field name="uploaded" type="int"/>
+                     <field name="updated" type="int"/>
+                     <field name="errors" type="int"/>
+                     <field name="skipped" type="int"/>
+                     <field name="info" type="string"/>
+                     <field name="etaUtc" type="string"/>
+                     <field name="queued" type="int"/>
+                     <field name="status" type="string"/>
+                     <field name="failed" type="objectlist">
+                        <options>
+                           <option name="referenceTo">failed</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="errors">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="id" type="string"/>
+                     <field name="error" type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="failed">
+                  <description/>
+                  <detail>
+                     <field name="count" type="int"/>
+                     <field name="errorCode" type="string"/>
+                     <field name="errorMessage" type="string"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>gyZbKZ3j5cUkgYGEH9nh2M</types1:GUID>
+      <types1:DisplayName>ZapprovedLegalHold-IDD510004</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T10:52:04.963Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

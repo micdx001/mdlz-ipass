@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "fzV9Qmdu64GioCbzBvrAEZ",
+    "name" : "ZapprovedLegalHold-IDD510004",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "QJRvDINciZBpDUQ-gt-6260459-2020-08-06T10:53:23.682Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "gyZbKZ3j5cUkgYGEH9nh2M",
+    "name" : "ZapprovedLegalHold-IDD510004",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "0RbeMVX3cjk91pq-gt-5140999-2020-08-06T10:53:22.998Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Zapproved Legal Hold Service API",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Zapproved"
+  } ]
+}
