@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "0OMe10uSIggcnKmz07chGP",
+    "name" : "Legal hold_EmailTask_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "i2Fjuz3PI2HBxZm-gt-15853581-2020-08-06T13:53:36.136Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "9uVDBKGspddhSfZlqvScef",
+    "name" : "SMTP-MDLZ-Local-leaversProcess",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "KnbeErhNzUzeA8r-gt-19549983-2020-08-06T13:53:35.593Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold Leaverse Process"
+  } ]
+}

@@ -1,0 +1,84 @@
+{
+  "objectInfo" : {
+    "id" : "4JfctrmcreIeyJWrfz4huo",
+    "name" : "SP-LeaversFile_Legalhold_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "GFaaaaaaaaaaaaa-gt-5856401-2020-08-06T13:53:36.524Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "9SUUgyTIhqDh8tQtvzEtgK",
+    "name" : "LeaversFile-Legalhold-Process",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ljqluQgabcjk91p-gt-15853591-2020-08-06T13:53:36.177Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold Leaverse Process"
+  }, {
+    "id" : "5yBHYGFBTtmdu2fp9zZXiY",
+    "name" : "FileWriter-LegalHold",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "IUTBbcgp5OjG4ab-gt-19549975-2020-08-06T13:53:35.563Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold Leaverse Process"
+  }, {
+    "id" : "0OMe10uSIggcnKmz07chGP",
+    "name" : "Legal hold_EmailTask_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "i2Fjuz3PI2HBxZm-gt-15853581-2020-08-06T13:53:36.136Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold Leaverse Process"
+  } ]
+}

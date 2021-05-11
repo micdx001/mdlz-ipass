@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "5yBHYGFBTtmdu2fp9zZXiY",
+    "name" : "FileWriter-LegalHold",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "IUTBbcgp5OjG4ab-gt-19549975-2020-08-06T13:53:35.563Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

@@ -1,0 +1,247 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>GFaaaaaaaaaaaaa-gt-5856401-2020-08-06T13:53:36.524Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-LeaversFile_Legalhold_Process</types1:Name>
+      <types1:ParentFlowIds>SkThJWjzDt0x7bc-gt-5248630-2020-08-06T13:53:36.71Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:53:37Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-06T14:02:28Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-LeaversFile_Legalhold_Process/SP-LeaversFile_Legalhold_Process.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-LeaversFile_Legalhold_Process"
+                  name="SP-LeaversFile_Legalhold_Process"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="Count_records" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_Header" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="Tmp_FileWriter" type="reference">
+                  <options>
+                     <option name="referenceTo">FileWriter-LegalHold:FileWriteTask</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">5yBHYGFBTtmdu2fp9zZXiY</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_FileContent" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kcoh9gro" targetId="kcoh9grs"/>
+               </start>
+               <eventContainer id="kcoh9grs">
+                  <service id="kcoh9grn">
+                     <title>leavers_process</title>
+                     <serviceName>LeaversFile-Legalhold-Process:leavers_process</serviceName>
+                     <serviceGUID>9SUUgyTIhqDh8tQtvzEtgK</serviceGUID>
+                     <serviceInput/>
+                  </service>
+                  <flow id="kcoh9gru">
+                     <container id="kcoh9gse" type="exclusive">
+                        <title>Status Code</title>
+                        <flow id="kcoh9gso">
+                           <assignment id="kcoh9gtv">
+                              <title>Assignment to tmp_FileContent, Count_records etc.</title>
+                              <operation source="formula" to="temp.tmp_FileContent">
+                                 <expression language="XQuery">let $fileContent1 := fn:tokenize($output.LanID  ,'&amp;#xD;')
+let $temp1 := $fileContent1[.!='&amp;#10;""']
+return $temp1[.!='&amp;#10;']
+
+
+</expression>
+                              </operation>
+                              <operation source="formula" to="output.Count_records">
+                                 <expression language="XQuery">let $fileContent1 := fn:tokenize($output.LanID ,'&amp;#xD;')
+let $temp1 := $fileContent1[.!='&amp;#10;""']
+let $temp2 := $temp1[.!='&amp;#10;']
+return fn:count($temp2)-1</expression>
+                              </operation>
+                              <operation source="formula" to="output.tmp_Header">
+                                 <expression language="XQuery">let $temp1 := ("Leavers File downloaded on",fn:substring(fn:string(fn:current-date()),1,10),"with",$output.Count_records, "records")
+let $title := string-join($temp1, " ")
+let $temp2 := fn:replace(fn:replace($temp.tmp_FileContent , '"', ''),' ','')
+let $tempHeader := fn:replace($temp2,"LANID", $title)
+return $tempHeader
+</expression>
+                              </operation>
+                              <operation source="formula" to="temp.Tmp_FileWriter">
+                                 <expression language="XQuery">&lt;FileWriteTask&gt;
+ &lt;fileName&gt;legalHold.csv&lt;/fileName&gt;
+   &lt;format&gt;csv&lt;/format&gt;
+ &lt;content&gt;{$output.tmp_Header}&lt;/content&gt;
+&lt;/FileWriteTask&gt;
+</expression>
+                              </operation>
+                              <link id="kcoh9gui" targetId="kcoh9guh"/>
+                           </assignment>
+                           <service id="kcoh9guh">
+                              <title>FileWriter</title>
+                              <serviceName>FileWriter-LegalHold:FileWriter</serviceName>
+                              <serviceGUID>5yBHYGFBTtmdu2fp9zZXiY</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="fileWriteTask" source="field" updatable="true">temp.Tmp_FileWriter</parameter>
+                              </serviceInput>
+                              <link id="kcoh9gus" targetId="kcoh9gur"/>
+                           </service>
+                           <service id="kcoh9gur">
+                              <title>ShellCommand-Put</title>
+                              <serviceName>avShellService</serviceName>
+                              <serviceGUID/>
+                              <serviceInput>
+                                 <parameter name="command" source="constant">sh LegalHold_LeaversProcess.sh</parameter>
+                                 <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/scripts/Legalhold/LeaversProcess</parameter>
+                              </serviceInput>
+                              <link id="kcoh9gvl" targetId="kcoh9gvk"/>
+                           </service>
+                           <container id="kcoh9gvk" type="exclusive">
+                              <title>Response Code</title>
+                              <flow id="kcoh9gvu">
+                                 <link id="kcoh9gvv" targetId="kcoh9gvk" type="containerLink"/>
+                              </flow>
+                              <flow id="kcoh9gvw">
+                                 <subflow id="kcoiinq5">
+                                    <title>Legal hold_EmailTask_Process 1</title>
+                                    <subflowGUID>0OMe10uSIggcnKmz07chGP</subflowGUID>
+                                    <subflowPath>Legal_hold_EmailTask_Process</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="formula" updatable="true">
+                                          <expression language="XQuery">'faizan.a.shaikh@accenture.com,shivani.jaiswal@accenture.com'</expression>
+                                       </parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">iPaas Notification:Legal hold leavers process Failed</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hi Team,
+
+Legal hold leavers process failed to move the file to external application. Please check log for more details.
+
+Thanks,
+iPaaS</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="kcoiinq6" targetId="kcoh9gwa"/>
+                                 </subflow>
+                                 <throw id="kcoh9gwa">
+                                    <title>Throw 3</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.responseCode</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Failed to move leavers file to external application.Please check the log for more details.</parameter>
+                                       <parameter name="reason" source="constant" updatable="true"/>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="kcoh9gvn" targetId="kcoh9gvu" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="string-equals">
+                                       <arg name="left">{$output.responseCode}</arg>
+                                       <arg name="right">0</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="kcoh9gvq" targetId="kcoh9gvw" type="containerLink"/>
+                              <link id="kcoh9gvm" targetId="kcoh9gv6"/>
+                           </container>
+                           <end id="kcoh9gv6"/>
+                        </flow>
+                        <flow id="kcoh9gsq">
+                           <subflow id="kcoiinnu">
+                              <title>Legal hold_EmailTask_Process</title>
+                              <subflowGUID>0OMe10uSIggcnKmz07chGP</subflowGUID>
+                              <subflowPath>Legal_hold_EmailTask_Process</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input>
+                                 <parameter name="Recipient_Address" source="formula" updatable="true">
+                                    <expression language="XQuery">'faizan.a.shaikh@accenture.com,shivani.jaiswal@accenture.com'</expression>
+                                 </parameter>
+                                 <parameter name="Email_Subject" source="constant" updatable="true">iPaas Notification:Legal hold leavers process Failed</parameter>
+                                 <parameter name="Email_body" source="constant" updatable="true">Hi Team,
+
+Legal hold leavers process failed to get LanID's from legal hold with below status code.
+
+code- {$output.StatusCode} 
+
+Thanks,
+iPaaS</parameter>
+                              </input>
+                              <outputDef/>
+                              <link id="kcoiinpb" targetId="kcoh9gt9"/>
+                           </subflow>
+                           <throw id="kcoh9gt9">
+                              <title>Throw 2</title>
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.Status Code</parameter>
+                                 <parameter name="detail" source="constant" updatable="true">Unable to get Leavers file from Legal hold. Please check the log for more details.</parameter>
+                                 <parameter name="reason" source="constant" updatable="true"/>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="kcoh9gsh" targetId="kcoh9gso" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$output.StatusCode}</arg>
+                                 <arg name="right">200</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="kcoh9gsk" targetId="kcoh9gsq" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <flow id="kcoh9grx">
+                     <throw id="kcoh9gs2">
+                        <title>Throw 1</title>
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                           <parameter name="detail" source="constant" updatable="true">Unable to get Leavers file from Legal hold. Please check the log for more details.</parameter>
+                           <parameter name="reason" source="constant" updatable="true"/>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="kcoh9grt" targetId="kcoh9gru" type="containerLink"/>
+                  <events>
+                     <catch faultField="faultInfo" id="kcoh9grr" interrupting="true">
+                        <link id="kcoh9grw" targetId="kcoh9grx" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>4JfctrmcreIeyJWrfz4huo</types1:GUID>
+      <types1:DisplayName>SP-LeaversFile_Legalhold_Process</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:06:08.592Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

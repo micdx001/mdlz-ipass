@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "6F55e23aco2gwmwJjiOlAY",
+    "name" : "Legalhold Leaverse Process",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD200181",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

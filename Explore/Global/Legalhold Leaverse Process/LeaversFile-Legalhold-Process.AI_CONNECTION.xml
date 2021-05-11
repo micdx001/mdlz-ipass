@@ -1,0 +1,48 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>ljqluQgabcjk91p-gt-15853591-2020-08-06T13:53:36.177Z::conn.xml</types1:EntryId>
+      <types1:Name>LeaversFile-Legalhold-Process</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-06T13:53:36Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-06T14:01:10Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-24T11:20:17Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/LeaversFile-Legalhold-Process/LeaversFile-Legalhold-Process.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="LeaversFile-Legalhold-Process"
+                     label="LeaversFile-Legalhold-Process"
+                     name="LeaversFile-Legalhold-Process">
+            <description/>
+            <tags>.agent:GLOBAL</tags>
+            <agent>GLOBAL</agent>
+            <attributes>
+               <attribute encrypted="true" name="Token" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/LeaversFile_Legalhold_Process/LeaversFile_Legalhold_Process_svcDef.xml"
+                               guid="g6zLpiy3peOhxqLYY3Z2Ke"
+                               name="LeaversFile_Legalhold_Process"
+                               supportsConnectionTest="false"
+                               uuid="2589d900-0974-435e-9974-b62867c383c6">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>9SUUgyTIhqDh8tQtvzEtgK</types1:GUID>
+      <types1:DisplayName>LeaversFile-Legalhold-Process</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-11T08:06:08.498Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "fx3V4NlIWCVjmQUfnFAUEG",
+    "name" : "MP-LeaversFile_Legalhold_Process-IDD200181",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "SkThJWjzDt0x7bc-gt-5248630-2020-08-06T13:53:36.71Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "4JfctrmcreIeyJWrfz4huo",
+    "name" : "SP-LeaversFile_Legalhold_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "GFaaaaaaaaaaaaa-gt-5856401-2020-08-06T13:53:36.524Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Legalhold Leaverse Process"
+  } ]
+}
