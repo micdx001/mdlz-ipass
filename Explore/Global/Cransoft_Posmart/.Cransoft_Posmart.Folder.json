@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "06G8Octt8U5eBOT7cuh5Eg",
+    "name" : "Cransoft_Posmart",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD520017",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}
