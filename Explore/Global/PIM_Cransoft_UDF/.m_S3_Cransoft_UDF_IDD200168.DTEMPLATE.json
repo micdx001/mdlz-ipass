@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "1vkcP2KHfchkxch5VorjQ7",
+    "name" : "m_S3_Cransoft_UDF_IDD200168",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ1700000000000U"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "Dummy mapping to run S3 script\n",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "objectRefs" : [ {
+    "id" : "3ocVXMUaU85b2vAzsUP7Sc",
+    "name" : "CONN_UDF_Cranserver",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0B00000000001I"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "For S3 to Cransoft",
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  } ]
+}

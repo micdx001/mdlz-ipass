@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "6FOfPnlmrcJb6oweVwFKyi",
+    "name" : "PIM_Cransoft_UDF",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD200168",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}
