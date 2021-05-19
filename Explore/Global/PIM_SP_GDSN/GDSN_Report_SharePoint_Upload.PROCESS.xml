@@ -1,0 +1,214 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>3xgjATO9pH8sVYx-gt-7182438-2020-08-07T13:53:04.688Z::pd.xml</types1:EntryId>
+      <types1:Name>GDSN_Report_SharePoint_Upload</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>This is a subprocess to get token and uplaod file to SharePoint</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-07T13:53:05Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-07T14:08:50Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.GDSN_Report_SharePoint_Upload/GDSN_Report_SharePoint_Upload.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="GDSN_Report_SharePoint_Upload"
+                  name="GDSN_Report_SharePoint_Upload"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>This is a subprocess to get token and uplaod file to SharePoint</description>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="Filename" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Attachment" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Foldername" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="tmp_script_out" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_SP_retry_attempt" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">3</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_SP_retry_count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_SP_retry_interval" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">5</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jsq2gs8c" targetId="jsq2gs8b"/>
+               </start>
+               <service id="jsq2gs8b">
+                  <title>getToken</title>
+                  <serviceName>SharePoint-Upload:getToken</serviceName>
+                  <serviceGUID>gKpm51ONaWacmUQGSpcSC2</serviceGUID>
+                  <serviceInput/>
+                  <link id="jsvcfrvs" targetId="jsy9uj3k"/>
+               </service>
+               <eventContainer id="jsy9uj3k">
+                  <service id="jsvcfrvr">
+                     <title>UploadtoSharePoint</title>
+                     <serviceName>SharePoint-Upload:UploadtoSharePoint</serviceName>
+                     <serviceGUID>gKpm51ONaWacmUQGSpcSC2</serviceGUID>
+                     <serviceInput>
+                        <parameter name="file" source="field" updatable="true">input.Filename</parameter>
+                        <parameter name="attachment" source="field" updatable="true">input.Attachment</parameter>
+                        <parameter name="foldername" source="field" updatable="true">input.Foldername</parameter>
+                        <parameter name="token" source="field" updatable="true">output.token</parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="jsy9uj3m">
+                     <container id="kcnj3fo2" type="exclusive">
+                        <title>StatusCode</title>
+                        <flow id="kcnj3fob">
+                           <assignment id="kcnj3for">
+                              <title>Assignment to tmp_script_out</title>
+                              <operation source="formula" to="temp.tmp_script_out">
+                                 <expression language="XQuery">let $parts := ("GDSN_Report_SharePoint_Upload-","COMPLETED:", $input.Filename )
+let $process_title := substring(string-join($parts, " "),1,255)
+return ipd:setProcessTitle($process_title)</expression>
+                              </operation>
+                           </assignment>
+                           <link id="kcnj3foc" targetId="kcnj3fo2" type="containerLink"/>
+                        </flow>
+                        <flow id="kcnj3fod">
+                           <container id="kcnj3fp4" type="exclusive">
+                              <title>tmp_SP_retry_count</title>
+                              <flow id="kcnj3fp5">
+                                 <assignment id="kcnj3fp6">
+                                    <title>Assignment to tmp_SP_retry_count</title>
+                                    <operation source="formula" to="temp.tmp_SP_retry_count">
+                                       <expression language="XQuery">$temp.tmp_SP_retry_count + 1</expression>
+                                    </operation>
+                                    <link id="kcnj3fpe" targetId="kcnj3fp7"/>
+                                 </assignment>
+                                 <wait id="kcnj3fp7">
+                                    <title>Wait for next attempt</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">{$temp.tmp_SP_retry_interval} </arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="kcnj3fpf" targetId="kcnj3fp8"/>
+                                 </wait>
+                                 <jumpTo id="kcnj3fp8">
+                                    <link id="kcnj3fpg" targetId="jsy9uj3k"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="kcnj3fp9">
+                                 <assignment id="kcnj3fpa">
+                                    <title>Assignment to tmp_script_out</title>
+                                    <operation source="formula" to="temp.tmp_script_out">
+                                       <expression language="XQuery">let $code := $output.StatusCode 
+let $parts := ('GDSN_Report_SharePoint_Upload-',$input.Filename ," FAULTED:",$code)
+let $process_title := substring(string-join($parts, " "),1,255)
+return ipd:setProcessTitle($process_title)</expression>
+                                    </operation>
+                                    <link id="kcnj3fqf" targetId="kcnj3fqe"/>
+                                 </assignment>
+                                 <throw id="kcnj3fqe">
+                                    <title>Throw 2</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.StatusCode</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Failed to Upload file on SharePoint. Please check the logs for more details.</parameter>
+                                       <parameter name="reason" source="constant" updatable="true"/>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="kcnj3fpc" targetId="kcnj3fp5" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.tmp_SP_retry_count}</arg>
+                                       <arg name="right">{$temp.tmp_SP_retry_attempt }</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="kcnj3fpd" targetId="kcnj3fp9" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="kcnj3fo4" targetId="kcnj3fob" type="containerLink">
+                           <condition source="formula">
+                              <function name="string-equals">
+                                 <arg name="left">{$output.StatusCode}</arg>
+                                 <arg name="right">200</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="kcnj3fo7" targetId="kcnj3fod" type="containerLink"/>
+                        <link id="kcnj3foq" targetId="jsybf76x"/>
+                     </container>
+                     <end id="jsybf76x">
+                        <title>End 1</title>
+                     </end>
+                  </flow>
+                  <flow id="jsy9uj3p">
+                     <throw id="kcnj3fq2">
+                        <title>Throw 1</title>
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                           <parameter name="detail" source="constant" updatable="true">Failed to Upload file on SharePoint. Please check the logs for more details.</parameter>
+                           <parameter name="reason" source="constant" updatable="true"/>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="jsy9uj3l" targetId="jsy9uj3m" type="containerLink"/>
+                  <events>
+                     <catch faultField="faultInfo" id="jsy9uj3j" interrupting="true">
+                        <link id="jsy9uj3o" targetId="jsy9uj3p" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>bRW2gNAkfiPkVxQt0tjjwg</types1:GUID>
+      <types1:DisplayName>GDSN_Report_SharePoint_Upload</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-19T14:38:57.316Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

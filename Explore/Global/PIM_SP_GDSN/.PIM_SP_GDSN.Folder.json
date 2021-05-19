@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "2LFycAKdpNJjM9Pl87v3ML",
+    "name" : "PIM_SP_GDSN",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD200192",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

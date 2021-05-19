@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "cr479Vh6z6SiSFIFl0y4CL",
+    "name" : "GDSNReports-FileWatcher",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "EIAkRtO3M4WwOC2-gt-23123680-2020-08-07T13:53:03.148Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

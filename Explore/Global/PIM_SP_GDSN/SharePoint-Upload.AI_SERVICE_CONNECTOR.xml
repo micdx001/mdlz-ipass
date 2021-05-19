@@ -1,0 +1,134 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>hu1tgq695kchzt1-gt-23123713-2020-08-07T13:53:03.311Z::svc.xml</types1:EntryId>
+      <types1:Name>SharePoint-Upload</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>This service connector is used to get token and upload file to SharePoint</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-07T13:53:03Z</types1:CreationDate>
+      <types1:ModifiedBy>baishali.sikdar@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-20T06:27:16Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>baishali.sikdar@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-20T06:27:22Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SharePoint_Upload/SharePoint_Upload_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SharePoint-Upload"
+                            label=""
+                            name="SharePoint-Upload"
+                            uuid="b3dfb718-1217-481c-a3bb-5a022936e748">
+            <description>This service connector is used to get token and upload file to SharePoint</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="UploadtoSharePoint"
+                       maxRedirects="100"
+                       name="UploadtoSharePoint"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="file"
+                                required="false"
+                                testWith="GDSN_US_CIC_ Report_20190310153700.csv"
+                                type="string"/>
+                     <parameter name="attachment"
+                                required="false"
+                                testWith=""
+                                type="attachment"/>
+                     <parameter name="foldername"
+                                required="false"
+                                testWith="F02%20-%20GDSN%20CIC%20Report%20-%20US"
+                                type="string"/>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imh1Tjk1SXZQZmVocTM0R3pCRFoxR1hHaXJuTSIsImtpZCI6Imh1Tjk1SXZQZmVocTM0R3pCRFoxR1hHaXJuTSJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvY29sbGFib3JhdGlvbi5tZGx6LmNvbUAxOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjciLCJpc3MiOiIwMDAwMDAwMS0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDBAMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwiaWF0IjoxNTk0ODI2OTE0LCJuYmYiOjE1OTQ4MjY5MTQsImV4cCI6MTU5NDkxMzYxNCwiaWRlbnRpdHlwcm92aWRlciI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEAxOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjciLCJuYW1laWQiOiIwNTA5NTliYS0yZTUzLTQzY2UtYTg3Ni01YjQ4ZTEzZTcyOTJAMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3Iiwib2lkIjoiNzg4Y2FjN2QtZjI1YS00NjdjLTk3MTktZDMxYTE5OGIxOWM0Iiwic3ViIjoiNzg4Y2FjN2QtZjI1YS00NjdjLTk3MTktZDMxYTE5OGIxOWM0IiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJmYWxzZSJ9.xi2QQ2WX62TT3sAuxGTxFnyJukHIUL8-VeKPYo6RbNHYPl_VSrOEnJO2aSbV5QF0AhsOuIZcJzyfOI_UUg2omUrAUcsuvlXvnCgqT-a137YbuvffQfU2BwNRDUqa7yZrDL5zLtmIJtIE7zslqv6iDdPnWA3NR1ckSz3pX8BZKe9EdIB80UUb9_NnPURtI-_wHUaArrFhN-uV6owuF8-a3lRFB9GesdQBFHUuOPwq3DpmJIgKdeBIkyuVFJuqgqcma1LUYkmsqhL91Hd1ym80qiUJOQ6hpMLWN0LX-Fc8eWyDs9ASI7FWWncGP1Ai_aaUkDS7PlaE2OflqJefgEPChw"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://collaboration.mdlz.com/sites/SpotlightGDS/_api/web/GetFolderByServerRelativeUrl('/sites/SpotlightGDS/Shared%20Documents%2{$foldername}')/Files/add(url='{$file}',overwrite=true)"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Accept">application/json;odata=verbose</header>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                        </httpHeaders>
+                        <body/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="getToken"
+                       maxRedirects="100"
+                       name="getToken"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://accounts.accesscontrol.windows.net/18a01ad8-9727-498a-a47d-17374c6fd9f7/tokens/OAuth/2"
+                                        verb="POST">
+                        <otherParams>
+                           <otherParam name="grant_type">client_credentials</otherParam>
+                           <otherParam name="client_id">050959ba-2e53-43ce-a876-5b48e13e7292@18a01ad8-9727-498a-a47d-17374c6fd9f7</otherParam>
+                           <otherParam name="client_secret">TyUjEnKJvW9iXxcZEPlXSFmziQHm7ZVwhyZXFbgj0zI=</otherParam>
+                           <otherParam name="resource">00000003-0000-0ff1-ce00-000000000000/collaboration.mdlz.com@18a01ad8-9727-498a-a47d-17374c6fd9f7</otherParam>
+                        </otherParams>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="token"
+                            property="access_token"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="root">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="access_token" type="string"/>
+                     <field name="resource" type="string"/>
+                     <field name="not_before" type="int"/>
+                     <field name="expires_on" type="int"/>
+                     <field name="token_type" type="string"/>
+                     <field name="expires_in" type="int"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>1LoPVUQgDoiigFIYM3GmUE</types1:GUID>
+      <types1:DisplayName>SharePoint-Upload</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-19T14:38:56.917Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

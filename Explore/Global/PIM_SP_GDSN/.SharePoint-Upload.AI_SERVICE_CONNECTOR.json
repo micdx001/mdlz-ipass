@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "1LoPVUQgDoiigFIYM3GmUE",
+    "name" : "SharePoint-Upload",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "hu1tgq695kchzt1-gt-23123713-2020-08-07T13:53:03.311Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "This service connector is used to get token and upload file to SharePoint",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

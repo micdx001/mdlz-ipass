@@ -1,0 +1,68 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>SkThJWjzDt0x7bc-gt-23123705-2020-08-07T13:53:03.271Z::svc.xml</types1:EntryId>
+      <types1:Name>ServiceCall-GDSN-Report-SharePoint-Upload</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>This service connector is used to call the subprocess</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-07T13:53:03Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-07T14:10:15Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-07T14:10:25Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/ServiceCall_GDSN_Report_SharePoint_Upload/ServiceCall_GDSN_Report_SharePoint_Upload_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="ServiceCall-GDSN-Report-SharePoint-Upload"
+                            label=""
+                            name="ServiceCall-GDSN-Report-SharePoint-Upload"
+                            uuid="24936731-29c4-4503-b394-51f8a44b4164">
+            <description>This service connector is used to call the subprocess</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="ServiceCall_GDSN_Report_SharePoint_Upload"
+                       maxRedirects="100"
+                       name="ServiceCall_GDSN_Report_SharePoint_Upload"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Filename" required="false" testWith="" type="string"/>
+                     <parameter name="Attachment"
+                                required="false"
+                                testWith=""
+                                type="attachment"/>
+                     <parameter name="Foldername" required="false" testWith="" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://use4-cai.dm-us.informaticacloud.com/active-bpel/public/rt/5uKPaRik1JUghnB6RNXXI0/GDSN_Report_SharePoint_Upload"
+                                        verb="POST">
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>8y3kR4AmfCwltCCcJycugm</types1:GUID>
+      <types1:DisplayName>ServiceCall-GDSN-Report-SharePoint-Upload</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-19T14:38:56.93Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

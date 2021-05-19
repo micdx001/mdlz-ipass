@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "3yEMdSsvmBUbsVneMGwzkl",
+    "name" : "MP-PIM-S3-SharePoint-GDSNReport",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "M22z2YNmumf6S3w-gt-7182448-2020-08-07T13:53:04.761Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "This process uploads file to their respective folders in SharePoint.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "8JcGsJdVEOde4zVvTmJycD",
+    "name" : "ServiceCall-GDSN-Report-SharePoint-Upload",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "neJwgpbdoPVm5Y6-gt-22408070-2020-08-07T13:53:04.022Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/PIM_SP_GDSN"
+  } ]
+}

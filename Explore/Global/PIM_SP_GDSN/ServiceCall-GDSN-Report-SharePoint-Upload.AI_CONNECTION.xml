@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>neJwgpbdoPVm5Y6-gt-22408070-2020-08-07T13:53:04.022Z::conn.xml</types1:EntryId>
+      <types1:Name>ServiceCall-GDSN-Report-SharePoint-Upload</types1:Name>
+      <types1:ParentFlowIds>M22z2YNmumf6S3w-gt-7182448-2020-08-07T13:53:04.761Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:gl_agent_east_01</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-07T13:53:04Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-07T14:11:12Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/ServiceCall-GDSN-Report-SharePoint-Upload/ServiceCall-GDSN-Report-SharePoint-Upload.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="ServiceCall-GDSN-Report-SharePoint-Upload"
+                     label="ServiceCall-GDSN-Report-SharePoint-Upload"
+                     name="ServiceCall-GDSN-Report-SharePoint-Upload">
+            <description/>
+            <tags>.agent:gl_agent_east_01</tags>
+            <agent>gl_agent_east_01</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/ServiceCall_GDSN_Report_SharePoint_Upload/ServiceCall_GDSN_Report_SharePoint_Upload_svcDef.xml"
+                               guid="8y3kR4AmfCwltCCcJycugm"
+                               name="ServiceCall-GDSN-Report-SharePoint-Upload"
+                               supportsConnectionTest="false"
+                               uuid="24936731-29c4-4503-b394-51f8a44b4164">
+               <description>This service connector is used to call the subprocess</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>8JcGsJdVEOde4zVvTmJycD</types1:GUID>
+      <types1:DisplayName>ServiceCall-GDSN-Report-SharePoint-Upload</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-19T14:38:57.053Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,293 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>M22z2YNmumf6S3w-gt-7182448-2020-08-07T13:53:04.761Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-PIM-S3-SharePoint-GDSNReport</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>This process uploads file to their respective folders in SharePoint.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:gl_agent_east_01</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-07T13:53:05Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-07T14:12:02Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MP-PIM-S3-SharePoint-GDSNReport/MP-PIM-S3-SharePoint-GDSNReport.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-PIM-S3-SharePoint-GDSNReport"
+                  name="MP-PIM-S3-SharePoint-GDSNReport"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>This process uploads file to their respective folders in SharePoint.</description>
+            <tags>.agent:gl_agent_east_01</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="fileEvent" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">GDSNReports-FileWatcher:AttachmentFileContent</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="Filename" type="textarea">
+                  <options>
+                     <option name="text_width">100</option>
+                     <option name="text_height">5</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Foldername" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="Foldername after replacing space"
+                      name="Folder"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_filename" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>gl_agent_east_01</targetLocation>
+               <event eventSource="GDSNReports-FileWatcher:FileParser"/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jsohtenn" targetId="jsohtenm"/>
+               </start>
+               <assignment id="jsohtenm">
+                  <title>Assignment to Filename, temp_filename</title>
+                  <operation source="formula" to="temp.Filename">
+                     <expression language="XQuery">$input.fileEvent[1]/fileInfo[1]/fullName 
+
+
+</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_filename">
+                     <expression language="XQuery">fn:upper-case($temp.Filename)</expression>
+                  </operation>
+                  <link id="jsv9lgbq" targetId="jsv9lgbp"/>
+               </assignment>
+               <assignment id="jsv9lg79">
+                  <title>Assignment to Folder</title>
+                  <operation source="formula" to="temp.Folder">
+                     <expression language="XQuery">fn:encode-for-uri($temp.Foldername)</expression>
+                  </operation>
+                  <link id="jsv9lgmk" targetId="jsv9lgmj"/>
+               </assignment>
+               <container id="jsv9lgbp" type="exclusive">
+                  <title>Filename</title>
+                  <flow id="jsv9lgbt">
+                     <assignment id="jtnzfwjs">
+                        <title>Assignment to F01</title>
+                        <operation source="constant" to="temp.Foldername">F01 - GDSN Daily Delta Report</operation>
+                     </assignment>
+                     <link id="jsv9lgbu" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsvlo2kj">
+                     <assignment id="jtnzfwkw">
+                        <title>Assignment to F02</title>
+                        <operation source="constant" to="temp.Foldername">F02 - GDSN CIC Report - US</operation>
+                     </assignment>
+                     <link id="jygyr5pb" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsv9lgbw">
+                     <assignment id="jtnzfwkb">
+                        <title>Assignment to F03</title>
+                        <operation source="constant" to="temp.Foldername">F03 - GDSN CIC Report - CA</operation>
+                     </assignment>
+                     <link id="jygyr5q4" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsv9lge2">
+                     <assignment id="jsv9lgev">
+                        <title>Assignment to F04</title>
+                        <operation source="constant" to="temp.Foldername">F04 - GDSN MEU Report</operation>
+                     </assignment>
+                     <link id="jygyr5qx" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsv9lge4">
+                     <assignment id="jsvlo2mg">
+                        <title>Assignment to F05</title>
+                        <operation source="constant" to="temp.Foldername">F05 - GDSN DACH Report</operation>
+                     </assignment>
+                     <link id="jygyr5rq" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsvlo2kb">
+                     <assignment id="jsvlo2ms">
+                        <title>Assignment to F06</title>
+                        <operation source="constant" to="temp.Foldername">F06 - GDSN Mondelez US Report</operation>
+                     </assignment>
+                     <link id="jygyr5sj" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsvlo2kd">
+                     <assignment id="jsvlo2n4">
+                        <title>Assignment to F07</title>
+                        <operation source="constant" to="temp.Foldername">F07 - GDSN PCL Report</operation>
+                     </assignment>
+                     <link id="jygyr5tc" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsvlo2kf">
+                     <assignment id="jsvlo2ng">
+                        <title>Assignment to F08</title>
+                        <operation source="constant" to="temp.Foldername">F08 - GDSN B2B2C Report</operation>
+                     </assignment>
+                     <link id="jygyr5u5" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jsvlo2kh">
+                     <assignment id="jsvlo2ns">
+                        <title>Assignment to F00</title>
+                        <operation source="constant" to="temp.Foldername">F00 - GDSN Output Report</operation>
+                     </assignment>
+                     <link id="jygyr5uy" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="k9vry9nc">
+                     <assignment id="k9vry9o9">
+                        <title>Assignment to FIDQ</title>
+                        <operation source="constant" to="temp.Foldername">FIDQ - Daily Delta Report</operation>
+                     </assignment>
+                     <link id="k9vry9nd" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="k9vry9ng">
+                     <assignment id="k9vry9v9">
+                        <title>Assignment to FIDQ Report</title>
+                        <operation source="constant" to="temp.Foldername">FIDQ Report - UpdatedOnlyAtPLM</operation>
+                     </assignment>
+                     <link id="k9vry9nh" targetId="jsv9lgbp" type="containerLink"/>
+                  </flow>
+                  <flow id="jtnzfw61">
+                     <end id="jtnzfwxn">
+                        <title>End 2</title>
+                     </end>
+                  </flow>
+                  <link id="jsv9lgbs" targetId="jsv9lgbt" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_DELTA_REPORT</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsvlo2ka" targetId="jsvlo2kj" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_US_CIC</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsv9lgbv" targetId="jsv9lgbw" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_CN_CIC</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsv9lge0" targetId="jsv9lge2" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_MEU</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsv9lge1" targetId="jsv9lge4" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_DACH</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsvlo2k6" targetId="jsvlo2kb" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_MONDELEZ_US</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsvlo2k7" targetId="jsvlo2kd" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_PCL</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsvlo2k8" targetId="jsvlo2kf" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_B2B2C</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jsvlo2k9" targetId="jsvlo2kh" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">GDSN_OUTPUT</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k9vry9n9" targetId="k9vry9nc" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">PIM_LASTUPDATE_DETAILS</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k9vry9nb" targetId="k9vry9ng" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with">
+                           <arg name="left">{$temp.temp_filename}</arg>
+                           <arg name="right">PIM_IDQ_DETAILS_MODIFIEDITEMSONLYATPLM_REPORT</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jtnzfw60" targetId="jtnzfw61" type="containerLink"/>
+                  <link id="jsv9lggz" targetId="jsv9lg79"/>
+               </container>
+               <service id="jsv9lgmj">
+                  <title>SubprocessCall-TogetToken-touploadfile</title>
+                  <serviceName>ServiceCall-GDSN-Report-SharePoint-Upload:ServiceCall_GDSN_Report_SharePoint_Upload</serviceName>
+                  <serviceGUID>8JcGsJdVEOde4zVvTmJycD</serviceGUID>
+                  <serviceInput>
+                     <parameter name="Filename" source="formula">
+                        <expression language="XQuery">fn:encode-for-uri($temp.Filename )</expression>
+                     </parameter>
+                     <parameter name="Attachment" source="field" updatable="true">input.fileEvent[1]/attachment</parameter>
+                     <parameter name="Foldername" source="field" updatable="true">temp.Folder</parameter>
+                  </serviceInput>
+                  <link id="jygyr5v0" targetId="jygyr5uz"/>
+               </service>
+               <end id="jygyr5uz">
+                  <title>End 1</title>
+               </end>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>3yEMdSsvmBUbsVneMGwzkl</types1:GUID>
+      <types1:DisplayName>MP-PIM-S3-SharePoint-GDSNReport</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-19T14:38:57.43Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
