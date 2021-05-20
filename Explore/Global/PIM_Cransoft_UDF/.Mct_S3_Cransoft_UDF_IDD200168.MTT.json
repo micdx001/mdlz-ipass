@@ -16,7 +16,7 @@
         "value" : "@1"
       } ],
       "additionalInfo" : {
-        "description" : "",
+        "description" : ".",
         "contentType" : "JSON",
         "documentState" : "VALID"
       }
@@ -55,10 +55,7 @@
       "repoInfo" : {
         "repoHandle" : "011APQ1700000000000U"
       },
-      "contextAttributes" : [ {
-        "name" : "id",
-        "value" : "@1"
-      } ],
+      "contextAttributes" : null,
       "additionalInfo" : {
         "description" : "Dummy mapping to run S3 script\n",
         "contentType" : "JSON",
