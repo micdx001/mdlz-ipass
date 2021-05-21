@@ -1,0 +1,99 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>yhBWJgki8MZgpDq-gt-13146332-2021-03-12T11:54:50.401Z::svc.xml</types1:EntryId>
+      <types1:Name>SAP-PO-HICX-Integration-APAC-IDD200191</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>Connector to send Vendor data to SAP PO</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>shibbu.saurabh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2021-03-12T11:54:50Z</types1:CreationDate>
+      <types1:ModifiedBy>shibbu.saurabh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2021-03-12T13:36:03Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>shibbu.saurabh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-12T13:36:08Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SAP_PO_HICX_Integration_APAC_IDD200191/SAP_PO_HICX_Integration_APAC_IDD200191_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="SAP-PO-HICX-Integration-APAC-IDD200191"
+                            label=""
+                            name="SAP-PO-HICX-Integration-APAC-IDD200191"
+                            uuid="24af1f29-afd0-4cf6-a63c-cc9fc04081c9">
+            <description>Connector to send Vendor data to SAP PO</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="SAP PO HICX Vendor integration"
+                       maxRedirects="100"
+                       name="SAP PO HICX Vendor integration"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="IM_MASTER_DATA"
+                                required="true"
+                                testWith="&lt;ns0:ZSTPI_I200191_VMI_API_ECC xmlns:ns0='urn:sap-com:document:sap:rfc:functions'&gt;&#xA;    &lt;IS_MASTER_DATA&gt;&#xA;        &lt;VENDORS&gt;&#xA;            &lt;item&gt;&#xA;                &lt;CENTRAL_DATA&gt;&#xA;                    &lt;CENTRAL&gt;&#xA;                        &lt;DATAX&gt;&#xA;                            &lt;BRSCH&gt;X&lt;/BRSCH&gt;&#xA;                            &lt;J_1KFTBUS&gt;X&lt;/J_1KFTBUS&gt;&#xA;                        &lt;/DATAX&gt;&#xA;                        &lt;DATA&gt;&#xA;                            &lt;BRSCH&gt;999&lt;/BRSCH&gt;&#xA;                            &lt;J_1KFTBUS&gt;CORPORATION&lt;/J_1KFTBUS&gt;&#xA;                            &lt;KTOKK&gt;ZVE2&lt;/KTOKK&gt;&#xA;                        &lt;/DATA&gt;&#xA;                    &lt;/CENTRAL&gt;&#xA;                    &lt;ADDRESS&gt;&#xA;                        &lt;TASK&gt;M&lt;/TASK&gt;&#xA;                        &lt;POSTAL&gt;&#xA;                            &lt;DATAX&gt;&#xA;                                &lt;CITY&gt;X&lt;/CITY&gt;&#xA;                                &lt;COUNTRY&gt;X&lt;/COUNTRY&gt;&#xA;                                &lt;POSTL_COD1&gt;X&lt;/POSTL_COD1&gt;&#xA;                                &lt;SORT1&gt;X&lt;/SORT1&gt;&#xA;                                &lt;LANGU&gt;X&lt;/LANGU&gt;&#xA;                                &lt;STREET&gt;X&lt;/STREET&gt;&#xA;                                &lt;NAME_3&gt;X&lt;/NAME_3&gt;&#xA;                                &lt;NAME&gt;X&lt;/NAME&gt;&#xA;                                &lt;REGION&gt;X&lt;/REGION&gt;&#xA;                            &lt;/DATAX&gt;&#xA;                            &lt;DATA&gt;&#xA;                                &lt;CITY&gt;NEW YORK&lt;/CITY&gt;&#xA;                                &lt;COUNTRY&gt;US&lt;/COUNTRY&gt;&#xA;                                &lt;POSTL_COD1&gt;90201&lt;/POSTL_COD1&gt;&#xA;                                &lt;SORT1&gt;SUP MDLZ I&lt;/SORT1&gt;&#xA;                                &lt;LANGU&gt;ENGLISH&lt;/LANGU&gt;&#xA;                                &lt;STREET&gt;MARINA STREET 26242&lt;/STREET&gt;&#xA;                                &lt;NAME_3&gt;SUP MDLZ INVITATION1 26242&lt;/NAME_3&gt;&#xA;                                &lt;NAME&gt;SUP MDLZ INVITATION1 26242&lt;/NAME&gt;&#xA;                                &lt;REGION&gt;CA&lt;/REGION&gt;&#xA;                            &lt;/DATA&gt;&#xA;                        &lt;/POSTAL&gt;&#xA;                    &lt;/ADDRESS&gt;&#xA;                &lt;/CENTRAL_DATA&gt;&#xA;                &lt;PURCHASING_DATA&gt;&#xA;                    &lt;PURCHASING&gt;&#xA;                        &lt;item&gt;&#xA;                            &lt;TASK&gt;M&lt;/TASK&gt;&#xA;                            &lt;DATAX&gt;&#xA;                                &lt;ZTERM&gt;X&lt;/ZTERM&gt;&#xA;                            &lt;/DATAX&gt;&#xA;                            &lt;DATA&gt;&#xA;                                &lt;ZTERM&gt;120R&lt;/ZTERM&gt;&#xA;                            &lt;/DATA&gt;&#xA;                            &lt;DATA_KEY&gt;&#xA;                                &lt;EKORG&gt;KF02&lt;/EKORG&gt;&#xA;                            &lt;/DATA_KEY&gt;&#xA;                        &lt;/item&gt;&#xA;                    &lt;/PURCHASING&gt;&#xA;                &lt;/PURCHASING_DATA&gt;&#xA;            &lt;/item&gt;&#xA;        &lt;/VENDORS&gt;&#xA;    &lt;/IS_MASTER_DATA&gt;"
+                                type="reference">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="http://msapx1q01.krft.net:80/XISOAPAdapter/MessageServlet?senderParty=IPASS&amp;amp;senderService=BusComponent_HICXSaaS&amp;amp;interface=ZSTPI_I200191_VMI_API_ECC_AP&amp;amp;interfaceNamespace=urn:sap-com:document:sap:rfc:functions"
+                                        verb="POST">
+                        <authentication>
+                           <username>IPaas_HTTP_X1Q</username>
+                           <password>RFCconn01</password>
+                           <isExpressionInPassword>true</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">text/xml;charset=UTF-8</header>
+                           <header name="SOAPAction">ZSTPI_I200191_VMI_API_ECC_AP</header>
+                        </httpHeaders>
+                        <body>{let $data := util:simplifyXml($IM_MASTER_DATA)
+return
+&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;urn:ZSTPI_I200191_VMI_API_ECC_AP&gt;
+      &lt;IM_MASTER_DATA&gt;
+      {$data/IS_MASTER_DATA/*}
+      &lt;/IM_MASTER_DATA&gt;         
+      &lt;/urn:ZSTPI_I200191_VMI_API_ECC_AP&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="out_response"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>19G8uhTy5byhgPNGUvGLy0</types1:GUID>
+      <types1:DisplayName>SAP-PO-HICX-Integration-APAC-IDD200191</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:24:57.315Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

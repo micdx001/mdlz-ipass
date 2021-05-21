@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "0XNXm3S7EsUcd90hPcAoYd",
+    "name" : "SP_SAP_Vendor_Integration_APAC_IDD200191",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "UMi4tciSrZMSPfX-gt-36459793-2021-03-12T11:54:50.752Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "f04jrLpPQaRkJ37V12uvKK",
+    "name" : "HICX-SAP-Integration-APAC-IDD200191",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "LsciQlBWlD2pHAL-gt-13347550-2021-03-12T11:54:50.602Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SAP connection.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/HICX  integration to ECC"
+  } ]
+}

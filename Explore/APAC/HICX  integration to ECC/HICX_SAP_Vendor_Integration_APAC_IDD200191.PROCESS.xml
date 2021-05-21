@@ -1,0 +1,97 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>6yV4AdypKwKBqRi-gt-33755331-2021-03-12T11:54:50.929Z::pd.xml</types1:EntryId>
+      <types1:Name>HICX_SAP_Vendor_Integration_APAC_IDD200191</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>shibbu.saurabh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2021-03-12T11:54:51Z</types1:CreationDate>
+      <types1:ModifiedBy>shibbu.saurabh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2021-03-12T13:39:50Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>shibbu.saurabh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-12T13:39:59Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.HICX_SAP_Vendor_Integration_APAC_IDD200191/HICX_SAP_Vendor_Integration_APAC_IDD200191.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="HICX_SAP_Vendor_Integration_APAC_IDD200191"
+                  name="HICX_SAP_Vendor_Integration_APAC_IDD200191"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="In_Payload" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="out_reponse_hicx" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>ipaas_hicxuser_reg@mdlz.com</user>
+                  </allowedUsers>
+                  <additionalConstraint>
+                     <constraint>APIM</constraint>
+                  </additionalConstraint>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kbgiu29o" targetId="kbgiu29n"/>
+               </start>
+               <subflow id="kbgiu29n">
+                  <title>SP_SAP_Vendor_Integration_IDD200191</title>
+                  <subflowGUID>0XNXm3S7EsUcd90hPcAoYd</subflowGUID>
+                  <subflowPath>SP_SAP_Vendor_Integration_APAC_IDD200191</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="in_data" source="field" updatable="true">input.In_Payload</parameter>
+                  </input>
+                  <outputDef>
+                     <field name="out_hicx" type="reference">
+                        <options>
+                           <option name="referenceTo">$po:$any</option>
+                           <option name="required">false</option>
+                           <option name="isCopy">true</option>
+                        </options>
+                     </field>
+                  </outputDef>
+                  <link id="kcodl880" targetId="kcodl87z"/>
+               </subflow>
+               <assignment id="kcodl87z">
+                  <title>Assignment to out_reponse_hicx</title>
+                  <operation source="field" to="output.out_reponse_hicx">output.out_hicx</operation>
+                  <link id="kcodl881" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>eKcRK7LosQCfGnHFsxRQCr</types1:GUID>
+      <types1:DisplayName>HICX_SAP_Vendor_Integration_APAC_IDD200191</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:24:57.638Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "f04jrLpPQaRkJ37V12uvKK",
+    "name" : "HICX-SAP-Integration-APAC-IDD200191",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "LsciQlBWlD2pHAL-gt-13347550-2021-03-12T11:54:50.602Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SAP connection.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "19G8uhTy5byhgPNGUvGLy0",
+    "name" : "SAP-PO-HICX-Integration-APAC-IDD200191",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "yhBWJgki8MZgpDq-gt-13146332-2021-03-12T11:54:50.401Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send Vendor data to SAP PO",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/HICX  integration to ECC"
+  } ]
+}

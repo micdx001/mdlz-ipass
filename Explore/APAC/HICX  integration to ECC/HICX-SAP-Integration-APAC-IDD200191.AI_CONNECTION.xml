@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>LsciQlBWlD2pHAL-gt-13347550-2021-03-12T11:54:50.602Z::conn.xml</types1:EntryId>
+      <types1:Name>HICX-SAP-Integration-APAC-IDD200191</types1:Name>
+      <types1:ParentFlowIds>UMi4tciSrZMSPfX-gt-36459793-2021-03-12T11:54:50.752Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>SAP connection.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:APAC</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>shibbu.saurabh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2021-03-12T11:54:51Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>shibbu.saurabh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-12T13:38:35Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/HICX-SAP-Integration-APAC-IDD200191/HICX-SAP-Integration-APAC-IDD200191.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="HICX-SAP-Integration-APAC-IDD200191"
+                     label="HICX-SAP-Integration-APAC-IDD200191"
+                     name="HICX-SAP-Integration-APAC-IDD200191">
+            <description>SAP connection.</description>
+            <tags>.agent:APAC</tags>
+            <agent>APAC</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/SAP_PO_HICX_Integration_APAC_IDD200191/SAP_PO_HICX_Integration_APAC_IDD200191_svcDef.xml"
+                               guid="19G8uhTy5byhgPNGUvGLy0"
+                               name="SAP-PO-HICX-Integration-APAC-IDD200191"
+                               supportsConnectionTest="false"
+                               uuid="24af1f29-afd0-4cf6-a63c-cc9fc04081c9">
+               <description>Connector to send Vendor data to SAP PO</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>f04jrLpPQaRkJ37V12uvKK</types1:GUID>
+      <types1:DisplayName>HICX-SAP-Integration-APAC-IDD200191</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:24:57.464Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

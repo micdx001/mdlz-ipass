@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "19G8uhTy5byhgPNGUvGLy0",
+    "name" : "SAP-PO-HICX-Integration-APAC-IDD200191",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "yhBWJgki8MZgpDq-gt-13146332-2021-03-12T11:54:50.401Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send Vendor data to SAP PO",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
