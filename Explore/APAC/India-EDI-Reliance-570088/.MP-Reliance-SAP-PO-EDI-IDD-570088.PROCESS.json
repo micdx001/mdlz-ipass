@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "04LKFFhPAC7bSMnKiTGC6f",
+    "name" : "MP-Reliance-SAP-PO-EDI-IDD-570088",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ydx2CGeFRqXpIW7-gt-2825572-2020-07-23T11:16:19.388Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "iPaas Process to send Data from Relaince to SAP PO for Sales Order .",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "6SOCCDVrKg1gKCCUoEpIEr",
+    "name" : "SP-Reliance-SAP-PO-EDI-IDD-570088",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "lt0i98C1LOwD0wW-gt-2696751-2020-07-23T11:16:19.182Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send SalesOeder data to SAP PO .",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/India-EDI-Reliance-570088"
+  } ]
+}

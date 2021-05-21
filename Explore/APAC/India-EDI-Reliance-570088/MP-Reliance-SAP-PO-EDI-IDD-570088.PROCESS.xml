@@ -1,0 +1,97 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>ydx2CGeFRqXpIW7-gt-2825572-2020-07-23T11:16:19.388Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-Reliance-SAP-PO-EDI-IDD-570088</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>iPaas Process to send Data from Relaince to SAP PO for Sales Order .</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>OTM,SAP PO</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T11:16:19Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-07-23T11:19:19Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-07-23T11:19:25Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MP-Reliance-SAP-PO-EDI-IDD-570088/MP-Reliance-SAP-PO-EDI-IDD-570088.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-Reliance-SAP-PO-EDI-IDD-570088"
+                  name="MP-Reliance-SAP-PO-EDI-IDD-570088"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>iPaas Process to send Data from Relaince to SAP PO for Sales Order .</description>
+            <tags>OTM,SAP PO</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_Reliance" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="Header" type="xml">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_MSGTYPE" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="TEMP_UNIQUE_ID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="TEMP_SENDING_PARTNER" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>ipass_relianceuser_reg@mdlz.com</user>
+                  </allowedUsers>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k0nhbx90" targetId="jsol6zb4"/>
+               </start>
+               <subflow id="jsol6zb4">
+                  <title>reliance</title>
+                  <subflowGUID>6SOCCDVrKg1gKCCUoEpIEr</subflowGUID>
+                  <subflowPath>SP-Reliance-SAP-PO-EDI-IDD-570088</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="IN_OTM" source="formula" updatable="true">
+                        <expression language="XQuery">$input.in_Reliance </expression>
+                     </parameter>
+                  </input>
+                  <outputDef/>
+                  <link id="jsol6zb6" targetId="d"/>
+               </subflow>
+               <end id="d"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>04LKFFhPAC7bSMnKiTGC6f</types1:GUID>
+      <types1:DisplayName>MP-Reliance-SAP-PO-EDI-IDD-570088</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:22:18.305Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "a4arUuZNJNoippzPCc5noa",
+    "name" : "Reliance-SAP-PO-EDI-IDD-570088",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "SJsJGD4ARW8UBM7-gt-1186481-2020-07-23T11:16:18.725Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send salesorder data to SAP PO .",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

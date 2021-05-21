@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>8G45YLnzYLnzYLn-gt-2825560-2020-07-23T11:16:18.967Z::conn.xml</types1:EntryId>
+      <types1:Name>Reliance-SAP-PO-EDI-IDD-570088</types1:Name>
+      <types1:ParentFlowIds>lt0i98C1LOwD0wW-gt-2696751-2020-07-23T11:16:19.182Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>Connection for SAP PO SalesOrder</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:APAC</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T11:16:19Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-11T10:57:47Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/Reliance-SAP-PO-EDI-IDD-570088/Reliance-SAP-PO-EDI-IDD-570088.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="Reliance-SAP-PO-EDI-IDD-570088"
+                     label="Reliance-SAP-PO-EDI-IDD-570088"
+                     name="Reliance-SAP-PO-EDI-IDD-570088">
+            <description>Connection for SAP PO SalesOrder</description>
+            <tags>.agent:APAC</tags>
+            <agent>APAC</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/Reliance_SAP_PO_EDI_IDD_570088/Reliance_SAP_PO_EDI_IDD_570088_svcDef.xml"
+                               guid="a4arUuZNJNoippzPCc5noa"
+                               name="Reliance-SAP-PO-EDI-IDD-570088"
+                               supportsConnectionTest="false"
+                               uuid="24af1f29-afd0-4cf6-a63c-cc9fc04081c9">
+               <description>Connector to send salesorder data to SAP PO .</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>9JFzNsxNjrJiys9h0xt7Iw</types1:GUID>
+      <types1:DisplayName>Reliance-SAP-PO-EDI-IDD-570088</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:22:18.079Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "6SOCCDVrKg1gKCCUoEpIEr",
+    "name" : "SP-Reliance-SAP-PO-EDI-IDD-570088",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "lt0i98C1LOwD0wW-gt-2696751-2020-07-23T11:16:19.182Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send SalesOeder data to SAP PO .",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "9JFzNsxNjrJiys9h0xt7Iw",
+    "name" : "Reliance-SAP-PO-EDI-IDD-570088",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "8G45YLnzYLnzYLn-gt-2825560-2020-07-23T11:16:18.967Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connection for SAP PO SalesOrder",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/India-EDI-Reliance-570088"
+  } ]
+}

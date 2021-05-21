@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "ag7nCvaQ5ewgFNo57ekIYU",
+    "name" : "India-EDI-Reliance-570088",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD570088",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}
