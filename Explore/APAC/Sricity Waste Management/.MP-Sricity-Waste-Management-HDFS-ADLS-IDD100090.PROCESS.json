@@ -1,0 +1,64 @@
+{
+  "objectInfo" : {
+    "id" : "cC7Ehfi3CKml9L4etKRRyq",
+    "name" : "MP-Sricity-Waste-Management-HDFS-ADLS-IDD100090",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Kx6I1dq2ME9paab-gt-1858578-2020-09-17T07:08:05.864Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send Sricity  files to HDFS..",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "1DtNmKoPDOOfutHQrMuqMj",
+    "name" : "SP-SendEmail-Sricity",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Dyvs7xvk0qZF3a-gt-62409646-2020-09-17T07:08:04.732Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/Sricity Waste Management"
+  }, {
+    "id" : "5QWRsyHuLuqkXhoEJv68sB",
+    "name" : "Upload-ADLS-HDFS-Sricity",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "DVhJEaaaaaaaaaa-gt-62409664-2020-09-17T07:08:04.771Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/Sricity Waste Management"
+  } ]
+}

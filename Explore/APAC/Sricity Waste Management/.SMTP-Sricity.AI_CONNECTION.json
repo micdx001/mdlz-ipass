@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "ihuOgAX3ueqiFEczTF8v0y",
+    "name" : "SMTP-Sricity",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "yS24FsWTzIf6riX-gt-21087255-2020-09-17T07:08:03.964Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

@@ -1,0 +1,50 @@
+{
+  "objectInfo" : {
+    "id" : "8PQp3t1gUVHjAHt7r3FUCS",
+    "name" : "TF_Sricity_Waste_Management_IDD100090",
+    "type" : "WORKFLOW",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0N00000000001L"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "objectRefs" : [ {
+    "id" : "jlGvdGVhyWWjWMEDd6roIy",
+    "name" : "MCT_Sricity_Waste_Management_HDFS_ADLS_IDD100090",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0Z000000000059"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/Sricity Waste Management"
+  } ]
+}

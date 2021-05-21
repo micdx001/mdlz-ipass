@@ -1,0 +1,67 @@
+{
+  "objectInfo" : {
+    "id" : "aObLJLkDPYKfuflsS1mJg1",
+    "name" : "m_Sricity_HDFS_ADLS",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ1700000000005R"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "This mapping will get the file from Fractal Server to ipass server dir",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "objectRefs" : [ {
+    "id" : "3dPVzAMuEmddTHvzSGq5eq",
+    "name" : "Sricity_HDPS_FTP",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0B00000000004D"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Sricity Waste Management",
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  }, {
+    "id" : "8tvu7qI1xxmbx0LmCIIOI6",
+    "name" : "Sricity_FTP_Status",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0B00000000004E"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : null,
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  } ]
+}

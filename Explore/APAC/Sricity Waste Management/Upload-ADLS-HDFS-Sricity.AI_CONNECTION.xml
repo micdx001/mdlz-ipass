@@ -1,0 +1,49 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>DVhJEaaaaaaaaaa-gt-62409664-2020-09-17T07:08:04.771Z::conn.xml</types1:EntryId>
+      <types1:Name>Upload-ADLS-HDFS-Sricity</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:ap_agent_east_01</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-09-17T07:08:05Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-17T07:12:31Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/Upload-ADLS-HDFS-Sricity/Upload-ADLS-HDFS-Sricity.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="Upload-ADLS-HDFS-Sricity"
+                     label="Upload-ADLS-HDFS-Sricity-1"
+                     name="Upload-ADLS-HDFS-Sricity">
+            <description/>
+            <tags>.agent:ap_agent_east_01</tags>
+            <agent>ap_agent_east_01</agent>
+            <attributes>
+               <attribute encrypted="false"
+                          name="ADLSURL_HDFS"
+                          value="https://hdimain01nonprod.dfs.core.windows.net/nonprod-hdi-main01-container/mondelez_dev/data_waste_management/test"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/Upload_ADLS_HDFS_Sricity/Upload_ADLS_HDFS_Sricity_svcDef.xml"
+                               guid="aUfcLShBDtYcKzN454d3AO"
+                               name="Upload-ADLS-HDFS-Sricity"
+                               supportsConnectionTest="false"
+                               uuid="f433cd45-c85c-468c-b43d-a44cff5b3288">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>5QWRsyHuLuqkXhoEJv68sB</types1:GUID>
+      <types1:DisplayName>Upload-ADLS-HDFS-Sricity</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:18:30.23Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

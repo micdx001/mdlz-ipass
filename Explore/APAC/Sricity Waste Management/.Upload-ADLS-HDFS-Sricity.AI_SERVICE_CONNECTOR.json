@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "aUfcLShBDtYcKzN454d3AO",
+    "name" : "Upload-ADLS-HDFS-Sricity",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "cjKsJlv58pIO3M4-gt-21087263-2020-09-17T07:08:04.01Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
