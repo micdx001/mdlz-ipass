@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "iG2RW2EfTUMb01XVkULIOa",
+    "name" : "FileWrite-IDD570107",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "z9Iqy3eHRi92qBb-gt-14834330-2020-08-04T14:15:52.412Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

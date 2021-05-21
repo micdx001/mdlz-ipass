@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "7BhBfjvAw7fiMZCRIoHJCS",
+    "name" : "SMTP-MDLZ-ADLS-HDFS-PerfectPOS",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "xIS7T1cnFKi9zhF-gt-14834322-2020-08-04T14:15:52.38Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

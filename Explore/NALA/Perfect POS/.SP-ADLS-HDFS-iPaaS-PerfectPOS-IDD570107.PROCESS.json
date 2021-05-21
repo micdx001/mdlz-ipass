@@ -1,0 +1,104 @@
+{
+  "objectInfo" : {
+    "id" : "98w3wGo8iPOlQ8bfDL0Z8i",
+    "name" : "SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "3RKWa-gt-14834385-2020-08-04T14:15:53.88Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process  file and send it to first ipaas local then PerfectPOS SFTP and delete the source file in HDFS.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "44MSegUF9m1kifiaGjbamS",
+    "name" : "PerfectPOS-SFTP-IDD570107",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "EzfYtjCtbdsreK8-gt-14834348-2020-08-04T14:15:52.494Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/Perfect POS"
+  }, {
+    "id" : "iG2RW2EfTUMb01XVkULIOa",
+    "name" : "FileWrite-IDD570107",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "z9Iqy3eHRi92qBb-gt-14834330-2020-08-04T14:15:52.412Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/Perfect POS"
+  }, {
+    "id" : "iwNKfmESRkYgR0s5bembm9",
+    "name" : "SP-SendEmail_Perfect_POS",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "uZ06NYcmYsGuDoW-gt-3089390-2020-08-04T14:15:53.329Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/Perfect POS"
+  }, {
+    "id" : "4GMMf8FmN0Fgd2fC1ofjaa",
+    "name" : "Read-ADLS-HDFS-Custhierarchy",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "xVGkSSHCwkNmumf-gt-3089400-2020-08-04T14:15:53.371Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/Perfect POS"
+  } ]
+}

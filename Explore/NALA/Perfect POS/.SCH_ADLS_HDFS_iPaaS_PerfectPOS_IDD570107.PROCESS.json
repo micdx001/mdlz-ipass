@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "4da0naFV06idmvXdCoLvME",
+    "name" : "SCH_ADLS_HDFS_iPaaS_PerfectPOS_IDD570107",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "gpKi9zhFtybduaa-gt-11269452-2020-08-04T14:15:54.112Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Perfect POS --External SFTP system to ADLS file movement",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "98w3wGo8iPOlQ8bfDL0Z8i",
+    "name" : "SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "3RKWa-gt-14834385-2020-08-04T14:15:53.88Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process  file and send it to first ipaas local then PerfectPOS SFTP and delete the source file in HDFS.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/Perfect POS"
+  } ]
+}

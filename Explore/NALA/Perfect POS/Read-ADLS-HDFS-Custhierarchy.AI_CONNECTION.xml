@@ -1,0 +1,49 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>xVGkSSHCwkNmumf-gt-3089400-2020-08-04T14:15:53.371Z::conn.xml</types1:EntryId>
+      <types1:Name>Read-ADLS-HDFS-Custhierarchy</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T14:15:53Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>vandankumar.r.patil@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-24T10:47:32Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/Read-ADLS-HDFS-Custhierarchy/Read-ADLS-HDFS-Custhierarchy.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="Read-ADLS-HDFS-Custhierarchy"
+                     label="Read-ADLS-HDFS-Custhierarchy"
+                     name="Read-ADLS-HDFS-Custhierarchy">
+            <description/>
+            <tags>.agent:AMS</tags>
+            <agent>AMS</agent>
+            <attributes>
+               <attribute encrypted="false"
+                          name="ADLSURL_HDFS"
+                          value="https://hdimain01nonprod.dfs.core.windows.net/nonprod-hdi-main01-container/mondelez_qa/d4sa/data/raw/us/customerhierarchy/outbound"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/Read_ADLS_HDFS_Custhierarchy/Read_ADLS_HDFS_Custhierarchy_svcDef.xml"
+                               guid="2IyitByISbZkwVmqHEjkSe"
+                               name="Read-ADLS-HDFS-Custhierarchy"
+                               supportsConnectionTest="false"
+                               uuid="f433cd45-c85c-468c-b43d-a44cff5b3288">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>4GMMf8FmN0Fgd2fC1ofjaa</types1:GUID>
+      <types1:DisplayName>Read-ADLS-HDFS-Custhierarchy</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:29:38.319Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

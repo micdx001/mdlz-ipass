@@ -1,0 +1,165 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>CMFCnchKGXShOeC-gt-14834338-2020-08-04T14:15:52.454Z::svc.xml</types1:EntryId>
+      <types1:Name>Read-ADLS-HDFS-Custhierarchy</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T14:15:52Z</types1:CreationDate>
+      <types1:ModifiedBy>vandankumar.r.patil@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-24T10:46:46Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>vandankumar.r.patil@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-24T10:46:52Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/Read_ADLS_HDFS_Custhierarchy/Read_ADLS_HDFS_Custhierarchy_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="Read-ADLS-HDFS-Custhierarchy"
+                            label=""
+                            name="Read-ADLS-HDFS-Custhierarchy"
+                            uuid="f433cd45-c85c-468c-b43d-a44cff5b3288">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    masked="false"
+                                    name="ADLSURL_HDFS"
+                                    required="false"
+                                    testWith="https://hdimain01nonprod.dfs.core.windows.net/nonprod-hdi-main01-container/mondelez_qa/d4sa/data/raw/us/customerhierarchy/outbound"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="token creation for ADLS"
+                       maxRedirects="100"
+                       name="token creation for ADLS"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://login.microsoftonline.com/18a01ad8-9727-498a-a47d-17374c6fd9f7/oauth2/v2.0/token"
+                                        verb="POST">
+                        <otherParams>
+                           <otherParam name="client_id">e473ab5c-f7c1-4bdf-8c62-3349e8a5a7bf</otherParam>
+                           <otherParam name="client_secret">iK]@IA:AhPpwqO1DagW?KnDmcXqvN925</otherParam>
+                           <otherParam name="scope">https://storage.azure.com/.default</otherParam>
+                           <otherParam name="grant_type">client_credentials</otherParam>
+                        </otherParams>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="token"
+                            property="access_token"
+                            type="string"/>
+                     <field description=""
+                            name="StatusCode_token"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="read the file"
+                       maxRedirects="100"
+                       name="read the file"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkN0VHVoTUptRDVNN0RMZHpEMnYyeDNRS1NSWSIsImtpZCI6IkN0VHVoTUptRDVNN0RMZHpEMnYyeDNRS1NSWSJ9.eyJhdWQiOiJodHRwczovL3N0b3JhZ2UuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3LyIsImlhdCI6MTU4OTg3ODYzMCwibmJmIjoxNTg5ODc4NjMwLCJleHAiOjE1ODk4ODI1MzAsImFpbyI6IjQyZGdZRGdaTXNIRG9zcllXWHJDTW5idGxOb1RBQT09IiwiYXBwaWQiOiJlNDczYWI1Yy1mN2MxLTRiZGYtOGM2Mi0zMzQ5ZThhNWE3YmYiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjcvIiwib2lkIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwic3ViIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwidGlkIjoiMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwidXRpIjoiS1hCVldVMElVRTJYeGNjamZ3WURBQSIsInZlciI6IjEuMCJ9.xpXdHgxwJgH9fzBRV1dbITZIpXpGasxaQeGXZl9dwu7GmOh_l9LkifJ51yya-Nkyv8PkJNRPHS7H1OkTQ_vZSdQP39JmK38sL-hSCDDIuJjNBwlu9ZWoCstM3NUmUG-n3AH6BPoI4AANLjZljW2fkAZR6WcM0AJGFmaUNg4_9QrRoMNyouwD_8VWlouwExKY59hixZUHSNPUXuqvDZQSHUmPryHn6GCmu_Gii-oRAi7p0dEMeTq-URXRPNYfPWJ5OiRLrYE106idsSbFNyv6g3vqgg7x2xhs6j3rBLfAUUyMlGESHEZVcdq44DzZaZs1Vkl4A4V8yXlq3i_2BZGLZA"
+                                type="string"/>
+                     <parameter name="filename"
+                                required="false"
+                                testWith="cust_hierarchy.csv"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ADLSURL_HDFS}/{$filename}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                           <header name="Content-Type">application/octet-stream</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field attachment="true"
+                            description=""
+                            name="outfile"
+                            type="attachment"/>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="Delete file from HDFS"
+                       maxRedirects="100"
+                       name="Delete file from HDFS"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="filename"
+                                required="false"
+                                testWith="test.xlsx"
+                                type="string"/>
+                     <parameter name="token" required="false" testWith="" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ADLSURL_HDFS}/{$filename}"
+                                        verb="DELETE">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="Delete_StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="type">
+                  <description>An automatically generated process object</description>
+                  <detail/>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>2IyitByISbZkwVmqHEjkSe</types1:GUID>
+      <types1:DisplayName>Read-ADLS-HDFS-Custhierarchy</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:29:38.121Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

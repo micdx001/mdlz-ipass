@@ -1,0 +1,62 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>xIS7T1cnFKi9zhF-gt-14834322-2020-08-04T14:15:52.38Z::conn.xml</types1:EntryId>
+      <types1:Name>SMTP-MDLZ-ADLS-HDFS-PerfectPOS</types1:Name>
+      <types1:ParentFlowIds>uZ06NYcmYsGuDoW-gt-3089390-2020-08-04T14:15:53.329Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>SMTP Server Connection Locally</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS,SMTP</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T14:15:52Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-04T14:25:25Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T14:25:35Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/SMTP-MDLZ-ADLS-HDFS-PerfectPOS/SMTP-MDLZ-ADLS-HDFS-PerfectPOS.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="SMTP-MDLZ-ADLS-HDFS-PerfectPOS"
+                     label="SMTP-MDLZ-ADLS-HDFS-PerfectPOS"
+                     name="SMTP-MDLZ-ADLS-HDFS-PerfectPOS">
+            <description>SMTP Server Connection Locally</description>
+            <tags>SMTP,.agent:AMS</tags>
+            <agent>AMS</agent>
+            <attributes>
+               <attribute encrypted="false" name="Authentication" value="Enable"/>
+               <attribute encrypted="false" name="hostName" value="smtp.kraft.com"/>
+               <attribute encrypted="false" name="port" value="25"/>
+               <attribute encrypted="false" name="username" value="ipaas"/>
+               <attribute encrypted="true" name="password" value=""/>
+               <attribute encrypted="false" name="security" value="None"/>
+               <attribute encrypted="false" name="connectionTimeout" value="30000"/>
+               <attribute encrypted="false"
+                          name="testToAddress"
+                          value="faizan.a.shaikh@accenture"/>
+               <attribute encrypted="false"
+                          name="fromAddress"
+                          value="DL_IPaaSRegAlerts@mdlz.com"/>
+            </attributes>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="false"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           type="Email"
+                           uuid="9a8a03d0-0437-46c4-bedf-70acb4173c1f">
+               <description>Provides connections to email host servers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>7BhBfjvAw7fiMZCRIoHJCS</types1:GUID>
+      <types1:DisplayName>SMTP-MDLZ-ADLS-HDFS-PerfectPOS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:29:38.154Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

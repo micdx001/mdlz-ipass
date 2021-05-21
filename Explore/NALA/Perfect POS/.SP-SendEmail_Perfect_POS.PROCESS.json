@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "iwNKfmESRkYgR0s5bembm9",
+    "name" : "SP-SendEmail_Perfect_POS",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "uZ06NYcmYsGuDoW-gt-3089390-2020-08-04T14:15:53.329Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "7BhBfjvAw7fiMZCRIoHJCS",
+    "name" : "SMTP-MDLZ-ADLS-HDFS-PerfectPOS",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "xIS7T1cnFKi9zhF-gt-14834322-2020-08-04T14:15:52.38Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/Perfect POS"
+  } ]
+}

@@ -1,0 +1,56 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>gpKi9zhFtybduaa-gt-11269452-2020-08-04T14:15:54.112Z::pd.xml</types1:EntryId>
+      <types1:Name>SCH_ADLS_HDFS_iPaaS_PerfectPOS_IDD570107</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Perfect POS --External SFTP system to ADLS file movement</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T14:15:54Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T14:28:03Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SCH_ADLS_HDFS_iPaaS_PerfectPOS_IDD570107/SCH_ADLS_HDFS_iPaaS_PerfectPOS_IDD570107.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SCH_ADLS_HDFS_iPaaS_PerfectPOS_IDD570107"
+                  name="SCH_ADLS_HDFS_iPaaS_PerfectPOS_IDD570107"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Perfect POS --External SFTP system to ADLS file movement</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="none">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k9ws7s1k" targetId="k9ws7s1j"/>
+               </start>
+               <subflow id="k9ws7s1j">
+                  <title>SP-HDFS-SAS-EU-IDD520016</title>
+                  <subflowGUID>98w3wGo8iPOlQ8bfDL0Z8i</subflowGUID>
+                  <subflowPath>SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input/>
+                  <outputDef/>
+                  <link id="k9ws7s1l" targetId="c"/>
+               </subflow>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>4da0naFV06idmvXdCoLvME</types1:GUID>
+      <types1:DisplayName>SCH_ADLS_HDFS_iPaaS_PerfectPOS_IDD570107</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:29:38.519Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

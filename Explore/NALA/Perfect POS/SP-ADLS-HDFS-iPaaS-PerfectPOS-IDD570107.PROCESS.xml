@@ -1,0 +1,811 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>3RKWa-gt-14834385-2020-08-04T14:15:53.88Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107</types1:Name>
+      <types1:ParentFlowIds>gpKi9zhFtybduaa-gt-11269452-2020-08-04T14:15:54.112Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Process  file and send it to first ipaas local then PerfectPOS SFTP and delete the source file in HDFS.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T14:15:54Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-04T14:27:09Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T14:28:03Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107/SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107"
+                  name="SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Process  file and send it to first ipaas local then PerfectPOS SFTP and delete the source file in HDFS.</description>
+            <tags>.agent:AMS</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="TempFileWriter" type="reference">
+                  <options>
+                     <option name="referenceTo">FileWrite-IDD570107:FileWriteTask</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">iG2RW2EfTUMb01XVkULIOa</option>
+                  </options>
+               </field>
+               <field description="" name="TempLocalPath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="TempRemotePath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tempwait" type="time">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_retrycount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="temp_retryattempt" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">3</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Date" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_FilenameDate" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_DeleteStatus" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_filename" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">cust_hierarchy.csv</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>AMS</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="ka84i0it" targetId="ka6l406v"/>
+               </start>
+               <eventContainer id="ka6l406v">
+                  <service id="ka6l407i">
+                     <title>token creation for ADLS</title>
+                     <serviceName>Read-ADLS-HDFS-Custhierarchy:token creation for ADLS</serviceName>
+                     <serviceGUID>4GMMf8FmN0Fgd2fC1ofjaa</serviceGUID>
+                     <serviceInput/>
+                  </service>
+                  <flow id="ka6l406w">
+                     <container id="ka6l406x" type="exclusive">
+                        <title>Status</title>
+                        <flow id="ka6l406y">
+                           <assignment id="ka8bmb1b">
+                              <title>Assignment to temp_retrycount</title>
+                              <operation source="constant" to="temp.temp_retrycount">0</operation>
+                              <link id="ka8bmb1c" targetId="ka886fo8"/>
+                           </assignment>
+                           <eventContainer id="ka886fo8">
+                              <service id="ka886fhm">
+                                 <title>read the file</title>
+                                 <serviceName>Read-ADLS-HDFS-Custhierarchy:read the file</serviceName>
+                                 <serviceGUID>4GMMf8FmN0Fgd2fC1ofjaa</serviceGUID>
+                                 <serviceInput>
+                                    <parameter name="token" source="field" updatable="true">output.token</parameter>
+                                    <parameter name="filename" source="constant">cust_hierarchy.csv</parameter>
+                                 </serviceInput>
+                              </service>
+                              <flow id="ka886foa">
+                                 <link id="ka886fob" targetId="ka886fo8" type="containerLink"/>
+                              </flow>
+                              <flow id="ka886fod">
+                                 <container id="ka886fqi" type="exclusive">
+                                    <title>temp_retrycount</title>
+                                    <flow id="ka886fqj">
+                                       <assignment id="ka886fqk">
+                                          <title>Assignment to temp_retrycount</title>
+                                          <operation source="formula" to="temp.temp_retrycount">
+                                             <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                          </operation>
+                                          <link id="ka886fqs" targetId="ka886fql"/>
+                                       </assignment>
+                                       <wait id="ka886fql">
+                                          <title>Wait</title>
+                                          <duration source="formula">
+                                             <function name="duration_expression">
+                                                <arg name="value">5</arg>
+                                                <arg name="scale">S</arg>
+                                                <arg name="businessDays"/>
+                                             </function>
+                                          </duration>
+                                          <link id="ka886fqt" targetId="ka886fqm"/>
+                                       </wait>
+                                       <jumpTo id="ka886fqm">
+                                          <link id="ka886fqu" targetId="ka886fo8"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="ka886fqn">
+                                       <subflow id="ka886fqo">
+                                          <title>SP-SendEmail</title>
+                                          <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                                          <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                                          <runForEach>false</runForEach>
+                                          <input>
+                                             <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                             <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : Failed to Read Source File</parameter>
+                                             <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed to read the source file from ADLS.
+
+Regards,
+iPaaS Support
+</parameter>
+                                          </input>
+                                          <outputDef/>
+                                          <link id="ka886fqv" targetId="ka886fqp"/>
+                                       </subflow>
+                                       <throw id="ka886fqp">
+                                          <title>Throw</title>
+                                          <throwInput>
+                                             <parameter name="code" source="field" updatable="true">output.StatusCode</parameter>
+                                             <parameter name="detail" source="constant" updatable="true">Failed to read data from HDFS with content</parameter>
+                                             <parameter name="reason" source="constant" updatable="true">Failed to read data from HDFS--Please check the logs for details</parameter>
+                                          </throwInput>
+                                       </throw>
+                                    </flow>
+                                    <link id="ka886fqq" targetId="ka886fqj" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="less-than">
+                                             <arg name="left">{$temp.temp_retrycount}</arg>
+                                             <arg name="right">{$temp.temp_retryattempt }</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="ka886fqr" targetId="ka886fqn" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <link id="ka886fo9" targetId="ka886foa" type="containerLink"/>
+                              <link id="ka886fj2" targetId="ka886fih"/>
+                              <events>
+                                 <catch faultField="faultInfo" id="ka886fo7" interrupting="true">
+                                    <link id="ka886foc" targetId="ka886fod" type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <container id="ka886fih" type="exclusive">
+                              <title>status</title>
+                              <flow id="ka886fii">
+                                 <assignment id="ka886fij">
+                                    <title>Assignment  for temp_Fields</title>
+                                    <operation source="formula" to="temp.temp_FilenameDate">
+                                       <expression language="XQuery"> let $Currentdate:= xs:string(fn:current-date())
+ let $Date:= fn:substring($Currentdate,1,4)||fn:substring($Currentdate,6,2)||fn:substring($Currentdate,9,2)
+ 
+ return "CustHierarchy_"||$Date||".csv"</expression>
+                                    </operation>
+                                    <operation source="constant" to="temp.TempFileWriter[1]/format">Attachment</operation>
+                                    <operation source="formula" to="temp.TempFileWriter[1]/fileName">
+                                       <expression language="XQuery">$temp.temp_FilenameDate </expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.TempLocalPath">
+                                       <expression language="XQuery">'/Hybrid-Nfs/ipaas/data/PerfectPOS/Target/'|| $temp.temp_FilenameDate   </expression>
+                                    </operation>
+                                    <operation source="constant" to="temp.TempRemotePath">/qa/hierarchy</operation>
+                                    <operation source="constant" to="temp.temp_retrycount">0</operation>
+                                 </assignment>
+                                 <link id="ka886fiv" targetId="ka886fih" type="containerLink"/>
+                              </flow>
+                              <flow id="ka886fik">
+                                 <container id="ka886fil" type="exclusive">
+                                    <title>temp_retrycount</title>
+                                    <flow id="ka886fim">
+                                       <assignment id="ka886fin">
+                                          <title>Assignment to temp_retrycount</title>
+                                          <operation source="formula" to="temp.temp_retrycount">
+                                             <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                          </operation>
+                                          <link id="ka886fiy" targetId="ka886fio"/>
+                                       </assignment>
+                                       <wait id="ka886fio">
+                                          <title>Wait</title>
+                                          <duration source="formula">
+                                             <function name="duration_expression">
+                                                <arg name="value">5</arg>
+                                                <arg name="scale">S</arg>
+                                                <arg name="businessDays"/>
+                                             </function>
+                                          </duration>
+                                          <link id="ka886fiz" targetId="ka886fip"/>
+                                       </wait>
+                                       <jumpTo id="ka886fip">
+                                          <link id="ka886fj0" targetId="ka886fo8"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="ka886fiq">
+                                       <subflow id="ka886fir">
+                                          <title>SP-SendEmail</title>
+                                          <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                                          <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                                          <runForEach>false</runForEach>
+                                          <input>
+                                             <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                             <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : Failed to Read Source File</parameter>
+                                             <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed to read the source file from ADLS.
+Please re-run the job to complete the process.
+
+Regards,
+iPaaS Support
+</parameter>
+                                          </input>
+                                          <outputDef/>
+                                          <link id="ka886fj1" targetId="ka886fis"/>
+                                       </subflow>
+                                       <throw id="ka886fis">
+                                          <title>Throw</title>
+                                          <throwInput>
+                                             <parameter name="code" source="field" updatable="true">output.StatusCode</parameter>
+                                             <parameter name="detail" source="constant" updatable="true">Failed to read data from HDFS with content</parameter>
+                                             <parameter name="reason" source="constant" updatable="true">Failed to read data from HDFS--Please check the logs for details</parameter>
+                                          </throwInput>
+                                       </throw>
+                                    </flow>
+                                    <link id="ka886fiw" targetId="ka886fim" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="less-than">
+                                             <arg name="left">{$temp.temp_retrycount}</arg>
+                                             <arg name="right">{$temp.temp_retryattempt }</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="ka886fix" targetId="ka886fiq" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <link id="ka886fit" targetId="ka886fii" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="contains">
+                                       <arg name="left">{$output.StatusCode}</arg>
+                                       <arg name="right">200</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="ka886fiu" targetId="ka886fik" type="containerLink"/>
+                           </container>
+                           <link id="ka6l407o" targetId="ka6l406x" type="containerLink"/>
+                        </flow>
+                        <flow id="ka6l4072">
+                           <container id="ka6l4073" type="exclusive">
+                              <title>temp_retrycount</title>
+                              <flow id="ka6l4074">
+                                 <assignment id="ka6l4075">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="formula" to="temp.temp_retrycount">
+                                       <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                    </operation>
+                                    <link id="ka6l407t" targetId="ka6l4076"/>
+                                 </assignment>
+                                 <wait id="ka6l4076">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">5</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="ka6l407u" targetId="ka6l4077"/>
+                                 </wait>
+                                 <jumpTo id="ka6l4077">
+                                    <link id="ka6l407v" targetId="ka6l406v"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="ka6l4078">
+                                 <subflow id="ka6l40x7">
+                                    <title>SP-SendEmail</title>
+                                    <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                                    <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : Token generation Failed</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed while creating token. Please re-run the job.
+
+Regards,
+iPaaS Support</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="ka6l40x8" targetId="ka6l4079"/>
+                                 </subflow>
+                                 <throw id="ka6l4079">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.StatusCode_token</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Failed to read data from HDFS with content</parameter>
+                                       <parameter name="reason" source="constant" updatable="true">Failed to read data from HDFS--Please check the logs for details</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="ka6l407r" targetId="ka6l4074" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_retrycount}</arg>
+                                       <arg name="right">{$temp.temp_retryattempt }</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="ka6l407s" targetId="ka6l4078" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="ka6l407m" targetId="ka6l406y" type="containerLink">
+                           <condition source="formula">
+                              <function name="contains">
+                                 <arg name="left">{$output.StatusCode_token}</arg>
+                                 <arg name="right">200</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="ka6l407n" targetId="ka6l4072" type="containerLink"/>
+                        <link id="ka6l40au" targetId="ka6l408m"/>
+                     </container>
+                     <eventContainer id="ka6l408m">
+                        <service id="ka6l409x">
+                           <title>FileWriter</title>
+                           <serviceName>FileWrite-IDD570107:FileWriter</serviceName>
+                           <serviceGUID>iG2RW2EfTUMb01XVkULIOa</serviceGUID>
+                           <serviceInput>
+                              <parameter name="fileWriteTask" source="field" updatable="true">temp.TempFileWriter</parameter>
+                              <parameter name="attachment" source="field" updatable="true">output.outfile</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="ka6l408n">
+                           <assignment id="ka6l408o">
+                              <title>Assignment to temp_retrycount</title>
+                              <operation source="constant" to="temp.temp_retrycount">0</operation>
+                              <link id="kbtfqjxw" targetId="kbtfqjxa"/>
+                           </assignment>
+                           <eventContainer id="kbtfqjxa">
+                              <service id="kbtfqjxm">
+                                 <title>FTPFileTransferer</title>
+                                 <serviceName>PerfectPOS-SFTP-IDD570107:FTPFileTransferer</serviceName>
+                                 <serviceGUID>44MSegUF9m1kifiaGjbamS</serviceGUID>
+                                 <serviceInput>
+                                    <parameter name="localFilePath" source="field" updatable="true">temp.TempLocalPath</parameter>
+                                    <parameter name="remoteFileName" source="field" updatable="true">temp.temp_FilenameDate</parameter>
+                                    <parameter name="remoteRelativePath" source="field" updatable="true">temp.TempRemotePath</parameter>
+                                 </serviceInput>
+                              </service>
+                              <flow id="kbtfqjxb">
+                                 <assignment id="kbtfqjxc">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="constant" to="temp.temp_retrycount">0</operation>
+                                 </assignment>
+                                 <link id="kbtfqjxp" targetId="kbtfqjxa" type="containerLink"/>
+                              </flow>
+                              <flow id="kbtfqjxd">
+                                 <container id="kbtfqjxe" type="exclusive">
+                                    <title>temp_retrycount</title>
+                                    <flow id="kbtfqjxf">
+                                       <assignment id="kbtfqjxg">
+                                          <title>Assignment to temp_retrycount</title>
+                                          <operation source="formula" to="temp.temp_retrycount">
+                                             <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                          </operation>
+                                          <link id="kbtfqjxs" targetId="kbtfqjxh"/>
+                                       </assignment>
+                                       <wait id="kbtfqjxh">
+                                          <title>Wait</title>
+                                          <duration source="formula">
+                                             <function name="duration_expression">
+                                                <arg name="value">5</arg>
+                                                <arg name="scale">S</arg>
+                                                <arg name="businessDays"/>
+                                             </function>
+                                          </duration>
+                                          <link id="kbtfqjxt" targetId="kbtfqjxi"/>
+                                       </wait>
+                                       <jumpTo id="kbtfqjxi">
+                                          <link id="kbtfqjxu" targetId="kbtfqjxa"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="kbtfqjxj">
+                                       <subflow id="kbtfqjxk">
+                                          <title>SP-SendEmail</title>
+                                          <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                                          <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                                          <runForEach>false</runForEach>
+                                          <input>
+                                             <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                             <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : File transfer failed</parameter>
+                                             <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed to transfer the file to PerfectPOS server.
+Please re-run the job to complete the process.
+
+Regards,
+iPaaS Support</parameter>
+                                          </input>
+                                          <outputDef/>
+                                          <link id="kbtfqjxv" targetId="kbtfqjxl"/>
+                                       </subflow>
+                                       <throw id="kbtfqjxl">
+                                          <title>Throw</title>
+                                          <throwInput>
+                                             <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                             <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                             <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                          </throwInput>
+                                       </throw>
+                                    </flow>
+                                    <link id="kbtfqjxq" targetId="kbtfqjxf" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="less-than">
+                                             <arg name="left">{$temp.temp_retrycount}</arg>
+                                             <arg name="right">{$temp.temp_retryattempt }</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="kbtfqjxr" targetId="kbtfqjxj" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <link id="kbtfqjxn" targetId="kbtfqjxb" type="containerLink"/>
+                              <link id="kbtfqjzy" targetId="kbtfqjyu"/>
+                              <events>
+                                 <catch faultField="faultInfo" id="ka6l40ml" interrupting="true">
+                                    <link id="kbtfqjxo" targetId="kbtfqjxd" type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <eventContainer id="kbtfqjyu">
+                              <service id="kbtfqjzh">
+                                 <title>Delete file from HDFS</title>
+                                 <serviceName>Read-ADLS-HDFS-Custhierarchy:Delete file from HDFS</serviceName>
+                                 <serviceGUID>4GMMf8FmN0Fgd2fC1ofjaa</serviceGUID>
+                                 <serviceInput>
+                                    <parameter name="filename" source="field" updatable="true">temp.temp_filename</parameter>
+                                    <parameter name="token" source="field" updatable="true">output.token</parameter>
+                                 </serviceInput>
+                              </service>
+                              <flow id="kbtfqjyv">
+                                 <container id="kbtfqjyw" type="exclusive">
+                                    <title>temp_DeleteStatus</title>
+                                    <flow id="kbtfqjyx">
+                                       <end id="kbtfqjyy">
+                                          <title>End</title>
+                                       </end>
+                                    </flow>
+                                    <flow id="kbtfqjyz">
+                                       <container id="kbtfqjz0" type="exclusive">
+                                          <title>temp_retrycount</title>
+                                          <flow id="kbtfqjz1">
+                                             <assignment id="kbtfqjz2">
+                                                <title>Assignment to temp_retrycount</title>
+                                                <operation source="formula" to="temp.temp_retrycount">
+                                                   <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                </operation>
+                                                <link id="kbtfqjzo" targetId="kbtfqjz3"/>
+                                             </assignment>
+                                             <wait id="kbtfqjz3">
+                                                <title>Wait</title>
+                                                <duration source="formula">
+                                                   <function name="duration_expression">
+                                                      <arg name="value">3</arg>
+                                                      <arg name="scale">S</arg>
+                                                      <arg name="businessDays"/>
+                                                   </function>
+                                                </duration>
+                                                <link id="kbtfqjzp" targetId="kbtfqjz4"/>
+                                             </wait>
+                                             <jumpTo id="kbtfqjz4">
+                                                <link id="kbtfqjzq" targetId="kbtfqjyu"/>
+                                             </jumpTo>
+                                          </flow>
+                                          <flow id="kbtfqjz5">
+                                             <subflow id="kbtfqjz6">
+                                                <title>SP-SendEmail</title>
+                                                <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                                                <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                                                <runForEach>false</runForEach>
+                                                <input>
+                                                   <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                                   <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : Failed to delete source file</parameter>
+                                                   <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed to delete file from ADLS server.
+
+Regards,
+iPaaS Support</parameter>
+                                                </input>
+                                                <outputDef/>
+                                                <link id="kbtfqjzr" targetId="kbtfqjz7"/>
+                                             </subflow>
+                                             <throw id="kbtfqjz7">
+                                                <title>Throw</title>
+                                                <throwInput>
+                                                   <parameter name="code" source="field" updatable="true">output.Delete_StatusCode</parameter>
+                                                   <parameter name="detail" source="constant" updatable="true">Failed to delete file on HDFS</parameter>
+                                                   <parameter name="reason" source="constant" updatable="true">Failed to delete file on HDFS--Please check logs for details.</parameter>
+                                                </throwInput>
+                                             </throw>
+                                          </flow>
+                                          <link id="kbtfqjzm" targetId="kbtfqjz1" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="less-than">
+                                                   <arg name="left">{$temp.temp_retrycount}</arg>
+                                                   <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="kbtfqjzn" targetId="kbtfqjz5" type="containerLink"/>
+                                       </container>
+                                    </flow>
+                                    <link id="kbtfqjzk" targetId="kbtfqjyx" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="string-equals">
+                                             <arg name="left">{$output.Delete_StatusCode}</arg>
+                                             <arg name="right">200</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="kbtfqjzl" targetId="kbtfqjyz" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <flow id="kbtfqjz8">
+                                 <container id="kbtfqjz9" type="exclusive">
+                                    <title>temp_retrycount</title>
+                                    <flow id="kbtfqjza">
+                                       <assignment id="kbtfqjzb">
+                                          <title>Assignment to temp_retrycount</title>
+                                          <operation source="formula" to="temp.temp_retrycount">
+                                             <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                          </operation>
+                                          <link id="kbtfqjzu" targetId="kbtfqjzc"/>
+                                       </assignment>
+                                       <wait id="kbtfqjzc">
+                                          <title>Wait</title>
+                                          <duration source="formula">
+                                             <function name="duration_expression">
+                                                <arg name="value">5</arg>
+                                                <arg name="scale">S</arg>
+                                                <arg name="businessDays"/>
+                                             </function>
+                                          </duration>
+                                          <link id="kbtfqjzv" targetId="kbtfqjzd"/>
+                                       </wait>
+                                       <jumpTo id="kbtfqjzd">
+                                          <link id="kbtfqjzw" targetId="kbtfqjyu"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="kbtfqjze">
+                                       <subflow id="kbtfqjzf">
+                                          <title>SP-SendEmail</title>
+                                          <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                                          <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                                          <runForEach>false</runForEach>
+                                          <input>
+                                             <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                             <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : Failed to delete source file</parameter>
+                                             <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed to delete file from ADLS server.
+
+Regards,
+iPaaS Support</parameter>
+                                          </input>
+                                          <outputDef/>
+                                          <link id="kbtfqjzx" targetId="kbtfqjzg"/>
+                                       </subflow>
+                                       <throw id="kbtfqjzg">
+                                          <title>Throw</title>
+                                          <throwInput>
+                                             <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                             <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                             <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                          </throwInput>
+                                       </throw>
+                                    </flow>
+                                    <link id="kbtfqjzs" targetId="kbtfqjza" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="less-than">
+                                             <arg name="left">{$temp.temp_retrycount}</arg>
+                                             <arg name="right">{$temp.temp_retryattempt }</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="kbtfqjzt" targetId="kbtfqjze" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <link id="kbtfqjzi" targetId="kbtfqjyv" type="containerLink"/>
+                              <events>
+                                 <catch faultField="faultInfo" id="ka5asgpw" interrupting="true">
+                                    <link id="kbtfqjzj" targetId="kbtfqjz8" type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                        </flow>
+                        <flow id="ka6l409p">
+                           <container id="ka6l409q" type="exclusive">
+                              <title>temp_retrycount</title>
+                              <flow id="ka6l409r">
+                                 <assignment id="ka6l409s">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="formula" to="temp.temp_retrycount">
+                                       <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                    </operation>
+                                    <link id="ka6l40ar" targetId="ka6l409t"/>
+                                 </assignment>
+                                 <wait id="ka6l409t">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">5</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="ka6l40as" targetId="ka6l409u"/>
+                                 </wait>
+                                 <jumpTo id="ka6l409u">
+                                    <link id="ka6l40at" targetId="ka6l408m"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="ka6l409v">
+                                 <subflow id="ka6l411u">
+                                    <title>SP-SendEmail</title>
+                                    <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                                    <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : Failed to Write Source File</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed to write source file in to iPaaS location. 
+Please re run the job to complete the process.
+
+Regards,
+iPaaS Support
+</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="ka6l411v" targetId="ka6l409w"/>
+                                 </subflow>
+                                 <throw id="ka6l409w">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="ka6l40ap" targetId="ka6l409r" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_retrycount}</arg>
+                                       <arg name="right">{$temp.temp_retryattempt }</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="ka6l40aq" targetId="ka6l409v" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="ka6l409y" targetId="ka6l408n" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="k0ywlsis" interrupting="true">
+                              <link id="ka6l409z" targetId="ka6l409p" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="ka6l407a">
+                     <container id="ka6l407b" type="exclusive">
+                        <title>temp_retrycount</title>
+                        <flow id="ka6l407c">
+                           <assignment id="ka6l407d">
+                              <title>Assignment to temp_retrycount</title>
+                              <operation source="formula" to="temp.temp_retrycount">
+                                 <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                              </operation>
+                              <link id="ka6l407y" targetId="ka6l407e"/>
+                           </assignment>
+                           <wait id="ka6l407e">
+                              <title>Wait</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">5</arg>
+                                    <arg name="scale">S</arg>
+                                    <arg name="businessDays"/>
+                                 </function>
+                              </duration>
+                              <link id="ka6l407z" targetId="ka6l407f"/>
+                           </wait>
+                           <jumpTo id="ka6l407f">
+                              <link id="ka6l4080" targetId="ka6l406v"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="ka6l407g">
+                           <subflow id="ka6l40tg">
+                              <title>SP-SendEmail</title>
+                              <subflowGUID>iwNKfmESRkYgR0s5bembm9</subflowGUID>
+                              <subflowPath>SP-SendEmail_Perfect_POS</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input>
+                                 <parameter name="Recipient_Address" source="constant" updatable="true">anusha.ab.ramesh@accenture.com</parameter>
+                                 <parameter name="Email_Subject" source="constant" updatable="true">IDD570107--PerfectPOS Job Status : Token generation Failed</parameter>
+                                 <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+PerfectPOS job failed while creating token. Please re-run the job.
+
+Regards,
+iPaaS Support</parameter>
+                              </input>
+                              <outputDef/>
+                              <link id="ka6l40th" targetId="ka6l407h"/>
+                           </subflow>
+                           <throw id="ka6l407h">
+                              <title>Throw</title>
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                 <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                 <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="ka6l407w" targetId="ka6l407c" type="containerLink">
+                           <condition source="formula">
+                              <function name="less-than">
+                                 <arg name="left">{$temp.temp_retrycount}</arg>
+                                 <arg name="right">{$temp.temp_retryattempt }</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="ka6l407x" targetId="ka6l407g" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="ka6l407j" targetId="ka6l406w" type="containerLink"/>
+                  <events>
+                     <catch faultField="faultInfo" id="k9y4tr7d" interrupting="true">
+                        <link id="ka6l407k" targetId="ka6l407a" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>98w3wGo8iPOlQ8bfDL0Z8i</types1:GUID>
+      <types1:DisplayName>SP-ADLS-HDFS-iPaaS-PerfectPOS-IDD570107</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:29:38.43Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

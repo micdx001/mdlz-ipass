@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "2IyitByISbZkwVmqHEjkSe",
+    "name" : "Read-ADLS-HDFS-Custhierarchy",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "CMFCnchKGXShOeC-gt-14834338-2020-08-04T14:15:52.454Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
