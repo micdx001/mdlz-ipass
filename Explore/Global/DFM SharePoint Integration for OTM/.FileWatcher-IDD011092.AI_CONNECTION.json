@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "dRTzRKFfpIAaZJS2IBu8q0",
+    "name" : "FileWatcher-IDD011092",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "VOJ2oTVMTonQYWe-gt-17926100-2021-05-11T06:43:16.772Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : ".",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

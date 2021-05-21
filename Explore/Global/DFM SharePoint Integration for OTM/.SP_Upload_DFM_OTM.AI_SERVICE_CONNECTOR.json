@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "0mPHGdJeeEmkMe5IZYnH08",
+    "name" : "SP_Upload_DFM_OTM",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "2KsJlv58pIO3M4W-gt-17926108-2021-05-11T06:43:16.869Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "This service connector is used to get token and get file from SharePoint..",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

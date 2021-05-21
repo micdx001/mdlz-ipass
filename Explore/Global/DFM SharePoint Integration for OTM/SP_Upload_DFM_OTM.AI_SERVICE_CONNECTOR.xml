@@ -1,0 +1,439 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>2KsJlv58pIO3M4W-gt-17926108-2021-05-11T06:43:16.869Z::svc.xml</types1:EntryId>
+      <types1:Name>SP_Upload_DFM_OTM</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>This service connector is used to get token and get file from SharePoint..</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anusha.ab.ramesh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2021-05-11T06:43:17Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2021-05-11T07:50:36Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-05-11T07:50:40Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SP_Upload_DFM_OTM/SP_Upload_DFM_OTM_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="SP_Upload_DFM_OTM"
+                            label=""
+                            name="SP_Upload_DFM_OTM"
+                            uuid="b3dfb718-1217-481c-a3bb-5a022936e748">
+            <description>This service connector is used to get token and get file from SharePoint..</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="getToken"
+                       maxRedirects="100"
+                       name="getToken"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://accounts.accesscontrol.windows.net/18a01ad8-9727-498a-a47d-17374c6fd9f7/tokens/OAuth/2"
+                                        verb="POST">
+                        <otherParams>
+                           <otherParam name="grant_type">client_credentials</otherParam>
+                           <otherParam name="client_id">b666df34-27d1-43f5-b67f-5eba26f84559@18a01ad8-9727-498a-a47d-17374c6fd9f7</otherParam>
+                           <otherParam name="client_secret">ovHzJkaAq6hQVaXWhfn56Hfx36TPK5KN2XXG+4n4dzg=</otherParam>
+                           <otherParam name="resource">00000003-0000-0ff1-ce00-000000000000/collaboration.mdlz.com@18a01ad8-9727-498a-a47d-17374c6fd9f7</otherParam>
+                        </otherParams>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="token"
+                            property="access_token"
+                            type="string"/>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="getServerRelativeUrl"
+                       maxRedirects="100"
+                       name="getServerRelativeUrl"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvY29sbGFib3JhdGlvbi5tZGx6LmNvbUAxOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjciLCJpc3MiOiIwMDAwMDAwMS0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDBAMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwiaWF0IjoxNjIwNzE5MDgwLCJuYmYiOjE2MjA3MTkwODAsImV4cCI6MTYyMDgwNTc4MCwiaWRlbnRpdHlwcm92aWRlciI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEAxOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjciLCJuYW1laWQiOiJiNjY2ZGYzNC0yN2QxLTQzZjUtYjY3Zi01ZWJhMjZmODQ1NTlAMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3Iiwib2lkIjoiMGJiYTk3MjItMDY4MS00ZjI1LTkyM2MtMzIwZjE2OGUxM2I3Iiwic3ViIjoiMGJiYTk3MjItMDY4MS00ZjI1LTkyM2MtMzIwZjE2OGUxM2I3IiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJmYWxzZSJ9.Y3bV_my3fR7KshH7u_995ECzyL4060Z2Y6_H2tdU3NkIYSUf6k6fi3TWMIP9Z65dDzsVnPrYRpknm4DT-mFi_tghdRAGsclm3HdA7FQeaF1kdfkOA_d4qg2JTrGNrwLk3YtWU7YNjshk0K2pT1hjvf1JSKonTCjou12C9EXnbWcUPpQKpLO9TZssm6goq11GpOQJODiH45GB698hm3UwStILBv396qFIxxn4kzx5LViOJW8NCReekCcFw5iGVD-dE7n61HQV4YIl4Hu2D9vWgAv895W4s-1huaMMy14euR2CtnyMo7Db2ldEWoVLwn7bvHLnbnC12pyKqYlbbh_5kg"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://collaboration.mdlz.com/sites/OTMRepositoryNAProd/_api/web/GetFolderByServerRelativeUrl('/sites/OTMRepositoryNAProd/InvoiceLibrary')/Files"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json;odata=verbose</header>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="Results"
+                            type="objectlist"
+                            xmlElement="results">
+                        <options>
+                           <option name="referenceTo">results</option>
+                        </options>
+                     </field>
+                     <field description="" name="FileName" type="objectlist">
+                        <options>
+                           <option name="referenceTo">root</option>
+                        </options>
+                        <xquery>{for $i in $Results/Name
+return
+&lt;results&gt;
+   &lt;Name&gt;{$i/text()}&lt;/Name&gt;
+&lt;/results&gt;}</xquery>
+                     </field>
+                     <field description=""
+                            name="StatusCode_Responce"
+                            responseStatusCode="true"
+                            type="int"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="UploadtoSP"
+                       maxRedirects="100"
+                       name="UploadtoSP"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvY29sbGFib3JhdGlvbi5tZGx6LmNvbUAxOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjciLCJpc3MiOiIwMDAwMDAwMS0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDBAMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwiaWF0IjoxNjIwNzE5MDgwLCJuYmYiOjE2MjA3MTkwODAsImV4cCI6MTYyMDgwNTc4MCwiaWRlbnRpdHlwcm92aWRlciI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEAxOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjciLCJuYW1laWQiOiJiNjY2ZGYzNC0yN2QxLTQzZjUtYjY3Zi01ZWJhMjZmODQ1NTlAMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3Iiwib2lkIjoiMGJiYTk3MjItMDY4MS00ZjI1LTkyM2MtMzIwZjE2OGUxM2I3Iiwic3ViIjoiMGJiYTk3MjItMDY4MS00ZjI1LTkyM2MtMzIwZjE2OGUxM2I3IiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJmYWxzZSJ9.Y3bV_my3fR7KshH7u_995ECzyL4060Z2Y6_H2tdU3NkIYSUf6k6fi3TWMIP9Z65dDzsVnPrYRpknm4DT-mFi_tghdRAGsclm3HdA7FQeaF1kdfkOA_d4qg2JTrGNrwLk3YtWU7YNjshk0K2pT1hjvf1JSKonTCjou12C9EXnbWcUPpQKpLO9TZssm6goq11GpOQJODiH45GB698hm3UwStILBv396qFIxxn4kzx5LViOJW8NCReekCcFw5iGVD-dE7n61HQV4YIl4Hu2D9vWgAv895W4s-1huaMMy14euR2CtnyMo7Db2ldEWoVLwn7bvHLnbnC12pyKqYlbbh_5kg"
+                                type="string"/>
+                     <parameter name="FileName"
+                                required="false"
+                                testWith="ipasstest.pdf"
+                                type="string"/>
+                     <parameter name="attachment"
+                                required="false"
+                                testWith=""
+                                type="attachment"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://collaboration.mdlz.com/sites/OTMRepositoryNAProd/_api/web/GetFolderByServerRelativeUrl('/sites/OTMRepositoryNAProd/InvoiceLibrary')/Files/add(url='{$FileName}',overwrite=true)"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Accept">application/json;odata=verbose</header>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                        </httpHeaders>
+                        <body/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="SPUpload_StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="root">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="d" type="reference">
+                        <options>
+                           <option name="referenceTo">d</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="d">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="results" type="objectlist">
+                        <options>
+                           <option name="referenceTo">results</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="results">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="LinkingUrl" type="string"/>
+                     <field name="LinkingUri" type="string"/>
+                     <field name="InformationRightsManagementSettings" type="reference">
+                        <options>
+                           <option name="referenceTo">InformationRightsManagementSettings</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="TimeLastModified" type="string"/>
+                     <field name="ModifiedBy" type="reference">
+                        <options>
+                           <option name="referenceTo">ModifiedBy</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="Properties" type="reference">
+                        <options>
+                           <option name="referenceTo">Properties</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="VersionEvents" type="reference">
+                        <options>
+                           <option name="referenceTo">VersionEvents</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="IrmEnabled" type="string"/>
+                     <field name="Name" type="string"/>
+                     <field name="TimeCreated" type="string"/>
+                     <field name="ListItemAllFields" type="reference">
+                        <options>
+                           <option name="referenceTo">ListItemAllFields</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="CheckInComment" type="string"/>
+                     <field name="LockedByUser" type="reference">
+                        <options>
+                           <option name="referenceTo">LockedByUser</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="CheckOutType" type="int"/>
+                     <field name="ServerRelativeUrl" type="string"/>
+                     <field name="ContentTag" type="string"/>
+                     <field name="CheckedOutByUser" type="reference">
+                        <options>
+                           <option name="referenceTo">CheckedOutByUser</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="metadata" type="reference">
+                        <options>
+                           <option name="referenceTo">metadata</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="CustomizedPageStatus" type="int"/>
+                     <field name="MajorVersion" type="int"/>
+                     <field name="UniqueId" type="string"/>
+                     <field name="MinorVersion" type="int"/>
+                     <field name="Title" type="string"/>
+                     <field name="UIVersionLabel" type="double"/>
+                     <field name="EffectiveInformationRightsManagementSettings" type="reference">
+                        <options>
+                           <option name="referenceTo">EffectiveInformationRightsManagementSettings</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="Versions" type="reference">
+                        <options>
+                           <option name="referenceTo">Versions</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="ETag" type="string"/>
+                     <field name="Length" type="int"/>
+                     <field name="Exists" type="string"/>
+                     <field name="UIVersion" type="int"/>
+                     <field name="Author" type="reference">
+                        <options>
+                           <option name="referenceTo">Author</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="Level" type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="InformationRightsManagementSettings">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="deferred">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="uri" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="ModifiedBy">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Properties">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="VersionEvents">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="ListItemAllFields">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="LockedByUser">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="CheckedOutByUser">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="metadata">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="id" type="string"/>
+                     <field name="type" type="string"/>
+                     <field name="uri" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="EffectiveInformationRightsManagementSettings">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Versions">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Author">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="deferred" type="reference">
+                        <options>
+                           <option name="referenceTo">deferred</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>0mPHGdJeeEmkMe5IZYnH08</types1:GUID>
+      <types1:DisplayName>SP_Upload_DFM_OTM</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T11:14:47.225Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

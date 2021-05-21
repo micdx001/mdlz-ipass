@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>w1ymbduaa-gt-19665651-2021-05-11T06:43:17.358Z::conn.xml</types1:EntryId>
+      <types1:Name>SP-Upload-DFM-OTM</types1:Name>
+      <types1:ParentFlowIds>ZMaabdvhxiQLnzY-gt-83877922-2021-05-11T06:43:18.28Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:gl_agent_east_02</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anusha.ab.ramesh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2021-05-11T06:43:17Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-05-11T07:50:49Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/SP-Upload-DFM-OTM/SP-Upload-DFM-OTM.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="SP-Upload-DFM-OTM"
+                     label="SP-Upload-DFM-OTM"
+                     name="SP-Upload-DFM-OTM">
+            <description>.</description>
+            <tags>.agent:gl_agent_east_02</tags>
+            <agent>gl_agent_east_02</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/SP_Upload_DFM_OTM/SP_Upload_DFM_OTM_svcDef.xml"
+                               guid="0mPHGdJeeEmkMe5IZYnH08"
+                               name="SP_Upload_DFM_OTM"
+                               supportsConnectionTest="false"
+                               uuid="b3dfb718-1217-481c-a3bb-5a022936e748">
+               <description>This service connector is used to get token and get file from SharePoint..</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>fkJiiwdXYAaiG8bgjaICOf</types1:GUID>
+      <types1:DisplayName>SP-Upload-DFM-OTM</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T11:14:47.401Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

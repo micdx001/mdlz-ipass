@@ -1,0 +1,190 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>ZMaabdvhxiQLnzY-gt-83877922-2021-05-11T06:43:18.28Z::pd.xml</types1:EntryId>
+      <types1:Name>DFM-SP-Integration-IDD011092</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:gl_agent_east_02</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anusha.ab.ramesh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2021-05-11T06:43:18Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2021-05-11T07:31:07Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-05-11T07:50:58Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.DFM-SP-Integration-IDD011092/DFM-SP-Integration-IDD011092.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="DFM-SP-Integration-IDD011092"
+                  name="DFM-SP-Integration-IDD011092"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>.</description>
+            <tags>.agent:gl_agent_east_02</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="fileEvent" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">FileWatcher-IDD011092:AttachmentFileContent</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="temp_initial" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="temp_retryCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">3</option>
+                  </options>
+               </field>
+               <field description="" name="temp_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>gl_agent_east_02</targetLocation>
+               <event eventSource="FileWatcher-IDD011092:FileParser"/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="knuf1vni" targetId="knuf1vnh"/>
+               </start>
+               <service id="knuf1vnh">
+                  <title>getToken</title>
+                  <serviceName>SP-Upload-DFM-OTM:getToken</serviceName>
+                  <serviceGUID>fkJiiwdXYAaiG8bgjaICOf</serviceGUID>
+                  <serviceInput/>
+                  <link id="knuf1vnp" targetId="knzt9zw8"/>
+               </service>
+               <eventContainer id="knzt9zw8">
+                  <service id="knuf1vno">
+                     <title>UploadtoSP</title>
+                     <serviceName>SP-Upload-DFM-OTM:UploadtoSP</serviceName>
+                     <serviceGUID>fkJiiwdXYAaiG8bgjaICOf</serviceGUID>
+                     <serviceInput>
+                        <parameter name="token" source="field" updatable="true">output.token</parameter>
+                        <parameter name="FileName" source="formula">
+                           <expression language="XQuery">fn:encode-for-uri($input.fileEvent[1]/fileInfo[1]/fullName) </expression>
+                        </parameter>
+                        <parameter name="attachment" source="field" updatable="true">input.fileEvent[1]/attachment</parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="knzt9zwa">
+                     <assignment id="ko16gf1g">
+                        <title>Assignment to temp_title</title>
+                        <operation source="formula" to="temp.temp_title">
+                           <expression language="XQuery">let $title1:= 'DFM-SP-Integration-IDD011092-'
+let $title2:= concat($title1,$input.fileEvent[1]/fileInfo[1]/fullName)
+return ipd:setProcessTitle($title2)</expression>
+                        </operation>
+                     </assignment>
+                     <link id="knzt9zwb" targetId="knzt9zw8" type="containerLink"/>
+                  </flow>
+                  <flow id="knzt9zwd">
+                     <container id="knzt9zwj" type="exclusive">
+                        <title>temp_initial</title>
+                        <flow id="knzt9zwl">
+                           <assignment id="knzt9zxa">
+                              <title>Assignment to temp_initial</title>
+                              <operation source="formula" to="temp.temp_initial">
+                                 <expression language="XQuery">$temp.temp_initial +1</expression>
+                              </operation>
+                              <link id="knzt9zyd" targetId="knzt9zyb"/>
+                           </assignment>
+                           <jumpTo id="knzt9zyb">
+                              <link id="knzt9zyc" targetId="knzt9zw8"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="knzt9zwo">
+                           <assignment id="ko16gf21">
+                              <title>Assignment to temp_title 1</title>
+                              <operation source="formula" to="temp.temp_title">
+                                 <expression language="XQuery">let $title1:= 'DFM-SP-Integration-IDD011092-'
+let $title2:= concat($title1,$input.fileEvent[1]/fileInfo[1]/fullName, '-failed with statuscode:-',$output.faultInfo[1]/code)
+return ipd:setProcessTitle($title2)</expression>
+                              </operation>
+                              <link id="ko16gf22" targetId="ko164leq"/>
+                           </assignment>
+                           <service id="ko164leq">
+                              <title>sendEmailService</title>
+                              <serviceName>SMTP-MDLZ-DFM-SP:sendEmailService</serviceName>
+                              <serviceGUID>lloQPzXhII2hEBqF5rTQAc</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="emailTaskInput" source="formula">
+                                    <expression language="XQuery">let $recipients := &lt;to&gt;anusha.ab.ramesh@accenture.com&lt;/to&gt;
+return
+&lt;EmailTaskInput&gt;
+   {$recipients}
+   &lt;subject&gt;DFM-SP-Integration-IDD011092-Status:Failed&lt;/subject&gt;
+   &lt;contentType&gt;text/plain&lt;/contentType&gt;
+   &lt;body&gt;
+Hi Team,
+
+iPaaS job failed to upload below file to SharePoint with Status code: {$output.faultInfo[1]/code} 
+Error:{$output.faultInfo[1]/reason} 
+filename:{$input.fileEvent[1]/fileInfo[1]/fullName} 
+   
+Please check the log and try again later.
+
+Regards,
+iPaaS AMS
+&lt;/body&gt;
+&lt;/EmailTaskInput&gt;</expression>
+                                 </parameter>
+                              </serviceInput>
+                              <link id="ko16gf0p" targetId="ko16gf0o"/>
+                           </service>
+                           <throw id="ko16gf0o">
+                              <title>Throw 1</title>
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                 <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                 <parameter name="reason" source="constant" updatable="true"/>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="knzt9zwk" targetId="knzt9zwl" type="containerLink">
+                           <condition source="formula">
+                              <function name="less-or-equals">
+                                 <arg name="left">{$temp.temp_initial}</arg>
+                                 <arg name="right">{$temp.temp_retryCount }</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="knzt9zwn" targetId="knzt9zwo" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="knzt9zw9" targetId="knzt9zwa" type="containerLink"/>
+                  <link id="knuf1vnq" targetId="c"/>
+                  <events>
+                     <catch faultField="faultInfo" id="knzt9zw7" interrupting="true">
+                        <link id="knzt9zwc" targetId="knzt9zwd" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>4qnuUHrQAdyeWMqAYWpbMU</types1:GUID>
+      <types1:DisplayName>DFM-SP-Integration-IDD011092</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T11:14:47.591Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

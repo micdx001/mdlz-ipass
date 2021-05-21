@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "lloQPzXhII2hEBqF5rTQAc",
+    "name" : "SMTP-MDLZ-DFM-SP",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "6lRuImXycotFgpK-gt-17926116-2021-05-11T06:43:16.928Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

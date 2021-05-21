@@ -1,0 +1,64 @@
+{
+  "objectInfo" : {
+    "id" : "4qnuUHrQAdyeWMqAYWpbMU",
+    "name" : "DFM-SP-Integration-IDD011092",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ZMaabdvhxiQLnzY-gt-83877922-2021-05-11T06:43:18.28Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : ".",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "fkJiiwdXYAaiG8bgjaICOf",
+    "name" : "SP-Upload-DFM-OTM",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "w1ymbduaa-gt-19665651-2021-05-11T06:43:17.358Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : ".",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/DFM SharePoint Integration for OTM"
+  }, {
+    "id" : "lloQPzXhII2hEBqF5rTQAc",
+    "name" : "SMTP-MDLZ-DFM-SP",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "6lRuImXycotFgpK-gt-17926116-2021-05-11T06:43:16.928Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/DFM SharePoint Integration for OTM"
+  } ]
+}
