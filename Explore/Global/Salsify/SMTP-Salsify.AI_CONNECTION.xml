@@ -1,0 +1,62 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>hH9ln6lRuImXyco-gt-27254521-2020-08-10T12:40:40.124Z::conn.xml</types1:EntryId>
+      <types1:Name>SMTP-Salsify</types1:Name>
+      <types1:ParentFlowIds>8rWLU6S6fPAreFR-gt-30338776-2020-08-10T12:40:40.955Z::pd.xml,bdvGqUlLnzYLnzY-gt-30338786-2020-08-10T12:40:41.024Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>SMTP Server Connection Locally</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:gl_agent_east_01,SMTP</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-10T12:40:40Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-10T12:44:07Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-10T12:44:17Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/SMTP-Salsify/SMTP-Salsify.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="SMTP-Salsify"
+                     label="SMTP-Salsify"
+                     name="SMTP-Salsify">
+            <description>SMTP Server Connection Locally</description>
+            <tags>SMTP,.agent:gl_agent_east_01</tags>
+            <agent>gl_agent_east_01</agent>
+            <attributes>
+               <attribute encrypted="false" name="Authentication" value="Enable"/>
+               <attribute encrypted="false" name="hostName" value="smtp.kraft.com"/>
+               <attribute encrypted="false" name="port" value="25"/>
+               <attribute encrypted="false" name="username" value="ipaas"/>
+               <attribute encrypted="true" name="password" value=""/>
+               <attribute encrypted="false" name="security" value="None"/>
+               <attribute encrypted="false" name="connectionTimeout" value="30000"/>
+               <attribute encrypted="false"
+                          name="testToAddress"
+                          value="faizan.a.shaikh@accenture.com"/>
+               <attribute encrypted="false"
+                          name="fromAddress"
+                          value="DL_IPaaSRegAlerts@mdlz.com"/>
+            </attributes>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="false"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           type="Email"
+                           uuid="9a8a03d0-0437-46c4-bedf-70acb4173c1f">
+               <description>Provides connections to email host servers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>8CeUwAIQxuyfBIPGnKwnk4</types1:GUID>
+      <types1:DisplayName>SMTP-Salsify</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:12:40.929Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

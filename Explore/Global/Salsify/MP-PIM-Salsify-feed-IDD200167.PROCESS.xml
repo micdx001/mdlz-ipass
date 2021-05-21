@@ -1,0 +1,288 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>8rWLU6S6fPAreFR-gt-30338776-2020-08-10T12:40:40.955Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-PIM-Salsify-feed-IDD200167</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Process to send PIM files to Salsify</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:gl_agent_east_01,GIT:f61a9f9a,Spotlight</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-10T12:40:41Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anvita.gangadhar.rai@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-04-09T11:46:52Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MP-PIM-Salsify-feed-IDD200167/MP-PIM-Salsify-feed-IDD200167.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-PIM-Salsify-feed-IDD200167"
+                  name="MP-PIM-Salsify-feed-IDD200167"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Process to send PIM files to Salsify</description>
+            <tags>GIT:f61a9f9a,Spotlight,.agent:gl_agent_east_01</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="s3Event" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">S3Salsify-IDD200167:S3MonitorEventPlainContent</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="SFTP_FilePath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="LocalFilePath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="SFTP_FileName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="FileWriter" type="reference">
+                  <options>
+                     <option name="referenceTo">FileWriter-Salsify-IDD200167:FileWriteTask</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">5AWmCGfWqSuezrjKN4yzC9</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Processtitle" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>gl_agent_east_01</targetLocation>
+               <event eventSource="S3Salsify-IDD200167:AwsS3Monitor"/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jkp12wj9" targetId="jkeamj9i"/>
+               </start>
+               <assignment id="jkeamj9i">
+                  <title>Assignment to SFTP_FileName, LocalFilePath etc.</title>
+                  <operation source="formula" to="temp.SFTP_FileName">
+                     <expression language="XQuery">let $path:=fn:tokenize($input.s3Event[1]/s3ObjectInfo[1]/s3Key, '/')
+return $path[5]</expression>
+                  </operation>
+                  <operation source="formula" to="temp.LocalFilePath">
+                     <expression language="XQuery">'/Hybrid-Nfs/ipaas/data/Product360/export/Salsify_2019/',$temp.SFTP_FileName
+</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_Processtitle">
+                     <expression language="XQuery">let $title1:= "MP-PIM-Salsify-feed-IDD200167-"
+let $title2:= concat($title1,$temp.SFTP_FileName)
+return ipd:setProcessTitle($title2)</expression>
+                  </operation>
+                  <link id="jx497hjj" targetId="jx497hji"/>
+               </assignment>
+               <assignment id="jktdv82y">
+                  <title>File Writter</title>
+                  <operation source="formula" to="temp.FileWriter">
+                     <expression language="XQuery">&lt;FileWriteTask&gt;
+   &lt;filePath&gt;Product360/export/Salsify_2019&lt;/filePath&gt;
+   &lt;fileName&gt;{$temp.SFTP_FileName}&lt;/fileName&gt;
+   &lt;format&gt;csv&lt;/format&gt;
+   &lt;content&gt;{$input.s3Event[1]/content}&lt;/content&gt;   
+&lt;/FileWriteTask&gt;
+</expression>
+                  </operation>
+                  <link id="jktdv83w" targetId="jkxqhvq0"/>
+               </assignment>
+               <container id="jx497hji" type="exclusive">
+                  <title>S3 Object Key</title>
+                  <flow id="jx497hjm">
+                     <assignment id="jx497hk0">
+                        <title>Assignment to SFTP_FilePath</title>
+                        <operation source="constant" to="temp.SFTP_FilePath">dev/language_specific_files</operation>
+                     </assignment>
+                     <link id="jx497hjn" targetId="jx497hji" type="containerLink"/>
+                  </flow>
+                  <flow id="k1c0lv9p">
+                     <assignment id="k1c0lvai">
+                        <title>Assignment to SFTP_FilePath</title>
+                        <operation source="constant" to="temp.SFTP_FilePath">dev/nutritional_upload</operation>
+                     </assignment>
+                     <link id="k1c0lv9q" targetId="jx497hji" type="containerLink"/>
+                  </flow>
+                  <flow id="jx497hjp">
+                     <assignment id="jx497hk9">
+                        <title>Assignment to SFTP_FilePath</title>
+                        <operation source="constant" to="temp.SFTP_FilePath">dev</operation>
+                     </assignment>
+                     <link id="jx497hjq" targetId="jx497hji" type="containerLink"/>
+                  </flow>
+                  <link id="jx497hjl" targetId="jx497hjm" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$input.s3Event[1]/s3ObjectInfo[1]/s3Key}</arg>
+                           <arg name="right">LANG</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k1c0lv9o" targetId="k1c0lv9p" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$input.s3Event[1]/s3ObjectInfo[1]/s3Key}</arg>
+                           <arg name="right">NUTR</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jx497hjo" targetId="jx497hjp" type="containerLink"/>
+                  <link id="jx497hjk" targetId="jktdv82y"/>
+               </container>
+               <eventContainer id="jkxqhvq0">
+                  <service id="jktdv83v">
+                     <title>FileWriter</title>
+                     <serviceName>FileWriter-Salsify-IDD200167:FileWriter</serviceName>
+                     <serviceGUID>5AWmCGfWqSuezrjKN4yzC9</serviceGUID>
+                     <serviceInput>
+                        <parameter name="fileWriteTask" source="field" updatable="true">temp.FileWriter</parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="jkxqhvq3">
+                     <wait id="jkxqhvr0">
+                        <duration source="formula">
+                           <function name="duration_expression">
+                              <arg name="value">10</arg>
+                              <arg name="scale">S</arg>
+                              <arg name="businessDays"/>
+                           </function>
+                        </duration>
+                        <link id="jx497hmn" targetId="jx497hsh"/>
+                     </wait>
+                     <eventContainer id="jx497hsh">
+                        <service id="jx497hmm">
+                           <title>FTPFileTransferer</title>
+                           <serviceName>SFTP-salsify-Syndicator-Export:FTPFileTransferer</serviceName>
+                           <serviceGUID>lg0OfWu5q8YbRg3ntz6wUW</serviceGUID>
+                           <serviceInput>
+                              <parameter name="localFilePath" source="field" updatable="true">temp.LocalFilePath</parameter>
+                              <parameter name="remoteFileName" source="field" updatable="true">temp.SFTP_FileName</parameter>
+                              <parameter name="remoteRelativePath" source="field" updatable="true">temp.SFTP_FilePath</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="jx497hsj">
+                           <service id="kb3u9i7k">
+                              <title>Run a Shell Command</title>
+                              <serviceName>avShellService</serviceName>
+                              <serviceGUID/>
+                              <serviceInput>
+                                 <parameter name="command" source="constant">rm -f "{$temp.SFTP_FileName}" </parameter>
+                                 <parameter name="workingDirPath" source="constant">/Hybrid-Nfs/ipaas/data/Product360/export/Salsify_2019/</parameter>
+                              </serviceInput>
+                              <link id="kb3unzz7" targetId="jx497hxh"/>
+                           </service>
+                           <end id="jx497hxh"/>
+                        </flow>
+                        <flow id="jx497hsm">
+                           <service id="kb3tcax7">
+                              <title>sendEmailService 1</title>
+                              <serviceName>SMTP-Salsify:sendEmailService</serviceName>
+                              <serviceGUID>8CeUwAIQxuyfBIPGnKwnk4</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="emailTaskInput" source="formula">
+                                    <expression language="XQuery">let $recipients := &lt;to&gt;faizan.a.shaikh@accenture.com&lt;/to&gt;
+return
+&lt;EmailTaskInput&gt;
+   {$recipients}
+   &lt;subject&gt;iPaaS Salisify_2019 Job status: Failed&lt;/subject&gt;
+   &lt;contentType&gt;text/plain&lt;/contentType&gt;
+   &lt;body&gt;Hi All,
+
+iPaas  Salsify job failed while moving the file {$temp.SFTP_FileName}  from iPaaS local to PIM Salsify_2019.
+Code: {$output.faultInfo[1]/code} 
+Reason: {$output.faultInfo[1]/reason} 
+
+Thanks,
+iPaaS support
+&lt;/body&gt;
+&lt;/EmailTaskInput&gt;</expression>
+                                 </parameter>
+                              </serviceInput>
+                              <link id="kb3tcayc" targetId="jx497hys"/>
+                           </service>
+                           <throw id="jx497hys">
+                              <title>Throw 1</title>
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                 <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                 <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="jx497hsi" targetId="jx497hsj" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="jx497hrv" interrupting="true">
+                              <link id="jx497hsl" targetId="jx497hsm" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="jkxqhvq7">
+                     <service id="kb3tcasr">
+                        <title>sendEmailService</title>
+                        <serviceName>SMTP-Salsify:sendEmailService</serviceName>
+                        <serviceGUID>8CeUwAIQxuyfBIPGnKwnk4</serviceGUID>
+                        <serviceInput>
+                           <parameter name="emailTaskInput" source="formula">
+                              <expression language="XQuery">let $recipients := &lt;to&gt;faizan.a.shaikh@accenture.com&lt;/to&gt;
+return
+&lt;EmailTaskInput&gt;
+   {$recipients}
+   &lt;subject&gt;iPaaS Salisify_2019 Job status: Failed&lt;/subject&gt;
+   &lt;contentType&gt;text/plain&lt;/contentType&gt;
+   &lt;body&gt;Hi All,
+
+iPaas  Salsify job failed while moving the file {$temp.SFTP_FileName}  from PIM S3 to iPaaS Local.
+Code: {$output.faultInfo[1]/code} 
+Reason: {$output.faultInfo[1]/reason} 
+
+Thanks,
+iPaaS support
+&lt;/body&gt;
+&lt;/EmailTaskInput&gt;</expression>
+                           </parameter>
+                        </serviceInput>
+                        <link id="kb3tcavl" targetId="jkxqhvqq"/>
+                     </service>
+                     <throw id="jkxqhvqq">
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                           <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                           <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="jkxqhvq1" targetId="jkxqhvq3" type="containerLink"/>
+                  <events>
+                     <catch faultField="faultInfo" id="jkxqhvpy" interrupting="true">
+                        <link id="jkxqhvq5" targetId="jkxqhvq7" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>3jxJ6dP0QOllEDo2xtksSS</types1:GUID>
+      <types1:DisplayName>MP-PIM-Salsify-feed-IDD200167</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:12:41.195Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

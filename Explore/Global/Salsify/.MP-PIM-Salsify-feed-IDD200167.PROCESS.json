@@ -1,0 +1,84 @@
+{
+  "objectInfo" : {
+    "id" : "3jxJ6dP0QOllEDo2xtksSS",
+    "name" : "MP-PIM-Salsify-feed-IDD200167",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "8rWLU6S6fPAreFR-gt-30338776-2020-08-10T12:40:40.955Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send PIM files to Salsify",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "8CeUwAIQxuyfBIPGnKwnk4",
+    "name" : "SMTP-Salsify",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "hH9ln6lRuImXyco-gt-27254521-2020-08-10T12:40:40.124Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Salsify"
+  }, {
+    "id" : "lg0OfWu5q8YbRg3ntz6wUW",
+    "name" : "SFTP-salsify-Syndicator-Export",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "kP31abck0Kn7wpo-gt-27254529-2020-08-10T12:40:40.163Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Salsify"
+  }, {
+    "id" : "5AWmCGfWqSuezrjKN4yzC9",
+    "name" : "FileWriter-Salsify-IDD200167",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "abbgdoGsF4Xkgbd-gt-27254497-2020-08-10T12:40:40.013Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Generic File Writer Connection",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/Salsify"
+  } ]
+}

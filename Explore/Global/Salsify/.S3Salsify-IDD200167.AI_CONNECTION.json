@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "91CyOIMI8ezf8ZRCgDQwQN",
+    "name" : "S3Salsify-IDD200167",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "drhNzUzeA8rJ4pb-gt-27254505-2020-08-10T12:40:40.053Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

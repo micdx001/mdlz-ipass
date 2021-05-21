@@ -1,0 +1,100 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>kP31abck0Kn7wpo-gt-27254529-2020-08-10T12:40:40.163Z::conn.xml</types1:EntryId>
+      <types1:Name>SFTP-salsify-Syndicator-Export</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:gl_agent_east_01</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-10T12:40:40Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-10T12:45:27Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-10-11T06:17:19Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/SFTP-salsify-Syndicator-Export/SFTP-salsify-Syndicator-Export.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="SFTP-salsify-Syndicator-Export"
+                     label="SFTP-salsify-Syndicator-Export"
+                     name="SFTP-salsify-Syndicator-Export">
+            <description/>
+            <tags>.agent:gl_agent_east_01</tags>
+            <agent>gl_agent_east_01</agent>
+            <attributes>
+               <attribute encrypted="false" name="ftpProtocol" value="SFTP"/>
+               <attribute encrypted="false" name="hostname" value="salsify.exavault.com"/>
+               <attribute encrypted="false" name="port" value="22"/>
+               <attribute encrypted="false" name="knownHostsFile" value=""/>
+               <attribute encrypted="false" name="strictHostKeyChecking" value="false"/>
+               <attribute encrypted="false" name="username" value="mondelezinternational"/>
+               <attribute encrypted="true" name="password" value=""/>
+               <attribute encrypted="false" name="privateKeyFile" value=""/>
+               <attribute encrypted="true" name="privateKeyPassphrase" value=""/>
+               <attribute encrypted="false" name="proxyEnabled" value="false"/>
+               <attribute encrypted="false" name="proxyHost" value=""/>
+               <attribute encrypted="false" name="proxyPort" value="80"/>
+               <attribute encrypted="false" name="proxyUserName" value=""/>
+               <attribute encrypted="true" name="proxyPassword" value=""/>
+               <attribute encrypted="false" name="binary" value="Binary"/>
+               <attribute encrypted="false" name="compression" value="0"/>
+               <attribute encrypted="false" name="passiveMode" value="false"/>
+               <attribute encrypted="false" name="stepwise" value="true"/>
+               <attribute encrypted="false" name="fastExistsCheck" value="false"/>
+               <attribute encrypted="false" name="serverAliveInterval" value="0"/>
+               <attribute encrypted="false" name="serverAliveCountMax" value="1"/>
+               <attribute encrypted="false" name="connectTimeout" value="10"/>
+               <attribute encrypted="false" name="timeout" value="30"/>
+               <attribute encrypted="false" name="soTimeout" value="300"/>
+               <attribute encrypted="false" name="maximumReconnectAttempts" value="3"/>
+               <attribute encrypted="false" name="reconnectDelay" value="1"/>
+               <attribute encrypted="false" name="ciphers" value=""/>
+               <attribute encrypted="false"
+                          name="throwExceptionOnConnectFailed"
+                          value="false"/>
+               <attribute encrypted="false" name="idempotentReposituryFolder" value=""/>
+               <attribute encrypted="false"
+                          name="clearIdempotentRepositoryOnStart"
+                          value="false"/>
+            </attributes>
+            <producers>
+               <producer enabled="true"
+                         name="FTPFileTransferer"
+                         typeName="FTPFileTransferer">
+                  <description>This event target can be used to transfer local files to a a remote folder via FTP/SFTP.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="directoryName" value="../pim_daily_feed"/>
+                     <attribute encrypted="false" name="fileExist" value="Override"/>
+                     <attribute encrypted="false" name="moveExisting" value=""/>
+                     <attribute encrypted="false" name="eagerDeleteTargetFile" value="true"/>
+                     <attribute encrypted="false" name="tempPrefix" value=""/>
+                     <attribute encrypted="false" name="tempFileName" value=""/>
+                     <attribute encrypted="false" name="bufferSize" value=""/>
+                     <attribute encrypted="false" name="charset" value=""/>
+                     <attribute encrypted="false" name="otherAttributes" value=""/>
+                  </attributes>
+               </producer>
+            </producers>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="true"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           type="FTP"
+                           uuid="49a3e8d4-71b5-4fbc-b5ad-0774a850e01d">
+               <description>Provides connections to FTP and SFTP operation brokers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>lg0OfWu5q8YbRg3ntz6wUW</types1:GUID>
+      <types1:DisplayName>SFTP-salsify-Syndicator-Export</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:12:40.885Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
