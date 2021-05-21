@@ -1,0 +1,104 @@
+{
+  "objectInfo" : {
+    "id" : "2bqpzqrwTATcH7IXklKWaW",
+    "name" : "MP-DMI-iPaas-SALESAPP-TRAX-SURVEY-DATA_AdBreak_ADLS",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Icn6Hbf13ErhNzU-gt-3248697-2020-08-04T15:27:47.557Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send Survey file to TRAX and to Hadoop .  Email with file attachment",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "58jqf9UIbrAbPrEJ6U2Jyc",
+    "name" : "TraxUploadTemplateNew",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "IZabbfOC2XZPnE2-gt-14951275-2020-08-04T15:27:45.555Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxUploadTemplate with new API url Oct18",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400145"
+  }, {
+    "id" : "dGFfNUdZm00hTm3NObHTgs",
+    "name" : "Upload-ADLS-HDFS-Survey",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "NE6Eaaaaaaaaaaa-gt-14951303-2020-08-04T15:27:45.644Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400145"
+  }, {
+    "id" : "7c95J1w3oxEbjaN1ZwjeMl",
+    "name" : "DMI-EmailNotification",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "yXYDdxKlFmVSciY-gt-3594009-2020-08-04T14:42:41.397Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send Email with attachment",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400145"
+  }, {
+    "id" : "kmtM1VJkL0wfCg6TpBvbqh",
+    "name" : "TraxUploadStatusNew",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "L0jmu6lS01BchMY-gt-14951285-2020-08-04T15:27:45.608Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400145"
+  } ]
+}

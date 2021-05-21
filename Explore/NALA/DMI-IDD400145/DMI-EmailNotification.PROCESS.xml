@@ -1,0 +1,109 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>yXYDdxKlFmVSciY-gt-3594009-2020-08-04T14:42:41.397Z::pd.xml</types1:EntryId>
+      <types1:Name>DMI-EmailNotification</types1:Name>
+      <types1:ParentFlowIds>Icn6Hbf13ErhNzU-gt-3248697-2020-08-04T15:27:47.557Z::pd.xml,mvVFSJsJGD4ARW8-gt-1823643-2020-08-04T14:42:42.208Z::pd.xml,zqCaaa-gt-11452861-2020-08-04T15:48:12.403Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Process to send Email with attachment</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:na_agent_east_01</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T14:42:41Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-04T14:54:31Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-10-27T14:13:28Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.DMI-EmailNotification/DMI-EmailNotification.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="DMI-EmailNotification"
+                  name="DMI-EmailNotification"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Process to send Email with attachment</description>
+            <tags>.agent:na_agent_east_01</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="Recipient Addresses" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="EmailSubject" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="EmailBody" type="textarea">
+                  <options>
+                     <option name="text_width">100</option>
+                     <option name="text_height">5</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Attachment Name" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Attachment" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="Temp_EmailObj" type="reference">
+                  <options>
+                     <option name="referenceTo">DMIEmailConnection:EmailTaskInput</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">3T5if41eB5Nj9UmFnqafGY</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>na_agent_east_01</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jrzy7efr" targetId="jrzy7efq"/>
+               </start>
+               <assignment id="jrzy7efq">
+                  <title>Assignment to Recipient Addresses, Subject etc.</title>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/to">input.Recipient Addresses</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/subject">input.EmailSubject</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/body">input.EmailBody</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/attachments[1]/content">input.Attachment</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/attachments[1]/name">input.Attachment Name</operation>
+                  <link id="jrzy7eg0" targetId="jrzy7efz"/>
+               </assignment>
+               <service id="jrzy7efz">
+                  <title>sendEmailService</title>
+                  <serviceName>DMIEmailConnection:sendEmailService</serviceName>
+                  <serviceGUID>3T5if41eB5Nj9UmFnqafGY</serviceGUID>
+                  <serviceInput>
+                     <parameter name="emailTaskInput" source="field" updatable="true">temp.Temp_EmailObj</parameter>
+                  </serviceInput>
+                  <link id="jrzy7eg1" targetId="c"/>
+               </service>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>7c95J1w3oxEbjaN1ZwjeMl</types1:GUID>
+      <types1:DisplayName>DMI-EmailNotification</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:31:33.365Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "6jXnbg1AfiufQjkAcTH1mG",
+    "name" : "TriggerDMI2-Survey-Adls",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "QHhwq9bdsreK8ZA-gt-14034378-2020-08-04T15:27:44.682Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "This event source can be used to monitor folders for new files and process file information and its content.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

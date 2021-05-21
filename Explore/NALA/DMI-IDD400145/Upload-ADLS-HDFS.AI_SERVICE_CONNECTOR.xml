@@ -1,0 +1,337 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>L2HBxZmtK9hCHbf-gt-3693030-2020-08-04T15:27:44.607Z::svc.xml</types1:EntryId>
+      <types1:Name>Upload-ADLS-HDFS</types1:Name>
+      <types1:ParentFlowIds>NE6Eaaaaaaaaaaa-gt-14951303-2020-08-04T15:27:45.644Z::conn.xml,Slopz4KhPVEQrXh-gt-14100201-2020-08-04T15:48:11.715Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T15:27:45Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T15:35:48Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/Upload_ADLS_HDFS/Upload_ADLS_HDFS_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="Upload-ADLS-HDFS"
+                            label=""
+                            name="Upload-ADLS-HDFS"
+                            uuid="f433cd45-c85c-468c-b43d-a44cff5b3288">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    masked="false"
+                                    name="ADLSURL_HDFS"
+                                    required="false"
+                                    testWith="https://hdimain01nonprod.dfs.core.windows.net/nonprod-hdi-main01-container/iPaas_QA"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="token creation for ADLS"
+                       maxRedirects="100"
+                       name="token creation for ADLS"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://login.microsoftonline.com/18a01ad8-9727-498a-a47d-17374c6fd9f7/oauth2/v2.0/token"
+                                        verb="POST">
+                        <otherParams>
+                           <otherParam name="client_id">e473ab5c-f7c1-4bdf-8c62-3349e8a5a7bf</otherParam>
+                           <otherParam name="client_secret">iK]@IA:AhPpwqO1DagW?KnDmcXqvN925</otherParam>
+                           <otherParam name="scope">https://storage.azure.com/.default</otherParam>
+                           <otherParam name="grant_type">client_credentials</otherParam>
+                        </otherParams>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="token"
+                            property="access_token"
+                            type="string"/>
+                     <field description=""
+                            name="StatusCode_token"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="create empty file in HDFS"
+                       maxRedirects="100"
+                       name="create empty file in HDFS"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSIsImtpZCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSJ9.eyJhdWQiOiJodHRwczovL3N0b3JhZ2UuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3LyIsImlhdCI6MTU4Njk0NDk3NCwibmJmIjoxNTg2OTQ0OTc0LCJleHAiOjE1ODY5NDg4NzQsImFpbyI6IjQyZGdZSGhyZk9kUW0xeUdZL1RSczk4TTUrOWRCZ0E9IiwiYXBwaWQiOiJlNDczYWI1Yy1mN2MxLTRiZGYtOGM2Mi0zMzQ5ZThhNWE3YmYiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjcvIiwib2lkIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwic3ViIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwidGlkIjoiMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwidXRpIjoiaF9EVktwZTdXME9mRUNOLUhhT2tBQSIsInZlciI6IjEuMCJ9.PMTKlUd9MGmFd5yTu0IUZlk9uuiKQyw5fc7GGKynlZ6kkFR6nF7wYEGxkYddQampb40fZFfNS1FA_-QzhPIgreUStrC6jnbtTtlH1DE7ylfptnv91S1Myy1WcYCYliXMvpimQINFSertkDCH9ekOyW62OJQQOtPq6LZGylRPUUMgRS8LWyej5vbhqwdLUi2qb2z4POfBWCG0Ann2d3auL0oCwL0_CNzc3k77_W6nc3rrXnjNKA6toV-F1EPgQ8lK3B0yVCtHhaSkMsWWx7pjwjkic6VohKtVFGLH6NgT5pkBBkigtldYB6bAbBPgGDa1eB08ejjc4cBfSJnoH3jQYw"
+                                type="string"/>
+                     <parameter name="filename"
+                                required="false"
+                                testWith="TR_nonLBSM_SriCity.txt"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ADLSURL_HDFS}/{$filename}?resource=file"
+                                        verb="PUT">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                           <header name="Content-Type">application/octet-stream</header>
+                           <header name="Content-Length">0</header>
+                        </httpHeaders>
+                        <body/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode_empty_file"
+                            responseStatusCode="true"
+                            type="string"/>
+                     <field description=""
+                            entireResponse="true"
+                            name="Entire_respone"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="read the file"
+                       maxRedirects="100"
+                       name="read the file"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSIsImtpZCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSJ9.eyJhdWQiOiJodHRwczovL3N0b3JhZ2UuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3LyIsImlhdCI6MTU4NjE4NTgwMywibmJmIjoxNTg2MTg1ODAzLCJleHAiOjE1ODYxODk3MDMsImFpbyI6IjQyZGdZTWhiN25EQ3hMWmxTKzZyNE9PcE5oK1VBUT09IiwiYXBwaWQiOiJlNDczYWI1Yy1mN2MxLTRiZGYtOGM2Mi0zMzQ5ZThhNWE3YmYiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjcvIiwib2lkIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwic3ViIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwidGlkIjoiMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwidXRpIjoibWpWa3JVcV9WVUtqSFRmb2xYdE9BQSIsInZlciI6IjEuMCJ9.I-G3GJVG9wOYHd6bVnGDcMWwl3X1X1KHcakX5-Uo1Iklw89jm1OWYbjnbiambQPyzLXdciVKtZEQxGlj_A70ztFoIulh3Sx2llallx5lZVjfhjVqzr42Me1A6C5_0xL13XAE8VRESVTnePNm7-mkUKy25i8W14_H6zDpLsBaNjwbT_v6SuB7gKynLw_Oumw0YMFOIBMQl2mAyXg-chOHtNb1c7VBgw4yY2OhqzzdpIVrE09kAuTLRfw4aTdrGzRf9tHEHsDslaw0kxN6beDTIPC5ikOQOqp3fyovmm-wA3HSPQKlwlEEoU5iSv801QNbG9S0G_ok5Wb1-0gE6hZYSA"
+                                type="string"/>
+                     <parameter name="filename"
+                                required="false"
+                                testWith="Adls_test.txt"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ADLSURL_HDFS}/{$filename}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                           <header name="Content-Type">application/octet-stream</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field attachment="true"
+                            description=""
+                            name="outfile"
+                            type="attachment"/>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="Delete file from HDFS"
+                       maxRedirects="100"
+                       name="Delete file from HDFS"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="filename"
+                                required="false"
+                                testWith="test.xlsx"
+                                type="string"/>
+                     <parameter name="token" required="false" testWith="" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ADLSURL_HDFS}/{$filename}"
+                                        verb="DELETE">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="Flush File"
+                       maxRedirects="100"
+                       name="Flush File"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="file" required="false" testWith="" type="attachment"/>
+                     <parameter name="filename"
+                                required="false"
+                                testWith="TR_nonLBSM_SriCity.txt"
+                                type="string"/>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSIsImtpZCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSJ9.eyJhdWQiOiJodHRwczovL3N0b3JhZ2UuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3LyIsImlhdCI6MTU4NjkzODY4MCwibmJmIjoxNTg2OTM4NjgwLCJleHAiOjE1ODY5NDI1ODAsImFpbyI6IjQyZGdZUEQxS2Z6Wm9taDRzdS9iVGRHcEcyemZBZ0E9IiwiYXBwaWQiOiJlNDczYWI1Yy1mN2MxLTRiZGYtOGM2Mi0zMzQ5ZThhNWE3YmYiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjcvIiwib2lkIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwic3ViIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwidGlkIjoiMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwidXRpIjoicGpHQ0U5dnZhMC04SGhjNTR6eVFBQSIsInZlciI6IjEuMCJ9.HjoAdJIuokQhbLoOhNZbee89W8ABlbPhv5gQWomCUtX8S4dEFzmfPpcrj3ihnx7hUdjKbxF-efQHfRA8_F8PTS_buTwL3_jHRXNVX-Lxd29BVURqIwMLC0lHGdSWcR1pCn0NPS1BMGfzbCD_qhRKP52QRRzE6p73usw00I7SkOtRjc9Dp4xkf-mM8A1aGvd9jcwsXMnU6uiFmQOrYCmXm_Cfz7QIrCNGaQ6hfIQYZ8Rdnx_QOFNel9NJLru0feaokPvCV9TtTqoU3TjUvTUUc9Ph2iUekW31dHLB43FXfCnZB-iyKfrQlmWDPeTp7oDtseGpxZJne-5zTgIQPHHJCA"
+                                type="string"/>
+                     <parameter name="content_length"
+                                required="false"
+                                testWith="10"
+                                type="double"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ADLSURL_HDFS}/{$filename}?action=flush&amp;amp;position={$content_length}"
+                                        verb="PATCH">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                           <header name="Content-Length">0</header>
+                        </httpHeaders>
+                        <body/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="OutputFile"
+                            type="string"/>
+                     <field description=""
+                            name="StatusCode_flush_file"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="Writing data to file"
+                       maxRedirects="100"
+                       name="Writing data to file"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="file" required="false" testWith="" type="attachment"/>
+                     <parameter name="filename"
+                                required="false"
+                                testWith="TR_nonLBSM_SriCity.txt"
+                                type="string"/>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSIsImtpZCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSJ9.eyJhdWQiOiJodHRwczovL3N0b3JhZ2UuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3LyIsImlhdCI6MTU4NjkzODY4MCwibmJmIjoxNTg2OTM4NjgwLCJleHAiOjE1ODY5NDI1ODAsImFpbyI6IjQyZGdZUEQxS2Z6Wm9taDRzdS9iVGRHcEcyemZBZ0E9IiwiYXBwaWQiOiJlNDczYWI1Yy1mN2MxLTRiZGYtOGM2Mi0zMzQ5ZThhNWE3YmYiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjcvIiwib2lkIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwic3ViIjoiMGM5NTY0NjktNmUyNS00YTJhLWEzZTgtY2ZkZDYwN2E0ZDNiIiwidGlkIjoiMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwidXRpIjoicGpHQ0U5dnZhMC04SGhjNTR6eVFBQSIsInZlciI6IjEuMCJ9.HjoAdJIuokQhbLoOhNZbee89W8ABlbPhv5gQWomCUtX8S4dEFzmfPpcrj3ihnx7hUdjKbxF-efQHfRA8_F8PTS_buTwL3_jHRXNVX-Lxd29BVURqIwMLC0lHGdSWcR1pCn0NPS1BMGfzbCD_qhRKP52QRRzE6p73usw00I7SkOtRjc9Dp4xkf-mM8A1aGvd9jcwsXMnU6uiFmQOrYCmXm_Cfz7QIrCNGaQ6hfIQYZ8Rdnx_QOFNel9NJLru0feaokPvCV9TtTqoU3TjUvTUUc9Ph2iUekW31dHLB43FXfCnZB-iyKfrQlmWDPeTp7oDtseGpxZJne-5zTgIQPHHJCA"
+                                type="string"/>
+                     <parameter name="content_length"
+                                required="false"
+                                testWith="10"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$ADLSURL_HDFS}/{$filename}?action=append&amp;amp;position=0"
+                                        verb="PATCH">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                           <header name="Content-Type">application/octet-stream</header>
+                           <header name="Content-Length">{$content_length}</header>
+                        </httpHeaders>
+                        <body/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode_write_file"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="List the files"
+                       maxRedirects="100"
+                       name="List the files"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="token"
+                                required="false"
+                                testWith="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhsQzBSMTJza3hOWjFXUXdtak9GXzZ0X3RERSIsImtpZCI6IkhsQzBSMTJza3hOWjFXUXdtak9GXzZ0X3RERSJ9.eyJhdWQiOiJodHRwczovL3N0b3JhZ2UuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3LyIsImlhdCI6MTU4MjY1Nzg3NSwibmJmIjoxNTgyNjU3ODc1LCJleHAiOjE1ODI2NjE3NzUsImFpbyI6IjQyTmdZR2pmZEdyYjZ5a0JKbFhkQlovelByK2ZCZ0E9IiwiYXBwaWQiOiI2M2Q5YjI5MC1mNGY4LTRlNzktYmJkMi05MTQxNGYxNDExMjIiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xOGEwMWFkOC05NzI3LTQ5OGEtYTQ3ZC0xNzM3NGM2ZmQ5ZjcvIiwib2lkIjoiZDAxMjg2ZDItM2JlMi00MDg3LWJiYzMtODU0YTQxNzRiYWY4Iiwic3ViIjoiZDAxMjg2ZDItM2JlMi00MDg3LWJiYzMtODU0YTQxNzRiYWY4IiwidGlkIjoiMThhMDFhZDgtOTcyNy00OThhLWE0N2QtMTczNzRjNmZkOWY3IiwidXRpIjoiMlBIdkRuTnloa081NjVQOEhRVHJBQSIsInZlciI6IjEuMCJ9.p3jbc1YbjrvuUDT3HzGXpHy8QnI7k3mOM5y4rReCm0DXDYP3dzfAjnPGMS_nwgJ0uIbKk4AqCD6Ok-VDRf5UT0BXfIyGd88-xK-Y2qSJMGTeWJQtyy6FdpDBCy5IRqlagrmoUt-_jE0U9bx4ljZWZfWjcMFrpLrP5p091AclFrbkpS2iSduhU1KzT3HhVHJ-5DvRZqhShj03XomMufwVstQU-8nYLnhFlxmD4QOy0q70dmeAuVS7vdq5fhvlYI23yvL_g-DexDg5OkWOU51on5Tvx-pf16k4QWauMoHZHNQ9MenawwXfP8ofVC-Con12fyVrUUMZNCUgCL7vwLA5iw"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://hdistage01sbxdev.dfs.core.windows.net/dev-hdi-stage01-container?directory=IPaaS_test&amp;amp;recursive=true&amp;amp;resource=filesystem"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Authorization">{fn:concat('Bearer',' ', $token)}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="Contentlength" type="double">
+                        <xquery>{for $filename in  (list:list(/*:root/*:paths/*:name/../*:contentLength/text()))
+return
+$filename}</xquery>
+                     </field>
+                     <field description="" name="OutputFilename" type="string">
+                        <xquery>{for $filename in (list:list(/*:root/*:paths/*:name/text()))
+return
+$filename}</xquery>
+                     </field>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="type">
+                  <description>An automatically generated process object</description>
+                  <detail/>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>akqxw0GJWcjkUk1rY47MeS</types1:GUID>
+      <types1:DisplayName>Upload-ADLS-HDFS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:31:33.09Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

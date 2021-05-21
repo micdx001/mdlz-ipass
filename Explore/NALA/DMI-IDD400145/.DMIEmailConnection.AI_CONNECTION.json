@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "3T5if41eB5Nj9UmFnqafGY",
+    "name" : "DMIEmailConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "KchKGXShOeCFk4A-gt-14887479-2020-08-04T14:42:40.583Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection for DMI",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

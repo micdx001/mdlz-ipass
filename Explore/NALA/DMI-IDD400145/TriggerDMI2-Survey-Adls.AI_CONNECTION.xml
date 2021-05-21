@@ -1,0 +1,82 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>QHhwq9bdsreK8ZA-gt-14034378-2020-08-04T15:27:44.682Z::conn.xml</types1:EntryId>
+      <types1:Name>TriggerDMI2-Survey-Adls</types1:Name>
+      <types1:ParentFlowIds>Icn6Hbf13ErhNzU-gt-3248697-2020-08-04T15:27:47.557Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>This event source can be used to monitor folders for new files and process file information and its content.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:na_agent_east_01</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T15:27:45Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T15:34:59Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/TriggerDMI2-Survey-Adls/TriggerDMI2-Survey-Adls.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="TriggerDMI2-Survey-Adls"
+                     label="TriggerDMI2-Survey-Adls"
+                     name="TriggerDMI2-Survey-Adls">
+            <description>This event source can be used to monitor folders for new files and process file information and its content.</description>
+            <tags>.agent:na_agent_east_01</tags>
+            <agent>na_agent_east_01</agent>
+            <attributes/>
+            <consumers>
+               <consumer enabled="true" name="FileParser" typeName="FileParser">
+                  <description>Use this event source to monitor folders for new files and process file information and content.</description>
+                  <attributes>
+                     <attribute encrypted="false"
+                                name="directoryName"
+                                value="/Hybrid-Nfs/ipaas/data/DMI/survey/TriggerDMI_2_Survey-adls"/>
+                     <attribute encrypted="false" name="recursive" value="false"/>
+                     <attribute encrypted="false" name="include" value=""/>
+                     <attribute encrypted="false" name="exclude" value=""/>
+                     <attribute encrypted="false" name="noop" value="false"/>
+                     <attribute encrypted="false" name="delete" value="false"/>
+                     <attribute encrypted="false" name="preMove" value=""/>
+                     <attribute encrypted="false"
+                                name="move"
+                                value="/Hybrid-Nfs/ipaas/data/DMI/survey/TriggerDMI_2_Survey-adls/Processed"/>
+                     <attribute encrypted="false"
+                                name="moveFailed"
+                                value="/Hybrid-Nfs/ipaas/data/DMI/survey/TriggerDMI_2_Survey-adls/UnProcessed"/>
+                     <attribute encrypted="false" name="initialDelay" value="1"/>
+                     <attribute encrypted="false" name="delay" value="5"/>
+                     <attribute encrypted="false" name="maxMessagesPerPoll" value=""/>
+                     <attribute encrypted="false" name="readLock" value="none"/>
+                     <attribute encrypted="false" name="readLockTimeout" value=""/>
+                     <attribute encrypted="false" name="readLockCheckInterval" value=""/>
+                     <attribute encrypted="false" name="readLockMinLength" value=""/>
+                     <attribute encrypted="false" name="readLockLoggingLevel" value="WARN"/>
+                     <attribute encrypted="false" name="charset" value=""/>
+                     <attribute encrypted="false" name="otherAttributes" value=""/>
+                     <attribute encrypted="false" name="contentFormat" value="Attachment"/>
+                     <attribute encrypted="false" name="simplifyContent" value="false"/>
+                     <attribute encrypted="false" name="singleObjectContent" value="false"/>
+                  </attributes>
+               </consumer>
+            </consumers>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="true"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           type="File"
+                           uuid="ac000300-d9fe-11e4-8830-0800200c9a66">
+               <description>Provides connections to file monitoring brokers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>6jXnbg1AfiufQjkAcTH1mG</types1:GUID>
+      <types1:DisplayName>TriggerDMI2-Survey-Adls</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:31:33.064Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
