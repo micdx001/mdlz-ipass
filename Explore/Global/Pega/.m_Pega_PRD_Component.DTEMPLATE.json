@@ -1,0 +1,67 @@
+{
+  "objectInfo" : {
+    "id" : "eBVWKMJJMkfdRoCOKlnXmC",
+    "name" : "m_Pega_PRD_Component",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ17000000000061"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "Load it to Pega server ",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "objectRefs" : [ {
+    "id" : "dLFJSbtMiSeddCnV2eojmX",
+    "name" : "Conn_Source_Pega",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0B00000000004I"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "For Pega Source mappings",
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  }, {
+    "id" : "2lYzXErFOQKfNh0nI5Oy0h",
+    "name" : "Conn_Target_Pega",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0B00000000004G"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "For Target Mappings",
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  } ]
+}

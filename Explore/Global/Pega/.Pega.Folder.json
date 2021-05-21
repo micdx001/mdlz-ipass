@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "4Cx9UTTKztTelAEW8dkymA",
+    "name" : "Pega",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "For Pega case and Product interface IDD500003 and IDD500002 simoultaniously.",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

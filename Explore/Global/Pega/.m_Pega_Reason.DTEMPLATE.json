@@ -1,0 +1,67 @@
+{
+  "objectInfo" : {
+    "id" : "7orWGL3Wv8NhXyJYfdS2iK",
+    "name" : "m_Pega_Reason",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ1700000000005T"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "Load the source files in Ipaas local folder which calls the script",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "objectRefs" : [ {
+    "id" : "dLFJSbtMiSeddCnV2eojmX",
+    "name" : "Conn_Source_Pega",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0B00000000004I"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "For Pega Source mappings",
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  }, {
+    "id" : "2lYzXErFOQKfNh0nI5Oy0h",
+    "name" : "Conn_Target_Pega",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0B00000000004G"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "For Target Mappings",
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  } ]
+}
