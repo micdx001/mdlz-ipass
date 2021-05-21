@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "6V6Ig9UlOYEf6JWa5NGLOw",
+    "name" : "TraxSurveyVTW",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "KQ4ciQlBWlD2pHA-gt-3309038-2020-08-04T16:00:12.589Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "kb0WIQcqjQDjjv9Gv9jvol",
+    "name" : "TraxSurveyVTW",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Q3JHQjATO9pH8sV-gt-3757646-2020-08-04T16:00:11.692Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxSurveyVTWConnector",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400146-147"
+  } ]
+}

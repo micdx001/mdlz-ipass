@@ -1,0 +1,191 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Q3JHQjATO9pH8sV-gt-3757646-2020-08-04T16:00:11.692Z::svc.xml</types1:EntryId>
+      <types1:Name>TraxSurveyVTW</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>TraxSurveyVTWConnector</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>Trax</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T16:00:12Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T16:02:19Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/TraxSurveyVTW/TraxSurveyVTW_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="TraxSurveyVTW"
+                            label=""
+                            name="TraxSurveyVTW"
+                            uuid="e1d059d7-aa35-425b-853f-73e84ea30906">
+            <description>TraxSurveyVTWConnector</description>
+            <tags>Trax</tags>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="TraxSurveyVTWConnector"
+                       maxRedirects="100"
+                       name="TraxSurveyVTWConnector"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="from" required="true" testWith="1542862800" type="string"/>
+                     <parameter name="to" required="true" testWith="1543454800" type="string"/>
+                     <parameter name="page" required="true" testWith="0" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://services.traxretail.com/api/V4/mondelezdmius/analysis-results"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Authorization">Auth-Token XJUE2rwUl6Axy83rifSNmRPEg6n7sSzdJTPSVRfGJ3RFR8K3YqzEZ1NZy6fbR53eTuMSgvCzUodyR0mOrBBytA9wpin4kDS3C9Kve3L9gtvvSL0VWW5SIHGEPodfdRSNl2tM2iHQhEam9l6fkSnbcLYY</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="result" type="objectlist" xmlElement=".">
+                        <options>
+                           <option name="referenceTo">results</option>
+                        </options>
+                     </field>
+                     <field description="" name="result_link" type="objectlist">
+                        <options>
+                           <option name="referenceTo">result_Link</option>
+                        </options>
+                        <xquery>{&lt;result_Link&gt;
+{for $result in $result/results
+return
+   &lt;Links&gt;{$result/results_link/text()}&lt;/Links&gt;
+   }
+&lt;/result_Link&gt;}</xquery>
+                     </field>
+                     <field description=""
+                            name="page_count"
+                            property="page_count"
+                            type="string"/>
+                     <field description=""
+                            name="total_count"
+                            property="total_count"
+                            type="string"/>
+                     <field description=""
+                            name="Source_URL_Response"
+                            property="first"
+                            type="string"/>
+                     <field description="" name="Source_URL" type="string">
+                        <xquery>{fn:concat('https://services.traxretail.com',fn:substring-before($Source_URL_Response , '?'))}</xquery>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="root">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="metadata" type="reference">
+                        <options>
+                           <option name="referenceTo">metadata</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="results_generated" type="int"/>
+                     <field name="to_time" type="string"/>
+                     <field name="from_time" type="string"/>
+                     <field name="results" type="objectlist">
+                        <options>
+                           <option name="referenceTo">results</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="metadata">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="per_page" type="int"/>
+                     <field name="total_count" type="int"/>
+                     <field name="links" type="reference">
+                        <options>
+                           <option name="referenceTo">links</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="page" type="int"/>
+                     <field name="page_count" type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="links">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="next" type="string"/>
+                     <field name="previous" type="string"/>
+                     <field name="last" type="string"/>
+                     <field name="self" type="string"/>
+                     <field name="first" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="results">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="results_link" type="string"/>
+                     <field name="session_date" type="datetime"/>
+                     <field name="session_start_time" type="int"/>
+                     <field name="store_number" type="int"/>
+                     <field name="session_uid" type="string"/>
+                     <field name="report_metadata" type="reference">
+                        <options>
+                           <option name="referenceTo">report_metadata</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="visitor_identifier" type="string"/>
+                     <field name="client_session_uid" type="int"/>
+                     <field name="project_name" type="string"/>
+                     <field name="visit_date" type="datetime"/>
+                     <field name="external_route_id" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="report_metadata">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="generation_time" type="int"/>
+                     <field name="version" type="int"/>
+                     <field name="status" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="result_Link">
+                  <description/>
+                  <detail>
+                     <field name="Links" type="url"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>kb0WIQcqjQDjjv9Gv9jvol</types1:GUID>
+      <types1:DisplayName>TraxSurveyVTW</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:32:15.119Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

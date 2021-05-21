@@ -1,0 +1,67 @@
+{
+  "objectInfo" : {
+    "id" : "9itrLfYa0jzdZcHcUcoiei",
+    "name" : "SCH-DMITRAXSurveyVTW-HDFS-ADLS",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "gbckPaaaaaaaaa-gt-3309491-2020-08-04T16:00:24.101Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "VTW.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "3jjgyT7JL0CkRa3Xbdj1YW",
+    "name" : "MP-DMITRAXSurveyVTW-HDFS-ADLS",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "xFNBeNTYglxbdyp-gt-15023723-2020-08-04T16:00:23.81Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Main Process to get Survey data.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400146-147"
+  }, {
+    "id" : "7CvqIx2Q2ahfYPoj7OBauy",
+    "name" : "MCT_VTW_FileTransfer_LOCAL_HDNODE",
+    "type" : "MTT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "011APQ0Z00000000000N"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400146-147"
+  } ]
+}

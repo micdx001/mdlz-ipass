@@ -1,0 +1,84 @@
+{
+  "objectInfo" : {
+    "id" : "3jjgyT7JL0CkRa3Xbdj1YW",
+    "name" : "MP-DMITRAXSurveyVTW-HDFS-ADLS",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "xFNBeNTYglxbdyp-gt-15023723-2020-08-04T16:00:23.81Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Main Process to get Survey data.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "6V6Ig9UlOYEf6JWa5NGLOw",
+    "name" : "TraxSurveyVTW",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "KQ4ciQlBWlD2pHA-gt-3309038-2020-08-04T16:00:12.589Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400146-147"
+  }, {
+    "id" : "3P5pDLRtCRoiS25KzYt2iP",
+    "name" : "DMI-EmailNotification-VTW",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Q3JHQjATO9pH8sV-gt-3309084-2020-08-04T16:00:12.692Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send Email with attachment.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400146-147"
+  }, {
+    "id" : "hg0pKWclXyzk0Hz0uOE2gP",
+    "name" : "SP-DMITRAXSurveyVTW-iPaaSLocal",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "8HNKVlDjAqQHhwq-gt-3758002-2020-08-04T16:00:19.962Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Sub Process to Upload file to HDFS.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400146-147"
+  } ]
+}

@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "602I7csaysydvXiFgNbw4K",
+    "name" : "DMI-IDD400146-147",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "DMI Survey VTW -F&D from TRAX to MDLZ---Json Upload to Hadoop",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

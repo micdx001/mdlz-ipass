@@ -1,0 +1,238 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>bgdoGsF4XkgbdoP-gt-3309251-2020-08-04T16:00:17.032Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-TRAX-iPaaSLocal</types1:Name>
+      <types1:ParentFlowIds>8HNKVlDjAqQHhwq-gt-3758002-2020-08-04T16:00:19.962Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>SubProcess to upload file on HDFS</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T16:00:17Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>gernapudi.saisruthi@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-09T12:40:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-TRAX-iPaaSLocal/SP-TRAX-iPaaSLocal.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-TRAX-iPaaSLocal"
+                  name="SP-TRAX-iPaaSLocal"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>SubProcess to upload file on HDFS</description>
+            <tags>.agent:AMS</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_JsonURL" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="temp_ProcessTitle" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_sftp_retry_attempts" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">3</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_sftp_retry_count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_sftp_retry_interval" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option hide="true" name="initialvalue">5</option>
+                  </options>
+               </field>
+               <field description="" name="temp_filwriter" type="reference">
+                  <options>
+                     <option name="referenceTo">TraxToLocal:FileWriteTask</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">gHLEzxCyaKtfPuJt82gQur</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>AMS</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jrc0y1wi" targetId="jrc0y1wh"/>
+               </start>
+               <milestone id="jrc0y1wh">
+                  <title>Milestone 1</title>
+                  <link id="jrc0y1wm" targetId="jrc0y1wv"/>
+               </milestone>
+               <eventContainer id="jrc0y1wv">
+                  <service id="jrc0y1wl">
+                     <title>GetJson_TRAX_HDFS</title>
+                     <serviceName>GetJson-TRAX-HDFS:GetJson_TRAX_HDFS</serviceName>
+                     <serviceGUID>ePyDuvL1UoHehLeVcI67is</serviceGUID>
+                     <serviceInput>
+                        <parameter name="JsonURL" source="field" updatable="true">input.in_JsonURL</parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="jrc0y1wx">
+                     <container id="k94d4y9o" type="exclusive">
+                        <title>status_code</title>
+                        <flow id="k94ddabt">
+                           <link id="k94ddabu" targetId="k94d4y9o" type="containerLink"/>
+                        </flow>
+                        <flow id="k94ddabv">
+                           <container id="k94ddac4" type="exclusive">
+                              <title>tmp_sftp_retry_attempts</title>
+                              <flow id="k94ddac6">
+                                 <assignment id="k94ddad7">
+                                    <title>Increment Counter</title>
+                                    <operation source="formula" to="temp.tmp_sftp_retry_count">
+                                       <expression language="XQuery">$temp.tmp_sftp_retry_count+ 1 </expression>
+                                    </operation>
+                                    <link id="k94ddae5" targetId="k94ddae4"/>
+                                 </assignment>
+                                 <wait id="k94ddae4">
+                                    <title>Wait 1</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">{$temp.tmp_sftp_retry_interval} </arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="k94ddaf2" targetId="k94ddaf0"/>
+                                 </wait>
+                                 <jumpTo id="k94ddaf0">
+                                    <link id="k94ddaf1" targetId="jrc0y1wv"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k94ddac9">
+                                 <throw id="k94ddafb">
+                                    <title>Throw 2</title>
+                                    <throwInput>
+                                       <parameter name="code" source="formula" updatable="true">
+                                          <expression language="XQuery">$output.status_code </expression>
+                                       </parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Get json failed</parameter>
+                                       <parameter name="reason" source="constant" updatable="true">Get json failed</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="k94ddac5" targetId="k94ddac6" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.tmp_sftp_retry_count}</arg>
+                                       <arg name="right">{$temp.tmp_sftp_retry_attempts }</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k94ddac8" targetId="k94ddac9" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="k94ddabr" targetId="k94ddabt" type="containerLink">
+                           <condition source="formula">
+                              <function name="contains">
+                                 <arg name="left">{$output.status_code}</arg>
+                                 <arg name="right">200</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k94ddabs" targetId="k94ddabv" type="containerLink"/>
+                        <link id="k94d4y9p" targetId="k7esfxgv"/>
+                     </container>
+                     <assignment id="k7esfxgv">
+                        <title>Assignment to Content Format, File name</title>
+                        <operation source="constant" to="temp.temp_filwriter[1]/format">Attachment</operation>
+                        <operation source="formula" to="temp.temp_filwriter[1]/fileName">
+                           <expression language="XQuery">$output.session_uid||"_"||$output.generation_time||".json"</expression>
+                        </operation>
+                        <link id="k7esfxgw" targetId="k7er9gv8"/>
+                     </assignment>
+                     <assignment id="kckcvizu">
+                        <title>Assignment to temp_ProcessTitle</title>
+                        <operation source="formula" to="temp.temp_ProcessTitle">
+                           <expression language="XQuery">let $title1 := "SP-TRAX-iPaaSLocal"||$output.session_uid||":Completed"
+return ipd:setProcessTitle($title1)</expression>
+                        </operation>
+                        <link id="kckcvizw" targetId="k7er9gvi"/>
+                     </assignment>
+                     <service id="k7er9gv8">
+                        <title>FileWriter</title>
+                        <serviceName>TraxToLocal:FileWriter</serviceName>
+                        <serviceGUID>gHLEzxCyaKtfPuJt82gQur</serviceGUID>
+                        <serviceInput>
+                           <parameter name="fileWriteTask" source="field" updatable="true">temp.temp_filwriter</parameter>
+                           <parameter name="attachment" source="field" updatable="true">output.Jsonfile</parameter>
+                        </serviceInput>
+                        <link id="kckcvizv" targetId="kckcvizu"/>
+                     </service>
+                     <end id="k7er9gvi">
+                        <title>End 1</title>
+                     </end>
+                  </flow>
+                  <flow id="jrc0y1x0">
+                     <subflow id="kckcvj1a">
+                        <title>DMI-EmailNotification</title>
+                        <subflowGUID>3P5pDLRtCRoiS25KzYt2iP</subflowGUID>
+                        <subflowPath>DMI-EmailNotification-VTW</subflowPath>
+                        <runForEach>false</runForEach>
+                        <input>
+                           <parameter name="Recipient Addresses" source="formula" updatable="true">
+                              <expression language="XQuery">'faizan.a.shaikh@accenture.com;shivani.jaiswal@accenture.com'</expression>
+                           </parameter>
+                           <parameter name="EmailSubject" source="constant" updatable="true">iPaas Notification:- DMI : KPI JSON processing to Hadoop</parameter>
+                           <parameter name="EmailBody" source="constant" updatable="true">
+Hi Team,
+
+iPaas job failed while getting Json file for URL {$input.in_JsonURL}.
+
+Error Code:-{$output.faultInfo[1]/code}   
+Error Detail:-{$output.faultInfo[1]/reason} 
+
+Thanks,
+iPass Support Team</parameter>
+                        </input>
+                        <outputDef/>
+                        <link id="kckcvj5p" targetId="jrc0y1zm"/>
+                     </subflow>
+                     <throw id="jrc0y1zm">
+                        <title>Throw 1</title>
+                        <throwInput>
+                           <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                           <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                           <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="jrc0y1ww" targetId="jrc0y1wx" type="containerLink"/>
+                  <events>
+                     <catch faultField="faultInfo" id="jrc0y1wu" interrupting="true">
+                        <link id="jrc0y1wz" targetId="jrc0y1x0" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>ewoY4sGXqONfA3f2H47eSc</types1:GUID>
+      <types1:DisplayName>SP-TRAX-iPaaSLocal</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:32:15.52Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

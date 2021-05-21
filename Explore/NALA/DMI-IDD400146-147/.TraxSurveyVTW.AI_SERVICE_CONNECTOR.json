@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "kb0WIQcqjQDjjv9Gv9jvol",
+    "name" : "TraxSurveyVTW",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Q3JHQjATO9pH8sV-gt-3757646-2020-08-04T16:00:11.692Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxSurveyVTWConnector",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

@@ -1,0 +1,108 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Q3JHQjATO9pH8sV-gt-3309084-2020-08-04T16:00:12.692Z::pd.xml</types1:EntryId>
+      <types1:Name>DMI-EmailNotification-VTW</types1:Name>
+      <types1:ParentFlowIds>bgdoGsF4XkgbdoP-gt-3309251-2020-08-04T16:00:17.032Z::pd.xml,xFNBeNTYglxbdyp-gt-15023723-2020-08-04T16:00:23.81Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Process to send Email with attachment.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T16:00:13Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>gernapudi.saisruthi@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-09T12:40:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.DMI-EmailNotification-VTW/DMI-EmailNotification-VTW.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="DMI-EmailNotification-VTW"
+                  name="DMI-EmailNotification-VTW"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Process to send Email with attachment.</description>
+            <tags>.agent:AMS</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="Recipient Addresses" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="EmailSubject" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="EmailBody" type="textarea">
+                  <options>
+                     <option name="text_width">100</option>
+                     <option name="text_height">5</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Attachment Name" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Attachment" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="Temp_EmailObj" type="reference">
+                  <options>
+                     <option name="referenceTo">DMIEmailConnection-VTW:EmailTaskInput</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">9n5qWbvzI8Lccj0cojBw0k</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>AMS</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jrzy7efr" targetId="jrzy7efq"/>
+               </start>
+               <assignment id="jrzy7efq">
+                  <title>Assignment to Recipient Addresses, Subject etc.</title>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/to">input.Recipient Addresses</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/subject">input.EmailSubject</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/body">input.EmailBody</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/attachments[1]/content">input.Attachment</operation>
+                  <operation source="field" to="temp.Temp_EmailObj[1]/attachments[1]/name">input.Attachment Name</operation>
+                  <link id="jrzy7eg0" targetId="jrzy7efz"/>
+               </assignment>
+               <service id="jrzy7efz">
+                  <title>sendEmailService</title>
+                  <serviceName>DMIEmailConnection-VTW:sendEmailService</serviceName>
+                  <serviceGUID>9n5qWbvzI8Lccj0cojBw0k</serviceGUID>
+                  <serviceInput>
+                     <parameter name="emailTaskInput" source="field" updatable="true">temp.Temp_EmailObj</parameter>
+                  </serviceInput>
+                  <link id="jrzy7eg1" targetId="c"/>
+               </service>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>3P5pDLRtCRoiS25KzYt2iP</types1:GUID>
+      <types1:DisplayName>DMI-EmailNotification-VTW</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:32:15.241Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

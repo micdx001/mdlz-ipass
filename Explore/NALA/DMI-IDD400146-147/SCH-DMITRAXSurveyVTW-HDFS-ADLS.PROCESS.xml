@@ -1,0 +1,90 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>gbckPaaaaaaaaa-gt-3309491-2020-08-04T16:00:24.101Z::pd.xml</types1:EntryId>
+      <types1:Name>SCH-DMITRAXSurveyVTW-HDFS-ADLS</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>VTW.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>HDFS,Trax</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T16:00:24Z</types1:CreationDate>
+      <types1:ModifiedBy>gernapudi.saisruthi@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-09-09T12:40:11Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>gernapudi.saisruthi@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-09T12:40:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SCH-DMITRAXSurveyVTW-HDFS-ADLS/SCH-DMITRAXSurveyVTW-HDFS-ADLS.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SCH-DMITRAXSurveyVTW-HDFS-ADLS"
+                  name="SCH-DMITRAXSurveyVTW-HDFS-ADLS"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>VTW.</description>
+            <tags>HDFS,Trax</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="normal">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="link1" targetId="c"/>
+               </start>
+               <subflow id="c">
+                  <title>MP-DMITRAXSurveyVTW-HDFS-ADLS</title>
+                  <subflowGUID>3jjgyT7JL0CkRa3Xbdj1YW</subflowGUID>
+                  <subflowPath>MP-DMITRAXSurveyVTW-HDFS-ADLS</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="StartDate" source="formula" updatable="true">
+                        <expression language="XQuery">let $temp_Startdate:= (dateTime(xs:date(fn:current-date()-
+
+xs:dayTimeDuration("PT24H")),xs:time('00:00:00'))- xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration('PT0.001S')
+
+let $Startdate:=xs:string($temp_Startdate)
+
+return fn:substring($Startdate, 1, 10)
+
+</expression>
+                     </parameter>
+                     <parameter name="EndDate" source="formula" updatable="true">
+                        <expression language="XQuery">let $temp_enddate:= (dateTime(xs:date(fn:current-date()- xs:dayTimeDuration("PT24H")),xs:time('23:59:59'))- xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration('PT0.001S')
+
+let $Enddate:=xs:string($temp_enddate)
+
+return fn:substring($Enddate, 1, 10)
+</expression>
+                     </parameter>
+                     <parameter name="waittocomplete" source="constant" updatable="true">true</parameter>
+                  </input>
+                  <outputDef/>
+                  <link id="kcoie2dl" targetId="kcoie2dk"/>
+               </subflow>
+               <service id="kcoie2dk">
+                  <title>Run Cloud Task</title>
+                  <serviceName>ICSExecuteTask</serviceName>
+                  <serviceGUID/>
+                  <serviceInput>
+                     <parameter name="Task Name" source="constant">MCT_VTW_FileTransfer_LOCAL_HDNODE [MCT]</parameter>
+                     <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                     <parameter name="Fail on Cloud Task Errors" source="constant">true</parameter>
+                     <parameter name="GUID" source="constant">7CvqIx2Q2ahfYPoj7OBauy</parameter>
+                  </serviceInput>
+                  <link id="kcoie2dm" targetId="d"/>
+               </service>
+               <end id="d"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>9itrLfYa0jzdZcHcUcoiei</types1:GUID>
+      <types1:DisplayName>SCH-DMITRAXSurveyVTW-HDFS-ADLS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:32:15.711Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

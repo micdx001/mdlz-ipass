@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "gHLEzxCyaKtfPuJt82gQur",
+    "name" : "TraxToLocal",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ShOeCFk4AdypKwK-gt-3757654-2020-08-04T16:00:11.722Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

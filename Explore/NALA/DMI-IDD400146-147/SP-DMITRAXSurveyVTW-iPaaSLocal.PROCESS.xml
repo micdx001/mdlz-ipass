@@ -1,0 +1,215 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>8HNKVlDjAqQHhwq-gt-3758002-2020-08-04T16:00:19.962Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-DMITRAXSurveyVTW-iPaaSLocal</types1:Name>
+      <types1:ParentFlowIds>xFNBeNTYglxbdyp-gt-15023723-2020-08-04T16:00:23.81Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Sub Process to Upload file to HDFS.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS,HDFS,Trax</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T16:00:20Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-04T16:06:18Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>gernapudi.saisruthi@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-09T12:40:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-DMITRAXSurveyVTW-iPaaSLocal/SP-DMITRAXSurveyVTW-iPaaSLocal.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-DMITRAXSurveyVTW-iPaaSLocal"
+                  name="SP-DMITRAXSurveyVTW-iPaaSLocal"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Sub Process to Upload file to HDFS.</description>
+            <tags>HDFS,Trax,.agent:AMS</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_resultLinks" type="objectlist">
+                  <options>
+                     <option name="referenceTo">TraxSurveyVTW:result_Link</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">6V6Ig9UlOYEf6JWa5NGLOw</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_PageNumber" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="out_SuccessCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="out_FailedCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="temp_URL" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="URLCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option hide="true" name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="tempCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option hide="true" name="initialvalue">1</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ProcessTitle" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_count_started" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_count_Failed" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>AMS</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jqet2lll" targetId="jqet2llk"/>
+               </start>
+               <assignment id="jqet2llk">
+                  <title>Assignment to temp_URL, temp_result_link</title>
+                  <operation source="formula" to="temp.temp_URL">
+                     <expression language="XQuery">$input.in_resultLinks/Links[$temp.tempCount]</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_ProcessTitle">
+                     <expression language="XQuery">let $title1 := "SP-DMITRAXSurveyVTW-HDFS-page:"
+let $title2 := concat($title1,$input.in_PageNumber)
+return ipd:setProcessTitle($title2)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.URLCount">
+                     <expression language="XQuery">list:count($input.in_resultLinks/Links)</expression>
+                  </operation>
+                  <link id="jrc0n6xa" targetId="jrc0n6y7"/>
+               </assignment>
+               <eventContainer id="jrc0n6y7">
+                  <subflow id="jrc0n6x9">
+                     <title>SP-TRAX-iPaaSLocal</title>
+                     <subflowGUID>ewoY4sGXqONfA3f2H47eSc</subflowGUID>
+                     <subflowPath>SP-TRAX-iPaaSLocal</subflowPath>
+                     <runForEach>false</runForEach>
+                     <input>
+                        <parameter name="in_JsonURL" source="field" updatable="true">temp.temp_URL</parameter>
+                     </input>
+                     <outputDef/>
+                  </subflow>
+                  <flow id="jrc0n6y9">
+                     <assignment id="jrc0n6zk">
+                        <title>Assignment to tmp_count_started</title>
+                        <operation source="formula" to="temp.tmp_count_started">
+                           <expression language="XQuery">$temp.tmp_count_started + 1</expression>
+                        </operation>
+                     </assignment>
+                     <link id="jrc0n6ya" targetId="jrc0n6y7" type="containerLink"/>
+                  </flow>
+                  <flow id="jrc0n6yc">
+                     <assignment id="jrc0n70d">
+                        <title>Assignment to tmp_count_Failed</title>
+                        <operation source="formula" to="temp.tmp_count_Failed">
+                           <expression language="XQuery">$temp.tmp_count_Failed + 1</expression>
+                        </operation>
+                     </assignment>
+                     <link id="jrc0n6yd" targetId="jrc0n6y7" type="containerLink"/>
+                  </flow>
+                  <link id="jrc0n6y8" targetId="jrc0n6y9" type="containerLink"/>
+                  <link id="jrc0n6xz" targetId="jrc0n6xp"/>
+                  <events>
+                     <catch faultField="faultInfo" id="jrc0n6y3" interrupting="true">
+                        <link id="jrc0n6yb" targetId="jrc0n6yc" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <container id="jrc0n6xp" type="exclusive">
+                  <title>tempCount</title>
+                  <flow id="jrc0n6xq">
+                     <assignment id="jrc0n6xr">
+                        <title>Assignment to tempCount</title>
+                        <operation source="formula" to="temp.tempCount">
+                           <expression language="XQuery">$temp.tempCount + 1</expression>
+                        </operation>
+                        <link id="jrcc1h1i" targetId="jrcc1h1h"/>
+                     </assignment>
+                     <wait id="jrcc1h1h">
+                        <title>Wait 1</title>
+                        <duration source="formula">
+                           <function name="duration_expression">
+                              <arg name="value">1</arg>
+                              <arg name="scale">S</arg>
+                              <arg name="businessDays"/>
+                           </function>
+                        </duration>
+                        <link id="jrcc1h1j" targetId="jrc0n6xs"/>
+                     </wait>
+                     <jumpTo id="jrc0n6xs">
+                        <link id="jrc0n6xy" targetId="jqet2llk"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="jrc0n6xt">
+                     <assignment id="jrc0n716">
+                        <title>Assignment to temp_ProcessTitle, out_SuccessCount etc.</title>
+                        <operation source="formula" to="temp.temp_ProcessTitle">
+                           <expression language="XQuery">let $CountStarted := concat("CountStarted:",$temp.tmp_count_started ) let $CountFailed := concat("CountFailed:",$temp.tmp_count_Failed) let $parts := ($temp.temp_ProcessTitle ,"COMPLETED",$CountStarted,$CountFailed) let $process_title := substring(string-join($parts, " "),1,255) return ipd:setProcessTitle($process_title)
+</expression>
+                        </operation>
+                        <operation source="field" to="output.out_SuccessCount">temp.tmp_count_started</operation>
+                        <operation source="field" to="output.out_FailedCount">temp.tmp_count_Failed</operation>
+                        <link id="jrc0n717" targetId="jrc0n6xu"/>
+                     </assignment>
+                     <end id="jrc0n6xu"/>
+                  </flow>
+                  <link id="jrc0n6xv" targetId="jrc0n6xq" type="containerLink">
+                     <condition source="formula">
+                        <function name="less-than">
+                           <arg name="left">{$temp.tempCount}</arg>
+                           <arg name="right">{$temp.URLCount}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jrc0n6xw" targetId="jrc0n6xt" type="containerLink"/>
+               </container>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>hg0pKWclXyzk0Hz0uOE2gP</types1:GUID>
+      <types1:DisplayName>SP-DMITRAXSurveyVTW-iPaaSLocal</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:32:15.584Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

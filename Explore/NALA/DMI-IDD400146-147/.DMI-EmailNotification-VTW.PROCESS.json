@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "3P5pDLRtCRoiS25KzYt2iP",
+    "name" : "DMI-EmailNotification-VTW",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Q3JHQjATO9pH8sV-gt-3309084-2020-08-04T16:00:12.692Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send Email with attachment.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "9n5qWbvzI8Lccj0cojBw0k",
+    "name" : "DMIEmailConnection-VTW",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "U7uMydx2CGeFRqX-gt-3757662-2020-08-04T16:00:11.748Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection for DMI",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400146-147"
+  } ]
+}

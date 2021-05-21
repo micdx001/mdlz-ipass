@@ -1,0 +1,297 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>xFNBeNTYglxbdyp-gt-15023723-2020-08-04T16:00:23.81Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-DMITRAXSurveyVTW-HDFS-ADLS</types1:Name>
+      <types1:ParentFlowIds>gbckPaaaaaaaaa-gt-3309491-2020-08-04T16:00:24.101Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Main Process to get Survey data.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS,HDFS,Trax</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T16:00:24Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>gernapudi.saisruthi@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-09T12:40:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MP-DMITRAXSurveyVTW-HDFS-ADLS/MP-DMITRAXSurveyVTW-HDFS-ADLS.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-DMITRAXSurveyVTW-HDFS-ADLS"
+                  name="MP-DMITRAXSurveyVTW-HDFS-ADLS"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Main Process to get Survey data.</description>
+            <tags>HDFS,Trax,.agent:AMS</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="StartDate" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="EndDate" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="waittocomplete" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="temp_PageNumber" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option hide="true" name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ProcessTitle" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_URLCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option hide="true" name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="ProcessedCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="FailedCount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>AMS</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jrdwmscg" targetId="jrdwmscf"/>
+               </start>
+               <container id="jrdwmscf" type="exclusive">
+                  <title>waittocomplete?</title>
+                  <flow id="jrdwmscu">
+                     <link id="jrdwmscv" targetId="jrdwmscf" type="containerLink"/>
+                  </flow>
+                  <flow id="jrdwmscw">
+                     <milestone id="jrdwmsdp">
+                        <title>Milestone 1</title>
+                     </milestone>
+                     <link id="jrdwmscx" targetId="jrdwmscf" type="containerLink"/>
+                  </flow>
+                  <link id="jrdwmscn" targetId="jrdwmscu" type="containerLink">
+                     <condition source="formula">
+                        <function name="true">
+                           <arg name="field">{$input.waittocomplete}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jrdwmscq" targetId="jrdwmscw" type="containerLink">
+                     <condition source="formula">
+                        <function name="false">
+                           <arg name="field">{$input.waittocomplete}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jrdwmsch" targetId="jpw7hoop"/>
+               </container>
+               <eventContainer id="jpw7hoop">
+                  <service id="c">
+                     <title>TraxSurveyVTWConnector</title>
+                     <serviceName>TraxSurveyVTW:TraxSurveyVTWConnector</serviceName>
+                     <serviceGUID>6V6Ig9UlOYEf6JWa5NGLOw</serviceGUID>
+                     <serviceInput>
+                        <parameter name="from" source="field" updatable="true">input.StartDate</parameter>
+                        <parameter name="to" source="field" updatable="true">input.EndDate</parameter>
+                        <parameter name="page" source="field" updatable="true">temp.temp_PageNumber</parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="jpw7hoos">
+                     <assignment id="jqeuz760">
+                        <title>Assignment to temp_URLCount</title>
+                        <operation source="formula" to="temp.temp_URLCount">
+                           <expression language="XQuery">list:count($output.result_link/Links)</expression>
+                        </operation>
+                        <link id="jqeuz76h" targetId="jqeuz76g"/>
+                     </assignment>
+                     <container id="jqeuz76g" type="exclusive">
+                        <title>temp_URLCount</title>
+                        <flow id="jqeuz76t">
+                           <subflow id="jqeuz77m">
+                              <title>SP-DMITRAXSurveyVTW-iPaaSLocal</title>
+                              <subflowGUID>hg0pKWclXyzk0Hz0uOE2gP</subflowGUID>
+                              <subflowPath>SP-DMITRAXSurveyVTW-iPaaSLocal</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input>
+                                 <parameter name="in_resultLinks" source="field" updatable="true">output.result_link</parameter>
+                                 <parameter name="in_PageNumber" source="field" updatable="true">temp.temp_PageNumber</parameter>
+                              </input>
+                              <outputDef>
+                                 <field name="out_SuccessCount" type="int">
+                                    <options>
+                                       <option name="required">false</option>
+                                    </options>
+                                 </field>
+                                 <field name="out_FailedCount" type="int">
+                                    <options>
+                                       <option name="required">false</option>
+                                    </options>
+                                 </field>
+                              </outputDef>
+                              <link id="jroqk11b" targetId="jroqk11a"/>
+                           </subflow>
+                           <assignment id="jroqk11a">
+                              <title>Assignment to temp_PageNumber, ProcessedCount etc.</title>
+                              <operation source="formula" to="temp.temp_PageNumber">
+                                 <expression language="XQuery">$temp.temp_PageNumber + 1</expression>
+                              </operation>
+                              <operation source="formula" to="temp.ProcessedCount">
+                                 <expression language="XQuery">$temp.ProcessedCount + $output.out_SuccessCount </expression>
+                              </operation>
+                              <operation source="formula" to="temp.FailedCount">
+                                 <expression language="XQuery">$temp.FailedCount + $output.out_FailedCount </expression>
+                              </operation>
+                              <link id="jroqk11c" targetId="jqeuz785"/>
+                           </assignment>
+                           <container id="jqeuz785" type="exclusive">
+                              <title>temp_PageNumber</title>
+                              <flow id="jqeuz786">
+                                 <wait id="jrcc4xjo">
+                                    <title>Wait 1</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">10</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="jrcc4xjq" targetId="jqeuz788"/>
+                                 </wait>
+                                 <jumpTo id="jqeuz788">
+                                    <link id="jqeuz78e" targetId="jpw7hoop"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="jqeuz789">
+                                 <subflow id="kckheg50">
+                                    <title>DMI-EmailNotification 1</title>
+                                    <subflowGUID>3P5pDLRtCRoiS25KzYt2iP</subflowGUID>
+                                    <subflowPath>DMI-EmailNotification-VTW</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient Addresses" source="formula" updatable="true">
+                                          <expression language="XQuery">'faizan.a.shaikh@accenture.com'</expression>
+                                       </parameter>
+                                       <parameter name="EmailSubject" source="constant" updatable="true">DMI : KPI JSON processing to Hadoop QA– Status update</parameter>
+                                       <parameter name="EmailBody" source="constant" updatable="true">Hi Team,
+
+Please find below status of DMI : KPI JSON processing to Hadoop for today.
+
+Total number of files available in Trax:- {$output.total_count}
+
+Number of files transferred to Hadoop file server :- {$temp.ProcessedCount} 
+
+Number of failures :- {$temp.FailedCount} 
+
+Thanks,
+iPass Support Team</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="kckheg51" targetId="jqeuz78a"/>
+                                 </subflow>
+                                 <end id="jqeuz78a"/>
+                              </flow>
+                              <link id="jqeuz78b" targetId="jqeuz786" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_PageNumber}</arg>
+                                       <arg name="right">{$output.page_count}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="jqeuz78c" targetId="jqeuz789" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <flow id="jqeuz76w">
+                           <subflow id="kckhefvw">
+                              <title>DMI-EmailNotification</title>
+                              <subflowGUID>3P5pDLRtCRoiS25KzYt2iP</subflowGUID>
+                              <subflowPath>DMI-EmailNotification-VTW</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input>
+                                 <parameter name="Recipient Addresses" source="formula" updatable="true">
+                                    <expression language="XQuery">'faizan.a.shaikh@accenture.com'</expression>
+                                 </parameter>
+                                 <parameter name="EmailSubject" source="constant" updatable="true">DMI : KPI JSON processing to Hadoop QA– Status update</parameter>
+                                 <parameter name="EmailBody" source="constant" updatable="true">Hi Team,
+
+Please find below status of DMI : KPI JSON processing to Hadoop for today.
+
+Total number of files available in Trax:- {$output.total_count}
+
+Number of files transferred to Hadoop file server :- {$temp.ProcessedCount} 
+
+Number of failures :- {$temp.FailedCount} 
+
+Thanks,
+iPass Support Team</parameter>
+                              </input>
+                              <outputDef/>
+                              <link id="kckheg1p" targetId="jqeuz76v"/>
+                           </subflow>
+                           <end id="jqeuz76v"/>
+                        </flow>
+                        <link id="jqeuz76q" targetId="jqeuz76t" type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-than">
+                                 <arg name="left">{$temp.temp_URLCount}</arg>
+                                 <arg name="right">{0}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jqeuz76r" targetId="jqeuz76w" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <flow id="jpw7hoow">
+                     <throw id="jpw7hopl">
+                        <throwInput>
+                           <parameter name="code" source="constant" updatable="true">iPaas job failed while getting Json payload from TraxSurvey.</parameter>
+                           <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                           <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="jpw7hooq" targetId="jpw7hoos" type="containerLink"/>
+                  <events>
+                     <catch faultField="faultInfo" id="jpw7hoom" interrupting="true">
+                        <link id="jpw7hoou" targetId="jpw7hoow" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>3jjgyT7JL0CkRa3Xbdj1YW</types1:GUID>
+      <types1:DisplayName>MP-DMITRAXSurveyVTW-HDFS-ADLS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:32:15.642Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
