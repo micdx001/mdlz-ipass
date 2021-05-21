@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "16d11KERr8ZcFZ1EXjmMu9",
+    "name" : "PIM-Voice-Datafeed",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD200175",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}
