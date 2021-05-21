@@ -1,0 +1,90 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>KhPVEQrXhNUdyOo-gt-8706126-2020-07-28T15:25:57.584Z::pd.xml</types1:EntryId>
+      <types1:Name>SERVICENOW-iPAAS-DXC-INCIDENT</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Incident information from SERVICENOW  to DXC.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:58Z</types1:CreationDate>
+      <types1:ModifiedBy>vandankumar.r.patil@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-24T12:46:33Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anvita.gangadhar.rai@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-25T16:05:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SERVICENOW-iPAAS-DXC-INCIDENT/SERVICENOW-iPAAS-DXC-INCIDENT.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SERVICENOW-iPAAS-DXC-INCIDENT"
+                  name="SERVICENOW-iPAAS-DXC-INCIDENT"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Incident information from SERVICENOW  to DXC.</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="IN_ServiceNowData" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="temp_process_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_script_out" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_number" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>ipaas_ServNow_reg@mdlz.com</user>
+                  </allowedUsers>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jyqta1wv" targetId="jyqta1wq"/>
+               </start>
+               <subflow id="jyqta1wq">
+                  <title>SP-DXC-ALLTRANSACTIONTYPE</title>
+                  <subflowGUID>2xASZpNSe8AkO89x3gZXSv</subflowGUID>
+                  <subflowPath>SP-DXC-ALLTRANSACTIONTYPE</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="IN_SERVICENOW" source="field" updatable="true">input.IN_ServiceNowData</parameter>
+                  </input>
+                  <outputDef/>
+                  <link id="k39rcti3" targetId="c"/>
+               </subflow>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>0tNkbZn2IlFk62DebTQFKA</types1:GUID>
+      <types1:DisplayName>SERVICENOW-iPAAS-DXC-INCIDENT</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:17.191Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

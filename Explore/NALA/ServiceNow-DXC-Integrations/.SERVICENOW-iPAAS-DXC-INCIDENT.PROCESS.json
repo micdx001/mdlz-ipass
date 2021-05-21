@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "0tNkbZn2IlFk62DebTQFKA",
+    "name" : "SERVICENOW-iPAAS-DXC-INCIDENT",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "KhPVEQrXhNUdyOo-gt-8706126-2020-07-28T15:25:57.584Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Incident information from SERVICENOW  to DXC.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "2xASZpNSe8AkO89x3gZXSv",
+    "name" : "SP-DXC-ALLTRANSACTIONTYPE",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "rswVYx8R8WrY1Sy-gt-12291431-2020-07-28T15:25:56.288Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send INCIDENT information with all transaction type from SNOW to DXC.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/ServiceNow-DXC-Integrations"
+  } ]
+}

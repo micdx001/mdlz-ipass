@@ -1,0 +1,84 @@
+{
+  "objectInfo" : {
+    "id" : "dU1knNoBsykbu0Q3FxKian",
+    "name" : "SP-SERVICENOW-ALLTRANSACTIONTYPE",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "FM5rdsMkdypKwKB-gt-12291444-2020-07-28T15:25:56.506Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send incident information with all transaction type from DXC to SNOW.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "6tlLVGiPTcal1t9EtPHeej",
+    "name" : "SP-SendEmail-SNOW-DXC",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "JH72yIYmWR7hsAV-gt-12127527-2020-07-28T15:25:55.579Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/ServiceNow-DXC-Integrations"
+  }, {
+    "id" : "cIXTlltRDyaeVFwkaDd3w1",
+    "name" : "DXC-ServiceNow",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "D8WhIpppppppppp-gt-12127505-2020-07-28T15:25:55.479Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/ServiceNow-DXC-Integrations"
+  }, {
+    "id" : "6cBiFPVTnsXlKFgSDLseWC",
+    "name" : "AttachementarrayDXC",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "LwRsWOVGuDoWn2s-gt-12623163-2020-07-28T15:25:54.611Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/ServiceNow-DXC-Integrations"
+  } ]
+}

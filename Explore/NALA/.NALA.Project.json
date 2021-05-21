@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "84zYyqar6cDfCmC8isJlYQ",
+    "name" : "NALA",
+    "type" : "Project",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Region specific folder for assets running on Azure.",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

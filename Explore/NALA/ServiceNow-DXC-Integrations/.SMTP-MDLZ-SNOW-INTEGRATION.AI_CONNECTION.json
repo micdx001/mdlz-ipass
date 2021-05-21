@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "8Bai5WTuxeybVjUQWC7kAT",
+    "name" : "SMTP-MDLZ-SNOW-INTEGRATION",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "OzEkhK6LlRkPUEb-gt-12623171-2020-07-28T15:25:54.651Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SMTP Server Connection Locally",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

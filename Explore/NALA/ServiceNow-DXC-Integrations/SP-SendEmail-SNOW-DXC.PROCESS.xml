@@ -1,0 +1,95 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>JH72yIYmWR7hsAV-gt-12127527-2020-07-28T15:25:55.579Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-SendEmail-SNOW-DXC</types1:Name>
+      <types1:ParentFlowIds>FM5rdsMkdypKwKB-gt-12291444-2020-07-28T15:25:56.506Z::pd.xml,rswVYx8R8WrY1Sy-gt-12291431-2020-07-28T15:25:56.288Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Send Email</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS,GIT: 9310943b</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:56Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-07-28T15:28:14Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anvita.gangadhar.rai@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-25T16:05:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-SendEmail-SNOW-DXC/SP-SendEmail-SNOW-DXC.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-SendEmail-SNOW-DXC"
+                  name="SP-SendEmail-SNOW-DXC"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Send Email</description>
+            <tags>GIT: 9310943b,.agent:AMS</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="Recipient_Address" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Email_Subject" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="Email_body" type="textarea">
+                  <options>
+                     <option name="text_width">100</option>
+                     <option name="text_height">5</option>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="temp_EmailInput" type="reference">
+                  <options>
+                     <option name="referenceTo">SMTP-MDLZ-SNOW-INTEGRATION:EmailTaskInput</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">8Bai5WTuxeybVjUQWC7kAT</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>AMS</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="link1" targetId="c"/>
+               </start>
+               <assignment id="c">
+                  <title>Assignment to Recipient Addresses, Subject, etc.</title>
+                  <operation source="field" to="temp.temp_EmailInput[1]/to">input.Recipient_Address</operation>
+                  <operation source="field" to="temp.temp_EmailInput[1]/subject">input.Email_Subject</operation>
+                  <operation source="field" to="temp.temp_EmailInput[1]/body">input.Email_body</operation>
+                  <link id="jl6s2d3o" targetId="jl6s2d3n"/>
+               </assignment>
+               <service id="jl6s2d3n">
+                  <title>sendEmailService</title>
+                  <serviceName>SMTP-MDLZ-SNOW-INTEGRATION:sendEmailService</serviceName>
+                  <serviceGUID>8Bai5WTuxeybVjUQWC7kAT</serviceGUID>
+                  <serviceInput>
+                     <parameter name="emailTaskInput" source="field" updatable="true">temp.temp_EmailInput</parameter>
+                  </serviceInput>
+                  <link id="jl6s2d3p" targetId="d"/>
+               </service>
+               <end id="d"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>6tlLVGiPTcal1t9EtPHeej</types1:GUID>
+      <types1:DisplayName>SP-SendEmail-SNOW-DXC</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:16.877Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

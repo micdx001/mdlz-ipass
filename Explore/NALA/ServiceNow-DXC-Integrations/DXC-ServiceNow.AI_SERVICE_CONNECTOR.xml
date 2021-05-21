@@ -1,0 +1,268 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>J9lEQT53nQciSrZ-gt-12623153-2020-07-28T15:25:54.574Z::svc.xml</types1:EntryId>
+      <types1:Name>DXC-ServiceNow</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:55Z</types1:CreationDate>
+      <types1:ModifiedBy>vandankumar.r.patil@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-09-04T10:52:58Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>vandankumar.r.patil@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-04T10:53:02Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/DXC_ServiceNow/DXC_ServiceNow_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="DXC-ServiceNow"
+                            label=""
+                            name="DXC-ServiceNow"
+                            uuid="bf43ec68-ed8c-4957-84de-79cbebee6831">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="ServiceNowInsert"
+                       maxRedirects="100"
+                       name="ServiceNowInsert"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="u_number"
+                                required="false"
+                                testWith="E-IM000569437"
+                                type="string"/>
+                     <parameter name="u_correlation_id"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_requester_email"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_priority" required="false" testWith="" type="string"/>
+                     <parameter name="u_summary" required="false" testWith="" type="string"/>
+                     <parameter name="u_description" required="false" testWith="" type="string"/>
+                     <parameter name="u_category"
+                                required="false"
+                                testWith="incident"
+                                type="string"/>
+                     <parameter name="u_subcategory" required="false" testWith="" type="string"/>
+                     <parameter name="u_assignment_group"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_state" required="false" testWith="" type="string"/>
+                     <parameter name="u_dxc_incident_number"
+                                required="false"
+                                testWith="INC0000000000001"
+                                type="string"/>
+                     <parameter name="u_transaction_id"
+                                required="false"
+                                testWith="283789237gdusu832988hwe"
+                                type="string"/>
+                     <parameter name="u_work_notes" required="false" testWith="" type="string"/>
+                     <parameter name="import_set_run"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="template_import_log"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_business_service"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_comments" required="false" testWith="" type="string"/>
+                     <parameter name="u_configuration_item"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_onhold_reason"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_resolution_codes"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_resolution_notes"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_impact" required="false" testWith="" type="string"/>
+                     <parameter name="u_transaction_type"
+                                required="false"
+                                testWith="INSERT"
+                                type="string"/>
+                     <parameter name="u_contact_type"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_urgency" required="false" testWith="" type="string"/>
+                     <parameter name="u_return_code" required="false" testWith="" type="string"/>
+                     <parameter name="u_return_message"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_error_message"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_transaction_subtype"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="u_attachments" required="false" testWith="" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://mdlztest.service-now.com/u_dxc_inbound.do?SOAP"
+                                        verb="POST">
+                        <authentication>
+                           <username>dxc.integration</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">text/xml;charset=UTF-8</header>
+                        </httpHeaders>
+                        <body>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://www.service-now.com/u_dxc_inbound"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;u:insert&gt;
+         &lt;!--Optional:--&gt;
+         &lt;import_set_run&gt;{ $import_set_run }&lt;/import_set_run&gt;
+         &lt;!--Optional:--&gt;
+         &lt;template_import_log&gt;{ $template_import_log }&lt;/template_import_log&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_assignment_group&gt;{ $u_assignment_group }&lt;/u_assignment_group&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_business_service&gt;{ $u_business_service }&lt;/u_business_service&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_category&gt;{ $u_category }&lt;/u_category&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_comments&gt;{ $u_comments }&lt;/u_comments&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_configuration_item&gt;{ $u_configuration_item }&lt;/u_configuration_item&gt;
+		  &lt;!--Optional:--&gt;
+         &lt;u_contact_type&gt;{ $u_contact_type }&lt;/u_contact_type&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_correlation_id&gt;{ $u_correlation_id }&lt;/u_correlation_id&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_description&gt;{ $u_description }&lt;/u_description&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_dxc_incident_number&gt;{ $u_dxc_incident_number }&lt;/u_dxc_incident_number&gt;
+		   &lt;!--Optional:--&gt;
+         &lt;u_impact&gt;{ $u_impact }&lt;/u_impact&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_number&gt;{ $u_number }&lt;/u_number&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_onhold_reason&gt;{ $u_onhold_reason }&lt;/u_onhold_reason&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_priority&gt;{ $u_priority }&lt;/u_priority&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_requester_email&gt;{ $u_requester_email }&lt;/u_requester_email&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_resolution_codes&gt;{ $u_resolution_codes }&lt;/u_resolution_codes&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_resolution_notes&gt;{ $u_resolution_notes }&lt;/u_resolution_notes&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_state&gt;{ $u_state }&lt;/u_state&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_subcategory&gt;{ $u_subcategory }&lt;/u_subcategory&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_summary&gt;{ $u_summary }&lt;/u_summary&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_transaction_id&gt;{ $u_transaction_id }&lt;/u_transaction_id&gt;
+		  &lt;!--Optional:--&gt;
+         &lt;u_transaction_type&gt;{ $u_transaction_type }&lt;/u_transaction_type&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_urgency&gt;{ $u_urgency }&lt;/u_urgency&gt;
+         &lt;!--Optional:--&gt;
+         &lt;u_work_notes&gt;{ $u_work_notes }&lt;/u_work_notes&gt;
+		 &lt;!--Optional:--&gt;
+         &lt;u_return_code&gt;{ $u_return_code }&lt;/u_return_code&gt;
+		 &lt;!--Optional:--&gt;
+         &lt;u_return_message&gt;{ $u_return_message }&lt;/u_return_message&gt;
+		 &lt;!--Optional:--&gt;
+         &lt;u_error_message&gt;{ $u_error_message }&lt;/u_error_message&gt;
+		  &lt;!--Optional:--&gt;
+         &lt;u_transaction_subtype&gt;{ $u_transaction_subtype }&lt;/u_transaction_subtype&gt;
+		  &lt;!--Optional:--&gt;
+         &lt;u_attachments&gt;{ $u_attachments }&lt;/u_attachments&gt;
+                 &lt;/u:insert&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                     <field description=""
+                            entireResponse="true"
+                            name="ErrorReason"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="ServiceNowGet"
+                       maxRedirects="100"
+                       name="ServiceNowGet"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://mdlzdev.service-now.com/u_incident_inbound.do?SOAP"
+                                        verb="POST">
+                        <authentication>
+                           <username>API user</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">text/xml</header>
+                        </httpHeaders>
+                        <body>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://www.service-now.com/u_incident_inbound"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;u:get&gt;
+         &lt;sys_id&gt;612b3cafdb6d7f00fe61dbc748961930&lt;/sys_id&gt;
+         &lt;!--Optional:--&gt;
+         &lt;__use_view&gt;?&lt;/__use_view&gt;
+      &lt;/u:get&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>32PQhJfa2BQlHl3Rnx8Kub</types1:GUID>
+      <types1:DisplayName>DXC-ServiceNow</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:16.67Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

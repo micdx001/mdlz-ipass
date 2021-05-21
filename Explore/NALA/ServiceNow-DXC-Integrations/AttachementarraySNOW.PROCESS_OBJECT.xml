@@ -1,0 +1,37 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Vi9zhFtybduaa-gt-12623203-2020-07-28T15:25:54.76Z::po.xml</types1:EntryId>
+      <types1:Name>AttachementarraySNOW</types1:Name>
+      <types1:ParentFlowIds>rswVYx8R8WrY1Sy-gt-12291431-2020-07-28T15:25:56.288Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+processobject</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:55Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                        displayName="AttachementarraySNOW"
+                        isByCopy="true"
+                        name="AttachementarraySNOW">
+            <description/>
+            <tags/>
+            <detail>
+               <field label="file_name" name="file_name" type="string"/>
+               <field label="content_type" name="content_type" type="string"/>
+               <field label="payload" name="payload" type="string"/>
+            </detail>
+         </processObject>
+      </types1:Entry>
+      <types1:GUID>7WFJUY3WeaYghIF7WGS80G</types1:GUID>
+      <types1:DisplayName>AttachementarraySNOW</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:16.694Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "7WFJUY3WeaYghIF7WGS80G",
+    "name" : "AttachementarraySNOW",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Vi9zhFtybduaa-gt-12623203-2020-07-28T15:25:54.76Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

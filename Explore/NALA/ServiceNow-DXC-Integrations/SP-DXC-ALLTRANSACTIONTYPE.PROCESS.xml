@@ -1,0 +1,1422 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>rswVYx8R8WrY1Sy-gt-12291431-2020-07-28T15:25:56.288Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-DXC-ALLTRANSACTIONTYPE</types1:Name>
+      <types1:ParentFlowIds>KhPVEQrXhNUdyOo-gt-8706126-2020-07-28T15:25:57.584Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Process to send INCIDENT information with all transaction type from SNOW to DXC.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:56Z</types1:CreationDate>
+      <types1:ModifiedBy>anvita.gangadhar.rai@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2021-03-25T16:05:08Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anvita.gangadhar.rai@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-25T16:05:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-DXC-ALLTRANSACTIONTYPE/SP-DXC-ALLTRANSACTIONTYPE.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-DXC-ALLTRANSACTIONTYPE"
+                  name="SP-DXC-ALLTRANSACTIONTYPE"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Process to send INCIDENT information with all transaction type from SNOW to DXC.</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="IN_SERVICENOW" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="u_attachments" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:AttachementarraySNOW</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">7WFJUY3WeaYghIF7WGS80G</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="temp_number" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_dxc_incident_number" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_transaction_id" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_category" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">incident</option>
+                  </options>
+               </field>
+               <field description="" name="temp_subcategory" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">failure</option>
+                  </options>
+               </field>
+               <field description="" name="temp_summary" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_description" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_priority" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_comments" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_sys_import_state" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_resolution_codes" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_configuration_item" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_business_service" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Company" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">KRFG</option>
+                  </options>
+               </field>
+               <field description="" name="temp_IncidentSubArea" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">function or feature not working</option>
+                  </options>
+               </field>
+               <field description="" name="temp_PartnerName " type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">TRADESMEMEA</option>
+                  </options>
+               </field>
+               <field description="" name="temp_CustomerCode " type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">KRFG</option>
+                  </options>
+               </field>
+               <field description="" name="temp_RouteType " type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">Exchange</option>
+                  </options>
+               </field>
+               <field description="" name="temp_PartyName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">DEFAULT.CONTACT@KRFG.NOMAIL.COM</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ticketsource" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">Service Exchange</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ServiceAreaName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">non-standard product</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ServiceLineName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">global service desk</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ServiceTypeName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">gsd-customer specific</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Impact" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Urgency" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ContactType" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_State" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_AssignmentGroup" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_Transactiontype" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_resolution_notes" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_trasactiontype_conversion" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ReturnCode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ReturnMessage" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_ErrorMessage" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_DataConcept" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">INCIDENT</option>
+                  </options>
+               </field>
+               <field description="" name="temp_TransactionSubType" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_impact_conversion" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_urgency_conversion" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_incidentstatus_conversion" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_process_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_script_out" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_file_name" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_payload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_content_type" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_attchememnts" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:AttachementarraySNOW</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">7WFJUY3WeaYghIF7WGS80G</option>
+                  </options>
+               </field>
+               <field description="" name="temp_work_notes" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_concat_commnet_worknotes" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_priority_conversion" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_resolutioncodeconversion" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_specialcharresolutioncode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_retrycount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="temp_retryattempt" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">3</option>
+                  </options>
+               </field>
+               <field description="" name="temp_AssignmentGroup_Conversion" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>ipaas_ServNow_reg@mdlz.com</user>
+                  </allowedUsers>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jyh2vw9w" targetId="jyh2vw9v"/>
+               </start>
+               <assignment id="jyh2vw9v">
+                  <title>Servicenow to DXC assignment variable</title>
+                  <operation source="formula" to="temp.temp_number">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_number/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_dxc_incident_number">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_dxc_incident_number/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_summary">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_summary/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_priority">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_priority/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_ContactType">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_contact_type/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_Urgency">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_urgency/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_Impact">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_impact/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_Transactiontype">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_transaction_type/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_AssignmentGroup">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_assignment_group/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_transaction_id">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_transaction_id/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_resolution_codes">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_resolution_codes/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_resolution_notes">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_resolution_notes/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_trasactiontype_conversion">
+                     <expression language="XQuery">if ($temp.temp_Transactiontype='INSERT') then '4'
+else if ($temp.temp_Transactiontype='ACK') then '12'
+else if ($temp.temp_Transactiontype='RESOLVE') then '8'
+else if ($temp.temp_Transactiontype='UPDATE' )then '10'
+else if ($temp.temp_Transactiontype='CANCEL') then '0'
+else if ($temp.temp_Transactiontype='CLOSE') then '1'
+else if ($temp.temp_Transactiontype='REOPEN') then '10'
+else ''</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_ErrorMessage">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_error_message/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_ReturnMessage">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_return_message/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_ReturnCode">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_return_code/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_description">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_description/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_State">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_state/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_TransactionSubType">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_transaction_subtype/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_impact_conversion">
+                     <expression language="XQuery">if ($temp.temp_priority ='1') then 'enterprise'
+else if ($temp.temp_priority ='2') then 'site_dept'
+else if ($temp.temp_priority ='3') then 'multiple_users'
+else if ($temp.temp_priority ='4' )then 'user'
+else ''</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_urgency_conversion">
+                     <expression language="XQuery">if ($temp.temp_priority ='1') then 'critical'
+else if ($temp.temp_priority ='2') then 'high'
+else if ($temp.temp_priority ='3') then 'average'
+else if ($temp.temp_priority ='4')then 'low'
+else ''</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_incidentstatus_conversion">
+                     <expression language="XQuery">if ($temp.temp_State='New') then 'open'
+else if ($temp.temp_State='Assigned') then 'assigned'
+else if ($temp.temp_State='In Progress') then 'work_in_progress'
+else if ($temp.temp_State='On hold' )then 'pending_customer'
+else if ($temp.temp_State='Resolved' )then 'resolved'
+else if ($temp.temp_State='Closed' )then 'closed'
+else if ($temp.temp_State='Cancelled' )then 'Void'
+else ''</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_comments">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_comments/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_attchememnts">
+                     <expression language="XQuery">for $attachement in $input.IN_SERVICENOW/u_attachments
+return 
+&lt;attachementarray&gt;
+   &lt;file_name&gt;{$attachement/file_name/text()}&lt;/file_name&gt;
+   &lt;content_type&gt;{$attachement/content_type/text()}&lt;/content_type&gt;
+   &lt;payload&gt;{$attachement/payload/text()}&lt;/payload&gt;
+&lt;/attachementarray&gt;
+
+
+
+
+
+</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_work_notes">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_work_notes/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_concat_commnet_worknotes">
+                     <expression language="XQuery">fn:concat("Comments",':',$temp.temp_comments,' ',"work_notes",':',$temp.temp_work_notes)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_priority_conversion">
+                     <expression language="XQuery">if ($temp.temp_priority ='1') then 'critical'
+else if ($temp.temp_priority='2') then 'high'
+else if ($temp.temp_priority='3') then 'average'
+else if ($temp.temp_priority='4' )then 'low'
+else ''</expression>
+                  </operation>
+                  <operation source="constant" to="temp.temp_specialcharresolutioncode">Advice &amp; Guidance</operation>
+                  <operation source="formula" to="temp.temp_resolutioncodeconversion">
+                     <expression language="XQuery">if ($temp.temp_resolution_codes ='Informed/Advised' ) then $temp.temp_specialcharresolutioncode
+else if ($temp.temp_resolution_codes ='No Customer Response') then 'No user response'
+else if ($temp.temp_resolution_codes ='Future Enhancement') then 'Change'
+else $temp.temp_resolution_codes</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_configuration_item">
+                     <expression language="XQuery">$input.IN_SERVICENOW/*:u_configuration_item/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.temp_AssignmentGroup_Conversion">
+                     <expression language="XQuery">if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-GCS-UX-L1-DxC') then 'E-INCFLS-GDO-GCS-UX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-GCS-UX-L2-DxC') then 'E-INCSSP-GDO-GCS-UX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-MFM-BUR-AS400-DxC') then 'N-INCSSP-MFM-BUR-AS400'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-SAN-L1-DxC' ) then 'W-INCFLS-ECS-SAN'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-SAN-L2-DxC' ) then 'W-INCSSP-ECS-SAN-L2'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-DB-L3-DxC' ) then 'W-INCSSP-ECS-SK-DB-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-WIN-L2-DxC' ) then 'W-INCSSP-ECS-SK-WIN-L2'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-US-TL-NETWORK-CABLING-DxC' ) then 'N-INCFLS-DCS-US-C-NETWORK-CABLING-TL'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-BKP-L3-DxC' ) then 'N-INCSSP-ECS-BKP-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-DB-L3-DxC' ) then 'N-INCSSP-ECS-DB-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-SAN-L3-DxC' ) then 'N-INCSSP-ECS-SAN-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-STORAGE-SAN-DxC' ) then 'N-INCSSP-KRFG-STORAGE-SAN'
+else if ($temp.temp_AssignmentGroup
+='IT-EUC-Global-SCCM-L3-DxC' ) then 'N-INCSSP-KRFG-WPS-SCCM-TIER3-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-SW-UDB-DxC' ) then 'N-INCSSP-SW-UDB'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-DB-L1-DxC' ) then 'W-INCFLS-ECS-DB'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-DB-L1-DxC' ) then 'W-INCFLS-ECS-SK-DB'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-Global-LEV-SEC-INF-AU-DxC' ) then 'W-INCSSP-LEV-SEC-INF-AU'
+else if ($temp.temp_AssignmentGroup
+='IT-Network-NA-US-GNS-NW-DATA-DxC' ) then 'N-INCSSP-KRFG-GNS-NW-DATA-US'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-SEC-UX-ACCESS-DxC' ) then 'N-INCSSP-KRFG-SEC-UX-ACCESS-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-EUC-NA-IMAGERELEASE-DxC' ) then 'N-INCSSP-KRFG-WPS-IMAGERELEASE'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-BKP-L3-DxC' ) then 'W-INCSSP-ECS-SK-BKP-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-DB-ORA-L2-DxC' ) then 'W-INCSSP-ECS-SK-DB-L2-ORA'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-DB-SQL-L2-DxC' ) then 'W-INCSSP-ECS-SK-DB-L2-SQL'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-LINUX-L3-DxC' ) then 'W-INCSSP-ECS-SK-LINUX-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-SAN-L3-DxC' ) then 'W-INCSSP-ECS-SK-SAN-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-WIN-L2-DxC' ) then 'W-INCSSP-ECS-WIN-L2'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-Global-GCI-VMS-L3-DxC' ) then 'W-INCSSP-L3-GDO-GCI-VMS'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-SAN-L1-DxC' ) then 'W-INCFLS-ECS-SK-SAN'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-BI-Batch') then 'W-INCSSP-KRFG-APPSUPT-KFESO-BW-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-AMEA-STC-FO-Acumen' ) then 'A-INCSSP-KRFG-APPSUPT-APAC-FO-STC-ACUMEN-GOLD-APP-SUPP'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-PTC-SD' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-SD-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-PTC-APO' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-APO-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-RTR-Finance' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-FIN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-MTI' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-MAN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-AMEA-MTI' ) then 'W-INCSSP-KRFG-APPSUPT-AP-SAP-MTI-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-LA-OTC' ) then 'W-INCSSP-KRFG-APPSUPT-LA-SAP-OTC-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-AMEA-PTC-Inventory-WarehouseMgmt' ) then 'W-INCSSP-KRFG-APPSUPT-AP-SAP-IM-WM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-STP-Purchasing' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-PUR-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-Security' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-SEC-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-AMEA-STP' ) then 'W-INCSSP-KRFG-APPSUPT-AP-SAP-STP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-RTR-STARS-Reconcilliation' ) then 'W-INCSSP-KRFG-APPSUPT-CFSR-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-VMI-CRPP' ) then 'W-INCSSP-KRFG-APPSUPT-CRPP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-EAI' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-DEAI-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-MEU-PTC-IM-WM-EANCOM' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-IM-WM-EANCOM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-MEU-LA-ANCAM' ) then 'W-INCSSP-KRFG-APP-ORLAAS-ANCAM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-AMEA-BI' ) then 'W-INCSSP-KRFG-APPSUPT-AP-SAP-BI-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-Global-HR-SHARP-SYS' ) then 'W-INCSSP-KRFG-APPSUPT-ORSHARPSYS-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PCARD-EPAY-TransInv' ) then 'W-INCSSP-KRFG-APP-PCARD-EPAY-TI-SUP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-Global-HR-SHARP-Payroll' ) then 'W-INCSSP-KRFG-APPSUPT-SHARPPAYROLL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-AMEA-PTC' ) then 'W-INCSSP-KRFG-APPSUPT-AP-SAP-OTC-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-AMEA-RTR' ) then 'W-INCSSP-KRFG-APPSUPT-AP-SAP-RTR-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-BI' ) then 'W-INCSSP-KRFG-APPSUPT-ORCATBUS-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-LA-MX-BI-StaFe' ) then 'L-CUSTINCSSP-KRFG-LA-MEXICO-STA-FE-BI-SUPPORT'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-LA-RTR' ) then 'W-INCSSP-KRFG-APPSUPT-LA-SAP-RTR-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-MTC-FIDO-FinancialInteractiveOnline-DB' ) then 'W-INCSSP-KRFG-APPSUPT-ORFIDO-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-MTI-PM-MM' ) then 'W-INCSSP-KRFG-APPSUPT-ORSAPPMMM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-ETL-DataStaging' ) then 'W-INCSSP-KRFG-APPSUPT-BICCETL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-STC-iDeploy' ) then 'W-INCSSP-KRFG-APP-NA-IDEPLOY'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-MTI-Manufacturing' ) then 'W-INCSSP-KRFG-APPSUPT-ORCATMAN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-AMEA-PTC-APO' ) then 'W-INCSSP-KRFG-APPSUPT-AP-SAP-APO-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-OTM') then 'W-INCSSP-KRFG-APPSUPT-ORLCCNWT-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-PTC' ) then 'W-INCSSP-KRFG-APPSUPT-ORCATSAL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-XI' ) then 'W-INCSSP-KRFG-APPSUPT-OREAI-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-SSC' ) then 'W-INCSSP-KRFG-APPSUPT-ORSSCAPRED-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-MEU-ETL-Datastage' ) then 'W-INCSSP-KRFG-APPSUPT-KFESO-ETL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-KWIC' ) then 'W-INCSSP-KRFG-APPSUPT-ORKWIC-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-RPLM' ) then 'W-INCSSP-KRFG-APPSUPT-RPLM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-STC-PCPL' ) then 'W-INCSSP-KRFG-APPSUPT-PCPL-APPL-SUPP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-STC-RetailExecutionPlan' ) then 'W-INCSSP-KRFG-APPSUPT-ORREP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-IC-HQ-GRCAC' ) then 'W-INCSSP-KRFG-APPSUPT-HQ-IC-BIZRIGHTS-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-MTC-VOICE' ) then 'W-INCSSP-KRFG-APPSUPT-ORVOICE-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-SHIPS' ) then 'W-INCSSP-KRFG-APPSUPT-SHIP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-MTI-GlobalWaterfall-KPI' ) then 'W-INCSSP-KRFG-APPSUPT-ORWATER-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-Global-B2B-eCommerce' ) then 'W-INCSSP-KRFG-APPSUPT-OREDI-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-LA-RTR' ) then 'W-INCSSP-KRFG-APPSUPT-LA-SAP-RTR-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-Microfocus-Ops-Sysadmin' ) then 'W-INCSSP-KRFG-APPSUPT-MFRHADM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-MTI-MFG' ) then 'W-INCSSP-KRFG-APPSUPT-ORMFGKN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-InSITE' ) then 'W-INCSSP-KRFG-APPSUPT-RPIN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-RTR-SSC-Travel-Entertainment' ) then 'W-INCSSP-KRFG-APPSUPT-ORSSCTEBLU-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-MEU-STC-FO' ) then 'E-CUSTINCFLS-KRFG-MEU-FO-STC-BRONZE-APP-SUPPORT'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-STC-KPLAN-GameChange' ) then 'W-INCSSP-KRFG-APPSUPT-ORKPLAN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-STC-CommonSalesIncentives' ) then 'W-INCSSP-KRFG-APPSUPT-ORSIEBELICM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-BI-COBRA-Decision-BO' ) then 'W-INCSSP-KRFG-APPSUPT-ORCOBR-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-BiscuitBatch' ) then 'W-INCSSP-KRFG-APPSUPT-ORNBCERPBEL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-Routing' ) then 'W-INCSSP-KRFG-APPSUPT-ORNBCCS-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-US-STC-PostEventAnalyticsTracking' ) then 'W-INCSSP-KRFG-APPSUPT-ORPEAT-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-Global-Treasury' ) then 'W-INCSSP-KRFG-APPSUPT-ORTREASURY-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-LA-BR' ) then 'W-INCSSP-KRFG-APPSUPT-ORLAAS-BRAZIL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-Batch' ) then 'W-INCSSP-KRFG-APPSUPT-CATALYST-BATCH-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-LA-MX' ) then 'W-INCSSP-KRFG-APPSUPT-ORLAAS-MEXICO-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-PTC-Voicepick' ) then 'W-INCSSP-KRFG-APPSUPT-ORMFGWSP2V-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-STC-RetailExecution' ) then 'W-INCSSP-KRFG-APPSUPT-ORO4ISELL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-BI-Integration' ) then 'W-INCSSP-KRFG-APPSUPT-NA-BI/INTEGRATION-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-BatchScheduling' ) then 'W-INCSSP-KRFG-APPSUPT-CATALYST-SCHEDULING-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-BI-CatalystBatch' ) then 'W-INCSSP-KRFG-APPSUPT-CATALYST-BI-BATCH-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-Essbase' ) then 'W-INCSSP-KRFG-APPSUPT-ORESSBASA-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-STC-HQ-TradePlanning' ) then 'W-INCSSP-KRFG-APPSUPT-ORCATHTP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-STP-Procurement' ) then 'W-INCSSP-KRFG-APPSUPT-ORCATPRO-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-NA-ISC-MeridanSpec' ) then 'W-INCSSP-KRFG-APPSUPT-ORMERGLADM-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-NSA-Global-Scheduling' ) then 'E-INCFLS-L1-GDO-GCB-BATCH'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-Win-DxC' ) then 'N-INCSSP-KRFG-MSHS-WIN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-Global-Unix-DxC' ) then 'W-INCFLS-KRFG-MSHS-UNIX-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-Global-Citrix-DxC' ) then 'N-INCSSP-KRFG-MSHS-CTX-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-MQ-DxC' ) then 'N-INCSSP-KRFG-MSHS-MQ-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-AMEA-SQL-DBA-DxC' ) then 'A-INCSSP-APJ-MSHS-SQL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-AMEA-WIN-DxC' ) then 'A-INCSSP-KRFG-MSHS-WIN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-WIN-DxC' ) then 'E-INCSSP-KRFG-MSHS-WIN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-LA-WIN-DxC' ) then 'L-INCSSP-KRFG-MSHS-WIN-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-WIN-L3-DxC' ) then 'W-INCSSP-ECS-SK-WIN-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-BKP-L1-DxC' ) then 'W-INCFLS-ECS-BKP'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-BKP-L2-DxC' ) then 'W-INCSSP-ECS-BKP-L2'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-DB-L2-DxC' ) then 'W-INCSSP-ECS-DB-L2'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-WIN-L1-DxC' ) then 'W-INCFLS-ECS-WIN'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-BACKUP-DxC' ) then 'N-INCSSP-KRFG-MSHS-BACKUP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ORACLE-DxC' ) then 'N-INCSSP-KRFG-MSHS-ORASUPT-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-SQL-DBA-DxC' ) then 'N-INCSSP-KRFG-MSHS-SQL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-WEB-DxC' ) then 'N-INCSSP-KRFG-MSHS-WEB-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-EUC-Global-EMAILPROTECTION-DxC' ) then 'W-INCSSP-WPS-EMAIL-PROTECTION'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-AMEA-OpenVMS-DxC' ) then 'A-INCSSP-KRFG-OVMS-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-ServiceDesk-India' ) then 'E-CUSTINCFLS-MDLZ-SD-CE'
+else if ($temp.temp_AssignmentGroup
+='IT-EUC-Global-CyberArk' ) then 'W-CUSTINCSSP-KRFG-GLOBAL-EUC-CYBERARK-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-SQL-DxC' ) then 'E-INCSSP-EMEA-MSHS-SQL-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ORACLE-DxC' ) then 'E-INCSSP-EMEA-MSHS-ORACLE-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ServerDataCleanup' ) then 'W-INCSSP-KRFG-APPSUPT-SERVER-DATA-CLEANUP-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-DE-FAX-MQS' ) then 'E-INCSSP-GDO-IMS-GER-MQS'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-SAP-BKP-L1-DxC' ) then 'W-INCFLS-L1-EAO-IND-BKP'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-AMEA-OpenVMS-DxC' ) then 'A-INCSSP-KRFG-OVMS-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-ECS-SK-WIN-L3-DxC' ) then 'W-INCSSP-ECS-SK-WIN-L3'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-ECS-BKP-L2-DxC' ) then 'W-INCSSP-ECS-BKP-L2'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-MEU-DE-FAX-MQS' ) then 'E-INCSSP-GDO-IMS-GER-MQS'
+else if ($temp.temp_AssignmentGroup
+='IT-EUC-Global-AD' ) then 'N-INCSSP-KRFG-WPS-AD-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-Filenet-DxC' ) then 'N-INCSSP-KRFG-WPS-FILENET-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-Hosting-NA-WEBSPHERE-DxC' ) then 'N-INCSSP-KRFG-MSHS-APPSUPPORT-WEBSPHERE-SX'
+else if ($temp.temp_AssignmentGroup
+='IT-SAP-NA-RTR-FinanceControlling' ) then 'W-INCSSP-KRFG-APPSUPT-ORCATFIN-SX'
+else ''</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_process_title">
+                     <expression language="XQuery">let $p_name := "SP-DXC-ALLTRANSACTIONTYPE"
+
+let $pid_label := concat("pid:",$temp.temp_number)
+
+let $parts := ($p_name,$pid_label)
+return string-join($parts," ")</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_script_out">
+                     <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                  </operation>
+                  <link id="jys94uf6" targetId="jys94uf5"/>
+               </assignment>
+               <container id="jys94uf5" type="exclusive">
+                  <title>temp_Transactiontype</title>
+                  <flow id="jys94uf9">
+                     <eventContainer id="k1teefh3">
+                        <service id="jys94ufi">
+                           <title>ServiceNow DXC Insert</title>
+                           <serviceName>ServiceNow-DXC:ServiceNow DXC</serviceName>
+                           <serviceGUID>iSfA8jLrR8GlmusZUEaaAS</serviceGUID>
+                           <serviceInput>
+                              <parameter name="SourceEntityId" source="field" updatable="true">temp.temp_number</parameter>
+                              <parameter name="TicketSource" source="field" updatable="true">temp.temp_ticketsource</parameter>
+                              <parameter name="ImpactScope" source="field" updatable="true">temp.temp_impact_conversion</parameter>
+                              <parameter name="Urgency" source="field" updatable="true">temp.temp_urgency_conversion</parameter>
+                              <parameter name="Name" source="field" updatable="true">temp.temp_summary</parameter>
+                              <parameter name="Description" source="field" updatable="true">temp.temp_description</parameter>
+                              <parameter name="IncidentStatus" source="field" updatable="true">temp.temp_incidentstatus_conversion</parameter>
+                              <parameter name="Category" source="field" updatable="true">temp.temp_category</parameter>
+                              <parameter name="SubCategory" source="field" updatable="true">temp.temp_subcategory</parameter>
+                              <parameter name="IncidentSubArea" source="field" updatable="true">temp.temp_IncidentSubArea</parameter>
+                              <parameter name="PartyName" source="field" updatable="true">temp.temp_PartyName</parameter>
+                              <parameter name="PartnerName" source="field" updatable="true">temp.temp_PartnerName </parameter>
+                              <parameter name="SourceTransactionId" source="field" updatable="true">temp.temp_transaction_id</parameter>
+                              <parameter name="DataConcept" source="field" updatable="true">temp.temp_DataConcept</parameter>
+                              <parameter name="TransactionType" source="field" updatable="true">temp.temp_trasactiontype_conversion</parameter>
+                              <parameter name="CustomerCode" source="field" updatable="true">temp.temp_CustomerCode </parameter>
+                              <parameter name="RouteType" source="field" updatable="true">temp.temp_RouteType </parameter>
+                              <parameter name="hasAssignmentWorkGroup" source="field" updatable="true">temp.temp_AssignmentGroup_Conversion</parameter>
+                              <parameter name="AttachmentContent" source="formula">
+                                 <expression language="XQuery">for $payload in $temp.temp_attchememnts[1]/payload 
+return $payload</expression>
+                              </parameter>
+                              <parameter name="Text" source="field" updatable="true">temp.temp_concat_commnet_worknotes</parameter>
+                              <parameter name="ServiceAreaName" source="field" updatable="true">temp.temp_ServiceAreaName</parameter>
+                              <parameter name="ServiceLineName" source="field" updatable="true">temp.temp_ServiceLineName</parameter>
+                              <parameter name="ServiceTypeName" source="field" updatable="true">temp.temp_ServiceTypeName</parameter>
+                              <parameter name="DocumentContentType" source="formula">
+                                 <expression language="XQuery">for $contetntype in $temp.temp_attchememnts[1]/content_type 
+return $contetntype </expression>
+                              </parameter>
+                              <parameter name="AttachmentName" source="formula">
+                                 <expression language="XQuery">for $filename in $temp.temp_attchememnts[1]/file_name return $filename</expression>
+                              </parameter>
+                              <parameter name="Priority" source="field" updatable="true">temp.temp_priority_conversion</parameter>
+                              <parameter name="ConfigurationItemName" source="field" updatable="true">temp.temp_configuration_item</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="k1teefh5">
+                           <end id="k1teefki">
+                              <title>End 2</title>
+                           </end>
+                        </flow>
+                        <flow id="k1teefh8">
+                           <container id="k2zojgi9" type="exclusive">
+                              <title>temp_retrycount</title>
+                              <flow id="k2zojgia">
+                                 <assignment id="k2zojgib">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="formula" to="temp.temp_retrycount">
+                                       <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                    </operation>
+                                    <link id="k2zojgij" targetId="k2zojgic"/>
+                                 </assignment>
+                                 <wait id="k2zojgic">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">10</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="k2zojgik" targetId="k2zojgid"/>
+                                 </wait>
+                                 <jumpTo id="k2zojgid">
+                                    <link id="k2zojgil" targetId="k1teefh3"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k2zojgie">
+                                 <assignment id="k2zojgif">
+                                    <title>Set ProcessTitle</title>
+                                    <operation source="formula" to="temp.tmp_process_title">
+                                       <expression language="XQuery">let $p_name := "SP-DXC-ALLTRANSACTIONTYPE"
+
+let $pid_label := concat("pid:",$temp.temp_number)
+
+let $parts := ($p_name,$pid_label)
+return string-join($parts," ")</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.tmp_script_out">
+                                       <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                                    </operation>
+                                    <link id="k36z8dp1" targetId="k36z8dp0"/>
+                                 </assignment>
+                                 <subflow id="k36z8dp0">
+                                    <title>SP-SendEmail-SNOW-DXC-Insert</title>
+                                    <subflowGUID>6tlLVGiPTcal1t9EtPHeej</subflowGUID>
+                                    <subflowPath>SP-SendEmail-SNOW-DXC</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">vandankumar.r.patil</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">Incident Insert fail</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+Fail to Insert { $temp.temp_number } in DXC with following error : {$output.faultInfo[1]/reason }</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="k36z8dp2" targetId="k2zojgig"/>
+                                 </subflow>
+                                 <throw id="k2zojgig">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Incident Insert fail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="k2zojgih" targetId="k2zojgia" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_retrycount}</arg>
+                                       <arg name="right">{$temp.temp_retryattempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k2zojgii" targetId="k2zojgie" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="k1teefh4" targetId="k1teefh5" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="k1teefh2" interrupting="true">
+                              <link id="k1teefh7" targetId="k1teefh8" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="jys94ufc">
+                     <eventContainer id="k1g89qxe">
+                        <service id="jys94ug9">
+                           <title>ServiceNow DXC ACK</title>
+                           <serviceName>ServiceNow-DXC:ServiceNow DXC</serviceName>
+                           <serviceGUID>iSfA8jLrR8GlmusZUEaaAS</serviceGUID>
+                           <serviceInput>
+                              <parameter name="SourceEntityId" source="field" updatable="true">temp.temp_number</parameter>
+                              <parameter name="IncidentStatus" source="field" updatable="true">temp.temp_State</parameter>
+                              <parameter name="Category" source="field" updatable="true">temp.temp_category</parameter>
+                              <parameter name="SubCategory" source="field" updatable="true">temp.temp_subcategory</parameter>
+                              <parameter name="PartnerName" source="field" updatable="true">temp.temp_PartnerName </parameter>
+                              <parameter name="SourceTransactionId" source="field" updatable="true">temp.temp_transaction_id</parameter>
+                              <parameter name="DataConcept" source="field" updatable="true">temp.temp_DataConcept</parameter>
+                              <parameter name="TransactionType" source="field" updatable="true">temp.temp_trasactiontype_conversion</parameter>
+                              <parameter name="CustomerCode" source="field" updatable="true">temp.temp_CustomerCode </parameter>
+                              <parameter name="RouteType" source="field" updatable="true">temp.temp_RouteType </parameter>
+                              <parameter name="Text" source="field" updatable="true">temp.temp_concat_commnet_worknotes</parameter>
+                              <parameter name="DestinationEntityId" source="field" updatable="true">temp.temp_dxc_incident_number</parameter>
+                              <parameter name="hasJournalUpdates" source="field" updatable="true">temp.temp_comments</parameter>
+                              <parameter name="ReturnCode" source="field" updatable="true">temp.temp_ReturnCode</parameter>
+                              <parameter name="ReturnMessage" source="field" updatable="true">temp.temp_ReturnMessage</parameter>
+                              <parameter name="ErrorMessage" source="field" updatable="true">temp.temp_ErrorMessage</parameter>
+                              <parameter name="ConfigurationItemName" source="field" updatable="true">temp.temp_configuration_item</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="k1g89qxg">
+                           <end id="k1iwhwtv">
+                              <title>End</title>
+                           </end>
+                        </flow>
+                        <flow id="k1g89qxj">
+                           <container id="k2zojghl" type="exclusive">
+                              <title>temp_retrycount</title>
+                              <flow id="k2zojghm">
+                                 <assignment id="k2zojghn">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="formula" to="temp.temp_retrycount">
+                                       <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                    </operation>
+                                    <link id="k2zojghv" targetId="k2zojgho"/>
+                                 </assignment>
+                                 <wait id="k2zojgho">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">10</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="k2zojghw" targetId="k2zojghp"/>
+                                 </wait>
+                                 <jumpTo id="k2zojghp">
+                                    <link id="k2zojghx" targetId="k1g89qxe"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k2zojghq">
+                                 <assignment id="k2zojghr">
+                                    <title>Set ProcessTitle</title>
+                                    <operation source="formula" to="temp.tmp_process_title">
+                                       <expression language="XQuery">let $p_name := "SP-DXC-ALLTRANSACTIONTYPE"
+
+let $pid_label := concat("pid:",$temp.temp_number)
+
+let $parts := ($p_name,$pid_label)
+return string-join($parts," ")</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.tmp_script_out">
+                                       <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                                    </operation>
+                                    <link id="k36z8dqp" targetId="k36z8dqo"/>
+                                 </assignment>
+                                 <subflow id="k36z8dqo">
+                                    <title>SP-SendEmail-SNOW-DXC-Ack</title>
+                                    <subflowGUID>6tlLVGiPTcal1t9EtPHeej</subflowGUID>
+                                    <subflowPath>SP-SendEmail-SNOW-DXC</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">vandankumar.r.patil@accenture.com</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">Incident ACK fail</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+Fail to ACK { $temp.temp_number } in DXC with following error : {$output.faultInfo[1]/reason }</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="k36z8dqq" targetId="k2zojghs"/>
+                                 </subflow>
+                                 <throw id="k2zojghs">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Incident Ack fail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="k2zojght" targetId="k2zojghm" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_retrycount}</arg>
+                                       <arg name="right">{$temp.temp_retryattempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k2zojghu" targetId="k2zojghq" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="k1g89qxf" targetId="k1g89qxg" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="k1g89qxd" interrupting="true">
+                              <link id="k1g89qxi" targetId="k1g89qxj" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="jys94uhm">
+                     <eventContainer id="k1teefmf">
+                        <service id="jz24bdxe">
+                           <title>ServiceNow DXC Update</title>
+                           <serviceName>ServiceNow-DXC:ServiceNow DXC</serviceName>
+                           <serviceGUID>iSfA8jLrR8GlmusZUEaaAS</serviceGUID>
+                           <serviceInput>
+                              <parameter name="SourceEntityId" source="field" updatable="true">temp.temp_number</parameter>
+                              <parameter name="ImpactScope" source="field" updatable="true">temp.temp_impact_conversion</parameter>
+                              <parameter name="Urgency" source="field" updatable="true">temp.temp_urgency_conversion</parameter>
+                              <parameter name="Name" source="field" updatable="true">temp.temp_description</parameter>
+                              <parameter name="IncidentStatus" source="field" updatable="true">temp.temp_incidentstatus_conversion</parameter>
+                              <parameter name="Category" source="field" updatable="true">temp.temp_category</parameter>
+                              <parameter name="SubCategory" source="field" updatable="true">temp.temp_subcategory</parameter>
+                              <parameter name="IncidentSubArea" source="field" updatable="true">temp.temp_IncidentSubArea</parameter>
+                              <parameter name="PartyName" source="field" updatable="true">temp.temp_PartyName</parameter>
+                              <parameter name="PartnerName" source="field" updatable="true">temp.temp_PartnerName </parameter>
+                              <parameter name="SourceTransactionId" source="field" updatable="true">temp.temp_transaction_id</parameter>
+                              <parameter name="DataConcept" source="field" updatable="true">temp.temp_DataConcept</parameter>
+                              <parameter name="TransactionType" source="field" updatable="true">temp.temp_trasactiontype_conversion</parameter>
+                              <parameter name="CustomerCode" source="field" updatable="true">temp.temp_CustomerCode </parameter>
+                              <parameter name="RouteType" source="field" updatable="true">temp.temp_RouteType </parameter>
+                              <parameter name="hasAssignmentWorkGroup" source="field" updatable="true">temp.temp_AssignmentGroup_Conversion</parameter>
+                              <parameter name="AttachmentContent" source="formula">
+                                 <expression language="XQuery">for $payload in $temp.temp_attchememnts[1]/payload 
+return $payload</expression>
+                              </parameter>
+                              <parameter name="Text" source="field" updatable="true">temp.temp_concat_commnet_worknotes</parameter>
+                              <parameter name="DestinationEntityId" source="field" updatable="true">temp.temp_dxc_incident_number</parameter>
+                              <parameter name="TransactionSubType" source="field" updatable="true">temp.temp_TransactionSubType</parameter>
+                              <parameter name="DocumentContentType" source="formula">
+                                 <expression language="XQuery">for $contetntype in $temp.temp_attchememnts[1]/content_type 
+return $contetntype </expression>
+                              </parameter>
+                              <parameter name="AttachmentName" source="formula">
+                                 <expression language="XQuery">for $filename in $temp.temp_attchememnts[1]/file_name return $filename</expression>
+                              </parameter>
+                              <parameter name="ConfigurationItemName" source="field" updatable="true">temp.temp_configuration_item</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="k1teefmh">
+                           <end id="k1teefqj">
+                              <title>End</title>
+                           </end>
+                        </flow>
+                        <flow id="k1teefmk">
+                           <container id="k2zojggx" type="exclusive">
+                              <title>temp_retrycount</title>
+                              <flow id="k2zojggy">
+                                 <assignment id="k2zojggz">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="formula" to="temp.temp_retrycount">
+                                       <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                    </operation>
+                                    <link id="k2zojgh7" targetId="k2zojgh0"/>
+                                 </assignment>
+                                 <wait id="k2zojgh0">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">10</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="k2zojgh8" targetId="k2zojgh1"/>
+                                 </wait>
+                                 <jumpTo id="k2zojgh1">
+                                    <link id="k2zojgh9" targetId="k1teefmf"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k2zojgh2">
+                                 <assignment id="k2zojgh3">
+                                    <title>Set ProcessTitle</title>
+                                    <operation source="formula" to="temp.tmp_process_title">
+                                       <expression language="XQuery">let $p_name := "SP-DXC-ALLTRANSACTIONTYPE"
+
+let $pid_label := concat("pid:",$temp.temp_number)
+
+let $parts := ($p_name,$pid_label)
+return string-join($parts," ")</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.tmp_script_out">
+                                       <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                                    </operation>
+                                    <link id="k36z8ds8" targetId="k36z8ds7"/>
+                                 </assignment>
+                                 <subflow id="k36z8ds7">
+                                    <title>SP-SendEmail-SNOW-DXC-Update</title>
+                                    <subflowGUID>6tlLVGiPTcal1t9EtPHeej</subflowGUID>
+                                    <subflowPath>SP-SendEmail-SNOW-DXC</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">vandankumar.r.patil@accenture.com</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">Incident Update fail</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+Fail to Update { $temp.temp_number } in DXC with following error : {$output.faultInfo[1]/reason }</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="k36z8ds9" targetId="k2zojgh4"/>
+                                 </subflow>
+                                 <throw id="k2zojgh4">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Incident Update fail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="k2zojgh5" targetId="k2zojggy" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_retrycount}</arg>
+                                       <arg name="right">{$temp.temp_retryattempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k2zojgh6" targetId="k2zojgh2" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="k1teefmg" targetId="k1teefmh" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="k1teefme" interrupting="true">
+                              <link id="k1teefmj" targetId="k1teefmk" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="jz24bdvw">
+                     <eventContainer id="k1g89r2t">
+                        <service id="jz24be3h">
+                           <title>ServiceNow DXC resolve</title>
+                           <serviceName>ServiceNow-DXC:ServiceNow DXC resolve</serviceName>
+                           <serviceGUID>iSfA8jLrR8GlmusZUEaaAS</serviceGUID>
+                           <serviceInput>
+                              <parameter name="SourceTransactionId" source="field" updatable="true">temp.temp_transaction_id</parameter>
+                              <parameter name="DataConcept" source="field" updatable="true">temp.temp_DataConcept</parameter>
+                              <parameter name="TransactionType" source="field" updatable="true">temp.temp_trasactiontype_conversion</parameter>
+                              <parameter name="CustomerCode" source="field" updatable="true">temp.temp_Company</parameter>
+                              <parameter name="RouteType" source="field" updatable="true">temp.temp_RouteType </parameter>
+                              <parameter name="PartnerName" source="field" updatable="true">temp.temp_PartnerName </parameter>
+                              <parameter name="SourceEntityId" source="field" updatable="true">temp.temp_number</parameter>
+                              <parameter name="DestinationEntityId" source="field" updatable="true">temp.temp_dxc_incident_number</parameter>
+                              <parameter name="Text" source="field" updatable="true">temp.temp_concat_commnet_worknotes</parameter>
+                              <parameter name="ImpactScope" source="field" updatable="true">temp.temp_impact_conversion</parameter>
+                              <parameter name="Urgency" source="field" updatable="true">temp.temp_urgency_conversion</parameter>
+                              <parameter name="CompletionCode" source="field" updatable="true">temp.temp_resolutioncodeconversion</parameter>
+                              <parameter name="Solution" source="field" updatable="true">temp.temp_resolution_notes</parameter>
+                              <parameter name="ConfigurationItemName" source="field" updatable="true">temp.temp_configuration_item</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="k1g89r2v">
+                           <end id="k1iwhwv3">
+                              <title>End</title>
+                           </end>
+                        </flow>
+                        <flow id="k1g89r2y">
+                           <container id="k2zojgg9" type="exclusive">
+                              <title>temp_retrycount</title>
+                              <flow id="k2zojgga">
+                                 <assignment id="k2zojggb">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="formula" to="temp.temp_retrycount">
+                                       <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                    </operation>
+                                    <link id="k2zojggj" targetId="k2zojggc"/>
+                                 </assignment>
+                                 <wait id="k2zojggc">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">10</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="k2zojggk" targetId="k2zojggd"/>
+                                 </wait>
+                                 <jumpTo id="k2zojggd">
+                                    <link id="k2zojggl" targetId="k1teefmf"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k2zojgge">
+                                 <assignment id="k2zojggf">
+                                    <title>Set ProcessTitle</title>
+                                    <operation source="formula" to="temp.tmp_process_title">
+                                       <expression language="XQuery">let $p_name := "SP-DXC-ALLTRANSACTIONTYPE"
+
+let $pid_label := concat("pid:",$temp.temp_number)
+
+let $parts := ($p_name,$pid_label)
+return string-join($parts," ")</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.tmp_script_out">
+                                       <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                                    </operation>
+                                    <link id="k36z8du6" targetId="k36z8du5"/>
+                                 </assignment>
+                                 <subflow id="k36z8du5">
+                                    <title>SP-SendEmail-SNOW-DXC-Resolve</title>
+                                    <subflowGUID>6tlLVGiPTcal1t9EtPHeej</subflowGUID>
+                                    <subflowPath>SP-SendEmail-SNOW-DXC</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">vandankumar.r.patil@accenture.com</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">Incident Resolve fail</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+Fail to Resolve { $temp.temp_number } in DXC with following error : {$output.faultInfo[1]/reason }</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="k36z8du7" targetId="k2zojggg"/>
+                                 </subflow>
+                                 <throw id="k2zojggg">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Incident Resolve fail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="k2zojggh" targetId="k2zojgga" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_retrycount}</arg>
+                                       <arg name="right">{$temp.temp_retryattempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k2zojggi" targetId="k2zojgge" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="k1g89r2u" targetId="k1g89r2v" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="k1g89r2s" interrupting="true">
+                              <link id="k1g89r2x" targetId="k1g89r2y" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="jz24be24">
+                     <eventContainer id="k1g89r5h">
+                        <service id="jz2hadep">
+                           <title>ServiceNow DXC close</title>
+                           <serviceName>ServiceNow-DXC:ServiceNow DXC close</serviceName>
+                           <serviceGUID>iSfA8jLrR8GlmusZUEaaAS</serviceGUID>
+                           <serviceInput>
+                              <parameter name="SourceTransactionId" source="field" updatable="true">temp.temp_transaction_id</parameter>
+                              <parameter name="DataConcept" source="field" updatable="true">temp.temp_category</parameter>
+                              <parameter name="TransactionType" source="field" updatable="true">temp.temp_trasactiontype_conversion</parameter>
+                              <parameter name="CustomerCode" source="field" updatable="true">temp.temp_Company</parameter>
+                              <parameter name="RouteType" source="field" updatable="true">temp.temp_RouteType </parameter>
+                              <parameter name="PartnerName" source="field" updatable="true">temp.temp_PartnerName </parameter>
+                              <parameter name="SourceEntityId" source="field" updatable="true">temp.temp_number</parameter>
+                              <parameter name="DestinationEntityId" source="field" updatable="true">temp.temp_dxc_incident_number</parameter>
+                              <parameter name="Category" source="field" updatable="true">temp.temp_category</parameter>
+                              <parameter name="Text" source="field" updatable="true">temp.temp_concat_commnet_worknotes</parameter>
+                              <parameter name="TicketSource" source="field" updatable="true">temp.temp_ticketsource</parameter>
+                              <parameter name="ConfigurationItemName" source="field" updatable="true">temp.temp_configuration_item</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="k1g89r5j">
+                           <end id="k1iwhwva">
+                              <title>End</title>
+                           </end>
+                        </flow>
+                        <flow id="k1g89r5m">
+                           <container id="k2zojgfl" type="exclusive">
+                              <title>temp_retrycount</title>
+                              <flow id="k2zojgfm">
+                                 <assignment id="k2zojgfn">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="formula" to="temp.temp_retrycount">
+                                       <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                    </operation>
+                                    <link id="k2zojgfv" targetId="k2zojgfo"/>
+                                 </assignment>
+                                 <wait id="k2zojgfo">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">10</arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="k2zojgfw" targetId="k2zojgfp"/>
+                                 </wait>
+                                 <jumpTo id="k2zojgfp">
+                                    <link id="k2zojgfx" targetId="k1g89r5h"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k2zojgfq">
+                                 <assignment id="k2zojgfr">
+                                    <title>Set ProcessTitle</title>
+                                    <operation source="formula" to="temp.tmp_process_title">
+                                       <expression language="XQuery">let $p_name := "SP-DXC-ALLTRANSACTIONTYPE"
+
+let $pid_label := concat("pid:",$temp.temp_number)
+
+let $parts := ($p_name,$pid_label)
+return string-join($parts," ")</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.tmp_script_out">
+                                       <expression language="XQuery">ipd:setProcessTitle($temp.tmp_process_title)</expression>
+                                    </operation>
+                                    <link id="k36z8dwv" targetId="k36z8dwu"/>
+                                 </assignment>
+                                 <subflow id="k36z8dwu">
+                                    <title>SP-SendEmail-SNOW-DXC-Close</title>
+                                    <subflowGUID>6tlLVGiPTcal1t9EtPHeej</subflowGUID>
+                                    <subflowPath>SP-SendEmail-SNOW-DXC</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">vandankumar.r.patil@accenture.com</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">Incident Close fail</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+Fail to Close { $temp.temp_number } in DXC with following error : {$output.faultInfo[1]/reason }</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="k36z8dww" targetId="k2zojgfs"/>
+                                 </subflow>
+                                 <throw id="k2zojgfs">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Incident Close fail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="k2zojgft" targetId="k2zojgfm" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-than">
+                                       <arg name="left">{$temp.temp_retrycount}</arg>
+                                       <arg name="right">{$temp.temp_retryattempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k2zojgfu" targetId="k2zojgfq" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="k1g89r5i" targetId="k1g89r5j" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="k1g89r4p" interrupting="true">
+                              <link id="k1g89r5l" targetId="k1g89r5m" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="jz2hadd9">
+                     <end id="k1g6id11">
+                        <title>End</title>
+                     </end>
+                  </flow>
+                  <link id="jys94uf8" targetId="jys94uf9" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.temp_Transactiontype}</arg>
+                           <arg name="right">INSERT</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jys94ufb" targetId="jys94ufc" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.temp_Transactiontype}</arg>
+                           <arg name="right">ACK</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jys94uhl" targetId="jys94uhm" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.temp_Transactiontype}</arg>
+                           <arg name="right">UPDATE</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jz24bdvv" targetId="jz24bdvw" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.temp_Transactiontype}</arg>
+                           <arg name="right">RESOLVE</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jz24be23" targetId="jz24be24" type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.temp_Transactiontype}</arg>
+                           <arg name="right">CLOSE</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jz2hadd8" targetId="jz2hadd9" type="containerLink"/>
+               </container>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>2xASZpNSe8AkO89x3gZXSv</types1:GUID>
+      <types1:DisplayName>SP-DXC-ALLTRANSACTIONTYPE</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:17.101Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

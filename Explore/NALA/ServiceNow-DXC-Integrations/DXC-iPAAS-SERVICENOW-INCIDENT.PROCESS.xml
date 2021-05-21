@@ -1,0 +1,90 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>HUyaaaaa-gt-8706116-2020-07-28T15:25:57.536Z::pd.xml</types1:EntryId>
+      <types1:Name>DXC-iPAAS-SERVICENOW-INCIDENT</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Incident information from DXC to SERVICENOW.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:58Z</types1:CreationDate>
+      <types1:ModifiedBy>vandankumar.r.patil@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-08-31T13:51:37Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anvita.gangadhar.rai@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-25T16:03:06Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.DXC-iPAAS-SERVICENOW-INCIDENT/DXC-iPAAS-SERVICENOW-INCIDENT.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="DXC-iPAAS-SERVICENOW-INCIDENT"
+                  name="DXC-iPAAS-SERVICENOW-INCIDENT"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Incident information from DXC to SERVICENOW.</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="IN_DXCData" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="tmp_process_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_script_out" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="temp_dxc_incident_number" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>ipaas_DXC_reg@mdlz.com</user>
+                  </allowedUsers>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jxwqe77e" targetId="jxwqe77d"/>
+               </start>
+               <subflow id="jxwqe77d">
+                  <title>SP-SERVICENOW-ALLTRANSACTIONTYPE</title>
+                  <subflowGUID>dU1knNoBsykbu0Q3FxKian</subflowGUID>
+                  <subflowPath>SP-SERVICENOW-ALLTRANSACTIONTYPE</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="IN_DXC" source="field" updatable="true">input.IN_DXCData</parameter>
+                  </input>
+                  <outputDef/>
+                  <link id="k39r7nmx" targetId="c"/>
+               </subflow>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>ajFBxvsGQPRc3nub7RzaMu</types1:GUID>
+      <types1:DisplayName>DXC-iPAAS-SERVICENOW-INCIDENT</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:17.23Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

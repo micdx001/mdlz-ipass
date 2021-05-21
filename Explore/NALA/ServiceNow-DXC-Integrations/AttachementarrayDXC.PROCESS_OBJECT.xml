@@ -1,0 +1,39 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>LwRsWOVGuDoWn2s-gt-12623163-2020-07-28T15:25:54.611Z::po.xml</types1:EntryId>
+      <types1:Name>AttachementarrayDXC</types1:Name>
+      <types1:ParentFlowIds>FM5rdsMkdypKwKB-gt-12291444-2020-07-28T15:25:56.506Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+processobject</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:55Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                        displayName="AttachementarrayDXC"
+                        isByCopy="true"
+                        name="AttachementarrayDXC">
+            <description/>
+            <tags/>
+            <detail>
+               <field label="AttachmentContent" name="AttachmentContent" type="string"/>
+               <field label="DocumentContentType"
+                      name="DocumentContentType"
+                      type="string"/>
+               <field label="Name" name="Name" type="string"/>
+            </detail>
+         </processObject>
+      </types1:Entry>
+      <types1:GUID>6cBiFPVTnsXlKFgSDLseWC</types1:GUID>
+      <types1:DisplayName>AttachementarrayDXC</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:16.704Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

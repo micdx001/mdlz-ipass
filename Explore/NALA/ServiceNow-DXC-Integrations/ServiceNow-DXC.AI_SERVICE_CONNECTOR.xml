@@ -1,0 +1,526 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>SK0CYybdsMkdypK-gt-12623181-2020-07-28T15:25:54.725Z::svc.xml</types1:EntryId>
+      <types1:Name>ServiceNow-DXC</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-28T15:25:55Z</types1:CreationDate>
+      <types1:ModifiedBy>vandankumar.r.patil@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-09-04T11:02:20Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>vandankumar.r.patil@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-04T11:02:23Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/ServiceNow_DXC/ServiceNow_DXC_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="ServiceNow-DXC"
+                            label=""
+                            name="ServiceNow-DXC"
+                            uuid="0772fc74-406c-4daa-92de-24a3d201916e">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="ServiceNow DXC"
+                       maxRedirects="100"
+                       name="ServiceNow DXC"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="SourceEntityId"
+                                required="false"
+                                testWith="INC001042"
+                                type="string"/>
+                     <parameter name="TicketSource"
+                                required="false"
+                                testWith="Service Exchange"
+                                type="string"/>
+                     <parameter name="ImpactScope"
+                                required="false"
+                                testWith="low"
+                                type="string"/>
+                     <parameter name="Urgency" required="false" testWith="low" type="string"/>
+                     <parameter name="Name"
+                                required="false"
+                                testWith="test 03 12345678"
+                                type="string"/>
+                     <parameter name="Description"
+                                required="false"
+                                testWith="test ticket"
+                                type="string"/>
+                     <parameter name="IncidentStatus"
+                                required="false"
+                                testWith="open"
+                                type="string"/>
+                     <parameter name="Category"
+                                required="false"
+                                testWith="incident"
+                                type="string"/>
+                     <parameter name="SubCategory"
+                                required="false"
+                                testWith="failure"
+                                type="string"/>
+                     <parameter name="IncidentSubArea"
+                                required="false"
+                                testWith="function or feature not working"
+                                type="string"/>
+                     <parameter name="PartyName"
+                                required="false"
+                                testWith="DEFAULT.TICKETING@HP.COM"
+                                type="string"/>
+                     <parameter name="PartnerName"
+                                required="false"
+                                testWith="TRADESMEMEA"
+                                type="string"/>
+                     <parameter name="SourceTransactionId"
+                                required="false"
+                                testWith="4eefbbbadbdf7b4066f20704ca96502_A1"
+                                type="string"/>
+                     <parameter name="DataConcept"
+                                required="false"
+                                testWith="insert"
+                                type="string"/>
+                     <parameter name="TransactionType"
+                                required="false"
+                                testWith="INSERT"
+                                type="string"/>
+                     <parameter name="CustomerCode"
+                                required="false"
+                                testWith="KRFG"
+                                type="string"/>
+                     <parameter name="RouteType"
+                                required="false"
+                                testWith="exchange"
+                                type="string"/>
+                     <parameter name="hasAssignmentWorkGroup"
+                                required="false"
+                                testWith="DEFAULT.TICKETING@HP.COM"
+                                type="string"/>
+                     <parameter name="AttachmentContent"
+                                required="false"
+                                testWith=""
+                                type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </parameter>
+                     <parameter name="Text"
+                                required="false"
+                                testWith="Worknote added for test"
+                                type="string"/>
+                     <parameter name="ServiceAreaName"
+                                required="false"
+                                testWith="non-standard product"
+                                type="string"/>
+                     <parameter name="ServiceLineName"
+                                required="false"
+                                testWith="global service desk"
+                                type="string"/>
+                     <parameter name="ServiceTypeName"
+                                required="false"
+                                testWith="gsd-customer specific"
+                                type="string"/>
+                     <parameter name="DestinationEntityId"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="hasJournalUpdates"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="TransactionSubType"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="ReturnCode" required="false" testWith="" type="string"/>
+                     <parameter name="ReturnMessage" required="false" testWith="" type="string"/>
+                     <parameter name="ErrorMessage" required="false" testWith="" type="string"/>
+                     <parameter name="DocumentContentType"
+                                required="false"
+                                testWith=""
+                                type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </parameter>
+                     <parameter name="ContentEncoding"
+                                required="false"
+                                testWith=""
+                                type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </parameter>
+                     <parameter name="AttachmentName"
+                                required="false"
+                                testWith=""
+                                type="objectlist">
+                        <options>
+                           <option name="referenceTo">hasAttachments</option>
+                        </options>
+                     </parameter>
+                     <parameter name="Priority" required="false" testWith="" type="string"/>
+                     <parameter name="ConfigurationItemName"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://eugwstg.svcs.entsvcs.com/NRT/DynamicRestReceive/GenericService/GenericService_IncidentV3/"
+                                        verb="POST">
+                        <authentication>
+                           <username>ciskrfg_snow_inc</username>
+                           <password>iez.rbr.q5j</password>
+                           <isExpressionInPassword>true</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json;charset=UTF-8</header>
+                        </httpHeaders>
+                        <body>{{
+    "MessageHeader":
+    {{
+        "SourceTransactionId":"{$SourceTransactionId}",
+        "DataConcept":"{$DataConcept}",
+        "TransactionType":"{$TransactionType}",
+        "TransactionSubType":"{$TransactionSubType}",
+        "CustomerCode":"{$CustomerCode}",
+	   "RouteType":"{$RouteType}",        
+        "PartnerName":"{$PartnerName}",		
+        "SourceEntityId":"{$SourceEntityId}",
+        "DestinationEntityId":"{$DestinationEntityId}",
+        }},
+        "MessageResult":
+        {{
+            "ReturnCode":"{$ReturnCode}",
+            "ReturnMessage":"{$ReturnMessage}",
+            "ErrorDetails":
+            [
+                {{
+                    "ErrorMessage":"{$ErrorMessage}"
+                }}
+            ]        
+    }},
+        "Incidents":
+    [
+        {{          
+            "Category":"{$Category}",                                  "Description":"{$Description}",            
+            "hasAssignmentWorkGroup":"{$hasAssignmentWorkGroup}",
+            "hasAttachments":
+            [
+			{{
+            "AttachmentContent":"{$AttachmentContent}",
+                            "DocumentContentType":"{$DocumentContentType}",
+                                                "ContentEncoding":"{$ContentEncoding}",
+                                                "Name":"{$AttachmentName}"
+                            
+          }}
+            ],
+			"hasJournalUpdates":
+            [
+                {{
+                    "Text":"{$Text}"
+                }}
+            ],
+                    
+            "IncidentStatus":"{$IncidentStatus}",
+            "IncidentSubArea":"{$IncidentSubArea}", 
+	        "ConfigurationItemName":"{$ConfigurationItemName}",
+	        "SubCategory":"{$SubCategory}",         
+            "isRequestedFor":
+            {{   
+                "PartyName":"{$PartyName}",
+                
+            }},
+            
+            "Name":"{$Name}",
+            "ImpactScope":"{$ImpactScope}",
+            "Urgency":"{$Urgency}",
+             "Priority":"{$Priority}",
+            "ServiceAreaName":"{$ServiceAreaName}",
+            "ServiceLineName":"{$ServiceLineName}" ,        
+            "ServiceTypeName":"{$ServiceTypeName}",
+            "SubCategory":"{$SubCategory}",
+            "TicketSource":"{$TicketSource}",
+            
+
+        }}
+    ]
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                     <field description=""
+                            entireResponse="true"
+                            name="ErrorReason"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="ServiceNow DXC resolve"
+                       maxRedirects="100"
+                       name="ServiceNow DXC resolve"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="SourceTransactionId"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="DataConcept" required="false" testWith="" type="string"/>
+                     <parameter name="TransactionType"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="CustomerCode" required="false" testWith="" type="string"/>
+                     <parameter name="RouteType" required="false" testWith="" type="string"/>
+                     <parameter name="PartnerName" required="false" testWith="" type="string"/>
+                     <parameter name="SourceEntityId"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="DestinationEntityId"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="Category" required="false" testWith="" type="string"/>
+                     <parameter name="hasAssignmentWorkGroup"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="GivenName" required="false" testWith="" type="string"/>
+                     <parameter name="LanguageCode" required="false" testWith="" type="string"/>
+                     <parameter name="MiddleName" required="false" testWith="" type="string"/>
+                     <parameter name="MobilePhoneNumber"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="PartyName" required="false" testWith="" type="string"/>
+                     <parameter name="PrimaryEmail" required="false" testWith="" type="string"/>
+                     <parameter name="PrimaryPhoneNumber"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="Surname" required="false" testWith="" type="string"/>
+                     <parameter name="AttachmentContent"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="Name" required="false" testWith="" type="string"/>
+                     <parameter name="Text" required="false" testWith="" type="string"/>
+                     <parameter name="ImpactScope" required="false" testWith="" type="string"/>
+                     <parameter name="Urgency" required="false" testWith="" type="string"/>
+                     <parameter name="TicketSource" required="false" testWith="" type="string"/>
+                     <parameter name="CompletionCode"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="Solution" required="false" testWith="" type="string"/>
+                     <parameter name="Priority" required="false" testWith="" type="string"/>
+                     <parameter name="ConfigurationItemName"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://eugwstg.svcs.entsvcs.com/NRT/DynamicRestReceive/GenericService/GenericService_IncidentV3/"
+                                        verb="POST">
+                        <authentication>
+                           <username>ciskrfg_snow_inc</username>
+                           <password>iez.rbr.q5j</password>
+                           <isExpressionInPassword>true</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json;charset=UTF-8</header>
+                        </httpHeaders>
+                        <body>{{
+    "MessageHeader":
+    {{
+        "SourceTransactionId":"{$SourceTransactionId}",
+        "DataConcept":"{$DataConcept}",
+        "TransactionType":"{$TransactionType}",
+        "CustomerCode":"{$CustomerCode}",
+	   "RouteType":"{$RouteType}",        
+        "PartnerName":"{$PartnerName}",		
+        "SourceEntityId":"{$SourceEntityId}",
+		"DestinationEntityId":"{$DestinationEntityId}"
+    }},
+  
+    "Incidents":
+    [
+        {{          
+            "Category":"{$Category}",
+            "hasAssignmentWorkGroup":"{$hasAssignmentWorkGroup}",
+	     "isAssignedTo":
+            {{
+                "GivenName":"{$GivenName}",
+                "LanguageCode":"{$LanguageCode}",
+                "MiddleName":"{$MiddleName}",
+                "MobilePhoneNumber":"{$MobilePhoneNumber}",
+                "PartyName":"{$PartyName}",
+                "PrimaryEmail":"{$PrimaryEmail}",
+                "PrimaryPhoneNumber":"{$PrimaryPhoneNumber}",
+                "Surname":"{$Surname}"
+            }},	
+            "hasAttachments":
+            [
+			{{
+            "AttachmentContent": "{$AttachmentContent}",            
+            "Name": "{$Name}"
+          }}
+            ],
+			"hasJournalUpdates":
+            [
+                {{
+                    "Text":"{$Text}"
+                }}
+            ],
+            "ImpactScope":"{$ImpactScope}",
+			"ConfigurationItemName":"{$ConfigurationItemName}",
+            "Urgency":"{$Urgency}",
+            "Priority":"{$Priority}",
+            "TicketSource":"{$TicketSource}",
+            "CompletionCode":"{$CompletionCode}",
+            "Solution":"{$Solution}",
+        }}
+    ]
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                     <field description=""
+                            entireResponse="true"
+                            name="ErrorReason"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="ServiceNow DXC close"
+                       maxRedirects="100"
+                       name="ServiceNow DXC close"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="SourceTransactionId"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="DataConcept" required="false" testWith="" type="string"/>
+                     <parameter name="TransactionType"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="CustomerCode" required="false" testWith="" type="string"/>
+                     <parameter name="RouteType" required="false" testWith="" type="string"/>
+                     <parameter name="PartnerName" required="false" testWith="" type="string"/>
+                     <parameter name="SourceEntityId"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="DestinationEntityId"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter name="Category" required="false" testWith="" type="string"/>
+                     <parameter name="Text" required="false" testWith="" type="string"/>
+                     <parameter name="TicketSource" required="false" testWith="" type="string"/>
+                     <parameter name="Priority" required="false" testWith="" type="string"/>
+                     <parameter name="ConfigurationItemName"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://eugwstg.svcs.entsvcs.com/NRT/DynamicRestReceive/GenericService/GenericService_IncidentV3/"
+                                        verb="POST">
+                        <authentication>
+                           <username>ciskrfg_snow_inc</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json;charset=UTF-8</header>
+                        </httpHeaders>
+                        <body>{{
+    "MessageHeader":
+    {{
+        "SourceTransactionId":"{$SourceTransactionId}",
+        "DataConcept":"{$DataConcept}",
+        "TransactionType":"{$TransactionType}",        
+        "CustomerCode":"{$CustomerCode}",
+	   "RouteType":"{$RouteType}",        
+        "PartnerName":"{$PartnerName}",		
+        "SourceEntityId":"{$SourceEntityId}",   
+	   "DestinationEntityId":"{$DestinationEntityId}",	   
+    }},
+    "Incidents":
+    [
+        {{          
+            "Category":"{$Category}",
+			"hasJournalUpdates":
+            [
+                {{
+                    "Text":"{$Text}"
+                }}
+            ],
+            "TicketSource":"{$TicketSource}",
+            "Priority":"{$Priority}",
+			"ConfigurationItemName":"{$ConfigurationItemName}"
+              
+			  
+            
+        }}
+    ]
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="StatusCode"
+                            responseStatusCode="true"
+                            type="string"/>
+                     <field description=""
+                            entireResponse="true"
+                            name="ErrorReason"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>khXWHpRHEmBkAqGyS3ZzmL</types1:GUID>
+      <types1:DisplayName>ServiceNow-DXC</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:27:16.682Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

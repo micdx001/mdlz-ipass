@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "32PQhJfa2BQlHl3Rnx8Kub",
+    "name" : "DXC-ServiceNow",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "J9lEQT53nQciSrZ-gt-12623153-2020-07-28T15:25:54.574Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
