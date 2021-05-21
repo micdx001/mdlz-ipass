@@ -1,0 +1,75 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>aabcoq3xgjATO9p-gt-2848478-2020-07-23T11:21:55.012Z::pd.xml</types1:EntryId>
+      <types1:Name>OMPromptSaaS-APAC-iPAAS-SAP-PO-IDD10968</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>iPaas Process to send Data from OTM to SAP PO for OMPromptSaaS .</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>OTM,SAP PO</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T11:21:55Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-07-23T11:29:28Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-07-23T11:29:33Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.OMPromptSaaS-APAC-iPAAS-SAP-PO-IDD10968/OMPromptSaaS-APAC-iPAAS-SAP-PO-IDD10968.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="OMPromptSaaS-APAC-iPAAS-SAP-PO-IDD10968"
+                  name="OMPromptSaaS-APAC-iPAAS-SAP-PO-IDD10968"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>iPaas Process to send Data from OTM to SAP PO for OMPromptSaaS .</description>
+            <tags>OTM,SAP PO</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_OTMTransmission" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>ipaas_Omprompt_reg@mdlz.com</user>
+                  </allowedUsers>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jsx44vru" targetId="jsol6zb4"/>
+               </start>
+               <subflow id="jsol6zb4">
+                  <title>SP-SAP-PO-OMPromptSaaS-APAC-IDD10968</title>
+                  <subflowGUID>kvDcymLZP4XeY5ybtgDRy7</subflowGUID>
+                  <subflowPath>SP-SAP-PO-OMPromptSaaS-APAC-IDD10968</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="IN_OMP" source="formula" updatable="true">
+                        <expression language="XQuery">$input.in_OTMTransmission </expression>
+                     </parameter>
+                  </input>
+                  <outputDef/>
+                  <link id="jsol6zb6" targetId="d"/>
+               </subflow>
+               <end id="d"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>6tQUCAY5Hjclib3kXgUpM4</types1:GUID>
+      <types1:DisplayName>OMPromptSaaS-APAC-iPAAS-SAP-PO-IDD10968</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:21:37.034Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

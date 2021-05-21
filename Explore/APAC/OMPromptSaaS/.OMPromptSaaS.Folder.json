@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "5K2wAKaHVK6dnKkbcuLTaL",
+    "name" : "OMPromptSaaS",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Sales Order Creation - IDD10968 - OMPromptSaaS to ECC ",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

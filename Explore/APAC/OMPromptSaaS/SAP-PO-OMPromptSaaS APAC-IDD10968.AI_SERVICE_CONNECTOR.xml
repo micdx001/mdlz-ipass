@@ -1,0 +1,88 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>uBkfRLdqcgm8lnC-gt-2719007-2020-07-23T11:21:54.338Z::svc.xml</types1:EntryId>
+      <types1:Name>SAP-PO-OMPromptSaaS_APAC-IDD10968</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>Connector to send invoice data to SAP PO .</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T11:21:54Z</types1:CreationDate>
+      <types1:ModifiedBy>ami.nilesh.thaker@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-11-30T10:59:40Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>ami.nilesh.thaker@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-11-30T10:59:49Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SAP_PO_OMPromptSaaS_APAC_IDD10968/SAP_PO_OMPromptSaaS_APAC_IDD10968_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="SAP-PO-OMPromptSaaS APAC-IDD10968"
+                            label=""
+                            name="SAP-PO-OMPromptSaaS_APAC-IDD10968"
+                            uuid="24af1f29-afd0-4cf6-a63c-cc9fc04081c9">
+            <description>Connector to send invoice data to SAP PO .</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="SAP PO OMPrompt"
+                       maxRedirects="100"
+                       name="SAP PO OMPrompt"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Transmission"
+                                required="true"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="http://msapx1s01.krft.net:80/XISOAPAdapter/MessageServlet?senderService=BusComponent_OMPromptSaaS&amp;amp;interface=SI_OMPromptSaaS_OrderCreation_AP_10968_oa&amp;amp;interfaceNamespace=http://mdlz.com/OTC/OrderCreation/IDD010968"
+                                        verb="POST">
+                        <authentication>
+                           <username>IPaas_HTTP_X1S</username>
+                           <password>RFCconn01</password>
+                           <isExpressionInPassword>true</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">text/xml;charset=UTF-8</header>
+                           <header name="SOAPAction">SI_OMPromptSaaS_OrderCreation_AP_10968_oa</header>
+                        </httpHeaders>
+                        <body>{let $data := util:simplifyXml($Transmission)
+return
+&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+     &lt;MT_OrderCreation_10968&gt; 
+      {$data/*}
+     &lt;/MT_OrderCreation_10968&gt;   
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>aaqKT0zqeG3cUqnhnscryh</types1:GUID>
+      <types1:DisplayName>SAP-PO-OMPromptSaaS APAC-IDD10968</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:21:36.348Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

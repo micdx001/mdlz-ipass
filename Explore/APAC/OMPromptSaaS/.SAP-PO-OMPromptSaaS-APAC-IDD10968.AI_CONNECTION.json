@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "loALtVWpIgkbkGUZfA8y6i",
+    "name" : "SAP-PO-OMPromptSaaS-APAC-IDD10968",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "JfTBbcgp5OjG4ab-gt-2868508-2020-07-23T11:21:54.575Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connection for SAP PO OMPromptSaaS",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "aaqKT0zqeG3cUqnhnscryh",
+    "name" : "SAP-PO-OMPromptSaaS APAC-IDD10968",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "uBkfRLdqcgm8lnC-gt-2719007-2020-07-23T11:21:54.338Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send invoice data to SAP PO .",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/OMPromptSaaS"
+  } ]
+}

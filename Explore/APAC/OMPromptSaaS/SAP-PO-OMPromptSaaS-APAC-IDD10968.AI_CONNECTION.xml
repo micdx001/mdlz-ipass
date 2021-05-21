@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>JfTBbcgp5OjG4ab-gt-2868508-2020-07-23T11:21:54.575Z::conn.xml</types1:EntryId>
+      <types1:Name>SAP-PO-OMPromptSaaS-APAC-IDD10968</types1:Name>
+      <types1:ParentFlowIds>YiPDlyBg7jvpppp-gt-1189320-2020-07-23T11:21:54.813Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>Connection for SAP PO OMPromptSaaS</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:APAC</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T11:21:55Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>ami.nilesh.thaker@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-11-30T11:01:35Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/SAP-PO-OMPromptSaaS-APAC-IDD10968/SAP-PO-OMPromptSaaS-APAC-IDD10968.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="SAP-PO-OMPromptSaaS-APAC-IDD10968"
+                     label="SAP-PO-OMPromptSaaS-APAC-IDD10968"
+                     name="SAP-PO-OMPromptSaaS-APAC-IDD10968">
+            <description>Connection for SAP PO OMPromptSaaS</description>
+            <tags>.agent:APAC</tags>
+            <agent>APAC</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/SAP_PO_OMPromptSaaS_APAC_IDD10968/SAP_PO_OMPromptSaaS_APAC_IDD10968_svcDef.xml"
+                               guid="aaqKT0zqeG3cUqnhnscryh"
+                               name="SAP-PO-OMPromptSaaS_APAC-IDD10968"
+                               supportsConnectionTest="false"
+                               uuid="24af1f29-afd0-4cf6-a63c-cc9fc04081c9">
+               <description>Connector to send invoice data to SAP PO .</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>loALtVWpIgkbkGUZfA8y6i</types1:GUID>
+      <types1:DisplayName>SAP-PO-OMPromptSaaS-APAC-IDD10968</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:21:36.477Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

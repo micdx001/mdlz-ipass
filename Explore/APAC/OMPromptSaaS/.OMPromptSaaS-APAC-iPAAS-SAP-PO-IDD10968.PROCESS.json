@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "6tQUCAY5Hjclib3kXgUpM4",
+    "name" : "OMPromptSaaS-APAC-iPAAS-SAP-PO-IDD10968",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "aabcoq3xgjATO9p-gt-2848478-2020-07-23T11:21:55.012Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "iPaas Process to send Data from OTM to SAP PO for OMPromptSaaS .",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "kvDcymLZP4XeY5ybtgDRy7",
+    "name" : "SP-SAP-PO-OMPromptSaaS-APAC-IDD10968",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "YiPDlyBg7jvpppp-gt-1189320-2020-07-23T11:21:54.813Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send OMPromptSaaS data to SAP PO .",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/OMPromptSaaS"
+  } ]
+}
