@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "duHTemIU7KgeNlP3xGF5Gi",
+    "name" : "DMI-IDD400148",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "DMI User Hierarchy and User mgmt from Local Sales APP (AZURE) to SAP",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}
