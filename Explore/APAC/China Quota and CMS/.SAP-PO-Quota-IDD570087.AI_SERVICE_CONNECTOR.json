@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "98osvriNxOjj5nak8bBx4H",
+    "name" : "SAP-PO-Quota-IDD570087",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "kcmgaabclvAhrsw-gt-2829742-2020-07-23T10:50:17.174Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send data from Quota to PO",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

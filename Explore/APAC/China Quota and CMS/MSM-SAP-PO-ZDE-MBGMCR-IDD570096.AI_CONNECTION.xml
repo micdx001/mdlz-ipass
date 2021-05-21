@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>bbf3TzAnOjseGbc-gt-2033134-2020-07-23T10:50:18.017Z::conn.xml</types1:EntryId>
+      <types1:Name>MSM-SAP-PO-ZDE-MBGMCR-IDD570096</types1:Name>
+      <types1:ParentFlowIds>3tycotFgpKi9zhF-gt-2807513-2020-07-23T10:50:18.88Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:APAC</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T10:50:18Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-11T11:15:18Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/MSM-SAP-PO-ZDE-MBGMCR-IDD570096/MSM-SAP-PO-ZDE-MBGMCR-IDD570096.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="MSM-SAP-PO-ZDE-MBGMCR-IDD570096"
+                     label="MSM-SAP-PO-ZDE-MBGMCR-IDD570096"
+                     name="MSM-SAP-PO-ZDE-MBGMCR-IDD570096">
+            <description/>
+            <tags>.agent:APAC</tags>
+            <agent>APAC</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/SAP_PO_MSM_ZDE_MBGMCR_IDD570096/SAP_PO_MSM_ZDE_MBGMCR_IDD570096_svcDef.xml"
+                               guid="1AyndpTzMkdikqQIfdGPGU"
+                               name="SAP-PO-MSM-ZDE-MBGMCR-IDD570096"
+                               supportsConnectionTest="false"
+                               uuid="5d4de10a-64c7-4394-b849-e950e75c2f1b">
+               <description>Connector to send data from MSM to PO</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>7m7JoQ4MT0DkJ0gj2GWwkE</types1:GUID>
+      <types1:DisplayName>MSM-SAP-PO-ZDE-MBGMCR-IDD570096</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:23:50.667Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

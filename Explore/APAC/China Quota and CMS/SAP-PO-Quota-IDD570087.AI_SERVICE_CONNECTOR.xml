@@ -1,0 +1,88 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>kcmgaabclvAhrsw-gt-2829742-2020-07-23T10:50:17.174Z::svc.xml</types1:EntryId>
+      <types1:Name>SAP-PO-Quota-IDD570087</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>Connector to send data from Quota to PO</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T10:50:17Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-09-11T11:09:01Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-11T11:09:13Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SAP_PO_Quota_IDD570087/SAP_PO_Quota_IDD570087_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="SAP-PO-Quota-IDD570087"
+                            label=""
+                            name="SAP-PO-Quota-IDD570087"
+                            uuid="5d4de10a-64c7-4394-b849-e950e75c2f1b">
+            <description>Connector to send data from Quota to PO</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Quota SAP PO"
+                       maxRedirects="100"
+                       name="Quota SAP PO"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Transmission"
+                                required="true"
+                                testWith="&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;&#xA;&lt;ns0:MT_ChinaQuotaMgmt_570087_Quota xmlns:ns0=&#34;http://mdlz.com/Quota_OTC/ChinaQuotaMgmt/570087&#34;&gt;&#xA;   &lt;Row&gt;&#xA;      &lt;Quota_Number&gt;CN02&lt;/Quota_Number&gt;&#xA;      &lt;Product_Allocation_Object&gt;3456&lt;/Product_Allocation_Object&gt;&#xA;      &lt;Material&gt;123&lt;/Material&gt;&#xA;      &lt;Sales_Organization&gt;PQS&lt;/Sales_Organization&gt;&#xA;      &lt;Plant&gt;345&lt;/Plant&gt;&#xA;      &lt;Customer_Hierarchy2&gt;2&lt;/Customer_Hierarchy2&gt;&#xA;      &lt;Customer_Hierarchy3/&gt;&#xA;      &lt;Customer_Hierarchy4/&gt;&#xA;      &lt;Customer_Hierarchy5/&gt;&#xA;      &lt;Allocation_Start_Date&gt;13th-Aug-19&lt;/Allocation_Start_Date&gt;&#xA;      &lt;Allocation_End_Date&gt;23rd-Oct-19&lt;/Allocation_End_Date&gt;&#xA;      &lt;Version&gt;235&lt;/Version&gt;&#xA;      &lt;Customer_Reqmnts/&gt;&#xA;      &lt;ProdAllocQty&gt;23466&lt;/ProdAllocQty&gt;&#xA;      &lt;Incoming_Orders_qty/&gt;&#xA;      &lt;Unit_Of_Measure&gt;23&lt;/Unit_Of_Measure&gt;&#xA;   &lt;/Row&gt;&#xA;   &lt;Row&gt;&#xA;      &lt;Quota_Number&gt;CN07&lt;/Quota_Number&gt;&#xA;      &lt;Product_Allocation_Object&gt;3456&lt;/Product_Allocation_Object&gt;&#xA;      &lt;Material&gt;123&lt;/Material&gt;&#xA;      &lt;Sales_Organization&gt;ABCD&lt;/Sales_Organization&gt;&#xA;      &lt;Plant&gt;345&lt;/Plant&gt;&#xA;      &lt;Customer_Hierarchy2&gt;2&lt;/Customer_Hierarchy2&gt;&#xA;      &lt;Customer_Hierarchy3/&gt;&#xA;      &lt;Customer_Hierarchy4/&gt;&#xA;      &lt;Customer_Hierarchy5/&gt;&#xA;      &lt;Allocation_Start_Date&gt;13th-Aug-19&lt;/Allocation_Start_Date&gt;&#xA;      &lt;Allocation_End_Date&gt;23rd-Oct-19&lt;/Allocation_End_Date&gt;&#xA;      &lt;Version&gt;23&lt;/Version&gt;&#xA;      &lt;Customer_Reqmnts&gt;234&lt;/Customer_Reqmnts&gt;&#xA;      &lt;ProdAllocQty&gt;23466&lt;/ProdAllocQty&gt;&#xA;      &lt;Incoming_Orders_qty/&gt;&#xA;      &lt;Unit_Of_Measure/&gt;&#xA;   &lt;/Row&gt;&#xA;&lt;/ns0:MT_ChinaQuotaMgmt_570087_Quota&gt;"
+                                type="reference">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="http://msapx1r01.krft.net:80/XISOAPAdapter/MessageServlet?senderParty=Quota&amp;amp;senderService=BusComponent_IPASS&amp;amp;interface=SI_Quota_ChinaQuotaMgmt_570087_oa&amp;amp;interfaceNamespace=http://mdlz.com/Quota_OTC/ChinaQuotaMgmt/570087"
+                                        verb="POST">
+                        <authentication>
+                           <username>IPaas_HTTP_X1R</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">text/xml;charset=UTF-8</header>
+                           <header name="SOAPAction">SI_Quota_ChinaQuotaMgmt_570087_oa</header>
+                        </httpHeaders>
+                        <body>{let $data := util:simplifyXml($Transmission)
+return
+&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+     &lt;MT_ChinaQuotaMgmt_570087_Quota&gt; 
+      {$data/*}
+     &lt;/MT_ChinaQuotaMgmt_570087_Quota&gt;   
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>98osvriNxOjj5nak8bBx4H</types1:GUID>
+      <types1:DisplayName>SAP-PO-Quota-IDD570087</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:23:50.47Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

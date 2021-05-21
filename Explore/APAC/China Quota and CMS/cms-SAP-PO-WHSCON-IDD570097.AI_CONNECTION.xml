@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>7yV4AdypKwKBqRi-gt-2033114-2020-07-23T10:50:17.945Z::conn.xml</types1:EntryId>
+      <types1:Name>cms-SAP-PO-WHSCON-IDD570097</types1:Name>
+      <types1:ParentFlowIds>6INciZBpDUQbgdw-gt-2807523-2020-07-23T10:50:18.92Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:APAC</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T10:50:18Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-11T11:16:23Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/cms-SAP-PO-WHSCON-IDD570097/cms-SAP-PO-WHSCON-IDD570097.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="cms-SAP-PO-WHSCON-IDD570097"
+                     label="cms-SAP-PO-WHSCON-IDD570097"
+                     name="cms-SAP-PO-WHSCON-IDD570097">
+            <description/>
+            <tags>.agent:APAC</tags>
+            <agent>APAC</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/CMS_SAP_PO_WHSCON_IDD570097/CMS_SAP_PO_WHSCON_IDD570097_svcDef.xml"
+                               guid="80kk8o6OWOMc5cvqRMfVy0"
+                               name="CMS-SAP-PO-WHSCON-IDD570097"
+                               supportsConnectionTest="false"
+                               uuid="5d4de10a-64c7-4394-b849-e950e75c2f1b">
+               <description>Connector to send data from Quota to PO</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>0VxVK9Hk8SOih5MDqHPq85</types1:GUID>
+      <types1:DisplayName>cms-SAP-PO-WHSCON-IDD570097</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:23:50.693Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

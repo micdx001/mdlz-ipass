@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "63rF3sO2DM6bZPIrNsjOAM",
+    "name" : "China Quota and CMS",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD570087, IDD570095, IDD570096, IDD570097",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

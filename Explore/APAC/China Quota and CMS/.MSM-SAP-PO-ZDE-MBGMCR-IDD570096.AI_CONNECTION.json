@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "7m7JoQ4MT0DkJ0gj2GWwkE",
+    "name" : "MSM-SAP-PO-ZDE-MBGMCR-IDD570096",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "bbf3TzAnOjseGbc-gt-2033134-2020-07-23T10:50:18.017Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "1AyndpTzMkdikqQIfdGPGU",
+    "name" : "SAP-PO-MSM-ZDE-MBGMCR-IDD570096",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "cghuImXycotFgpK-gt-2829710-2020-07-23T10:50:17.032Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send data from MSM to PO",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/China Quota and CMS"
+  } ]
+}

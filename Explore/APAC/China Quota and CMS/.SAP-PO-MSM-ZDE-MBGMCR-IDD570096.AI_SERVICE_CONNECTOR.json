@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "1AyndpTzMkdikqQIfdGPGU",
+    "name" : "SAP-PO-MSM-ZDE-MBGMCR-IDD570096",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "cghuImXycotFgpK-gt-2829710-2020-07-23T10:50:17.032Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send data from MSM to PO",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

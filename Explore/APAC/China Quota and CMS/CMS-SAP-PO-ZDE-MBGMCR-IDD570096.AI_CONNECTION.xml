@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>jDg8SOlA1vyoY2G-gt-2033154-2020-07-23T10:50:18.157Z::conn.xml</types1:EntryId>
+      <types1:Name>CMS-SAP-PO-ZDE-MBGMCR-IDD570096</types1:Name>
+      <types1:ParentFlowIds>8NciZBpDUQbgdwU-gt-2807533-2020-07-23T10:50:18.962Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:APAC</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T10:50:18Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-11T11:15:09Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/CMS-SAP-PO-ZDE-MBGMCR-IDD570096/CMS-SAP-PO-ZDE-MBGMCR-IDD570096.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="CMS-SAP-PO-ZDE-MBGMCR-IDD570096"
+                     label="CMS-SAP-PO-ZDE-MBGMCR-IDD570096"
+                     name="CMS-SAP-PO-ZDE-MBGMCR-IDD570096">
+            <description/>
+            <tags>.agent:APAC</tags>
+            <agent>APAC</agent>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/SAP_PO_CMS_ZDE_MBGMCR_IDD570096/SAP_PO_CMS_ZDE_MBGMCR_IDD570096_svcDef.xml"
+                               guid="6015MPVJrNrclSKFkUzVoK"
+                               name="SAP-PO-CMS-ZDE-MBGMCR-IDD570096"
+                               supportsConnectionTest="false"
+                               uuid="5d4de10a-64c7-4394-b849-e950e75c2f1b">
+               <description>Connector to send data from Quota to PO</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>gJR3JS4X9k7ln5kzIaK0O5</types1:GUID>
+      <types1:DisplayName>CMS-SAP-PO-ZDE-MBGMCR-IDD570096</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:23:50.68Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

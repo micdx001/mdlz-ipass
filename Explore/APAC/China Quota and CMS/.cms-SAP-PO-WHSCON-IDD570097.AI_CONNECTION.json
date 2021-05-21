@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "0VxVK9Hk8SOih5MDqHPq85",
+    "name" : "cms-SAP-PO-WHSCON-IDD570097",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "7yV4AdypKwKBqRi-gt-2033114-2020-07-23T10:50:17.945Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "80kk8o6OWOMc5cvqRMfVy0",
+    "name" : "CMS-SAP-PO-WHSCON-IDD570097",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "eDabcoq3xgjATO9-gt-2829718-2020-07-23T10:50:17.068Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send data from Quota to PO",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/China Quota and CMS"
+  } ]
+}

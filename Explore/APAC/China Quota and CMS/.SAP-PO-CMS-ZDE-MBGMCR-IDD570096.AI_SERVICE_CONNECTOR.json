@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "6015MPVJrNrclSKFkUzVoK",
+    "name" : "SAP-PO-CMS-ZDE-MBGMCR-IDD570096",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "i5tIS7T1cnFKi9z-gt-2829734-2020-07-23T10:50:17.138Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connector to send data from Quota to PO",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

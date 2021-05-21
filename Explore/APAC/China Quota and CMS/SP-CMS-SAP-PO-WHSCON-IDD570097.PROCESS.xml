@@ -1,0 +1,67 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>6INciZBpDUQbgdw-gt-2807523-2020-07-23T10:50:18.92Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-CMS-SAP-PO-WHSCON-IDD570097</types1:Name>
+      <types1:ParentFlowIds>NqRi92qBbbeJOSM-gt-1177938-2020-07-23T10:50:19.634Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:APAC</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T10:50:19Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-07-23T11:10:10Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SP-CMS-SAP-PO-WHSCON-IDD570097/SP-CMS-SAP-PO-WHSCON-IDD570097.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-CMS-SAP-PO-WHSCON-IDD570097"
+                  name="SP-CMS-SAP-PO-WHSCON-IDD570097"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:APAC</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="IN_OTM" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>APAC</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jy9jmq47" targetId="jy9jmq46"/>
+               </start>
+               <service id="jy9jmq46">
+                  <title>CMS SAP PO</title>
+                  <serviceName>cms-SAP-PO-WHSCON-IDD570097:CMS SAP PO</serviceName>
+                  <serviceGUID>0VxVK9Hk8SOih5MDqHPq85</serviceGUID>
+                  <serviceInput>
+                     <parameter name="Transmission" source="formula">
+                        <expression language="XQuery">$input.IN_OTM </expression>
+                     </parameter>
+                  </serviceInput>
+                  <link id="jy9jmq48" targetId="c"/>
+               </service>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>8aM22xms8wqlrFjrmLMzMK</types1:GUID>
+      <types1:DisplayName>SP-CMS-SAP-PO-WHSCON-IDD570097</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:23:50.879Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

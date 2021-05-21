@@ -1,0 +1,73 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>TypKwKBqRi92qBb-gt-1177968-2020-07-23T10:50:19.737Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T10:50:20Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-07-23T11:09:10Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-07-23T11:09:17Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095/MP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095"
+                  name="MP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_otm" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>ipass_cmsuser_reg@mdlz.com</user>
+                  </allowedUsers>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jy9k3p5i" targetId="jy9k3p5h"/>
+               </start>
+               <subflow id="jy9k3p5h">
+                  <title>SP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095</title>
+                  <subflowGUID>a7T1YlRC74ldVjZ35i9lKQ</subflowGUID>
+                  <subflowPath>SP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095</subflowPath>
+                  <runForEach>false</runForEach>
+                  <input>
+                     <parameter name="IN_OTM" source="formula" updatable="true">
+                        <expression language="XQuery">$input.in_otm </expression>
+                     </parameter>
+                  </input>
+                  <outputDef/>
+                  <link id="jy9k3p5j" targetId="c"/>
+               </subflow>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>2bPRxNydoEOfXOxIDUhSmG</types1:GUID>
+      <types1:DisplayName>MP-CMS-SAP-PO-ZDE-WMMBXY-IDD570095</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:23:51.072Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

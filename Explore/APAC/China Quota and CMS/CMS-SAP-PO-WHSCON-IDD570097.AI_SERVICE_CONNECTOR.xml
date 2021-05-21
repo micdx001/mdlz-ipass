@@ -1,0 +1,84 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>eDabcoq3xgjATO9-gt-2829718-2020-07-23T10:50:17.068Z::svc.xml</types1:EntryId>
+      <types1:Name>CMS-SAP-PO-WHSCON-IDD570097</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>Connector to send data from Quota to PO</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-23T10:50:17Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-09-11T11:15:48Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-11T11:15:54Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/CMS_SAP_PO_WHSCON_IDD570097/CMS_SAP_PO_WHSCON_IDD570097_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="CMS-SAP-PO-WHSCON-IDD570097"
+                            label=""
+                            name="CMS-SAP-PO-WHSCON-IDD570097"
+                            uuid="5d4de10a-64c7-4394-b849-e950e75c2f1b">
+            <description>Connector to send data from Quota to PO</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="CMS SAP PO"
+                       maxRedirects="100"
+                       name="CMS SAP PO"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="Transmission"
+                                required="true"
+                                testWith="&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;yes&#34; ?&gt;&lt;WHSCON_ZEU_DELVRY03&gt;&lt;IDOC BEGIN=&#34;1&#34; &gt;&lt;EDI_DC40 SEGMENT=&#34;1&#34; &gt;&lt;TABNAM&gt;1&lt;/TABNAM&gt;&lt;DIRECT&gt;2.000000&lt;/DIRECT&gt;&lt;IDOCTYP&gt;DELVRY03&lt;/IDOCTYP&gt;&lt;CIMTYP&gt;ZEU_DELVRY03&lt;/CIMTYP&gt;&lt;MESTYP&gt;WHSCON&lt;/MESTYP&gt;&lt;SNDPOR&gt;KFIEAP100E&lt;/SNDPOR&gt;&lt;SNDPRT&gt;LS&lt;/SNDPRT&gt;&lt;SNDPFC&gt;KFIEAPE100&lt;/SNDPFC&gt;&lt;SNDPRN&gt;1&lt;/SNDPRN&gt;&lt;SNDSAD&gt;ZZ&lt;/SNDSAD&gt;&lt;SNDLAD&gt;ZONGHOU&lt;/SNDLAD&gt;&lt;RCVPOR&gt;KFIEAP&lt;/RCVPOR&gt;&lt;RCVPRT&gt;LS&lt;/RCVPRT&gt;&lt;RCVPFC&gt;LS&lt;/RCVPFC&gt;&lt;RCVPRN&gt;EAP160&lt;/RCVPRN&gt;&lt;RCVSAD&gt;ZZ&lt;/RCVSAD&gt;&lt;RCVLAD&gt;KRFTCHINA&lt;/RCVLAD&gt;&lt;REFINT&gt;CN&lt;/REFINT&gt;&lt;/EDI_DC40&gt;&lt;E1EDL20 SEGMENT=&#34;1&#34; &gt;&lt;VBELN&gt;8682365956&lt;/VBELN&gt;&lt;E1EDL18 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;PIC&lt;/QUALF&gt;&lt;PARAM&gt;CN866582365956&lt;/PARAM&gt;&lt;/E1EDL18&gt;&lt;E1EDL18 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;PGI&lt;/QUALF&gt;&lt;/E1EDL18&gt;&lt;E1EDT13 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;006&lt;/QUALF&gt;&lt;ISDD&gt;201907240830&lt;/ISDD&gt;&lt;/E1EDT13&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;000010&lt;/POSNR&gt;&lt;MATNR&gt;000000000000244156&lt;/MATNR&gt;&lt;LFIMG&gt;0.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;0.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;000020&lt;/POSNR&gt;&lt;MATNR&gt;000000000000244158&lt;/MATNR&gt;&lt;LFIMG&gt;0.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;0.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;000030&lt;/POSNR&gt;&lt;MATNR&gt;000000000000244090&lt;/MATNR&gt;&lt;LFIMG&gt;0.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;0.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;000040&lt;/POSNR&gt;&lt;MATNR&gt;000000000004043999&lt;/MATNR&gt;&lt;LFIMG&gt;0.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;0.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;000050&lt;/POSNR&gt;&lt;MATNR&gt;000000000004043997&lt;/MATNR&gt;&lt;LFIMG&gt;0.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;0.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;000060&lt;/POSNR&gt;&lt;MATNR&gt;000000000004043990&lt;/MATNR&gt;&lt;LFIMG&gt;0.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;0.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;000070&lt;/POSNR&gt;&lt;MATNR&gt;000000000004044000&lt;/MATNR&gt;&lt;LFIMG&gt;0.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;0.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;900001&lt;/POSNR&gt;&lt;MATNR&gt;000000000000244156&lt;/MATNR&gt;&lt;CHARG&gt;20190715&lt;/CHARG&gt;&lt;LFIMG&gt;60.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;60.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;900002&lt;/POSNR&gt;&lt;MATNR&gt;000000000000244158&lt;/MATNR&gt;&lt;CHARG&gt;20190715&lt;/CHARG&gt;&lt;LFIMG&gt;60.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;60.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;900003&lt;/POSNR&gt;&lt;MATNR&gt;000000000000244090&lt;/MATNR&gt;&lt;CHARG&gt;20190714&lt;/CHARG&gt;&lt;LFIMG&gt;96.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;96.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;900004&lt;/POSNR&gt;&lt;MATNR&gt;000000000004043999&lt;/MATNR&gt;&lt;CHARG&gt;20190718&lt;/CHARG&gt;&lt;LFIMG&gt;1925.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;1925.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;900005&lt;/POSNR&gt;&lt;MATNR&gt;000000000004043997&lt;/MATNR&gt;&lt;CHARG&gt;20190715&lt;/CHARG&gt;&lt;LFIMG&gt;39.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;39.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;900006&lt;/POSNR&gt;&lt;MATNR&gt;000000000004043990&lt;/MATNR&gt;&lt;CHARG&gt;20190718&lt;/CHARG&gt;&lt;LFIMG&gt;180.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;180.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;E1EDL24 SEGMENT=&#34;1&#34; &gt;&lt;POSNR&gt;900007&lt;/POSNR&gt;&lt;MATNR&gt;000000000004044000&lt;/MATNR&gt;&lt;CHARG&gt;20190716&lt;/CHARG&gt;&lt;LFIMG&gt;34.0000&lt;/LFIMG&gt;&lt;VRKME&gt;CS&lt;/VRKME&gt;&lt;LGMNG&gt;34.0000&lt;/LGMNG&gt;&lt;MEINS&gt;CS&lt;/MEINS&gt;&lt;E1EDL19 SEGMENT=&#34;1&#34; &gt;&lt;QUALF&gt;QUA&lt;/QUALF&gt;&lt;/E1EDL19&gt;&lt;/E1EDL24&gt;&lt;/E1EDL20&gt;&lt;/IDOC&gt;&lt;/WHSCON_ZEU_DELVRY03&gt;"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="http://msapx1r01.krft.net:80/XISOAPAdapter/MessageServlet?senderParty=CMSSaaS&amp;amp;senderService=BusComponent_IPASS&amp;amp;interface=SI_CMSSaaS_DeliveryConfirmation_570097_oa&amp;amp;interfaceNamespace=http://mdlz.com/CMS_STP/DeliveryConfirmation/IDD570097"
+                                        verb="POST">
+                        <authentication>
+                           <username>IPaas_HTTP_X1R</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">text/xml;charset=UTF-8</header>
+                           <header name="SOAPAction">SI_CMSSaaS_DeliveryConfirmation_570097_oa</header>
+                        </httpHeaders>
+                        <body>{let $data :=util:parseXML($Transmission)
+return
+&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+   &lt;WHSCON_ZEU_DELVRY03&gt;
+      {$data/*}
+   &lt;/WHSCON_ZEU_DELVRY03&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>80kk8o6OWOMc5cvqRMfVy0</types1:GUID>
+      <types1:DisplayName>CMS-SAP-PO-WHSCON-IDD570097</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:23:50.448Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

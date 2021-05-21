@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "8axoEtTdUcWkHKVHg99VA6",
+    "name" : "MP-CMS-SAP-PO-ZDE-MBGMCR-IDD570096",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "RN7Y3AxtPk7HNCn-gt-1177958-2020-07-23T10:50:19.704Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "aRpK8schl6xdNSbvW9IHat",
+    "name" : "SP-CMS-SAP-PO-ZDE-MBGMCR-IDD570096",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "8NciZBpDUQbgdwU-gt-2807533-2020-07-23T10:50:18.962Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/APAC/China Quota and CMS"
+  } ]
+}
