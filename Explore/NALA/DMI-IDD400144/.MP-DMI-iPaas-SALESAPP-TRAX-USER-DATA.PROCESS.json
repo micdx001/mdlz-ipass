@@ -1,0 +1,84 @@
+{
+  "objectInfo" : {
+    "id" : "6XV7D7MiVEDjvRLfX15kaA",
+    "name" : "MP-DMI-iPaas-SALESAPP-TRAX-USER-DATA",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "mvVFSJsJGD4ARW8-gt-1823643-2020-08-04T14:42:42.208Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "SubProcess to send User file to TRAX.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "4ELmmhE3f2DfbuxkYlqPG2",
+    "name" : "TraxUploadStatus",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "wNXHS45bfTQbdxW-gt-3593999-2020-08-04T14:42:41.355Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400144"
+  }, {
+    "id" : "c9DXSs5gaAshwsyguWtYiw",
+    "name" : "TraxUploadTemplate",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Cgg8vHWOMzeHbcj-gt-3594019-2020-08-04T14:42:41.459Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxUploadTemplate",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400144"
+  }, {
+    "id" : "7c95J1w3oxEbjaN1ZwjeMl",
+    "name" : "DMI-EmailNotification",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "yXYDdxKlFmVSciY-gt-3594009-2020-08-04T14:42:41.397Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send Email with attachment",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400145"
+  } ]
+}

@@ -1,0 +1,82 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>R4-gt-14887506-2020-08-04T14:42:40.706Z::conn.xml</types1:EntryId>
+      <types1:Name>TriggerDMIUser</types1:Name>
+      <types1:ParentFlowIds>mvVFSJsJGD4ARW8-gt-1823643-2020-08-04T14:42:42.208Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:na_agent_east_01,DMI</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T14:42:41Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T14:58:37Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/TriggerDMIUser/TriggerDMIUser.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="TriggerDMIUser"
+                     label="TriggerDMIUser"
+                     name="TriggerDMIUser">
+            <description/>
+            <tags>DMI,.agent:na_agent_east_01</tags>
+            <agent>na_agent_east_01</agent>
+            <attributes/>
+            <consumers>
+               <consumer enabled="true" name="FileParser" typeName="FileParser">
+                  <description>This event source can be used to monitor folders for new files and process file information and its content.</description>
+                  <attributes>
+                     <attribute encrypted="false"
+                                name="directoryName"
+                                value="/Hybrid-Nfs/ipaas/data/DMI/users/TriggerDMIUser"/>
+                     <attribute encrypted="false" name="recursive" value="false"/>
+                     <attribute encrypted="false" name="include" value=""/>
+                     <attribute encrypted="false" name="exclude" value=""/>
+                     <attribute encrypted="false" name="noop" value="false"/>
+                     <attribute encrypted="false" name="delete" value="false"/>
+                     <attribute encrypted="false" name="preMove" value=""/>
+                     <attribute encrypted="false"
+                                name="move"
+                                value="/Hybrid-Nfs/ipaas/data/DMI/users/TriggerDMIUser/Processed"/>
+                     <attribute encrypted="false"
+                                name="moveFailed"
+                                value="/Hybrid-Nfs/ipaas/data/DMI/users/TriggerDMIUser/UnProcessed"/>
+                     <attribute encrypted="false" name="initialDelay" value="1"/>
+                     <attribute encrypted="false" name="delay" value="10"/>
+                     <attribute encrypted="false" name="maxMessagesPerPoll" value=""/>
+                     <attribute encrypted="false" name="readLock" value="none"/>
+                     <attribute encrypted="false" name="readLockTimeout" value=""/>
+                     <attribute encrypted="false" name="readLockCheckInterval" value=""/>
+                     <attribute encrypted="false" name="readLockMinLength" value=""/>
+                     <attribute encrypted="false" name="readLockLoggingLevel" value="WARN"/>
+                     <attribute encrypted="false" name="charset" value=""/>
+                     <attribute encrypted="false" name="otherAttributes" value=""/>
+                     <attribute encrypted="false" name="contentFormat" value="Attachment"/>
+                     <attribute encrypted="false" name="simplifyContent" value="false"/>
+                     <attribute encrypted="false" name="singleObjectContent" value="false"/>
+                  </attributes>
+               </consumer>
+            </consumers>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="true"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           type="File"
+                           uuid="ac000300-d9fe-11e4-8830-0800200c9a66">
+               <description>Provides connections to file monitoring brokers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>4hmYxKB0QFKfVzQbM2qMUW</types1:GUID>
+      <types1:DisplayName>TriggerDMIUser</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:30:46.546Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

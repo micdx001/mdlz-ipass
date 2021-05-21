@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "4ELmmhE3f2DfbuxkYlqPG2",
+    "name" : "TraxUploadStatus",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "wNXHS45bfTQbdxW-gt-3593999-2020-08-04T14:42:41.355Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "4aG3ucsk20YiBecKB26qms",
+    "name" : "TraxUploadStatus",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "N0Kn7wporzYLnzY-gt-14887487-2020-08-04T14:42:40.632Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxUploadStatus",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400144"
+  } ]
+}

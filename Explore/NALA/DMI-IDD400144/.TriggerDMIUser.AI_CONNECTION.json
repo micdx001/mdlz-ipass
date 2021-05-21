@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "4hmYxKB0QFKfVzQbM2qMUW",
+    "name" : "TriggerDMIUser",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "R4-gt-14887506-2020-08-04T14:42:40.706Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
