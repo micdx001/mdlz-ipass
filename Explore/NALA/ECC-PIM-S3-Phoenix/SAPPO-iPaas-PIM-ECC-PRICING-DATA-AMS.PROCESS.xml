@@ -1,0 +1,94 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>QREhNWIsoZduD2L-gt-9333504-2020-07-27T10:47:19.683Z::pd.xml</types1:EntryId>
+      <types1:Name>SAPPO-iPaas-PIM-ECC-PRICING-DATA-AMS</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Service to get PIM-ECC-PRICING-DATA-AMS data from SAP PO.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>Spotlight</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-27T10:47:20Z</types1:CreationDate>
+      <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2020-07-27T11:01:33Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>aaditya.v.jittha@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-04-09T11:07:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SAPPO-iPaas-PIM-ECC-PRICING-DATA-AMS/SAPPO-iPaas-PIM-ECC-PRICING-DATA-AMS.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SAPPO-iPaas-PIM-ECC-PRICING-DATA-AMS"
+                  name="SAPPO-iPaas-PIM-ECC-PRICING-DATA-AMS"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Service to get PIM-ECC-PRICING-DATA-AMS data from SAP PO.</description>
+            <tags>Spotlight</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="PO_Input" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="S3 Writer" type="reference">
+                  <options>
+                     <option name="referenceTo">PIM-S3-IDD200173-AMS:StoreS3ObjectRequest</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">aAMfrAtT7uDgpoTjXonx2R</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>PO_IPAASR</user>
+                  </allowedUsers>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="link1" targetId="c"/>
+               </start>
+               <assignment id="c">
+                  <title>Assignment to Temp_Input</title>
+                  <operation source="formula" to="temp.S3 Writer">
+                     <expression language="XQuery">&lt;StoreS3ObjectRequest&gt;
+   &lt;s3ObjectParameters&gt;
+      &lt;awsS3Key&gt;{util:resolveURN("urn:pim:hotfolder")}/PIM_ECC_PRICING_DATA_AMS_{fn:current-date()}_{util:getProcessId()}.csv&lt;/awsS3Key&gt;
+      &lt;contentType&gt;text/html&lt;/contentType&gt;
+      &lt;contentEncoding&gt;UTF-8&lt;/contentEncoding&gt;
+   &lt;/s3ObjectParameters&gt;
+   &lt;format&gt;PlainText&lt;/format&gt;     
+   &lt;content&gt;{$input.PO_Input}&lt;/content&gt;
+&lt;/StoreS3ObjectRequest&gt;</expression>
+                  </operation>
+                  <link id="jndijvb9" targetId="jndijvb8"/>
+               </assignment>
+               <service id="jndijvb8">
+                  <title>AwsS3Writer</title>
+                  <serviceName>PIM-S3-IDD200173-AMS:AwsS3Writer</serviceName>
+                  <serviceGUID>aAMfrAtT7uDgpoTjXonx2R</serviceGUID>
+                  <serviceInput>
+                     <parameter name="storeS3ObjectRequest" source="field" updatable="true">temp.S3 Writer</parameter>
+                  </serviceInput>
+                  <link id="jndijvba" targetId="d"/>
+               </service>
+               <end id="d"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>k8WuptZ9yyLiZkfnIF3Ds7</types1:GUID>
+      <types1:DisplayName>SAPPO-iPaas-PIM-ECC-PRICING-DATA-AMS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:40:32.986Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

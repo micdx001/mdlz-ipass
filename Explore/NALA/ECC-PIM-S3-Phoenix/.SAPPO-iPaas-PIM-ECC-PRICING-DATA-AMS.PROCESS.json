@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "k8WuptZ9yyLiZkfnIF3Ds7",
+    "name" : "SAPPO-iPaas-PIM-ECC-PRICING-DATA-AMS",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "QREhNWIsoZduD2L-gt-9333504-2020-07-27T10:47:19.683Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Service to get PIM-ECC-PRICING-DATA-AMS data from SAP PO.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "aAMfrAtT7uDgpoTjXonx2R",
+    "name" : "PIM-S3-IDD200173-AMS",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "yDQeH2PKDC0hCHb-gt-6651131-2020-07-27T10:47:19.393Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/ECC-PIM-S3-Phoenix"
+  } ]
+}

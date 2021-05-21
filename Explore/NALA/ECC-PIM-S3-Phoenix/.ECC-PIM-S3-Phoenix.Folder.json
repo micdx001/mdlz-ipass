@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "e6GAGIop24zlYbm7l3gJOL",
+    "name" : "ECC-PIM-S3-Phoenix",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "IDD200173",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

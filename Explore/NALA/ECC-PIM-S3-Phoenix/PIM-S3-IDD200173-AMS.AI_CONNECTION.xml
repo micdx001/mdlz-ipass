@@ -1,0 +1,69 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>yDQeH2PKDC0hCHb-gt-6651131-2020-07-27T10:47:19.393Z::conn.xml</types1:EntryId>
+      <types1:Name>PIM-S3-IDD200173-AMS</types1:Name>
+      <types1:ParentFlowIds>NIW7WHK80FIRi92-gt-9333494-2020-07-27T10:47:19.64Z::pd.xml,QREhNWIsoZduD2L-gt-9333504-2020-07-27T10:47:19.683Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:AMS</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-07-27T10:47:19Z</types1:CreationDate>
+      <types1:ModifiedBy>aaditya.v.jittha@accenture.com.reg</types1:ModifiedBy>
+      <types1:ModificationDate>2021-04-09T11:02:30Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>aaditya.v.jittha@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2021-04-09T11:06:57Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/PIM-S3-IDD200173-AMS/PIM-S3-IDD200173-AMS.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="PIM-S3-IDD200173-AMS"
+                     label="PIM-S3-IDD200173-AMS"
+                     name="PIM-S3-IDD200173-AMS">
+            <description/>
+            <tags>.agent:AMS</tags>
+            <agent>AMS</agent>
+            <attributes>
+               <attribute encrypted="false" name="accessKey" value="AKIAS4CPU4W5ABH7WZFX"/>
+               <attribute encrypted="true" name="secretKey" value=""/>
+               <attribute encrypted="false" name="policy" value=""/>
+               <attribute encrypted="false"
+                          name="amazonS3Endpoint"
+                          value="s3-us-west-2.amazonaws.com"/>
+               <attribute encrypted="false" name="region" value="us-west-2"/>
+               <attribute encrypted="false" name="encryptObjects" value="false"/>
+               <attribute encrypted="false" name="encryptionAlgorithm" value=""/>
+               <attribute encrypted="true" name="encryptionKey" value=""/>
+               <attribute encrypted="true" name="encryptionPassword" value=""/>
+            </attributes>
+            <producers>
+               <producer enabled="true" name="AwsS3Writer" typeName="AwsS3Writer">
+                  <description>Use this event target to write new objects to the Amazon S3 storage.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="bucketName" value="s3-pim-mondelez-qa"/>
+                     <attribute encrypted="false" name="storageClass" value="STANDARD"/>
+                  </attributes>
+               </producer>
+            </producers>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="true"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           type="AWSS3"
+                           uuid="fb38e8f3-3552-4837-8bcd-6f938183d3dd">
+               <description>Amazon Simple Storage Service (S3) Connector.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>aAMfrAtT7uDgpoTjXonx2R</types1:GUID>
+      <types1:DisplayName>PIM-S3-IDD200173-AMS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:40:32.769Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

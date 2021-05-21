@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "jntA3lLz7eHc7CzCTwi2OS",
+    "name" : "Workday-test",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "v9UQAHzSZkL0jmu-gt-28155775-2020-10-23T16:12:52.346Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
