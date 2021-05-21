@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "14ZH0ywNphFk4NydQH5EOX",
+    "name" : "TraxStore",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "bdvGqUlLnzYLnzY-gt-15008368-2020-08-04T15:48:11.024Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxStore",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

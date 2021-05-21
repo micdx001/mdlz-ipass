@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "kIdBS4BzoKheu1jB45ikex",
+    "name" : "TraxStore",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "KJy5TRgpDqotxGo-gt-14100177-2020-08-04T15:48:11.596Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxStore",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "14ZH0ywNphFk4NydQH5EOX",
+    "name" : "TraxStore",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "bdvGqUlLnzYLnzY-gt-15008368-2020-08-04T15:48:11.024Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "TraxStore",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/NALA/DMI-IDD400149"
+  } ]
+}

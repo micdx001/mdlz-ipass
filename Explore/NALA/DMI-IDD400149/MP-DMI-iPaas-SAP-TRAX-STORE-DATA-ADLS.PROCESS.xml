@@ -1,0 +1,773 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>zqCaaa-gt-11452861-2020-08-04T15:48:12.403Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-DMI-iPaas-SAP-TRAX-STORE-DATA-ADLS</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Process to send Store file to TRAX and to Hadoop</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:na_agent_east_01</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T15:48:12Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-10-27T14:13:28Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MP-DMI-iPaas-SAP-TRAX-STORE-DATA-ADLS/MP-DMI-iPaas-SAP-TRAX-STORE-DATA-ADLS.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-DMI-iPaas-SAP-TRAX-STORE-DATA-ADLS"
+                  name="MP-DMI-iPaas-SAP-TRAX-STORE-DATA-ADLS"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Process to send Store file to TRAX and to Hadoop</description>
+            <tags>.agent:na_agent_east_01</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="fileEvent" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">TriggerDMIStore-adls:AttachmentFileContent</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="temp_retrycount" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="temp_retryattempt" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">2</option>
+                  </options>
+               </field>
+               <field description="" name="send _to_HDFS_flag" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">Y</option>
+                  </options>
+               </field>
+               <field description="" name="temp_title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="TempFilename" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>na_agent_east_01</targetLocation>
+               <event eventSource="TriggerDMIStore-adls:FileParser"/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jqwa6lxv" targetId="c"/>
+               </start>
+               <service id="c">
+                  <title>TraxStoreConnector</title>
+                  <serviceName>TraxStore:TraxStoreConnector</serviceName>
+                  <serviceGUID>kIdBS4BzoKheu1jB45ikex</serviceGUID>
+                  <serviceInput>
+                     <parameter name="entity_type" source="constant">store</parameter>
+                     <parameter name="file_format" source="constant">CSV</parameter>
+                     <parameter name="file" source="formula">
+                        <expression language="XQuery">$input.fileEvent[1]/attachment </expression>
+                     </parameter>
+                  </serviceInput>
+                  <link id="jpdwdwst" targetId="jpdwdwss"/>
+               </service>
+               <service id="jpdwdwsx">
+                  <title>TraxStoreSurveyConnector</title>
+                  <serviceName>TraxStoreStatus:TraxStoreSurveyConnector</serviceName>
+                  <serviceGUID>cLj3pN4Vj6zjMrp0KbF8OM</serviceGUID>
+                  <serviceInput>
+                     <parameter name="job_id" source="field" updatable="true">output.job_id</parameter>
+                  </serviceInput>
+                  <link id="jphvj8w1" targetId="jphvj8w0"/>
+               </service>
+               <wait id="jpdwdwss">
+                  <title>wait</title>
+                  <duration source="formula">
+                     <function name="duration_expression">
+                        <arg name="value">10</arg>
+                        <arg name="scale">S</arg>
+                        <arg name="businessDays"/>
+                     </function>
+                  </duration>
+                  <link id="jpdwdwsy" targetId="jpdwdwsx"/>
+               </wait>
+               <container id="jphvj8w0" type="exclusive">
+                  <title>status</title>
+                  <flow id="jphvj8w9">
+                     <jumpTo id="jphvj8w8">
+                        <link id="jphvj8wi" targetId="jpdwdwss"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="jphvj8wc">
+                     <container id="k7dgznlb" type="parallel">
+                        <title>Parallel Paths 1</title>
+                        <flow id="k7dgznle">
+                           <assignment id="k94jltxi">
+                              <title>Assignment to status</title>
+                              <operation source="constant" to="output.status">Started</operation>
+                              <link id="k94jltxj" targetId="k917ezwz"/>
+                           </assignment>
+                           <eventContainer id="k917ezwz">
+                              <service id="k7dgznlq">
+                                 <title>token creation for ADLS</title>
+                                 <serviceName>Upload-ADLS-HDFS-Store:token creation for ADLS</serviceName>
+                                 <serviceGUID>iZwaKlNoIuzgEvodCZpS6g</serviceGUID>
+                                 <serviceInput/>
+                              </service>
+                              <flow id="k917ezx1">
+                                 <container id="k94e6fjo" type="exclusive">
+                                    <title>StatusCode_token</title>
+                                    <flow id="k94e6fjr">
+                                       <link id="k94e6fjs" targetId="k94e6fjo" type="containerLink"/>
+                                    </flow>
+                                    <flow id="k94e6fju">
+                                       <container id="k94e6fla" type="exclusive">
+                                          <title>temp_retrycount</title>
+                                          <flow id="k94e6flb">
+                                             <assignment id="k94e6flc">
+                                                <title>Assignment to temp_retrycount</title>
+                                                <operation source="formula" to="temp.temp_retrycount">
+                                                   <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                </operation>
+                                                <link id="k94e6flj" targetId="k94e6fld"/>
+                                             </assignment>
+                                             <wait id="k94e6fld">
+                                                <title>Wait</title>
+                                                <duration source="formula">
+                                                   <function name="duration_expression">
+                                                      <arg name="value">5</arg>
+                                                      <arg name="scale">S</arg>
+                                                      <arg name="businessDays"/>
+                                                   </function>
+                                                </duration>
+                                                <link id="k94e6flk" targetId="k94e6fle"/>
+                                             </wait>
+                                             <jumpTo id="k94e6fle">
+                                                <link id="k94e6fll" targetId="k917ezwz"/>
+                                             </jumpTo>
+                                          </flow>
+                                          <flow id="k94e6flf">
+                                             <throw id="k94e6flg">
+                                                <title>Throw</title>
+                                                <throwInput>
+                                                   <parameter name="code" source="field" updatable="true">output.StatusCode_token</parameter>
+                                                   <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                                   <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                                </throwInput>
+                                             </throw>
+                                          </flow>
+                                          <link id="k94e6flh" targetId="k94e6flb" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="less-or-equals">
+                                                   <arg name="left">{$temp.temp_retrycount}</arg>
+                                                   <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="k94e6fli" targetId="k94e6flf" type="containerLink"/>
+                                       </container>
+                                    </flow>
+                                    <link id="k94e6fjq" targetId="k94e6fjr" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$output.StatusCode_token}</arg>
+                                             <arg name="right">200</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="k94e6fjt" targetId="k94e6fju" type="containerLink"/>
+                                    <link id="k94e6fjp" targetId="k92duelp"/>
+                                 </container>
+                                 <assignment id="k92duelp">
+                                    <title>Assignment to temp_retrycount</title>
+                                    <operation source="constant" to="temp.temp_retrycount">0</operation>
+                                    <link id="k92duelq" targetId="k91dmucw"/>
+                                 </assignment>
+                                 <eventContainer id="k91dmucw">
+                                    <service id="k91dmud9">
+                                       <title>create empty file</title>
+                                       <serviceName>Upload-ADLS-HDFS-Store:create empty file in HDFS</serviceName>
+                                       <serviceGUID>iZwaKlNoIuzgEvodCZpS6g</serviceGUID>
+                                       <serviceInput>
+                                          <parameter name="token" source="field" updatable="true">output.token</parameter>
+                                          <parameter name="filename" source="formula">
+                                             <expression language="XQuery">"StoreDelta_"||fn:substring(xs:string(fn:current-date()),1,10)||".csv"</expression>
+                                          </parameter>
+                                       </serviceInput>
+                                    </service>
+                                    <flow id="k91dmucx">
+                                       <container id="k94e6fly" type="exclusive">
+                                          <title>StatusCode_empty_file</title>
+                                          <flow id="k94e6fm1">
+                                             <link id="k94e6fm2" targetId="k94e6fly" type="containerLink"/>
+                                          </flow>
+                                          <flow id="k94e6fm4">
+                                             <container id="k94e6fnq" type="exclusive">
+                                                <title>temp_retrycount</title>
+                                                <flow id="k94e6fnr">
+                                                   <assignment id="k973yyo7">
+                                                      <title>Assignment to temp_retrycount</title>
+                                                      <operation source="formula" to="temp.temp_retrycount">
+                                                         <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                      </operation>
+                                                      <link id="k973yyo8" targetId="k94e6fns"/>
+                                                   </assignment>
+                                                   <wait id="k94e6fns">
+                                                      <title>Wait</title>
+                                                      <duration source="formula">
+                                                         <function name="duration_expression">
+                                                            <arg name="value">5</arg>
+                                                            <arg name="scale">S</arg>
+                                                            <arg name="businessDays"/>
+                                                         </function>
+                                                      </duration>
+                                                      <link id="k94e6fny" targetId="k94e6fnt"/>
+                                                   </wait>
+                                                   <jumpTo id="k94e6fnt">
+                                                      <link id="k94e6fnz" targetId="k91dmucw"/>
+                                                   </jumpTo>
+                                                </flow>
+                                                <flow id="k94e6fnu">
+                                                   <throw id="k94e6fnv">
+                                                      <title>Throw</title>
+                                                      <throwInput>
+                                                         <parameter name="code" source="field" updatable="true">output.StatusCode_empty_file</parameter>
+                                                         <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                                         <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                                      </throwInput>
+                                                   </throw>
+                                                </flow>
+                                                <link id="k94e6fnw" targetId="k94e6fnr" type="containerLink">
+                                                   <condition source="formula">
+                                                      <function name="less-or-equals">
+                                                         <arg name="left">{$temp.temp_retrycount}</arg>
+                                                         <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                      </function>
+                                                   </condition>
+                                                </link>
+                                                <link id="k94e6fnx" targetId="k94e6fnu" type="containerLink"/>
+                                             </container>
+                                          </flow>
+                                          <link id="k94e6fm0" targetId="k94e6fm1" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="contains">
+                                                   <arg name="left">{$output.StatusCode_empty_file}</arg>
+                                                   <arg name="right">201</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="k94e6fm3" targetId="k94e6fm4" type="containerLink"/>
+                                          <link id="k94e6flz" targetId="k92dueny"/>
+                                       </container>
+                                       <assignment id="k92dueny">
+                                          <title>Assignment to temp_retrycount</title>
+                                          <operation source="constant" to="temp.temp_retrycount">0</operation>
+                                          <link id="k92duenz" targetId="k91dmuo6"/>
+                                       </assignment>
+                                       <wait id="k91dmuo6">
+                                          <title>Wait</title>
+                                          <duration source="formula">
+                                             <function name="duration_expression">
+                                                <arg name="value">5</arg>
+                                                <arg name="scale">S</arg>
+                                                <arg name="businessDays"/>
+                                             </function>
+                                          </duration>
+                                          <link id="k91dmuo7" targetId="k91dmuht"/>
+                                       </wait>
+                                       <eventContainer id="k91dmuht">
+                                          <service id="k91dmuio">
+                                             <title>Writing data to file</title>
+                                             <serviceName>Upload-ADLS-HDFS-Store:Writing data to file</serviceName>
+                                             <serviceGUID>iZwaKlNoIuzgEvodCZpS6g</serviceGUID>
+                                             <serviceInput>
+                                                <parameter name="file" source="formula">
+                                                   <expression language="XQuery">$input.fileEvent[1]/attachment</expression>
+                                                </parameter>
+                                                <parameter name="filename" source="formula">
+                                                   <expression language="XQuery">"StoreDelta_"||fn:substring(xs:string(fn:current-date()),1,10)||".csv"</expression>
+                                                </parameter>
+                                                <parameter name="token" source="field" updatable="true">output.token</parameter>
+                                                <parameter name="content_length" source="formula">
+                                                   <expression language="XQuery">$input.fileEvent[1]/fileInfo[1]/size</expression>
+                                                </parameter>
+                                             </serviceInput>
+                                          </service>
+                                          <flow id="k91dmuhu">
+                                             <container id="k94e6fpg" type="exclusive">
+                                                <title>StatusCode_write_file</title>
+                                                <flow id="k94e6fpj">
+                                                   <link id="k94e6fpk" targetId="k94e6fpg" type="containerLink"/>
+                                                </flow>
+                                                <flow id="k94e6fpm">
+                                                   <container id="k94e6fso" type="exclusive">
+                                                      <title>temp_retrycount 3</title>
+                                                      <flow id="k94e6fsp">
+                                                         <assignment id="k94e6fsq">
+                                                            <title>Assignment to temp_retrycount</title>
+                                                            <operation source="formula" to="temp.temp_retrycount">
+                                                               <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                            </operation>
+                                                            <link id="k94e6fsx" targetId="k94e6fsr"/>
+                                                         </assignment>
+                                                         <wait id="k94e6fsr">
+                                                            <title>Wait</title>
+                                                            <duration source="formula">
+                                                               <function name="duration_expression">
+                                                                  <arg name="value">5</arg>
+                                                                  <arg name="scale">S</arg>
+                                                                  <arg name="businessDays"/>
+                                                               </function>
+                                                            </duration>
+                                                            <link id="k94e6fsy" targetId="k94e6fss"/>
+                                                         </wait>
+                                                         <jumpTo id="k94e6fss">
+                                                            <link id="k94e6fsz" targetId="k91dmuht"/>
+                                                         </jumpTo>
+                                                      </flow>
+                                                      <flow id="k94e6fst">
+                                                         <assignment id="k9mm2vsx">
+                                                            <title>Assignment to temp_title</title>
+                                                            <operation source="formula" to="temp.temp_title">
+                                                               <expression language="XQuery">let $temptitle:="MP-DMI-iPaas-SAP-TRAX-STORE-DATA-File is empty"
+return ipd:setProcessTitle($temptitle)</expression>
+                                                            </operation>
+                                                            <link id="k9mm2vzf" targetId="k94e6fsu"/>
+                                                         </assignment>
+                                                         <throw id="k94e6fsu">
+                                                            <title>Throw</title>
+                                                            <throwInput>
+                                                               <parameter name="code" source="field" updatable="true">output.StatusCode_write_file</parameter>
+                                                               <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                                               <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                                            </throwInput>
+                                                         </throw>
+                                                      </flow>
+                                                      <link id="k94e6fsv" targetId="k94e6fsp" type="containerLink">
+                                                         <condition source="formula">
+                                                            <function name="less-or-equals">
+                                                               <arg name="left">{$temp.temp_retrycount}</arg>
+                                                               <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                            </function>
+                                                         </condition>
+                                                      </link>
+                                                      <link id="k94e6fsw" targetId="k94e6fst" type="containerLink"/>
+                                                   </container>
+                                                </flow>
+                                                <link id="k94e6fpi" targetId="k94e6fpj" type="containerLink">
+                                                   <condition source="formula">
+                                                      <function name="contains">
+                                                         <arg name="left">{$output.StatusCode_write_file}</arg>
+                                                         <arg name="right">202</arg>
+                                                      </function>
+                                                   </condition>
+                                                </link>
+                                                <link id="k94e6fpl" targetId="k94e6fpm" type="containerLink"/>
+                                                <link id="k94e6fph" targetId="k92dueq7"/>
+                                             </container>
+                                             <assignment id="k92dueq7">
+                                                <title>Assignment to temp_retrycount</title>
+                                                <operation source="constant" to="temp.temp_retrycount">0</operation>
+                                                <link id="k92dueq8" targetId="k91dmure"/>
+                                             </assignment>
+                                             <wait id="k91dmure">
+                                                <title>Wait</title>
+                                                <duration source="formula">
+                                                   <function name="duration_expression">
+                                                      <arg name="value">5</arg>
+                                                      <arg name="scale">S</arg>
+                                                      <arg name="businessDays"/>
+                                                   </function>
+                                                </duration>
+                                                <link id="k91dmurf" targetId="k91dmuk8"/>
+                                             </wait>
+                                             <eventContainer id="k91dmuk8">
+                                                <service id="k91dmukp">
+                                                   <title>Flush File</title>
+                                                   <serviceName>Upload-ADLS-HDFS-Store:Flush File</serviceName>
+                                                   <serviceGUID>iZwaKlNoIuzgEvodCZpS6g</serviceGUID>
+                                                   <serviceInput>
+                                                      <parameter name="file" source="formula">
+                                                         <expression language="XQuery">$input.fileEvent[1]/attachment</expression>
+                                                      </parameter>
+                                                      <parameter name="filename" source="formula">
+                                                         <expression language="XQuery">"StoreDelta_"||fn:substring(xs:string(fn:current-date()),1,10)||".csv"</expression>
+                                                      </parameter>
+                                                      <parameter name="token" source="field" updatable="true">output.token</parameter>
+                                                      <parameter name="content_length" source="formula">
+                                                         <expression language="XQuery">$input.fileEvent[1]/fileInfo[1]/size</expression>
+                                                      </parameter>
+                                                   </serviceInput>
+                                                </service>
+                                                <flow id="k91dmuk9">
+                                                   <container id="k94e6ftf" type="exclusive">
+                                                      <title>StatusCode_flush_file</title>
+                                                      <flow id="k94e6fti">
+                                                         <link id="k94e6ftj" targetId="k94e6ftf" type="containerLink"/>
+                                                      </flow>
+                                                      <flow id="k94e6ftl">
+                                                         <container id="k94e6fwy" type="exclusive">
+                                                            <title>temp_retrycount 4</title>
+                                                            <flow id="k94e6fwz">
+                                                               <assignment id="k94e6fx0">
+                                                                  <title>Assignment to temp_retrycount</title>
+                                                                  <operation source="formula" to="temp.temp_retrycount">
+                                                                     <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                                  </operation>
+                                                                  <link id="k94e6fx7" targetId="k94e6fx1"/>
+                                                               </assignment>
+                                                               <wait id="k94e6fx1">
+                                                                  <title>Wait 4</title>
+                                                                  <duration source="formula">
+                                                                     <function name="duration_expression">
+                                                                        <arg name="value">5</arg>
+                                                                        <arg name="scale">S</arg>
+                                                                        <arg name="businessDays"/>
+                                                                     </function>
+                                                                  </duration>
+                                                                  <link id="k94e6fx8" targetId="k94e6fx2"/>
+                                                               </wait>
+                                                               <jumpTo id="k94e6fx2">
+                                                                  <link id="k94e6fx9" targetId="k91dmuk8"/>
+                                                               </jumpTo>
+                                                            </flow>
+                                                            <flow id="k94e6fx3">
+                                                               <throw id="k94e6fx4">
+                                                                  <title>Throw</title>
+                                                                  <throwInput>
+                                                                     <parameter name="code" source="field" updatable="true">output.StatusCode_flush_file</parameter>
+                                                                     <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                                                     <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                                                  </throwInput>
+                                                               </throw>
+                                                            </flow>
+                                                            <link id="k94e6fx5" targetId="k94e6fwz" type="containerLink">
+                                                               <condition source="formula">
+                                                                  <function name="less-or-equals">
+                                                                     <arg name="left">{$temp.temp_retrycount}</arg>
+                                                                     <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                                  </function>
+                                                               </condition>
+                                                            </link>
+                                                            <link id="k94e6fx6" targetId="k94e6fx3" type="containerLink"/>
+                                                         </container>
+                                                      </flow>
+                                                      <link id="k94e6fth" targetId="k94e6fti" type="containerLink">
+                                                         <condition source="formula">
+                                                            <function name="contains">
+                                                               <arg name="left">{$output.StatusCode_flush_file}</arg>
+                                                               <arg name="right">200</arg>
+                                                            </function>
+                                                         </condition>
+                                                      </link>
+                                                      <link id="k94e6ftk" targetId="k94e6ftl" type="containerLink"/>
+                                                      <link id="k94e6ftg" targetId="k92duezt"/>
+                                                   </container>
+                                                   <end id="k92duezt">
+                                                      <title>End 4</title>
+                                                   </end>
+                                                </flow>
+                                                <flow id="k91dmuka">
+                                                   <container id="k94e6fxw" type="exclusive">
+                                                      <title>temp_retrycount</title>
+                                                      <flow id="k94e6fxx">
+                                                         <assignment id="k94e6fxy">
+                                                            <title>Assignment to temp_retrycount</title>
+                                                            <operation source="formula" to="temp.temp_retrycount">
+                                                               <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                            </operation>
+                                                            <link id="k94e6fy5" targetId="k94e6fxz"/>
+                                                         </assignment>
+                                                         <wait id="k94e6fxz">
+                                                            <title>Wait</title>
+                                                            <duration source="formula">
+                                                               <function name="duration_expression">
+                                                                  <arg name="value">5</arg>
+                                                                  <arg name="scale">S</arg>
+                                                                  <arg name="businessDays"/>
+                                                               </function>
+                                                            </duration>
+                                                            <link id="k94e6fy6" targetId="k94e6fy0"/>
+                                                         </wait>
+                                                         <jumpTo id="k94e6fy0">
+                                                            <link id="k94e6fy7" targetId="k91dmuk8"/>
+                                                         </jumpTo>
+                                                      </flow>
+                                                      <flow id="k94e6fy1">
+                                                         <throw id="k94e6fy2">
+                                                            <title>Throw</title>
+                                                            <throwInput>
+                                                               <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                                               <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                                               <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                                            </throwInput>
+                                                         </throw>
+                                                      </flow>
+                                                      <link id="k94e6fy3" targetId="k94e6fxx" type="containerLink">
+                                                         <condition source="formula">
+                                                            <function name="less-or-equals">
+                                                               <arg name="left">{$temp.temp_retrycount}</arg>
+                                                               <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                            </function>
+                                                         </condition>
+                                                      </link>
+                                                      <link id="k94e6fy4" targetId="k94e6fy1" type="containerLink"/>
+                                                   </container>
+                                                </flow>
+                                                <link id="k91dmukq" targetId="k91dmuk9" type="containerLink"/>
+                                                <events>
+                                                   <catch faultField="faultInfo" id="k91dmu7z" interrupting="true">
+                                                      <link id="k91dmukr" targetId="k91dmuka" type="containerLink"/>
+                                                   </catch>
+                                                </events>
+                                             </eventContainer>
+                                          </flow>
+                                          <flow id="k91dmuhv">
+                                             <container id="k94e6fyu" type="exclusive">
+                                                <title>temp_retrycount</title>
+                                                <flow id="k94e6fyv">
+                                                   <assignment id="k94e6fyw">
+                                                      <title>Assignment to temp_retrycount</title>
+                                                      <operation source="formula" to="temp.temp_retrycount">
+                                                         <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                      </operation>
+                                                      <link id="k94e6fz3" targetId="k94e6fyx"/>
+                                                   </assignment>
+                                                   <wait id="k94e6fyx">
+                                                      <title>Wait</title>
+                                                      <duration source="formula">
+                                                         <function name="duration_expression">
+                                                            <arg name="value">5</arg>
+                                                            <arg name="scale">S</arg>
+                                                            <arg name="businessDays"/>
+                                                         </function>
+                                                      </duration>
+                                                      <link id="k94e6fz4" targetId="k94e6fyy"/>
+                                                   </wait>
+                                                   <jumpTo id="k94e6fyy">
+                                                      <link id="k94e6fz5" targetId="k91dmuht"/>
+                                                   </jumpTo>
+                                                </flow>
+                                                <flow id="k94e6fyz">
+                                                   <assignment id="k9mm2w2n">
+                                                      <title>Assignment to temp_title</title>
+                                                      <operation source="formula" to="temp.temp_title">
+                                                         <expression language="XQuery">let $temptitle:="MP-DMI-iPaas-SAP-TRAX-STORE-DATA-File is empty"
+return ipd:setProcessTitle($temptitle)</expression>
+                                                      </operation>
+                                                      <link id="k9mm2w2o" targetId="k94e6fz0"/>
+                                                   </assignment>
+                                                   <throw id="k94e6fz0">
+                                                      <title>Throw</title>
+                                                      <throwInput>
+                                                         <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                                         <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                                         <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                                      </throwInput>
+                                                   </throw>
+                                                </flow>
+                                                <link id="k94e6fz1" targetId="k94e6fyv" type="containerLink">
+                                                   <condition source="formula">
+                                                      <function name="less-or-equals">
+                                                         <arg name="left">{$temp.temp_retrycount}</arg>
+                                                         <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                      </function>
+                                                   </condition>
+                                                </link>
+                                                <link id="k94e6fz2" targetId="k94e6fyz" type="containerLink"/>
+                                             </container>
+                                          </flow>
+                                          <link id="k91dmuip" targetId="k91dmuhu" type="containerLink"/>
+                                          <events>
+                                             <catch faultField="faultInfo" id="k74s66sz" interrupting="true">
+                                                <link id="k91dmuiq" targetId="k91dmuhv" type="containerLink"/>
+                                             </catch>
+                                          </events>
+                                       </eventContainer>
+                                    </flow>
+                                    <flow id="k91dmucy">
+                                       <container id="k94e6fzr" type="exclusive">
+                                          <title>temp_retrycount 2</title>
+                                          <flow id="k94e6fzs">
+                                             <assignment id="k94e6fzt">
+                                                <title>Assignment to temp_retrycount</title>
+                                                <operation source="formula" to="temp.temp_retrycount">
+                                                   <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                                </operation>
+                                                <link id="k94e6g00" targetId="k94e6fzu"/>
+                                             </assignment>
+                                             <wait id="k94e6fzu">
+                                                <title>Wait</title>
+                                                <duration source="formula">
+                                                   <function name="duration_expression">
+                                                      <arg name="value">5</arg>
+                                                      <arg name="scale">S</arg>
+                                                      <arg name="businessDays"/>
+                                                   </function>
+                                                </duration>
+                                                <link id="k94e6g01" targetId="k94e6fzv"/>
+                                             </wait>
+                                             <jumpTo id="k94e6fzv">
+                                                <link id="k94e6g02" targetId="k91dmucw"/>
+                                             </jumpTo>
+                                          </flow>
+                                          <flow id="k94e6fzw">
+                                             <throw id="k94e6fzx">
+                                                <title>Throw</title>
+                                                <throwInput>
+                                                   <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                                   <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                                   <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                                </throwInput>
+                                             </throw>
+                                          </flow>
+                                          <link id="k94e6fzy" targetId="k94e6fzs" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="less-or-equals">
+                                                   <arg name="left">{$temp.temp_retrycount}</arg>
+                                                   <arg name="right">{$temp.temp_retryattempt }</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="k94e6fzz" targetId="k94e6fzw" type="containerLink"/>
+                                       </container>
+                                    </flow>
+                                    <link id="k91dmuda" targetId="k91dmucx" type="containerLink"/>
+                                    <events>
+                                       <catch faultField="faultInfo" id="k74s66sz" interrupting="true">
+                                          <link id="k91dmudb" targetId="k91dmucy" type="containerLink"/>
+                                       </catch>
+                                    </events>
+                                 </eventContainer>
+                              </flow>
+                              <flow id="k917ezx4">
+                                 <container id="k94e6g0n" type="exclusive">
+                                    <title>temp_retrycount</title>
+                                    <flow id="k94e6g0o">
+                                       <assignment id="k94e6g0p">
+                                          <title>Assignment to temp_retrycount</title>
+                                          <operation source="formula" to="temp.temp_retrycount">
+                                             <expression language="XQuery">$temp.temp_retrycount + 1</expression>
+                                          </operation>
+                                          <link id="k94e6g0w" targetId="k94e6g0q"/>
+                                       </assignment>
+                                       <wait id="k94e6g0q">
+                                          <title>Wait</title>
+                                          <duration source="formula">
+                                             <function name="duration_expression">
+                                                <arg name="value">5</arg>
+                                                <arg name="scale">S</arg>
+                                                <arg name="businessDays"/>
+                                             </function>
+                                          </duration>
+                                          <link id="k94e6g0x" targetId="k94e6g0r"/>
+                                       </wait>
+                                       <jumpTo id="k94e6g0r">
+                                          <link id="k94e6g0y" targetId="k917ezwz"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="k94e6g0s">
+                                       <throw id="k94e6g0t">
+                                          <title>Throw</title>
+                                          <throwInput>
+                                             <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                             <parameter name="detail" source="constant" updatable="true">Failed to Send file to Hadoop</parameter>
+                                             <parameter name="reason" source="constant" updatable="true">Please check the Process log for more details</parameter>
+                                          </throwInput>
+                                       </throw>
+                                    </flow>
+                                    <link id="k94e6g0u" targetId="k94e6g0o" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="less-or-equals">
+                                             <arg name="left">{$temp.temp_retrycount}</arg>
+                                             <arg name="right">{$temp.temp_retryattempt }</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="k94e6g0v" targetId="k94e6g0s" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <link id="k917ezx0" targetId="k917ezx1" type="containerLink"/>
+                              <events>
+                                 <catch faultField="faultInfo" id="k917ezwy" interrupting="true">
+                                    <link id="k917ezx3" targetId="k917ezx4" type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                        </flow>
+                        <flow id="k7dgznlh">
+                           <subflow id="k7dgznod">
+                              <title>DMI-EmailNotification</title>
+                              <subflowGUID>7c95J1w3oxEbjaN1ZwjeMl</subflowGUID>
+                              <subflowPath>DMI-EmailNotification</subflowPath>
+                              <runForEach>false</runForEach>
+                              <input>
+                                 <parameter name="Recipient Addresses" source="formula" updatable="true">
+                                    <expression language="XQuery">'faizan.a.shaikh@accenture.com;shivani.jaiswal@accenture.com'</expression>
+                                 </parameter>
+                                 <parameter name="EmailSubject" source="constant" updatable="true">iPaas Notification--DMI-SAP-TRAX-STORE-DATA-On-Cloud</parameter>
+                                 <parameter name="EmailBody" source="constant" updatable="true">Hi Team,
+
+Attached file has been pushed on On-Cloud. Please find below status of iPaas Job DMI-SAP-TRAX-STORE-DATA.
+
+Status:- {$output.status}  
+job_id:-  {$output.job_id} 
+number_of_rejected_items:- {$output.number_of_rejected_items} 
+rejection_details_url:- {$output.rejection_details_xlsx_url}  
+
+Thanks,
+iPass Support Team</parameter>
+                                 <parameter name="Attachment Name" source="formula" updatable="true">
+                                    <expression language="XQuery">"StoreDelta_"||fn:substring(xs:string(fn:current-date()),1,10)||".csv"</expression>
+                                 </parameter>
+                                 <parameter name="Attachment" source="formula" updatable="true">
+                                    <expression language="XQuery">$input.fileEvent[1]/attachment </expression>
+                                 </parameter>
+                              </input>
+                              <outputDef/>
+                              <link id="k91bpofq" targetId="k91bpofp"/>
+                           </subflow>
+                           <end id="k91bpofp">
+                              <title>End 2</title>
+                           </end>
+                        </flow>
+                        <link id="k7dgznld" targetId="k7dgznle" type="containerLink"/>
+                        <link id="k7dgznlg" targetId="k7dgznlh" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="jphvj8w6" targetId="jphvj8w9" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with-any-of">
+                           <arg name="left">{$output.status}</arg>
+                           <arg name="right">queued,in progress</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jphvj8w7" targetId="jphvj8wc" type="containerLink"/>
+               </container>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>98xobGJ7v9ccsAa31GJp6S</types1:GUID>
+      <types1:DisplayName>MP-DMI-iPaas-SAP-TRAX-STORE-DATA-ADLS</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:36:28.862Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "5cgW9QgCQAefaN9kiWxeAW",
+    "name" : "DMI-IDD400149",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "DMI Stores from SAP to TRAX",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

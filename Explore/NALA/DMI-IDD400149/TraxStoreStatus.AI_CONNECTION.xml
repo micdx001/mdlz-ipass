@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>OZ3NjDg8SOlA1vy-gt-14100191-2020-08-04T15:48:11.654Z::conn.xml</types1:EntryId>
+      <types1:Name>TraxStoreStatus</types1:Name>
+      <types1:ParentFlowIds>zqCaaa-gt-11452861-2020-08-04T15:48:12.403Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>TraxStoreStatus</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>Trax</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>faizan.a.shaikh@accenture.com.reg</types1:CreatedBy>
+      <types1:CreationDate>2020-08-04T15:48:12Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
+      <types1:PublicationDate>2020-08-04T15:51:50Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/TraxStoreStatus/TraxStoreStatus.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="TraxStoreStatus"
+                     label="TraxStoreStatus"
+                     name="TraxStoreStatus">
+            <description>TraxStoreStatus</description>
+            <tags>Trax</tags>
+            <agent/>
+            <attributes/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/TraxStoreStatus/TraxStoreStatus_svcDef.xml"
+                               guid="gBwNi7dmYc7kMvDRZQsiUt"
+                               name="TraxStoreStatus"
+                               supportsConnectionTest="false"
+                               uuid="35cef276-a1d6-4e40-9b29-79b1109eb777">
+               <description>TraxStoreStatus</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>cLj3pN4Vj6zjMrp0KbF8OM</types1:GUID>
+      <types1:DisplayName>TraxStoreStatus</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-05-21T15:36:28.623Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
