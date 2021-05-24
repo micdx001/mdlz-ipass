@@ -13,10 +13,10 @@
       <types1:CreatedBy>anusha.ab.ramesh@accenture.com.reg</types1:CreatedBy>
       <types1:CreationDate>2021-05-11T06:43:17Z</types1:CreationDate>
       <types1:ModifiedBy>faizan.a.shaikh@accenture.com.reg</types1:ModifiedBy>
-      <types1:ModificationDate>2021-05-11T07:50:36Z</types1:ModificationDate>
+      <types1:ModificationDate>2021-05-24T13:03:54Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>faizan.a.shaikh@accenture.com.reg</types1:PublishedBy>
-      <types1:PublicationDate>2021-05-11T07:50:40Z</types1:PublicationDate>
+      <types1:PublicationDate>2021-05-24T13:04:00Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connector/SP_Upload_DFM_OTM/SP_Upload_DFM_OTM_svcDef.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
@@ -47,8 +47,8 @@
                                         verb="POST">
                         <otherParams>
                            <otherParam name="grant_type">client_credentials</otherParam>
-                           <otherParam name="client_id">b666df34-27d1-43f5-b67f-5eba26f84559@18a01ad8-9727-498a-a47d-17374c6fd9f7</otherParam>
-                           <otherParam name="client_secret">ovHzJkaAq6hQVaXWhfn56Hfx36TPK5KN2XXG+4n4dzg=</otherParam>
+                           <otherParam name="client_id">e4a60fa5-b289-437b-bfd5-18dcdf24ef46@18a01ad8-9727-498a-a47d-17374c6fd9f7</otherParam>
+                           <otherParam name="client_secret">e6Ocjpbok7Ozj1NMX/a8xwmlZ1vjtx8l9BtZv716l0U=</otherParam>
                            <otherParam name="resource">00000003-0000-0ff1-ce00-000000000000/collaboration.mdlz.com@18a01ad8-9727-498a-a47d-17374c6fd9f7</otherParam>
                         </otherParams>
                         <httpHeaders>
@@ -85,7 +85,7 @@
                   </input>
                   <binding>
                      <restSimpleBinding multiUsing="semicolonSeparated"
-                                        url="https://collaboration.mdlz.com/sites/OTMRepositoryNAProd/_api/web/GetFolderByServerRelativeUrl('/sites/OTMRepositoryNAProd/InvoiceLibrary')/Files"
+                                        url="https://collaboration.mdlz.com/sites/OTMSharePointRepositoryNA/_api/web/GetFolderByServerRelativeUrl('/sites/OTMSharePointRepositoryNA/OTMInvoices')/Files"
                                         verb="GET">
                         <httpHeaders>
                            <header name="Accept">application/json;odata=verbose</header>
@@ -143,7 +143,7 @@ return
                   </input>
                   <binding>
                      <restSimpleBinding multiUsing="semicolonSeparated"
-                                        url="https://collaboration.mdlz.com/sites/OTMRepositoryNAProd/_api/web/GetFolderByServerRelativeUrl('/sites/OTMRepositoryNAProd/InvoiceLibrary')/Files/add(url='{$FileName}',overwrite=true)"
+                                        url="https://collaboration.mdlz.com/sites/OTMSharePointRepositoryNA/_api/web/GetFolderByServerRelativeUrl('/sites/OTMSharePointRepositoryNA/OTMInvoices')/Files/add(url='{$FileName}',overwrite=true)"
                                         verb="POST">
                         <httpHeaders>
                            <header name="Accept">application/json;odata=verbose</header>
@@ -435,5 +435,5 @@ return
       <types1:GUID>0mPHGdJeeEmkMe5IZYnH08</types1:GUID>
       <types1:DisplayName>SP_Upload_DFM_OTM</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-05-21T11:14:47.225Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-05-24T13:06:47.307Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
