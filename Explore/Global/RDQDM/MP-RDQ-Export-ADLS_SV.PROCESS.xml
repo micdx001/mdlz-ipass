@@ -1,0 +1,653 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>lADkcmgaabclvAh-gt-20790424-2021-06-03T16:20:55.185Z::pd.xml</types1:EntryId>
+      <types1:Name>MP-RDQ-Export-ADLS_SV</types1:Name>
+      <types1:ParentFlowIds>utK9hCHbf2XZPnE-gt-15868766-2021-06-03T19:39:43.336Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Process to send RDQ Matilda export from ADLS to SV.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:GLOBAL,DMI</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>shivani.jaiswal@accenture.com.dev</types1:CreatedBy>
+      <types1:CreationDate>2021-06-03T16:20:55Z</types1:CreationDate>
+      <types1:ModifiedBy>shivani.jaiswal@accenture.com.dev</types1:ModifiedBy>
+      <types1:ModificationDate>2021-06-18T07:56:32Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MP-RDQ-Export-ADLS_SV"
+                  name="MP-RDQ-Export-ADLS_SV"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description>Process to send RDQ Matilda export from ADLS to SV.</description>
+            <tags>DMI,.agent:GLOBAL</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="filepath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="fileWrite" type="reference">
+                  <options>
+                     <option name="referenceTo">RDQADLS-FileWriter:FileWriteTask</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">4fncDgptRgYcRWDhX6cMo3</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="TempFilepath" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Retry_Interval" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">5</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Retry_Attempt" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">10</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Retry_Count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Title" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Total_Count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Counter" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">1</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Filename" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Tokenize" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="fileData" type="attachment">
+                  <options>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Temp_Outfile" type="reference">
+                  <options>
+                     <option name="referenceTo">RDQADLS-FileWriter:FileInformation</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">4fncDgptRgYcRWDhX6cMo3</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>GLOBAL</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k754rd7o" targetId="k90xltcm"/>
+               </start>
+               <eventContainer id="k90xltcm">
+                  <service id="k754rd7n">
+                     <title>token creation for ADLS</title>
+                     <serviceName>Upload-ADLS-HDFS-SV:token creation for ADLS</serviceName>
+                     <serviceGUID>4E2hsrpdCKwgN7iRPlrvIh</serviceGUID>
+                     <serviceInput/>
+                  </service>
+                  <flow id="k90xltco">
+                     <container id="k94f4jxh" type="exclusive">
+                        <title>StatusCode_token</title>
+                        <flow id="k94f4jxk">
+                           <link id="k94f4jxl" targetId="k94f4jxh" type="containerLink"/>
+                        </flow>
+                        <flow id="k94f4jxn">
+                           <container id="k94f4jyw" type="exclusive">
+                              <title>Retry</title>
+                              <flow id="k94f4jyx">
+                                 <assignment id="k94f4jyy">
+                                    <title>Increment Counter</title>
+                                    <operation source="formula" to="temp.Temp_Retry_Count">
+                                       <expression language="XQuery">$temp.Temp_Retry_Count +1</expression>
+                                    </operation>
+                                    <link id="k94f4jz5" targetId="k94f4jyz"/>
+                                 </assignment>
+                                 <wait id="k94f4jyz">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">{$temp.Temp_Retry_Interval} </arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="k94f4jz6" targetId="k94f4jz0"/>
+                                 </wait>
+                                 <jumpTo id="k94f4jz0">
+                                    <link id="k94f4jz7" targetId="k90xltcm"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="k94f4jz1">
+                                 <throw id="k94f4jz2">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.StatusCode_token</parameter>
+                                       <parameter name="detail" source="constant" updatable="true">Failed to create token</parameter>
+                                       <parameter name="reason" source="constant" updatable="true">Failed to create token</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="k94f4jz3" targetId="k94f4jyx" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-or-equals">
+                                       <arg name="left">{$temp.Temp_Retry_Count}</arg>
+                                       <arg name="right">{$temp.Temp_Retry_Attempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="k94f4jz4" targetId="k94f4jz1" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="k94f4jxj" targetId="k94f4jxk" type="containerLink">
+                           <condition source="formula">
+                              <function name="contains">
+                                 <arg name="left">{$output.StatusCode_token}</arg>
+                                 <arg name="right">200</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k94f4jxm" targetId="k94f4jxn" type="containerLink"/>
+                        <link id="k94f4jxi" targetId="k92eelns"/>
+                     </container>
+                     <assignment id="k92eelns">
+                        <title>Assignment to Temp_Retry_Count</title>
+                        <operation source="constant" to="temp.Temp_Retry_Count">0</operation>
+                     </assignment>
+                     <link id="k9188pns" targetId="k90xltcm" type="containerLink"/>
+                  </flow>
+                  <flow id="k90xltcr">
+                     <container id="k94f4kd3" type="exclusive">
+                        <title>Retry</title>
+                        <flow id="k94f4kd4">
+                           <assignment id="k94f4kd5">
+                              <title>Increment Counter</title>
+                              <operation source="formula" to="temp.Temp_Retry_Count">
+                                 <expression language="XQuery">$temp.Temp_Retry_Count +1</expression>
+                              </operation>
+                              <link id="k94f4kdc" targetId="k94f4kd6"/>
+                           </assignment>
+                           <wait id="k94f4kd6">
+                              <title>Wait</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">{$temp.Temp_Retry_Interval} </arg>
+                                    <arg name="scale">S</arg>
+                                    <arg name="businessDays"/>
+                                 </function>
+                              </duration>
+                              <link id="k94f4kdd" targetId="k94f4kd7"/>
+                           </wait>
+                           <jumpTo id="k94f4kd7">
+                              <link id="k94f4kde" targetId="k90xltcm"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="k94f4kd8">
+                           <throw id="k94f4kd9">
+                              <title>Throw</title>
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                 <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                 <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="k94f4kda" targetId="k94f4kd4" type="containerLink">
+                           <condition source="formula">
+                              <function name="less-or-equals">
+                                 <arg name="left">{$temp.Temp_Retry_Count}</arg>
+                                 <arg name="right">{$temp.Temp_Retry_Attempt}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k94f4kdb" targetId="k94f4kd8" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="k90xltcn" targetId="k90xltco" type="containerLink"/>
+                  <link id="k90xltd2" targetId="k90xlte7"/>
+                  <events>
+                     <catch faultField="faultInfo" id="k90xltcl" interrupting="true">
+                        <link id="k90xltcq" targetId="k90xltcr" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <eventContainer id="k90xlte7">
+                  <service id="k754rd7z">
+                     <title>List the files</title>
+                     <serviceName>Upload-ADLS-HDFS-SV:List the files</serviceName>
+                     <serviceGUID>4E2hsrpdCKwgN7iRPlrvIh</serviceGUID>
+                     <serviceInput>
+                        <parameter name="token" source="field" updatable="true">output.token</parameter>
+                        <parameter name="path" source="field" updatable="true">input.filepath</parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="k90xlte9">
+                     <assignment id="kph3zj32">
+                        <title>Assignment to Temp_Count</title>
+                        <operation source="formula" to="temp.Temp_Total_Count">
+                           <expression language="XQuery">list:count($output.OutputFilename)</expression>
+                        </operation>
+                        <link id="kph3zj33" targetId="k94f4k09"/>
+                     </assignment>
+                     <assignment id="k92eelqn">
+                        <title>Assignment to Temp_Retry_Count</title>
+                        <operation source="constant" to="temp.Temp_Retry_Count">0</operation>
+                     </assignment>
+                     <container id="k94f4k09" type="exclusive">
+                        <title>StatusCode_empty_file</title>
+                        <flow id="k94f4k0c">
+                           <link id="k94f4k0d" targetId="k94f4k09" type="containerLink"/>
+                        </flow>
+                        <flow id="k94f4k0f">
+                           <end id="kq1z32vr">
+                              <title>End 2</title>
+                           </end>
+                        </flow>
+                        <link id="k94f4k0b" targetId="k94f4k0c" type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-than">
+                                 <arg name="left">{$temp.Temp_Total_Count}</arg>
+                                 <arg name="right">{0}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k94f4k0e" targetId="k94f4k0f" type="containerLink"/>
+                        <link id="k94f4k0a" targetId="k92eelqn"/>
+                     </container>
+                     <link id="k9188po9" targetId="k90xlte7" type="containerLink"/>
+                  </flow>
+                  <flow id="k90xltec">
+                     <container id="k94f4kc9" type="exclusive">
+                        <title>Retry</title>
+                        <flow id="k94f4kca">
+                           <assignment id="k94f4kcb">
+                              <title>Increment Counter</title>
+                              <operation source="formula" to="temp.Temp_Retry_Count">
+                                 <expression language="XQuery">$temp.Temp_Retry_Count +1</expression>
+                              </operation>
+                              <link id="k94f4kcj" targetId="k94f4kcc"/>
+                           </assignment>
+                           <wait id="k94f4kcc">
+                              <title>Wait</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">{$temp.Temp_Retry_Interval} </arg>
+                                    <arg name="scale">S</arg>
+                                    <arg name="businessDays"/>
+                                 </function>
+                              </duration>
+                              <link id="k94f4kck" targetId="k94f4kcd"/>
+                           </wait>
+                           <jumpTo id="k94f4kcd">
+                              <link id="k94f4kcl" targetId="k90xlte7"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="k94f4kce">
+                           <throw id="k94f4kjq">
+                              <title>Throw</title>
+                              <throwInput>
+                                 <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                 <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                 <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="k94f4kch" targetId="k94f4kca" type="containerLink">
+                           <condition source="formula">
+                              <function name="less-or-equals">
+                                 <arg name="left">{$temp.Temp_Retry_Count}</arg>
+                                 <arg name="right">{$temp.Temp_Retry_Attempt}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="k94f4kci" targetId="k94f4kce" type="containerLink"/>
+                     </container>
+                  </flow>
+                  <link id="k90xlte8" targetId="k90xlte9" type="containerLink"/>
+                  <link id="kpha9k64" targetId="kpha9k63"/>
+                  <events>
+                     <catch faultField="faultInfo" id="k90xlte6" interrupting="true">
+                        <link id="k90xlteb" targetId="k90xltec" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <assignment id="kpha9k63">
+                  <title>Assignment to Temp_Filename, Temp_Tokenize</title>
+                  <operation source="formula" to="temp.Temp_Tokenize">
+                     <expression language="XQuery">let $index := xs:int($temp.Temp_Counter)
+let $item_list := tokenize($output.OutputFilename,";")
+return $item_list[$index]</expression>
+                  </operation>
+                  <operation source="formula" to="temp.Temp_Filename">
+                     <expression language="XQuery">let $index := xs:int($temp.Temp_Counter)
+let $item_list := tokenize($temp.Temp_Tokenize ,"/")
+return $item_list[10]</expression>
+                  </operation>
+                  <link id="kpha9k9r" targetId="kpha9k9q"/>
+               </assignment>
+               <container id="kpha9k9q" type="exclusive">
+                  <title>Temp_Counter</title>
+                  <flow id="kpha9k9u">
+                     <eventContainer id="kpha9kb6">
+                        <service id="kpha9kbi">
+                           <title>read the file</title>
+                           <serviceName>Upload-ADLS-HDFS-SV:read the file</serviceName>
+                           <serviceGUID>4E2hsrpdCKwgN7iRPlrvIh</serviceGUID>
+                           <serviceInput>
+                              <parameter name="token" source="field" updatable="true">output.token</parameter>
+                              <parameter name="filename" source="field" updatable="true">temp.Temp_Filename</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="kpha9kb7">
+                           <assignment id="kpha9kd0">
+                              <title>Assignment to fileWrite, Content Format</title>
+                              <operation source="formula" to="output.fileWrite">
+                                 <expression language="XQuery">&lt;FileWriteTask&gt;
+   &lt;filePath&gt;&lt;/filePath&gt;
+   &lt;fileName&gt;{$temp.Temp_Filename}&lt;/fileName&gt;
+&lt;/FileWriteTask&gt;
+</expression>
+                              </operation>
+                              <operation source="constant" to="output.fileWrite[1]/format">Attachment</operation>
+                              <link id="kpha9kij" targetId="kpha9kii"/>
+                           </assignment>
+                           <assignment id="kpha9kjy">
+                              <title>Assignment to Temp_Counter</title>
+                              <operation source="formula" to="temp.Temp_Counter">
+                                 <expression language="XQuery">$temp.Temp_Counter + 1</expression>
+                              </operation>
+                              <link id="kq1z32uc" targetId="kq1z32rl"/>
+                           </assignment>
+                           <service id="kpha9kii">
+                              <title>FileWriter</title>
+                              <serviceName>RDQADLS-FileWriter:FileWriter</serviceName>
+                              <serviceGUID>4fncDgptRgYcRWDhX6cMo3</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="fileWriteTask" source="field" updatable="true">output.fileWrite</parameter>
+                                 <parameter name="attachment" source="field" updatable="true">output.outfile</parameter>
+                              </serviceInput>
+                              <link id="kpha9kjz" targetId="kpha9kjy"/>
+                           </service>
+                           <jumpTo id="kq1z32rl">
+                              <link id="kq1z32rm" targetId="kpha9k63"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="kpha9kb8">
+                           <container id="kpha9kb9" type="exclusive">
+                              <title>Retry</title>
+                              <flow id="kpha9kba">
+                                 <assignment id="kpha9kbb">
+                                    <title>Increment Counter</title>
+                                    <operation source="formula" to="temp.Temp_Retry_Count">
+                                       <expression language="XQuery">$temp.Temp_Retry_Count +1</expression>
+                                    </operation>
+                                    <link id="kpha9kbo" targetId="kpha9kbc"/>
+                                 </assignment>
+                                 <wait id="kpha9kbc">
+                                    <title>Wait</title>
+                                    <duration source="formula">
+                                       <function name="duration_expression">
+                                          <arg name="value">{$temp.Temp_Retry_Interval} </arg>
+                                          <arg name="scale">S</arg>
+                                          <arg name="businessDays"/>
+                                       </function>
+                                    </duration>
+                                    <link id="kpha9kbp" targetId="kpha9kbd"/>
+                                 </wait>
+                                 <jumpTo id="kpha9kbd">
+                                    <link id="kpha9kbq" targetId="kpha9kb6"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="kpha9kbe">
+                                 <assignment id="kpha9kbf">
+                                    <title>Assignment to Temp_Title</title>
+                                    <operation source="formula" to="temp.Temp_Title">
+                                       <expression language="XQuery">let $temptitle:="MP-RDQ-Chocolate-ADLS-File is empty"
+return ipd:setProcessTitle($temptitle)</expression>
+                                    </operation>
+                                    <link id="kpha9kbr" targetId="kpha9kbg"/>
+                                 </assignment>
+                                 <subflow id="kpha9kbg">
+                                    <title>SP-SendEmail</title>
+                                    <subflowGUID>3bgMfpUkWBhkUjAIviba4q</subflowGUID>
+                                    <subflowPath>RDQ_EmailTask_Process</subflowPath>
+                                    <runForEach>false</runForEach>
+                                    <input>
+                                       <parameter name="Recipient_Address" source="constant" updatable="true">vandankumar.r.patil@accenture.com</parameter>
+                                       <parameter name="Email_Subject" source="constant" updatable="true">MP-RDQ-Chocolate-ADLS Job Failed to write file.</parameter>
+                                       <parameter name="Email_body" source="constant" updatable="true">Hello Team,
+
+Following RDQ Chocolate file failed to write file on ADLS with Status Code:- {$output.faultInfo[1]/code}
+
+Failure Reason:- {$output.faultInfo[1]/reason}
+Filename:- {$temp.TempFilename} 
+
+Thanks and Regards,
+iPaaS Support Team.</parameter>
+                                    </input>
+                                    <outputDef/>
+                                    <link id="kpha9kbs" targetId="kpha9kbh"/>
+                                 </subflow>
+                                 <throw id="kpha9kbh">
+                                    <title>Throw</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="kpha9kbm" targetId="kpha9kba" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-or-equals">
+                                       <arg name="left">{$temp.Temp_Retry_Count}</arg>
+                                       <arg name="right">{$temp.Temp_Retry_Attempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="kpha9kbn" targetId="kpha9kbe" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="kpha9kbj" targetId="kpha9kb7" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="k90xltg1" interrupting="true">
+                              <link id="kpha9kbk" targetId="kpha9kb8" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="kpha9k9x">
+                     <service id="kq1z32w3">
+                        <title>Run a Shell Command</title>
+                        <serviceName>avShellService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="command" source="constant">sh</parameter>
+                           <parameter name="workingDirPath" source="constant">/Hybrid</parameter>
+                        </serviceInput>
+                        <link id="kq1z32yn" targetId="kq1z32ym"/>
+                     </service>
+                     <assignment id="kq1z32ym">
+                        <title>Assignment to Temp_Retry_Count, Temp_Filename</title>
+                        <operation source="constant" to="temp.Temp_Retry_Count">0</operation>
+                        <operation source="formula" to="temp.Temp_Filename">
+                           <expression language="XQuery">fn:concat(fn:concat(fn:replace($output.outfile[1]/fileInfo[1]/name, " ", "_"), "."),$output.outfile[1]/fileInfo[1]/ext)</expression>
+                        </operation>
+                        <link id="kq1z330n" targetId="kq1z32zk"/>
+                     </assignment>
+                     <eventContainer id="kq1z32zk">
+                        <service id="kq1z3305">
+                           <title>create empty file in HDFS</title>
+                           <serviceName>Upload-ADLS-HDFS-RDQ-GNC:create empty file in HDFS</serviceName>
+                           <serviceGUID>5kqigmJEjgAfABs3KtTnac</serviceGUID>
+                           <serviceInput/>
+                        </service>
+                        <flow id="kq1z32zl">
+                           <container id="kq1z32zm" type="exclusive">
+                              <title>StatusCode_empty_file 1</title>
+                              <flow id="kq1z32zn">
+                                 <link id="kq1z330c" targetId="kq1z32zm" type="containerLink"/>
+                              </flow>
+                              <flow id="kq1z32zo">
+                                 <container id="kq1z32zp" type="exclusive">
+                                    <title>Retry 2</title>
+                                    <flow id="kq1z32zq">
+                                       <assignment id="kq1z32zr">
+                                          <title>Increment Counter 1</title>
+                                          <operation source="formula" to="temp.Temp_Retry_Count">
+                                             <expression language="XQuery">$temp.Temp_Retry_Count +1</expression>
+                                          </operation>
+                                          <link id="kq1z330f" targetId="kq1z32zs"/>
+                                       </assignment>
+                                       <wait id="kq1z32zs">
+                                          <title>Wait 1</title>
+                                          <link id="kq1z330g" targetId="kq1z32zt"/>
+                                       </wait>
+                                       <jumpTo id="kq1z32zt">
+                                          <link id="kq1z330h" targetId="kq1z32zk"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="kq1z32zu">
+                                       <throw id="kq1z32zv">
+                                          <title>Throw 1</title>
+                                          <throwInput>
+                                             <parameter name="code" source="field" updatable="true">output.StatusCode_empty_file</parameter>
+                                             <parameter name="detail" source="constant" updatable="true">Failed to create empty file</parameter>
+                                             <parameter name="reason" source="constant" updatable="true">Failed to create empty file</parameter>
+                                          </throwInput>
+                                       </throw>
+                                    </flow>
+                                    <link id="kq1z330d" targetId="kq1z32zq" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="less-or-equals">
+                                             <arg name="left">{$temp.Temp_Retry_Count}</arg>
+                                             <arg name="right">{$temp.Temp_Retry_Attempt}</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="kq1z330e" targetId="kq1z32zu" type="containerLink"/>
+                                 </container>
+                              </flow>
+                              <link id="kq1z3309" targetId="kq1z32zn" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="contains">
+                                       <arg name="left">{$output.StatusCode_empty_file}</arg>
+                                       <arg name="right">201</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="kq1z330a" targetId="kq1z32zo" type="containerLink"/>
+                              <link id="kq1z330b" targetId="kq1z32zw"/>
+                           </container>
+                           <assignment id="kq1z32zw">
+                              <title>Assignment to Temp_Retry_Count 1</title>
+                              <operation source="constant" to="temp.Temp_Retry_Count">0</operation>
+                           </assignment>
+                           <link id="kq1z3308" targetId="kq1z32zk" type="containerLink"/>
+                        </flow>
+                        <flow id="kq1z32zx">
+                           <container id="kq1z32zy" type="exclusive">
+                              <title>Retry 1</title>
+                              <flow id="kq1z32zz">
+                                 <assignment id="kq1z3300">
+                                    <title>Increment Counter 1</title>
+                                    <operation source="formula" to="temp.Temp_Retry_Count">
+                                       <expression language="XQuery">$temp.Temp_Retry_Count +1</expression>
+                                    </operation>
+                                    <link id="kq1z330k" targetId="kq1z3301"/>
+                                 </assignment>
+                                 <wait id="kq1z3301">
+                                    <title>Wait 1</title>
+                                    <link id="kq1z330l" targetId="kq1z3302"/>
+                                 </wait>
+                                 <jumpTo id="kq1z3302">
+                                    <link id="kq1z330m" targetId="kq1z32zk"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="kq1z3303">
+                                 <throw id="kq1z3304">
+                                    <title>Throw 1</title>
+                                    <throwInput>
+                                       <parameter name="code" source="field" updatable="true">output.faultInfo[1]/code</parameter>
+                                       <parameter name="detail" source="field" updatable="true">output.faultInfo[1]/detail</parameter>
+                                       <parameter name="reason" source="field" updatable="true">output.faultInfo[1]/reason</parameter>
+                                    </throwInput>
+                                 </throw>
+                              </flow>
+                              <link id="kq1z330i" targetId="kq1z32zz" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="less-or-equals">
+                                       <arg name="left">{$temp.Temp_Retry_Count}</arg>
+                                       <arg name="right">{$temp.Temp_Retry_Attempt}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="kq1z330j" targetId="kq1z3303" type="containerLink"/>
+                           </container>
+                        </flow>
+                        <link id="kq1z3306" targetId="kq1z32zl" type="containerLink"/>
+                        <link id="kq1z330o" targetId="kpha9kf1"/>
+                        <events/>
+                     </eventContainer>
+                     <end id="kpha9kf1">
+                        <title>End 1</title>
+                     </end>
+                  </flow>
+                  <link id="kpha9k9t" targetId="kpha9k9u" type="containerLink">
+                     <condition source="formula">
+                        <function name="less-or-equals">
+                           <arg name="left">{$temp.Temp_Counter}</arg>
+                           <arg name="right">{$temp.Temp_Total_Count }</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="kpha9k9w" targetId="kpha9k9x" type="containerLink"/>
+               </container>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>8qXzEs4XleMjKCKpAdJa8K</types1:GUID>
+      <types1:DisplayName>MP-RDQ-Export-ADLS_SV</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-06-19T13:01:09.614Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

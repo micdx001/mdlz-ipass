@@ -1,0 +1,104 @@
+{
+  "objectInfo" : {
+    "id" : "8qXzEs4XleMjKCKpAdJa8K",
+    "name" : "MP-RDQ-Export-ADLS_SV",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "lADkcmgaabclvAh-gt-20790424-2021-06-03T16:20:55.185Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Process to send RDQ Matilda export from ADLS to SV.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "4fncDgptRgYcRWDhX6cMo3",
+    "name" : "RDQADLS-FileWriter",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "JAUfSB7O2htghGZ-gt-16047829-2021-06-03T18:56:20.569Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/RDQDM"
+  }, {
+    "id" : "3bgMfpUkWBhkUjAIviba4q",
+    "name" : "RDQ_EmailTask_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "G1QLnzYLnzYLnzY-gt-8644989-2020-06-25T06:03:05.277Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Send Email",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/RDQDM"
+  }, {
+    "id" : "5kqigmJEjgAfABs3KtTnac",
+    "name" : "Upload-ADLS-HDFS-RDQ-GNC",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "AT4W6jKsJlv58pI-gt-22951917-2020-06-25T05:23:14.421Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/RDQDM"
+  }, {
+    "id" : "4E2hsrpdCKwgN7iRPlrvIh",
+    "name" : "Upload-ADLS-HDFS-SV",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "DjhFXyDQeH2PKDC-gt-15450216-2021-06-03T16:11:03.48Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Global/RDQDM"
+  } ]
+}
